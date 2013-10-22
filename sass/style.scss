@@ -234,6 +234,7 @@ $button-size : 4rem;
       }
       &:after { 
         -webkit-transform: rotate3d(0,0,1,-40deg); 
+                transform: rotate3d(0,0,1,-40deg); 
       }
     }
 }

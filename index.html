@@ -26,25 +26,25 @@
     <p>Click on the icons to see them transforming.</p>
 
     <div class="buttons-container">
-        <button class="lines-button arrow arrow-left">
+        <button type="button" role="button" aria-label="Toggle Navigation" class="lines-button arrow arrow-left">
           <span class="lines"></span>
         </button>
-        <button class="lines-button arrow arrow-up">
+        <button type="button" role="button" aria-label="Toggle Navigation" class="lines-button arrow arrow-up">
           <span class="lines"></span>
         </button>
-        <button class="lines-button minus">
+        <button type="button" role="button" aria-label="Toggle Navigation" class="lines-button minus">
           <span class="lines"></span>
         </button>
-        <button class="lines-button x">
+        <button type="button" role="button" aria-label="Toggle Navigation" class="lines-button x">
           <span class="lines"></span>
         </button>
-        <button class="lines-button x2">
+        <button type="button" role="button" aria-label="Toggle Navigation" class="lines-button x2">
           <span class="lines"></span>
         </button>
-        <button class="grid-button rearrange">
+        <button type="button" role="button" aria-label="Toggle Navigation" class="grid-button rearrange">
           <span class="grid"></span>
         </button>
-        <button class="grid-button collapse">
+        <button type="button" role="button" aria-label="Toggle Navigation" class="grid-button collapse">
           <span class="grid"></span>
         </button>
     </div>
@@ -53,40 +53,23 @@
 
   </footer>
   <script>
-    var anchor = document.querySelectorAll('.lines-button');
+    var anchor = document.querySelectorAll('button');
     
     [].forEach.call(anchor, function(anchor){
       var open = false;
       anchor.onclick = function(event){
         event.preventDefault();
         if(!open){
-          this.classList.add('open');
+          this.classList.add('close');
           open = true;
         }
         else{
-          this.classList.remove('open');
+          this.classList.remove('close');
           open = false;
         }
       }
     }); 
   </script>
-  <script>
-    var anchor = document.querySelectorAll('.grid-button');
-    
-    [].forEach.call(anchor, function(anchor){
-      var close = false;
-      anchor.onclick = function(event){
-        event.preventDefault();
-        if(!close){
-          this.classList.add('close');
-          close = true;
-        }
-        else{
-          this.classList.remove('close');
-          close = false;
-        }
-      }
-    }); 
-  </script>
+
 </body>
 </html>
