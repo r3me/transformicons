@@ -216,12 +216,12 @@ $button-size : 4rem;
     }
   }
 }
-.lines-button.open {
+.lines-button.close {
   -webkit-transform: scale3d(.8,.8,.8);
           transform: scale3d(.8,.8,.8);
 }
 // for both the arrow up and left icons
-.lines-button.arrow.open {
+.lines-button.arrow.close {
     .lines {
       &:before,
       &:after {
@@ -240,12 +240,12 @@ $button-size : 4rem;
 }
 
 //arrow up only: just rotate by 90degrees
-.lines-button.arrow-up.open {
+.lines-button.arrow-up.close {
   -webkit-transform: scale3d(.8,.8,.8) rotate3d(0,0,1,90deg);
           transform: scale3d(.8,.8,.8) rotate3d(0, 0, 1,90deg);
 }
 //three-lines to minus only
-.lines-button.minus.open{
+.lines-button.minus.close{
   .lines {
     &:before, &:after{
       -webkit-transform: none;
@@ -257,7 +257,7 @@ $button-size : 4rem;
 }
 
 //three-lines to x
-.lines-button.x.open{
+.lines-button.x.close{
   .lines {
     background: transparent;
     &:before, &:after{
@@ -292,7 +292,7 @@ $button-size : 4rem;
     }
 }
 
-.lines-button.x2.open{
+.lines-button.x2.close{
   .lines {
     transition: background .3s 0s ease;
     background: transparent;
