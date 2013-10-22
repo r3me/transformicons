@@ -242,7 +242,7 @@ $button-size : 4rem;
 //arrow up only: just rotate by 90degrees
 .lines-button.arrow-up.open {
   -webkit-transform: scale3d(.8,.8,.8) rotate3d(0,0,1,90deg);
-          transform: scale3d(.8,.8,.8);
+          transform: scale3d(.8,.8,.8) rotate3d(0, 0, 1,90deg);
 }
 //three-lines to minus only
 .lines-button.minus.open{
