@@ -1,16 +1,6 @@
-// Navicon Styles
-// ===============================================
-
 .navicon {
-  display: inline-block;
-  margin: 0 1em;
-  border: none;
-  background: none;
   padding: $navicon-size/2 $navicon-size/4;
   transition: $navicon-transition;
-  cursor: pointer;
-  user-select: none;
-  &:focus { outline: none; }
 }
 
 .navicon__lines {

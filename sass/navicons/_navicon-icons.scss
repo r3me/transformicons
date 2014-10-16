@@ -1,11 +1,17 @@
-// Navicon Required Partials
-@import "navicons/navicon-config";
-@import "navicons/navicon-utilities";
-@import "navicons/navicon-base";
+// Navicon Base Package
+@import "base/navicon-config";
+@import "base/navicon-utilities";
+@import "base/navicon-globals";
+
+
+// Navicon Styles
+@import "style/navicon-lines";
+@import "style/navicon-grid";
+
 
 // Navicon Types
-@import "types/navicon-x";
-@import "types/navicon-x2";
-@import "types/navicon-arrow";
-@import "types/navicon-minus";
-@import "types/navicon-grid";
+@import "type/navicon-x";
+@import "type/navicon-x2";
+
+@import "type/navicon-arrow";
+@import "type/navicon-minus";

@@ -1,0 +1,75 @@
+.navicon-grid {
+  padding: $navicon-grid-base*2;
+
+  .navicon__grid-item {
+    width: $navicon-grid-base;
+    height: $navicon-grid-base;
+    background: $navicon-grid-color;
+    color: $navicon-grid-color; /* Not in use when the colors are specified below */
+    transition: $navicon-grid-transition;
+  }
+
+  &.is--closed {
+    .navicon__grid-item {
+      transform: rotate3d(0,0,1,-45deg)  scale3d(.8,.8,.8);
+    }
+  }
+}
+
+.navicon-grid--rearrange {
+  .navicon__grid-item {
+    box-shadow:
+      -($navicon-grid-base+$navicon-grid-space) 0 -($navicon-grid-base+$navicon-grid-space),
+      0 0 -($navicon-grid-base+$navicon-grid-space),
+      ($navicon-grid-base+$navicon-grid-space) (-($navicon-grid-base + $navicon-grid-space)),
+      -($navicon-grid-base+$navicon-grid-space) 0,
+      $navicon-grid-base+$navicon-grid-space 0,
+      -($navicon-grid-base+$navicon-grid-space) ($navicon-grid-base + $navicon-grid-space),
+      0 ($navicon-grid-base+$navicon-grid-space),
+      ($navicon-grid-base+$navicon-grid-space) ($navicon-grid-base + $navicon-grid-space);
+  }
+
+  &.is--closed { 
+    .navicon__grid-item {
+        box-shadow:
+          0 0 -$navicon-grid-base,
+          0 0 -$navicon-grid-base*2,
+          $navicon-grid-base 0,
+          -$navicon-grid-base*2 0,
+          $navicon-grid-base*2 0,
+          -$navicon-grid-base 0,
+          0 $navicon-grid-base*2,
+          0 $navicon-grid-base;
+    }
+  }
+}
+
+.navicon-grid--collapse {
+  .navicon__grid-item {
+    box-shadow:
+    -($navicon-grid-base+$navicon-grid-space) 0,
+    -($navicon-grid-base+$navicon-grid-space) ($navicon-grid-base+$navicon-grid-space),
+    $navicon-grid-base+$navicon-grid-space 0,
+    ($navicon-grid-base+$navicon-grid-space) (-($navicon-grid-base+$navicon-grid-space)),
+    0 0 -($navicon-grid-base+$navicon-grid-space),
+    -($navicon-grid-base+$navicon-grid-space) 0 -($navicon-grid-base+$navicon-grid-space),
+    0 ($navicon-grid-base+$navicon-grid-space),
+    ($navicon-grid-base+$navicon-grid-space) ($navicon-grid-base+$navicon-grid-space);
+  } 
+}
+
+.navicon-grid--collapse{
+  &.is--closed {
+    .navicon__grid-item {
+      box-shadow:
+      -$navicon-grid-base 0,
+      0 0 transparent,
+      $navicon-grid-base 0,
+      0 0 transparent,
+      0 0 -$navicon-grid-base,
+      0 0 transparent,
+      0 $navicon-grid-base,
+      0 0 transparent;
+    }
+  }
+}

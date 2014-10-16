@@ -1,8 +1,13 @@
-navicon-transformicons
+Navicons - Transforming Icons
 ======================
 
-Demo for Navicon Transformicons: Animated Navigation Icons with CSS Transforms http://sarasoueidan.com/blog/navicon-transformicons/
+What's a transformicon? It's an animated navigation icon made with pure CSS.
 
-Code originally by [@bennettfeely](http://twitter.com/bennettfeely), and updated by [@SaraSoueidan](http://twitter.com/SaraSoueidan)
+### workflow
 
+```bash
+$ sass --compass --watch sass/style.scss:css/style.css
+```
+
+Props to [@bennettfeely](http://twitter.com/bennettfeely) and [@SaraSoueidan](http://twitter.com/SaraSoueidan).
 Licensed under MIT.

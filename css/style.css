@@ -57,17 +57,21 @@ p {
   margin: 100px auto;
   text-align: center; }
 
-.navicon {
+[data-navicon="button"] {
   display: inline-block;
   margin: 0 1em;
   border: none;
   background: none;
-  padding: 2rem 1rem;
-  transition: 0.3s;
   cursor: pointer;
   user-select: none; }
-  .navicon:focus {
+  [data-navicon="button"] > * {
+    display: block; }
+  [data-navicon="button"]:focus {
     outline: none; }
+
+.navicon {
+  padding: 2rem 1rem;
+  transition: 0.3s; }
 
 .navicon__lines {
   display: inline-block;
@@ -94,6 +98,29 @@ p {
     top: -1rem; }
   .is--closed .navicon__lines {
     transform: scale3d(0.8, 0.8, 0.8); }
+
+.navicon-grid {
+  padding: 2rem; }
+  .navicon-grid .navicon__grid-item {
+    width: 1rem;
+    height: 1rem;
+    background: #ecf0f1;
+    color: #ecf0f1;
+    /* Not in use when the colors are specified below */
+    transition: 0.3s; }
+  .navicon-grid.is--closed .navicon__grid-item {
+    transform: rotate3d(0, 0, 1, -45deg) scale3d(0.8, 0.8, 0.8); }
+
+.navicon-grid--rearrange .navicon__grid-item {
+  box-shadow: -1.25rem -1.25rem, 0 -1.25rem, 1.25rem -1.25rem, -1.25rem 0, 1.25rem 0, -1.25rem 1.25rem, 0 1.25rem, 1.25rem 1.25rem; }
+.navicon-grid--rearrange.is--closed .navicon__grid-item {
+  box-shadow: 0 -1rem, 0 -2rem, 1rem 0, -2rem 0, 2rem 0, -1rem 0, 0 2rem, 0 1rem; }
+
+.navicon-grid--collapse .navicon__grid-item {
+  box-shadow: -1.25rem 0, -1.25rem 1.25rem, 1.25rem 0, 1.25rem -1.25rem, 0 -1.25rem, -1.25rem -1.25rem, 0 1.25rem, 1.25rem 1.25rem; }
+
+.navicon-grid--collapse.is--closed .navicon__grid-item {
+  box-shadow: -1rem 0, 0 0 transparent, 1rem 0, 0 0 transparent, 0 -1rem, 0 0 transparent, 0 1rem, 0 0 transparent; }
 
 .navicon-x.is--closed .navicon__lines {
   background: transparent; }
@@ -138,42 +165,5 @@ p {
   transform: none;
   top: 0;
   width: 4rem; }
-
-button {
-  display: inline-block;
-  margin: 0 1em;
-  border: none;
-  background: none; }
-  button span {
-    display: block; }
-
-.grid-button {
-  padding: 2rem;
-  cursor: pointer;
-  user-select: none; }
-
-.grid-button .grid {
-  width: 1rem;
-  height: 1rem;
-  background: #ecf0f1;
-  color: #ecf0f1;
-  /* Not in use when the colors are specified below */
-  transition: 0.3s; }
-
-.grid-button.close .grid {
-  -webkit-transform: rotate3d(0, 0, 1, -45deg) scale3d(0.8, 0.8, 0.8);
-  transform: rotate3d(0, 0, 1, -45deg) scale3d(0.8, 0.8, 0.8); }
-
-.grid-button.rearrange .grid {
-  box-shadow: -1.25rem -1.25rem, 0 -1.25rem, 1.25rem -1.25rem, -1.25rem 0, 1.25rem 0, -1.25rem 1.25rem, 0 1.25rem, 1.25rem 1.25rem; }
-
-.grid-button.rearrange.close .grid {
-  box-shadow: 0 -1rem, 0 -2rem, 1rem 0, -2rem 0, 2rem 0, -1rem 0, 0 2rem, 0 1rem; }
-
-.grid-button.collapse .grid {
-  box-shadow: -1.25rem 0, -1.25rem 1.25rem, 1.25rem 0, 1.25rem -1.25rem, 0 -1.25rem, -1.25rem -1.25rem, 0 1.25rem, 1.25rem 1.25rem; }
-
-.grid-button.collapse.close .grid {
-  box-shadow: -1rem 0, 0 0 transparent, 1rem 0, 0 0 transparent, 0 -1rem, 0 0 transparent, 0 1rem, 0 0 transparent; }
 
 /*# sourceMappingURL=style.css.map */

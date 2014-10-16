@@ -9,65 +9,43 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header role="banner">
-    <a href="http://sarasoueidan.com/blog/navicon-transformicons">Read Tutorial</a>
-  </header>
-
   <main role="main">
     <h1>Navicon Transformicons</h1>
     <h2>Animated Navigation Icons with CSS3 Transforms</h2>
-    <p>Click on the icons to see them transforming.</p>
 
     <div class="buttons-container">
-      <button type="button" role="button" aria-label="Toggle Navigation" class="navicon navicon-x">
+      <button type="button" role="button" aria-label="Toggle Navigation" data-navicon="button" class="navicon navicon-x">
         <span class="navicon__lines"></span>
       </button>
 
-      <button type="button" role="button" aria-label="Toggle Navigation" class="navicon navicon-x2">
+      <button type="button" role="button" aria-label="Toggle Navigation" data-navicon="button" class="navicon navicon-x2">
         <span class="navicon__lines"></span>
       </button>
 
-      <button type="button" role="button" aria-label="Toggle Navigation" class="navicon navicon-arrow navicon-arrow--up">
+      <button type="button" role="button" aria-label="Toggle Navigation" data-navicon="button" class="navicon navicon-arrow navicon-arrow--up">
         <span class="navicon__lines"></span>
       </button>
 
-      <button type="button" role="button" aria-label="Toggle Navigation" class="navicon navicon-arrow">
+      <button type="button" role="button" aria-label="Toggle Navigation" data-navicon="button" class="navicon navicon-arrow">
         <span class="navicon__lines"></span>
       </button>
 
-      <button type="button" role="button" aria-label="Toggle Navigation" class="navicon navicon-minus">
+      <button type="button" role="button" aria-label="Toggle Navigation" data-navicon="button" class="navicon navicon-minus">
         <span class="navicon__lines"></span>
       </button>
 
-      <button type="button" role="button" aria-label="Toggle Navigation" class="grid-button rearrange">
-        <span class="grid"></span>
+      <button type="button" role="button" aria-label="Toggle Navigation" data-navicon="button" class="navicon-grid navicon-grid--rearrange">
+        <span class="navicon__grid-item"></span>
       </button>
 
-      <button type="button" role="button" aria-label="Toggle Navigation" class="grid-button collapse">
-        <span class="grid"></span>
+      <button type="button" role="button" aria-label="Toggle Navigation" data-navicon="button" class="navicon-grid navicon-grid--collapse">
+        <span class="navicon__grid-item"></span>
       </button>
     </div>
   </main>
 
   <script>
-    var anchor = document.querySelectorAll('button');
-    
-    [].forEach.call(anchor, function(anchor){
-      var open = false;
-      anchor.onclick = function(event){
-        event.preventDefault();
-        if(!open){
-          this.classList.add('close');
-          open = true;
-        }
-        else{
-          this.classList.remove('close');
-          open = false;
-        }
-      }
-    });
-
-    var navicon = document.querySelectorAll('.navicon');
+    var navicon = document.querySelectorAll('[data-navicon="button"]');
 
     [].forEach.call(navicon, function(navicon){
       var open = false;

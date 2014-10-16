@@ -2,3 +2,4 @@
 node_modules/
 .DS_Store
 compass_app_log.txt
+css/style.css.map
