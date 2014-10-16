@@ -1,0 +1,8 @@
+@mixin navicon_lines {
+  display: inline-block;
+  width: $navicon-size;
+  height: $navicon-size/7;
+  background: $navicon-color;
+  border-radius: $navicon-radius;
+  transition: $navicon-transition;
+}

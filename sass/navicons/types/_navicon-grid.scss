@@ -1,0 +1,95 @@
+// ==================================== grid button ====================================//
+
+$color : #ecf0f1;
+$transition: .3s;// increase this to see the transformations happen in slow motion
+
+button{
+  display:inline-block;
+  margin: 0 1em;
+  border:none;
+  background:none;
+  
+  span{
+    display:block;
+  }
+}
+
+$base : 1rem;
+$space : $base/4;
+
+//common to both grid buttons
+.grid-button {
+  padding: $base*2;
+  cursor: pointer;
+  user-select: none;
+}
+//common to both grid buttons
+.grid-button{
+  .grid{
+    width: $base;
+    height: $base;
+    background: $color;
+    color: $color; /* Not in use when the colors are specified below */
+    transition: $transition;
+  }
+}
+.grid-button.close{
+  .grid{
+    -webkit-transform: rotate3d(0,0,1,-45deg)  scale3d(.8,.8,.8);
+            transform: rotate3d(0,0,1,-45deg)  scale3d(.8,.8,.8);
+  }
+}
+//grid rearrange only
+.grid-button.rearrange {
+  .grid{
+    box-shadow:
+      -($base+$space) 0 -($base+$space),
+      0 0 -($base+$space),
+      ($base+$space) (-($base + $space)),
+      -($base+$space) 0,
+      $base+$space 0,
+      -($base+$space) ($base + $space),
+      0 ($base+$space),
+      ($base+$space) ($base + $space);
+  }
+}
+.grid-button.rearrange.close { 
+  .grid{
+      box-shadow:
+        0 0 -$base,
+        0 0 -$base*2,
+        $base 0,
+        -$base*2 0,
+        $base*2 0,
+        -$base 0,
+        0 $base*2,
+        0 $base;
+  }
+}
+.grid-button.collapse{
+  .grid{
+    box-shadow:
+    -($base+$space) 0,
+    -($base+$space) ($base+$space),
+    $base+$space 0,
+    ($base+$space) (-($base+$space)),
+    0 0 -($base+$space),
+    -($base+$space) 0 -($base+$space),
+    0 ($base+$space),
+    ($base+$space) ($base+$space);
+  }
+  
+}
+.grid-button.collapse.close {
+  .grid{
+    box-shadow:
+    -$base 0,
+    0 0 transparent,
+    $base 0,
+    0 0 transparent,
+    0 0 -$base,
+    0 0 transparent,
+    0 $base,
+    0 0 transparent;
+  }
+}

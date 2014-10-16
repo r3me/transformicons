@@ -1,0 +1,44 @@
+html,
+body { height: 100%; }
+
+body {
+  background-color: #12171A;
+  color: lighten(#12171A, 30%);
+  border:1px solid transparent;
+  font-family: "Source Sans pro", sans-serif;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  &:hover{ color:inherit; }
+}
+
+header {
+  position:fixed;
+  top:0; left:0; right:0;
+  width:100%;
+  padding:10px 30px;
+  background-color: rgba(black, .5);
+}
+
+h1 {
+  font-size:5em;
+  font-weight:normal;
+  text-align:center;
+  margin:100px auto 30px;
+  font-weight:300;
+}
+
+h2 {
+  font-size:2em;
+  text-align: center;
+  font-weight:300;
+}
+
+p { text-align:center; }
+
+.buttons-container {
+  margin: 100px auto;
+  text-align:center;
+}

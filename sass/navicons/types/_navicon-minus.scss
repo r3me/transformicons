@@ -1,0 +1,12 @@
+.navicon-minus {
+	&.is--closed {
+	  .navicon__lines {
+	    &:before,
+	    &:after {
+	      transform: none;
+	      top:0;
+	      width: $navicon-size;
+	    }
+	  }
+	}
+}
