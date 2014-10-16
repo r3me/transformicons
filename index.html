@@ -2,56 +2,54 @@
 <html class="no-js" lang="en">
 <head>
   <meta charset="utf-8">
-
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
   <title>Transformicons: Animated Navigation Icons with CSS3</title>
   <meta name="description" content="">
-
   <meta name="viewport" content="width=device-width">
-
   <link rel="stylesheet" href="css/style.css">
-
   <script src="js/libs/modernizr-2.5.3.min.js"></script>
 </head>
 <body>
-
-  <header>
+  <header role="banner">
     <a href="http://sarasoueidan.com/blog/navicon-transformicons">Read Tutorial</a>
   </header>
-  <section role="main">
-    
+
+  <main role="main">
     <h1>Navicon Transformicons</h1>
     <h2>Animated Navigation Icons with CSS3 Transforms</h2>
     <p>Click on the icons to see them transforming.</p>
 
     <div class="buttons-container">
-        <button type="button" role="button" aria-label="Toggle Navigation" class="lines-button arrow arrow-left">
-          <span class="lines"></span>
-        </button>
-        <button type="button" role="button" aria-label="Toggle Navigation" class="lines-button arrow arrow-up">
-          <span class="lines"></span>
-        </button>
-        <button type="button" role="button" aria-label="Toggle Navigation" class="lines-button minus">
-          <span class="lines"></span>
-        </button>
-        <button type="button" role="button" aria-label="Toggle Navigation" class="lines-button x">
-          <span class="lines"></span>
-        </button>
-        <button type="button" role="button" aria-label="Toggle Navigation" class="lines-button x2">
-          <span class="lines"></span>
-        </button>
-        <button type="button" role="button" aria-label="Toggle Navigation" class="grid-button rearrange">
-          <span class="grid"></span>
-        </button>
-        <button type="button" role="button" aria-label="Toggle Navigation" class="grid-button collapse">
-          <span class="grid"></span>
-        </button>
-    </div>
-  </section>
-  <footer>
+      <button type="button" role="button" aria-label="Toggle Navigation" class="navicon navicon-x">
+        <span class="navicon__lines"></span>
+      </button>
 
-  </footer>
+      <button type="button" role="button" aria-label="Toggle Navigation" class="navicon navicon-x2">
+        <span class="navicon__lines"></span>
+      </button>
+
+      <button type="button" role="button" aria-label="Toggle Navigation" class="navicon navicon-arrow navicon-arrow--up">
+        <span class="navicon__lines"></span>
+      </button>
+
+      <button type="button" role="button" aria-label="Toggle Navigation" class="navicon navicon-arrow">
+        <span class="navicon__lines"></span>
+      </button>
+
+      <button type="button" role="button" aria-label="Toggle Navigation" class="navicon navicon-minus">
+        <span class="navicon__lines"></span>
+      </button>
+
+      <button type="button" role="button" aria-label="Toggle Navigation" class="grid-button rearrange">
+        <span class="grid"></span>
+      </button>
+
+      <button type="button" role="button" aria-label="Toggle Navigation" class="grid-button collapse">
+        <span class="grid"></span>
+      </button>
+    </div>
+  </main>
+
   <script>
     var anchor = document.querySelectorAll('button');
     
@@ -68,8 +66,25 @@
           open = false;
         }
       }
-    }); 
-  </script>
+    });
 
+    var navicon = document.querySelectorAll('.navicon');
+
+    [].forEach.call(navicon, function(navicon){
+      var open = false;
+
+      navicon.onclick = function(event){2
+        event.preventDefault();
+
+        if(!open) {
+          this.classList.add('is--closed');
+          open = true;
+        } else {
+          this.classList.remove('is--closed');
+          open = false;
+        }
+      }
+    });
+  </script>
 </body>
 </html>

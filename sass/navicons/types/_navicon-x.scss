@@ -1,0 +1,18 @@
+// Navicon X
+// ===============================================
+
+.navicon-x {
+  &.is--closed {
+    .navicon__lines {
+      background: transparent;
+      &:before,
+      &:after {
+        transform-origin: 50% 50%;
+        top: 0;
+        width: $navicon-size;
+      }
+      &:before { transform: rotate3d(0, 0, 1, 45deg); }
+      &:after { transform: rotate3d(0, 0, 1, -45deg); }
+    }
+  }
+}

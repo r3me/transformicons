@@ -1,0 +1,31 @@
+// Navicon Styles
+// ===============================================
+
+.navicon {
+  display: inline-block;
+  margin: 0 1em;
+  border: none;
+  background: none;
+  padding: $navicon-size/2 $navicon-size/4;
+  transition: $navicon-transition;
+  cursor: pointer;
+  user-select: none;
+  &:focus { outline: none; }
+}
+
+.navicon__lines {
+  @include navicon_lines;
+  position: relative;
+  &:before,
+  &:after {
+   @include navicon_lines;
+    position: absolute;
+    left: 0;
+    content: '';
+    transform-origin: $navicon-size/14 center;
+  }
+  &:before { top: $navicon-size/4; }
+  &:after { top: -$navicon-size/4; }
+
+  .is--closed & {transform: scale3d(.8,.8,.8); }
+}
