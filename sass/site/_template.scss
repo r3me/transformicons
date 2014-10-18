@@ -41,4 +41,12 @@ p { text-align:center; }
 .buttons-container {
   margin: 100px auto;
   text-align:center;
+
+  [data-navicon="button"] {
+    margin: 0 1em;
+  }
+
+  .navicon--plus {
+    padding: 1.25rem 0;
+  }
 }

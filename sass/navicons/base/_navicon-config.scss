@@ -10,3 +10,10 @@ $navicon-grid-color : #ecf0f1 !default;
 $navicon-grid-transition: .3s !default;
 $navicon-grid-base : 1rem !default;
 $navicon-grid-space : $navicon-grid-base/4 !default;
+
+
+$navicon-width: 68px;
+$navicon-bg: rgb(220,220,220);
+$navicon-circle-radius: 80%;
+$navicon-radius: $navicon-width/8;
+$navicon-plus-color: rgb(0,0,0);

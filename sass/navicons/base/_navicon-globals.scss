@@ -1,10 +1,9 @@
 [data-navicon="button"] {
-  display:inline-block;
-  margin: 0 1em;
-  border:none;
+  display: inline-block;
+  border: none;
   background: none;
   cursor: pointer;
   user-select: none;
-  > * { display:block; }
+  > * { display: block; }
   &:focus { outline: none; }
 }

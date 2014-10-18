@@ -1,3 +1,15 @@
+* {
+	&:before,
+	&:after {
+		box-sizing: inherit;
+		box-sizing: inherit;
+	}
+}
+
+html {
+  box-sizing: border-box;
+}
+
 // Navicon Base Package
 @import "base/navicon-config";
 @import "base/navicon-utilities";
@@ -12,6 +24,6 @@
 // Navicon Types
 @import "type/navicon-x";
 @import "type/navicon-x2";
-
 @import "type/navicon-arrow";
 @import "type/navicon-minus";
+@import "type/navicon-plus";

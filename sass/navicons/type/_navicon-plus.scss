@@ -1,0 +1,36 @@
+.navicon--plus {
+  width: $navicon-width;
+  height: $navicon-width;
+  border: $navicon-width/12 solid $navicon-plus-color;
+  border-radius: $navicon-circle-radius;
+  position: relative;
+  background: $navicon-bg;
+  &:before,
+  &:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: .3s all ease-in-out;
+  }
+  &:before,
+  &:after {
+    border-radius: $navicon-radius;
+    top: 50%;
+    transform: translate(50%, -50%) rotate(0);
+    width: 50%;
+    height: $navicon-width/12;
+    background: $navicon-plus-color;
+  }
+  &:after {
+    top: 50%;
+    width: 50%;
+    height: $navicon-width/12;
+    transform: translate(50%, -50%) rotate(90deg);
+  }
+  &.is--closed {
+    &:before{ transform: translate(50%, -50%) rotate(45deg); }
+    &:after{ transform: translate(50%, -50%) rotate(-45deg); }
+  }
+}
