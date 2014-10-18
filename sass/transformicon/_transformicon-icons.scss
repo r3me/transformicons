@@ -1,0 +1,30 @@
+* {
+	&:before,
+	&:after {
+		box-sizing: inherit;
+		box-sizing: inherit;
+	}
+}
+
+html {
+  box-sizing: border-box;
+}
+
+
+// Globals
+@import "base/transformicon-config";
+@import "base/transformicon-utilities";
+@import "base/transformicon-globals";
+
+
+// Style Variation
+@import "style/transformicon-lines";
+@import "style/transformicon-grid";
+
+
+// Icon Type
+@import "type/transformicon-x";
+@import "type/transformicon-x2";
+@import "type/transformicon-arrow";
+@import "type/transformicon-minus";
+@import "type/transformicon-plus";

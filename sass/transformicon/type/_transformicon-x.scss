@@ -1,9 +1,9 @@
 // Navicon X
 // ===============================================
 
-.navicon-x {
+.transformicon-x {
   &.is--closed {
-    .navicon__lines {
+    .transformicon__lines {
       background: transparent;
       &:before,
       &:after {

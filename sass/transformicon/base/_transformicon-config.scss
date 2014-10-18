@@ -1,3 +1,4 @@
+// Navigation
 $navicon-color: white !default;
 $navicon-transition: .3s !default;
 $navicon-base: 1rem !default;
@@ -6,14 +7,19 @@ $navicon-size: 4rem !default;
 $navicon-radius: $navicon-size/14 !default;
 
 
+// Grid
 $navicon-grid-color : #ecf0f1 !default;
 $navicon-grid-transition: .3s !default;
 $navicon-grid-base : 1rem !default;
 $navicon-grid-space : $navicon-grid-base/4 !default;
 
 
+// Add/Remove
 $navicon-width: 68px;
-$navicon-bg: rgb(220,220,220);
+$navicon-bg: white;
 $navicon-circle-radius: 80%;
 $navicon-radius: $navicon-width/8;
-$navicon-plus-color: rgb(0,0,0);
+$navicon-plus-color: black;
+
+
+// Video

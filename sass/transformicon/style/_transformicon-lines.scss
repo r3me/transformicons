@@ -1,9 +1,9 @@
-.navicon {
+.transformicon {
   padding: $navicon-size/2 $navicon-size/4;
   transition: $navicon-transition;
 }
 
-.navicon__lines {
+.transformicon__lines {
   @include navicon_lines;
   position: relative;
   &:before,

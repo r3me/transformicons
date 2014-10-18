@@ -1,5 +1,5 @@
-.navicon-x2 {
-  .navicon__lines {
+.transformicon-x2 {
+  .transformicon__lines {
     transition: background .3s .5s ease;
     &:before,
     &:after {
@@ -9,7 +9,7 @@
   }
 
   &.is--closed {
-    .navicon__lines {
+    .transformicon__lines {
       transition: background .3s 0s ease;
       background: transparent;
       &:before,

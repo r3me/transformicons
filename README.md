@@ -1,7 +1,7 @@
-Navicons - Transforming Icons
+Transformicon : Animated CSS Icons
 ======================
 
-What's a transformicon? It's an animated navigation icon made with pure CSS.
+What's a transformicon? It's an animated icon made with pure CSS.
 
 ### workflow
 

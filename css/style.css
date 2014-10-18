@@ -56,9 +56,9 @@ p {
 .buttons-container {
   margin: 100px auto;
   text-align: center; }
-  .buttons-container [data-navicon="button"] {
+  .buttons-container [data-transformicon="button"] {
     margin: 0 1em; }
-  .buttons-container .navicon--plus {
+  .buttons-container .transformicon--plus {
     padding: 1.25rem 0; }
 
 *:before, *:after {
@@ -68,22 +68,22 @@ p {
 html {
   box-sizing: border-box; }
 
-[data-navicon="button"] {
+[data-transformicon="button"] {
   display: inline-block;
   border: none;
   background: none;
   cursor: pointer;
   user-select: none; }
-  [data-navicon="button"] > * {
+  [data-transformicon="button"] > * {
     display: block; }
-  [data-navicon="button"]:focus {
+  [data-transformicon="button"]:focus {
     outline: none; }
 
-.navicon {
+.transformicon {
   padding: 2rem 1rem;
   transition: 0.3s; }
 
-.navicon__lines {
+.transformicon__lines {
   display: inline-block;
   width: 4rem;
   height: 0.57143rem;
@@ -91,7 +91,7 @@ html {
   border-radius: 8.5px;
   transition: 0.3s;
   position: relative; }
-  .navicon__lines:before, .navicon__lines:after {
+  .transformicon__lines:before, .transformicon__lines:after {
     display: inline-block;
     width: 4rem;
     height: 0.57143rem;
@@ -102,109 +102,109 @@ html {
     left: 0;
     content: '';
     transform-origin: 0.28571rem center; }
-  .navicon__lines:before {
+  .transformicon__lines:before {
     top: 1rem; }
-  .navicon__lines:after {
+  .transformicon__lines:after {
     top: -1rem; }
-  .is--closed .navicon__lines {
+  .is--closed .transformicon__lines {
     transform: scale3d(0.8, 0.8, 0.8); }
 
-.navicon-grid {
+.transformicon-grid {
   padding: 2rem; }
-  .navicon-grid .navicon__grid-item {
+  .transformicon-grid .transformicon__grid-item {
     width: 1rem;
     height: 1rem;
     background: #ecf0f1;
     color: #ecf0f1;
     /* Not in use when the colors are specified below */
     transition: 0.3s; }
-  .navicon-grid.is--closed .navicon__grid-item {
+  .transformicon-grid.is--closed .transformicon__grid-item {
     transform: rotate3d(0, 0, 1, -45deg) scale3d(0.8, 0.8, 0.8); }
 
-.navicon-grid--rearrange .navicon__grid-item {
+.transformicon-grid--rearrange .transformicon__grid-item {
   box-shadow: -1.25rem -1.25rem, 0 -1.25rem, 1.25rem -1.25rem, -1.25rem 0, 1.25rem 0, -1.25rem 1.25rem, 0 1.25rem, 1.25rem 1.25rem; }
-.navicon-grid--rearrange.is--closed .navicon__grid-item {
+.transformicon-grid--rearrange.is--closed .transformicon__grid-item {
   box-shadow: 0 -1rem, 0 -2rem, 1rem 0, -2rem 0, 2rem 0, -1rem 0, 0 2rem, 0 1rem; }
 
-.navicon-grid--collapse .navicon__grid-item {
+.transformicon-grid--collapse .transformicon__grid-item {
   box-shadow: -1.25rem 0, -1.25rem 1.25rem, 1.25rem 0, 1.25rem -1.25rem, 0 -1.25rem, -1.25rem -1.25rem, 0 1.25rem, 1.25rem 1.25rem; }
 
-.navicon-grid--collapse.is--closed .navicon__grid-item {
+.transformicon-grid--collapse.is--closed .transformicon__grid-item {
   box-shadow: -1rem 0, 0 0 transparent, 1rem 0, 0 0 transparent, 0 -1rem, 0 0 transparent, 0 1rem, 0 0 transparent; }
 
-.navicon-x.is--closed .navicon__lines {
+.transformicon-x.is--closed .transformicon__lines {
   background: transparent; }
-  .navicon-x.is--closed .navicon__lines:before, .navicon-x.is--closed .navicon__lines:after {
+  .transformicon-x.is--closed .transformicon__lines:before, .transformicon-x.is--closed .transformicon__lines:after {
     transform-origin: 50% 50%;
     top: 0;
     width: 4rem; }
-  .navicon-x.is--closed .navicon__lines:before {
+  .transformicon-x.is--closed .transformicon__lines:before {
     transform: rotate3d(0, 0, 1, 45deg); }
-  .navicon-x.is--closed .navicon__lines:after {
+  .transformicon-x.is--closed .transformicon__lines:after {
     transform: rotate3d(0, 0, 1, -45deg); }
 
-.navicon-x2 .navicon__lines {
+.transformicon-x2 .transformicon__lines {
   transition: background .3s .5s ease; }
-  .navicon-x2 .navicon__lines:before, .navicon-x2 .navicon__lines:after {
+  .transformicon-x2 .transformicon__lines:before, .transformicon-x2 .transformicon__lines:after {
     transform-origin: 50% 50%;
     transition: top .3s .6s ease, transform .3s ease; }
-.navicon-x2.is--closed .navicon__lines {
+.transformicon-x2.is--closed .transformicon__lines {
   transition: background .3s 0s ease;
   background: transparent; }
-  .navicon-x2.is--closed .navicon__lines:before, .navicon-x2.is--closed .navicon__lines:after {
+  .transformicon-x2.is--closed .transformicon__lines:before, .transformicon-x2.is--closed .transformicon__lines:after {
     transition: top .3s ease, transform .3s .5s ease;
     top: 0;
     width: 4rem; }
-  .navicon-x2.is--closed .navicon__lines:before {
+  .transformicon-x2.is--closed .transformicon__lines:before {
     transform: rotate3d(0, 0, 1, 45deg); }
-  .navicon-x2.is--closed .navicon__lines:after {
+  .transformicon-x2.is--closed .transformicon__lines:after {
     transform: rotate3d(0, 0, 1, -45deg); }
 
-.navicon-arrow.is--closed .navicon__lines:before, .navicon-arrow.is--closed .navicon__lines:after {
+.transformicon-arrow.is--closed .transformicon__lines:before, .transformicon-arrow.is--closed .transformicon__lines:after {
   top: 0;
   width: 2.22222rem; }
-.navicon-arrow.is--closed .navicon__lines:before {
+.transformicon-arrow.is--closed .transformicon__lines:before {
   transform: rotate3d(0, 0, 1, 45deg); }
-.navicon-arrow.is--closed .navicon__lines:after {
+.transformicon-arrow.is--closed .transformicon__lines:after {
   transform: rotate3d(0, 0, 1, -45deg); }
 
-.navicon-arrow--up.is--closed {
+.transformicon-arrow--up.is--closed {
   transform: scale3d(0.8, 0.8, 0.8) rotate3d(0, 0, 1, 90deg); }
 
-.navicon-minus.is--closed .navicon__lines:before, .navicon-minus.is--closed .navicon__lines:after {
+.transformicon-minus.is--closed .transformicon__lines:before, .transformicon-minus.is--closed .transformicon__lines:after {
   transform: none;
   top: 0;
   width: 4rem; }
 
-.navicon--plus {
+.transformicon--plus {
   width: 68px;
   height: 68px;
   border: 5.66667px solid black;
   border-radius: 80%;
   position: relative;
-  background: gainsboro; }
-  .navicon--plus:before, .navicon--plus:after {
+  background: white; }
+  .transformicon--plus:before, .transformicon--plus:after {
     content: "";
     display: block;
     width: 100%;
     height: 100%;
     position: absolute;
     transition: .3s all ease-in-out; }
-  .navicon--plus:before, .navicon--plus:after {
+  .transformicon--plus:before, .transformicon--plus:after {
     border-radius: 8.5px;
     top: 50%;
     transform: translate(50%, -50%) rotate(0);
     width: 50%;
     height: 5.66667px;
     background: black; }
-  .navicon--plus:after {
+  .transformicon--plus:after {
     top: 50%;
     width: 50%;
     height: 5.66667px;
     transform: translate(50%, -50%) rotate(90deg); }
-  .navicon--plus.is--closed:before {
+  .transformicon--plus.is--closed:before {
     transform: translate(50%, -50%) rotate(45deg); }
-  .navicon--plus.is--closed:after {
+  .transformicon--plus.is--closed:after {
     transform: translate(50%, -50%) rotate(-45deg); }
 
 /*# sourceMappingURL=style.css.map */

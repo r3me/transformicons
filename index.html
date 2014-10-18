@@ -3,60 +3,63 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Transformicons: Animated Navigation Icons with CSS3</title>
+  <title>Transformicons: Animated Icons using CSS</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <main role="main">
-    <h1>Navicon Transformicons</h1>
-    <h2>Animated Navigation Icons with CSS3 Transforms</h2>
+    <h1>Transformicons</h1>
+    <h2>Animated CSS Icons</h2>
 
+    <!-- Transformicon  -->
     <div class="buttons-container">
-      <button type="button" role="button" aria-label="Toggle Navigation" data-navicon="button" class="navicon navicon-x">
-        <span class="navicon__lines"></span>
+      <button type="button" role="button" aria-label="" data-transformicon="button" class="transformicon transformicon-x">
+        <span class="transformicon__lines"></span>
       </button>
 
-      <button type="button" role="button" aria-label="Toggle Navigation" data-navicon="button" class="navicon navicon-x2">
-        <span class="navicon__lines"></span>
+      <button type="button" role="button" aria-label="" data-transformicon="button" class="transformicon transformicon-x2">
+        <span class="transformicon__lines"></span>
       </button>
 
-      <button type="button" role="button" aria-label="Toggle Navigation" data-navicon="button" class="navicon navicon-arrow navicon-arrow--up">
-        <span class="navicon__lines"></span>
+      <button type="button" role="button" aria-label="" data-transformicon="button" class="transformicon transformicon-arrow transformicon-arrow--up">
+        <span class="transformicon__lines"></span>
       </button>
 
-      <button type="button" role="button" aria-label="Toggle Navigation" data-navicon="button" class="navicon navicon-arrow">
-        <span class="navicon__lines"></span>
+      <button type="button" role="button" aria-label="" data-transformicon="button" class="transformicon transformicon-arrow">
+        <span class="transformicon__lines"></span>
       </button>
 
-      <button type="button" role="button" aria-label="Toggle Navigation" data-navicon="button" class="navicon navicon-minus">
-        <span class="navicon__lines"></span>
+      <button type="button" role="button" aria-label="" data-transformicon="button" class="transformicon transformicon-minus">
+        <span class="transformicon__lines"></span>
       </button>
     </div>
 
+    <!-- Transformicon Grids -->
     <div class="buttons-container">
-      <button type="button" role="button" aria-label="Toggle Navigation" data-navicon="button" class="navicon-grid navicon-grid--rearrange">
-        <span class="navicon__grid-item"></span>
+      <button type="button" role="button" aria-label="" data-transformicon="button" class="transformicon-grid transformicon-grid--rearrange">
+        <span class="transformicon__grid-item"></span>
       </button>
 
-      <button type="button" role="button" aria-label="Toggle Navigation" data-navicon="button" class="navicon-grid navicon-grid--collapse">
-        <span class="navicon__grid-item"></span>
+      <button type="button" role="button" aria-label="" data-transformicon="button" class="transformicon-grid transformicon-grid--collapse">
+        <span class="transformicon__grid-item"></span>
       </button>
     </div>
 
+    <!-- Transformicon Add/Remove -->
     <div class="buttons-container">
-      <button type="button" role="button" aria-label="Toggle Navigation" data-navicon="button" class="navicon navicon--plus"></button>
+      <button type="button" role="button" aria-label="" data-transformicon="button" class="transformicon transformicon--plus"></button>
     </div>
   </main>
 
   <script>
-    var navicon = document.querySelectorAll('[data-navicon="button"]');
+    var transformicon = document.querySelectorAll('[data-transformicon="button"]');
 
-    [].forEach.call(navicon, function(navicon){
+    [].forEach.call(transformicon, function(transformicon){
       var open = false;
 
-      navicon.onclick = function(event){2
+      transformicon.onclick = function(event){2
         event.preventDefault();
 
         if(!open) {
