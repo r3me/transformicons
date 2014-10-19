@@ -1,9 +1,9 @@
 [data-tcon="button"] {
-  display: inline-block;
-  border: none;
-  background: none;
-  cursor: pointer;
-  user-select: none;
-  > * { display: block; }
-  &:focus { outline: none; }
+	display: inline-block;
+	border: none;
+	background: none;
+	cursor: pointer;
+	user-select: none;
+	> * { display: block; }
+	&:focus { outline: none; }
 }

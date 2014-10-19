@@ -1,17 +1,17 @@
 .tcon-arrow {
-  &.is--closed {
-    .tcon__lines {
-      &:before,
-      &:after {
-        top: 0;
-        width: $tcon-size/1.8;
-      }
-      &:before { transform: rotate3d(0,0,1,45deg); }
-      &:after { transform: rotate3d(0,0,1,-45deg); }
-    }
-  }
+	&.is-transformed {
+		.tcon__lines {
+			&:before,
+			&:after {
+				top: 0;
+				width: $tcon-size/1.8;
+			}
+			&:before { transform: rotate3d(0,0,1,45deg); }
+			&:after { transform: rotate3d(0,0,1,-45deg); }
+		}
+	}
 }
 
 .tcon-arrow--up {
-  &.is--closed { transform: scale3d(.8,.8,.8) rotate3d(0, 0, 1,90deg); }
+	&.is-transformed { transform: scale3d(.8,.8,.8) rotate3d(0, 0, 1,90deg); }
 }

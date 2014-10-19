@@ -1,21 +1,21 @@
 .tcon {
-  padding: $tcon-size/2 $tcon-size/4;
-  transition: $tcon-transition;
+	padding: $tcon-size/2 $tcon-size/4;
+	transition: $tcon-transition;
 }
 
 .tcon__lines {
-  @include tcon_lines;
-  position: relative;
-  &:before,
-  &:after {
-   @include tcon_lines;
-    position: absolute;
-    left: 0;
-    content: '';
-    transform-origin: $tcon-size/14 center;
-  }
-  &:before { top: $tcon-size/4; }
-  &:after { top: -$tcon-size/4; }
+	@include tcon_lines;
+	position: relative;
+	&:before,
+	&:after {
+	 @include tcon_lines;
+		position: absolute;
+		left: 0;
+		content: '';
+		transform-origin: $tcon-size/14 center;
+	}
+	&:before { top: $tcon-size/4; }
+	&:after { top: -$tcon-size/4; }
 
-  .is--closed & {transform: scale3d(.8,.8,.8); }
+	.is-transformed & {transform: scale3d(.8,.8,.8); }
 }

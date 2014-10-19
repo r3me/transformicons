@@ -1,67 +1,70 @@
 html,
 body {
-  height: 100%;
-  margin: 0;
+	height: 100%;
+	margin: 0;
 }
 
 body {
-  background: white;
-  color: lighten(#12171A, 30%);
-  border: 1px solid transparent;
-  font-family: "Source Sans pro", sans-serif;
+	background: white;
+	color: lighten(#12171A, 30%);
+	border: 1px solid transparent;
+	font-family: "Source Sans pro", sans-serif;
 }
 
 a {
-  color: black;
-  &:hover {
-    text-decoration: none;
-    color: inherit;
-  }
+	color: black;
+
+	&:hover {
+		text-decoration: none;
+		color: inherit;
+	}
 }
 
 h1 {
-  font-size: 5em;
-  font-weight: normal;
-  font-weight: 300;
+	font-size: 5em;
+	font-weight: normal;
+	font-weight: 300;
 }
 
 h2 {
-  font-size: 2em;
-  text-align: center;
-  font-weight: 300;
+	font-size: 2em;
+	text-align: center;
+	font-weight: 300;
 }
 
 header {
-  width: 100%;
-  padding: 10px 0;
-  background: #CFD0D1;
+	width: 100%;
+	padding: 10px 0;
+	background: #CFD0D1;
 }
 
 footer {
-  text-align: center;
+	padding: 40px 0;
+	text-align: center;
 }
 
 .title {
-  text-align: center;
-  color: white;
-  &:after {
-    content: "Animated CSS Icons";
-    margin-left: 6px;
-    vertical-align: middle;
-    font-size: 2rem;
-    color: #516774;
-  }
+	text-align: center;
+	color: white;
+
+	&:after {
+		content: "Animated CSS Icons";
+		margin-left: 6px;
+		vertical-align: middle;
+		font-size: 2rem;
+		color: #516774;
+	}
 }
 
 .buttons-container {
-  margin: 50px auto;
-  text-align: center;
+	margin: 50px auto;
+	text-align: center;
 
-  [data-tcon="button"] {
-    margin: 0 1em;
-  }
+	[data-tcon="button"] {
+		margin: 0 1em;
+	}
 
-  .tcon--plus {
-    padding: 1.25rem 0;
-  }
+	.tcon--plus {
+		padding: 1.25rem 0;
+	}
 }

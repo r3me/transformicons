@@ -1,0 +1,35 @@
+@mixin tcon_triangle($point, $border-width, $color) {
+	border: $border-width solid transparent;
+		@if $point == left {
+		border-#{right}: $border-width solid $color;
+	}
+	@if $point == right {
+		border-#{left}: $border-width solid $color;
+	}
+	@if $point == top {
+		border-#{bottom}: $border-width solid $color;
+	}
+	@if $point == bottom {
+		border-#{top}: $border-width solid $color;
+	}
+	@else if $point == null {
+		border: none;
+	}
+	border-#{$point}: 0;
+	height: 0;
+	width: 0;
+}
+
+.tcon--play {
+	@include tcon_triangle(right, 34px, black);
+	padding: 0;
+	transition: .3s all ease-in-out;
+
+	&.is-transformed {
+		@include tcon_triangle(inherit, inherit, transparent);
+		border: inherit solid transparent;
+		background: black;
+		height: auto;
+		width: 68px;
+	}
+}

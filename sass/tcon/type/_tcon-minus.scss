@@ -1,12 +1,12 @@
 .tcon-minus {
-	&.is--closed {
-	  .tcon__lines {
-	    &:before,
-	    &:after {
-	      transform: none;
-	      top:0;
-	      width: $tcon-size;
-	    }
-	  }
+	&.is-transformed {
+		.tcon__lines {
+			&:before,
+			&:after {
+				transform: none;
+				top:0;
+				width: $tcon-size;
+			}
+		}
 	}
 }

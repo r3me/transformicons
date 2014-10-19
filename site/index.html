@@ -1,82 +1,88 @@
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Transformicons: Animated CSS Icons</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" href="styles/style.css">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Transformicons: Animated CSS Icons</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-  <header role="banner">
-    <h1 class="title">Transformicons</h1>
-  </header>
+	<header role="banner">
+		<h1 class="title">Transformicons</h1>
+	</header>
 
-  <main role="main">
-    <!-- Navigation  -->
-    <div class="buttons-container">
-      <button type="button" role="button" aria-label="" data-tcon="button" class="tcon tcon-x">
-        <span class="tcon__lines"></span>
-      </button>
+	<main role="main">
+		<div class="buttons-container">
+			<h3>Navigation</h3>
+			<button type="button" role="button" aria-label="" data-tcon="button" class="tcon tcon-x">
+				<span class="tcon__lines"></span>
+			</button>
 
-      <button type="button" role="button" aria-label="" data-tcon="button" class="tcon tcon-x2">
-        <span class="tcon__lines"></span>
-      </button>
+			<button type="button" role="button" aria-label="" data-tcon="button" class="tcon tcon-x2">
+				<span class="tcon__lines"></span>
+			</button>
 
-      <button type="button" role="button" aria-label="" data-tcon="button" class="tcon tcon-arrow tcon-arrow--up">
-        <span class="tcon__lines"></span>
-      </button>
+			<button type="button" role="button" aria-label="" data-tcon="button" class="tcon tcon-arrow tcon-arrow--up">
+				<span class="tcon__lines"></span>
+			</button>
 
-      <button type="button" role="button" aria-label="" data-tcon="button" class="tcon tcon-arrow">
-        <span class="tcon__lines"></span>
-      </button>
+			<button type="button" role="button" aria-label="" data-tcon="button" class="tcon tcon-arrow">
+				<span class="tcon__lines"></span>
+			</button>
 
-      <button type="button" role="button" aria-label="" data-tcon="button" class="tcon tcon-minus">
-        <span class="tcon__lines"></span>
-      </button>
-    </div>
+			<button type="button" role="button" aria-label="" data-tcon="button" class="tcon tcon-minus">
+				<span class="tcon__lines"></span>
+			</button>
+		</div>
 
-    <!-- Grids -->
-    <div class="buttons-container">
-      <button type="button" role="button" aria-label="" data-tcon="button" class="tcon-grid tcon-grid--rearrange">
-        <span class="tcon__grid-item"></span>
-      </button>
+		<div class="buttons-container">
+			<h3>Grid</h3>
+			<button type="button" role="button" aria-label="" data-tcon="button" class="tcon-grid tcon-grid--rearrange">
+				<span class="tcon__grid-item"></span>
+			</button>
 
-      <button type="button" role="button" aria-label="" data-tcon="button" class="tcon-grid tcon-grid--collapse">
-        <span class="tcon__grid-item"></span>
-      </button>
-    </div>
+			<button type="button" role="button" aria-label="" data-tcon="button" class="tcon-grid tcon-grid--collapse">
+				<span class="tcon__grid-item"></span>
+			</button>
+		</div>
 
-    <!-- Add/Remove -->
-    <div class="buttons-container">
-      <button type="button" role="button" aria-label="" data-tcon="button" class="tcon tcon--plus"></button>
-    </div>
-  </main>
+		<div class="buttons-container">
+			<h3>Add/Remove</h3>
+			<button type="button" role="button" aria-label="" data-tcon="button" class="tcon tcon--plus"></button>
+		</div>
 
-  <footer role="contentinfo">
-    <small>Props to <a href="#">Bennett Feely</a> and <a href="#">Sara Soueidan</a>. Licensed under <a href="#">MIT</a></small>
-    <small>Read the <a href="#">article</a> on making transformicons by Sara Soueidan</small>
-  </footer>
+		<!-- Video -->
+		<div class="buttons-container">
+			<h3>Video</h3>
+			<button type="button" role="button" aria-label="" data-tcon="button" class="tcon tcon--play"></button>
+		</div>
+	</main>
 
-  <script>
-    var tcon = document.querySelectorAll('[data-tcon="button"]');
+	<footer role="contentinfo">
+		<small>Props to <a href="//bennettfeely.com">Bennett Feely</a> and <a href="//sarasoueidan.com">Sara Soueidan</a>. Licensed under <a href="//opensource.org/licenses/MIT">MIT</a></small>
+		<small>Read the <a href="//sarasoueidan.com/blog/navicon-transformicons">article</a> on making transformicons by Sara Soueidan</small>
+	</footer>
 
-    [].forEach.call(tcon, function(tcon){
-      var open = false;
+	<script>
+		var tcon = document.querySelectorAll('[data-tcon="button"]');
 
-      tcon.onclick = function(event){
-        event.preventDefault();
+		[].forEach.call(tcon, function(tcon){
+			var open = false;
 
-        if(!open) {
-          this.classList.add('is--closed');
-          open = true;
-        } else {
-          this.classList.remove('is--closed');
-          open = false;
-        }
-      }
-    });
-  </script>
+			tcon.onclick = function(event){
+				event.preventDefault();
+
+				if(!open) {
+					this.classList.add('is-transformed');
+					open = true;
+				} else {
+					this.classList.remove('is-transformed');
+					open = false;
+				}
+			}
+		});
+	</script>
 </body>
 </html>
