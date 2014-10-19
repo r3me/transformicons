@@ -1,5 +1,5 @@
-.transformicon-x2 {
-  .transformicon__lines {
+.tcon-x2 {
+  .tcon__lines {
     transition: background .3s .5s ease;
     &:before,
     &:after {
@@ -9,7 +9,7 @@
   }
 
   &.is--closed {
-    .transformicon__lines {
+    .tcon__lines {
       transition: background .3s 0s ease;
       background: transparent;
       &:before,

@@ -1,52 +1,67 @@
 html,
-body { height: 100%; }
+body {
+  height: 100%;
+  margin: 0;
+}
 
 body {
-  background-color: #12171A;
+  background: white;
   color: lighten(#12171A, 30%);
-  border:1px solid transparent;
+  border: 1px solid transparent;
   font-family: "Source Sans pro", sans-serif;
 }
 
 a {
-  color: white;
-  text-decoration: none;
-  &:hover{ color:inherit; }
-}
-
-header {
-  position:fixed;
-  top:0; left:0; right:0;
-  width:100%;
-  padding:10px 30px;
-  background-color: rgba(black, .5);
+  color: black;
+  &:hover {
+    text-decoration: none;
+    color: inherit;
+  }
 }
 
 h1 {
-  font-size:5em;
-  font-weight:normal;
-  text-align:center;
-  margin:100px auto 30px;
-  font-weight:300;
+  font-size: 5em;
+  font-weight: normal;
+  font-weight: 300;
 }
 
 h2 {
-  font-size:2em;
+  font-size: 2em;
   text-align: center;
-  font-weight:300;
+  font-weight: 300;
 }
 
-p { text-align:center; }
+header {
+  width: 100%;
+  padding: 10px 0;
+  background: #CFD0D1;
+}
+
+footer {
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+  color: white;
+  &:after {
+    content: "Animated CSS Icons";
+    margin-left: 6px;
+    vertical-align: middle;
+    font-size: 2rem;
+    color: #516774;
+  }
+}
 
 .buttons-container {
-  margin: 100px auto;
-  text-align:center;
+  margin: 50px auto;
+  text-align: center;
 
-  [data-transformicon="button"] {
+  [data-tcon="button"] {
     margin: 0 1em;
   }
 
-  .transformicon--plus {
+  .tcon--plus {
     padding: 1.25rem 0;
   }
 }

@@ -1,9 +1,9 @@
-.transformicon {
+.tcon {
   padding: $tcon-size/2 $tcon-size/4;
   transition: $tcon-transition;
 }
 
-.transformicon__lines {
+.tcon__lines {
   @include tcon_lines;
   position: relative;
   &:before,

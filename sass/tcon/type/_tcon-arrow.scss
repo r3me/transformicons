@@ -1,6 +1,6 @@
-.transformicon-arrow {
+.tcon-arrow {
   &.is--closed {
-    .transformicon__lines {
+    .tcon__lines {
       &:before,
       &:after {
         top: 0;
@@ -12,6 +12,6 @@
   }
 }
 
-.transformicon-arrow--up {
+.tcon-arrow--up {
   &.is--closed { transform: scale3d(.8,.8,.8) rotate3d(0, 0, 1,90deg); }
 }

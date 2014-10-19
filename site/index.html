@@ -3,63 +3,69 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Transformicons: Animated Icons using CSS</title>
+  <title>Transformicons: Animated CSS Icons</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
+  <header role="banner">
+    <h1 class="title">Transformicons</h1>
+  </header>
+
   <main role="main">
-    <h1>Transformicons</h1>
-    <h2>Animated CSS Icons</h2>
-
-    <!-- Transformicon  -->
+    <!-- Navigation  -->
     <div class="buttons-container">
-      <button type="button" role="button" aria-label="" data-transformicon="button" class="transformicon transformicon-x">
-        <span class="transformicon__lines"></span>
+      <button type="button" role="button" aria-label="" data-tcon="button" class="tcon tcon-x">
+        <span class="tcon__lines"></span>
       </button>
 
-      <button type="button" role="button" aria-label="" data-transformicon="button" class="transformicon transformicon-x2">
-        <span class="transformicon__lines"></span>
+      <button type="button" role="button" aria-label="" data-tcon="button" class="tcon tcon-x2">
+        <span class="tcon__lines"></span>
       </button>
 
-      <button type="button" role="button" aria-label="" data-transformicon="button" class="transformicon transformicon-arrow transformicon-arrow--up">
-        <span class="transformicon__lines"></span>
+      <button type="button" role="button" aria-label="" data-tcon="button" class="tcon tcon-arrow tcon-arrow--up">
+        <span class="tcon__lines"></span>
       </button>
 
-      <button type="button" role="button" aria-label="" data-transformicon="button" class="transformicon transformicon-arrow">
-        <span class="transformicon__lines"></span>
+      <button type="button" role="button" aria-label="" data-tcon="button" class="tcon tcon-arrow">
+        <span class="tcon__lines"></span>
       </button>
 
-      <button type="button" role="button" aria-label="" data-transformicon="button" class="transformicon transformicon-minus">
-        <span class="transformicon__lines"></span>
+      <button type="button" role="button" aria-label="" data-tcon="button" class="tcon tcon-minus">
+        <span class="tcon__lines"></span>
       </button>
     </div>
 
-    <!-- Transformicon Grids -->
+    <!-- Grids -->
     <div class="buttons-container">
-      <button type="button" role="button" aria-label="" data-transformicon="button" class="transformicon-grid transformicon-grid--rearrange">
-        <span class="transformicon__grid-item"></span>
+      <button type="button" role="button" aria-label="" data-tcon="button" class="tcon-grid tcon-grid--rearrange">
+        <span class="tcon__grid-item"></span>
       </button>
 
-      <button type="button" role="button" aria-label="" data-transformicon="button" class="transformicon-grid transformicon-grid--collapse">
-        <span class="transformicon__grid-item"></span>
+      <button type="button" role="button" aria-label="" data-tcon="button" class="tcon-grid tcon-grid--collapse">
+        <span class="tcon__grid-item"></span>
       </button>
     </div>
 
-    <!-- Transformicon Add/Remove -->
+    <!-- Add/Remove -->
     <div class="buttons-container">
-      <button type="button" role="button" aria-label="" data-transformicon="button" class="transformicon transformicon--plus"></button>
+      <button type="button" role="button" aria-label="" data-tcon="button" class="tcon tcon--plus"></button>
     </div>
   </main>
 
-  <script>
-    var transformicon = document.querySelectorAll('[data-transformicon="button"]');
+  <footer role="contentinfo">
+    <small>Props to <a href="#">Bennett Feely</a> and <a href="#">Sara Soueidan</a>. Licensed under <a href="#">MIT</a></small>
+    <small>Read the <a href="#">article</a> on making transformicons by Sara Soueidan</small>
+  </footer>
 
-    [].forEach.call(transformicon, function(transformicon){
+  <script>
+    var tcon = document.querySelectorAll('[data-tcon="button"]');
+
+    [].forEach.call(tcon, function(tcon){
       var open = false;
 
-      transformicon.onclick = function(event){
+      tcon.onclick = function(event){
         event.preventDefault();
 
         if(!open) {

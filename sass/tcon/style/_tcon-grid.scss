@@ -1,7 +1,7 @@
-.transformicon-grid {
+.tcon-grid {
   padding: $tcon-grid-base*2;
 
-  .transformicon__grid-item {
+  .tcon__grid-item {
     width: $tcon-grid-base;
     height: $tcon-grid-base;
     background: $tcon-grid-color;
@@ -10,14 +10,14 @@
   }
 
   &.is--closed {
-    .transformicon__grid-item {
+    .tcon__grid-item {
       transform: rotate3d(0,0,1,-45deg)  scale3d(.8,.8,.8);
     }
   }
 }
 
-.transformicon-grid--rearrange {
-  .transformicon__grid-item {
+.tcon-grid--rearrange {
+  .tcon__grid-item {
     box-shadow:
       -($tcon-grid-base+$tcon-grid-space) 0 -($tcon-grid-base+$tcon-grid-space),
       0 0 -($tcon-grid-base+$tcon-grid-space),
@@ -30,7 +30,7 @@
   }
 
   &.is--closed { 
-    .transformicon__grid-item {
+    .tcon__grid-item {
         box-shadow:
           0 0 -$tcon-grid-base,
           0 0 -$tcon-grid-base*2,
@@ -44,8 +44,8 @@
   }
 }
 
-.transformicon-grid--collapse {
-  .transformicon__grid-item {
+.tcon-grid--collapse {
+  .tcon__grid-item {
     box-shadow:
     -($tcon-grid-base+$tcon-grid-space) 0,
     -($tcon-grid-base+$tcon-grid-space) ($tcon-grid-base+$tcon-grid-space),
@@ -58,9 +58,9 @@
   } 
 }
 
-.transformicon-grid--collapse{
+.tcon-grid--collapse{
   &.is--closed {
-    .transformicon__grid-item {
+    .tcon__grid-item {
       box-shadow:
       -$tcon-grid-base 0,
       0 0 transparent,
