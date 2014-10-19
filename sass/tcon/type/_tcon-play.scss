@@ -21,7 +21,7 @@
 }
 
 .tcon--play {
-	@include tcon_triangle(right, 34px, black);
+	@include tcon_triangle(right, 24px, black);
 	padding: 0;
 	transition: .3s all ease-in-out;
 
@@ -30,6 +30,6 @@
 		border: inherit solid transparent;
 		background: black;
 		height: auto;
-		width: 68px;
+		width: 48px;
 	}
 }

@@ -3,19 +3,19 @@ $tcon-color: black !default;
 $tcon-transition: .3s !default;
 $tcon-base: 1rem !default;
 $tcon-space: $tcon-base/4 !default;
-$tcon-size: 4rem !default;
+$tcon-size: 2rem !default;
 $tcon-radius: $tcon-size/14 !default;
 
 
 // Grid
 $tcon-grid-color : black !default;
 $tcon-grid-transition: .3s !default;
-$tcon-grid-base : 1rem !default;
+$tcon-grid-base : .5rem !default;
 $tcon-grid-space : $tcon-grid-base/4 !default;
 
 
 // Add/Remove
-$tcon-width: 68px;
+$tcon-width: 48px;
 $tcon-bg: transparent;
 $tcon-circle-radius: 80%;
 $tcon-radius: $tcon-width/8;
