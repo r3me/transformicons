@@ -1,7 +1,7 @@
 {
   "name": "Transformicons",
   "version": "0.1.1",
-  "description": "Animated Icons packaged in a compact Sass library that is easily customized and extensible. ",
+  "description": "Animated Icons packaged in a compact Sass library that is easily customized and extensible.",
   "main": "/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,7 +17,7 @@
     "icons",
     "transformicons"
   ],
-  "author": "Dennis Gaebel, Sara Soueidan",
+  "author": "Sara Soueidan, Bennett Feely, Dennis Gaebel",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/grayghostvisuals/transformicons/issues"
