@@ -1,8 +1,8 @@
-@mixin navicon_lines {
+@mixin tcon_lines {
+	border-radius: $tcon-radius;
   display: inline-block;
-  width: $navicon-size;
-  height: $navicon-size/7;
-  background: $navicon-color;
-  border-radius: $navicon-radius;
-  transition: $navicon-transition;
+  height: $tcon-size/7;
+  width: $tcon-size;
+  transition: $tcon-transition;
+  background: $tcon-color;
 }

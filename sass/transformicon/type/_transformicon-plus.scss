@@ -1,10 +1,10 @@
 .transformicon--plus {
-  width: $navicon-width;
-  height: $navicon-width;
-  border: $navicon-width/12 solid $navicon-plus-color;
-  border-radius: $navicon-circle-radius;
+  width: $tcon-width;
+  height: $tcon-width;
+  border: $tcon-width/12 solid $tcon-plus-color;
+  border-radius: $tcon-circle-radius;
   position: relative;
-  background: $navicon-bg;
+  background: $tcon-bg;
   &:before,
   &:after {
     content: "";
@@ -16,17 +16,17 @@
   }
   &:before,
   &:after {
-    border-radius: $navicon-radius;
+    border-radius: $tcon-radius;
     top: 50%;
     transform: translate(50%, -50%) rotate(0);
     width: 50%;
-    height: $navicon-width/12;
-    background: $navicon-plus-color;
+    height: $tcon-width/12;
+    background: $tcon-plus-color;
   }
   &:after {
     top: 50%;
     width: 50%;
-    height: $navicon-width/12;
+    height: $tcon-width/12;
     transform: translate(50%, -50%) rotate(90deg);
   }
   &.is--closed {

@@ -16,7 +16,7 @@
       &:after{
         transition: top .3s ease, transform .3s .5s ease;
         top:0;
-        width: $navicon-size;
+        width: $tcon-size;
       }
       &:before { transform: rotate3d(0,0,1,45deg); }
       &:after { transform: rotate3d(0,0,1,-45deg); }

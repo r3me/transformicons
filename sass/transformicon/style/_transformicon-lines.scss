@@ -1,21 +1,21 @@
 .transformicon {
-  padding: $navicon-size/2 $navicon-size/4;
-  transition: $navicon-transition;
+  padding: $tcon-size/2 $tcon-size/4;
+  transition: $tcon-transition;
 }
 
 .transformicon__lines {
-  @include navicon_lines;
+  @include tcon_lines;
   position: relative;
   &:before,
   &:after {
-   @include navicon_lines;
+   @include tcon_lines;
     position: absolute;
     left: 0;
     content: '';
-    transform-origin: $navicon-size/14 center;
+    transform-origin: $tcon-size/14 center;
   }
-  &:before { top: $navicon-size/4; }
-  &:after { top: -$navicon-size/4; }
+  &:before { top: $tcon-size/4; }
+  &:after { top: -$tcon-size/4; }
 
   .is--closed & {transform: scale3d(.8,.8,.8); }
 }

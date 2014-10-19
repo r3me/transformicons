@@ -1,12 +1,12 @@
 .transformicon-grid {
-  padding: $navicon-grid-base*2;
+  padding: $tcon-grid-base*2;
 
   .transformicon__grid-item {
-    width: $navicon-grid-base;
-    height: $navicon-grid-base;
-    background: $navicon-grid-color;
-    color: $navicon-grid-color; /* Not in use when the colors are specified below */
-    transition: $navicon-grid-transition;
+    width: $tcon-grid-base;
+    height: $tcon-grid-base;
+    background: $tcon-grid-color;
+    color: $tcon-grid-color; /* Not in use when the colors are specified below */
+    transition: $tcon-grid-transition;
   }
 
   &.is--closed {
@@ -19,27 +19,27 @@
 .transformicon-grid--rearrange {
   .transformicon__grid-item {
     box-shadow:
-      -($navicon-grid-base+$navicon-grid-space) 0 -($navicon-grid-base+$navicon-grid-space),
-      0 0 -($navicon-grid-base+$navicon-grid-space),
-      ($navicon-grid-base+$navicon-grid-space) (-($navicon-grid-base + $navicon-grid-space)),
-      -($navicon-grid-base+$navicon-grid-space) 0,
-      $navicon-grid-base+$navicon-grid-space 0,
-      -($navicon-grid-base+$navicon-grid-space) ($navicon-grid-base + $navicon-grid-space),
-      0 ($navicon-grid-base+$navicon-grid-space),
-      ($navicon-grid-base+$navicon-grid-space) ($navicon-grid-base + $navicon-grid-space);
+      -($tcon-grid-base+$tcon-grid-space) 0 -($tcon-grid-base+$tcon-grid-space),
+      0 0 -($tcon-grid-base+$tcon-grid-space),
+      ($tcon-grid-base+$tcon-grid-space) (-($tcon-grid-base + $tcon-grid-space)),
+      -($tcon-grid-base+$tcon-grid-space) 0,
+      $tcon-grid-base+$tcon-grid-space 0,
+      -($tcon-grid-base+$tcon-grid-space) ($tcon-grid-base + $tcon-grid-space),
+      0 ($tcon-grid-base+$tcon-grid-space),
+      ($tcon-grid-base+$tcon-grid-space) ($tcon-grid-base + $tcon-grid-space);
   }
 
   &.is--closed { 
     .transformicon__grid-item {
         box-shadow:
-          0 0 -$navicon-grid-base,
-          0 0 -$navicon-grid-base*2,
-          $navicon-grid-base 0,
-          -$navicon-grid-base*2 0,
-          $navicon-grid-base*2 0,
-          -$navicon-grid-base 0,
-          0 $navicon-grid-base*2,
-          0 $navicon-grid-base;
+          0 0 -$tcon-grid-base,
+          0 0 -$tcon-grid-base*2,
+          $tcon-grid-base 0,
+          -$tcon-grid-base*2 0,
+          $tcon-grid-base*2 0,
+          -$tcon-grid-base 0,
+          0 $tcon-grid-base*2,
+          0 $tcon-grid-base;
     }
   }
 }
@@ -47,14 +47,14 @@
 .transformicon-grid--collapse {
   .transformicon__grid-item {
     box-shadow:
-    -($navicon-grid-base+$navicon-grid-space) 0,
-    -($navicon-grid-base+$navicon-grid-space) ($navicon-grid-base+$navicon-grid-space),
-    $navicon-grid-base+$navicon-grid-space 0,
-    ($navicon-grid-base+$navicon-grid-space) (-($navicon-grid-base+$navicon-grid-space)),
-    0 0 -($navicon-grid-base+$navicon-grid-space),
-    -($navicon-grid-base+$navicon-grid-space) 0 -($navicon-grid-base+$navicon-grid-space),
-    0 ($navicon-grid-base+$navicon-grid-space),
-    ($navicon-grid-base+$navicon-grid-space) ($navicon-grid-base+$navicon-grid-space);
+    -($tcon-grid-base+$tcon-grid-space) 0,
+    -($tcon-grid-base+$tcon-grid-space) ($tcon-grid-base+$tcon-grid-space),
+    $tcon-grid-base+$tcon-grid-space 0,
+    ($tcon-grid-base+$tcon-grid-space) (-($tcon-grid-base+$tcon-grid-space)),
+    0 0 -($tcon-grid-base+$tcon-grid-space),
+    -($tcon-grid-base+$tcon-grid-space) 0 -($tcon-grid-base+$tcon-grid-space),
+    0 ($tcon-grid-base+$tcon-grid-space),
+    ($tcon-grid-base+$tcon-grid-space) ($tcon-grid-base+$tcon-grid-space);
   } 
 }
 
@@ -62,13 +62,13 @@
   &.is--closed {
     .transformicon__grid-item {
       box-shadow:
-      -$navicon-grid-base 0,
+      -$tcon-grid-base 0,
       0 0 transparent,
-      $navicon-grid-base 0,
+      $tcon-grid-base 0,
       0 0 transparent,
-      0 0 -$navicon-grid-base,
+      0 0 -$tcon-grid-base,
       0 0 transparent,
-      0 $navicon-grid-base,
+      0 $tcon-grid-base,
       0 0 transparent;
     }
   }

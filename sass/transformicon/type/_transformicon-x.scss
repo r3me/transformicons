@@ -9,7 +9,7 @@
       &:after {
         transform-origin: 50% 50%;
         top: 0;
-        width: $navicon-size;
+        width: $tcon-size;
       }
       &:before { transform: rotate3d(0, 0, 1, 45deg); }
       &:after { transform: rotate3d(0, 0, 1, -45deg); }
