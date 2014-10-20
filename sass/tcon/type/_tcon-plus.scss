@@ -43,6 +43,7 @@
 	width: $tcon-size;
 	height: $tcon-size;
 	position: relative;
+	transform: scale(1.25);
 
 	&:before,
 	&:after {

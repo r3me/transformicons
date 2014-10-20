@@ -1,0 +1,37 @@
+.tcon--check {
+	height: $tcon-size;
+	position: relative;
+	transform: scale(.75);
+	width: $tcon-size;
+
+	&:before,
+	&:after {
+		border-radius: 2px;
+		content: "";
+		display: block;
+		height: 10px;
+		margin: -5px 0 0 -17px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transition: $tcon-transition;
+		width: 34px;
+		background: black;
+	}
+
+	&:after {
+		transform: rotate(90deg);
+	}
+
+	&.is-transformed{
+		&:before {
+			transform: rotate(-135deg) translate(0px, -4px);
+			width: 22px;
+		}
+
+		&:after {
+			transform: rotate(-45deg) translate(4px, 4px); 
+			width:34px;
+		}
+	}
+}
