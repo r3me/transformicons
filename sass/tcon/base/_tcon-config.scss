@@ -1,24 +1,24 @@
-// Navigation
-$tcon-color: black !default;
+// Globals
+$tcon-size: 40px !default;
 $tcon-transition: .3s !default;
-$tcon-base: 1rem !default;
-$tcon-space: $tcon-base/4 !default;
-$tcon-size: 2rem !default;
-$tcon-radius: $tcon-size/14 !default;
+
+
+// Menu
+$tcon-menu-radius: $tcon-size/14 !default;
+$tcon-menu-color: black !default;
 
 
 // Grid
-$tcon-grid-color : black !default;
+$tcon-grid-color: black !default;
 $tcon-grid-transition: .3s !default;
-$tcon-grid-base : .5rem !default;
-$tcon-grid-space : $tcon-grid-base/4 !default;
+$tcon-grid-base: .5rem !default;
+$tcon-grid-space: $tcon-grid-base/4 !default;
 
 
 // Add/Remove
-$tcon-width: 40px;
-$tcon-bg: transparent;
+$tcon-plus-bg: transparent;
 $tcon-circle-radius: 80%;
-$tcon-radius: $tcon-width/8;
+$tcon-plus-radius: $tcon-size/8;
 $tcon-plus-color: black;
 
 

@@ -1,10 +1,9 @@
 .tcon--plus {
-	width: $tcon-width;
-	height: auto;
-	border: $tcon-width/12 solid $tcon-plus-color;
+	border: $tcon-size/12 solid $tcon-plus-color;
 	border-radius: $tcon-circle-radius;
 	position: relative;
-	background: $tcon-bg;
+	background: $tcon-plus-bg;
+
 	&:before,
 	&:after {
 		content: "";
@@ -15,32 +14,36 @@
 		left: 0;
 		transition: .3s all ease-in-out;
 	}
+
 	&:before,
 	&:after {
-		border-radius: $tcon-radius;
+		border-radius: $tcon-plus-radius;
 		top: 50%;
 		transform: translate(50%, -50%) rotate(0);
 		width: 50%;
-		height: $tcon-width/12;
+		height: $tcon-size/12;
 		background: $tcon-plus-color;
 	}
+
 	&:after {
 		top: 50%;
 		width: 50%;
-		height: $tcon-width/12;
+		height: $tcon-size/12;
 		transform: translate(50%, -50%) rotate(90deg);
 	}
+
 	&.is-transformed {
 		&:before{ transform: translate(50%, -50%) rotate(45deg); }
 		&:after{ transform: translate(50%, -50%) rotate(-45deg); }
 	}
 }
 
+
 .tcon--plusminus {
-	width: $tcon-width;
-	height: $tcon-width;
-	padding-left: 0;
+	width: $tcon-size;
+	height: $tcon-size;
 	position: relative;
+
 	&:before,
 	&:after {
 		content: "";
@@ -51,21 +54,24 @@
 		left: 0;
 		transition: .3s all ease-in-out;
 	}
+
 	&:before,
 	&:after {
-		border-radius: $tcon-radius;
+		border-radius: $tcon-plus-radius;
 		top: 50%;
 		transform: translate(50%, -50%) rotate(0);
 		width: 50%;
-		height: $tcon-width/12;
+		height: $tcon-size/12;
 		background: $tcon-plus-color;
 	}
+
 	&:after {
 		top: 50%;
 		width: 50%;
-		height: $tcon-width/12;
+		height: $tcon-size/12;
 		transform: translate(50%, -50%) rotate(90deg);
 	}
+
 	&.is-transformed {
 		&:after{ transform: translate(50%, -50%) rotate(0); }
 	}

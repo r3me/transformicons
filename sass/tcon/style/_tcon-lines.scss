@@ -1,19 +1,17 @@
-.tcon {
-	transition: $tcon-transition;
-}
-
 .tcon__lines {
-	@include tcon_lines;
+	@include tcon_menu_lines;
 	position: relative;
 
 	&:before,
 	&:after {
-	 @include tcon_lines;
+		content: '';
+		@include tcon_menu_lines;
 		position: absolute;
 		left: 0;
-		content: '';
+		width: 100%;
 		transform-origin: $tcon-size/14 center;
 	}
+
 	&:before { top: $tcon-size/4; }
 	&:after { top: -$tcon-size/4; }
 

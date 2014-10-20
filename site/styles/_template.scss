@@ -88,7 +88,7 @@ footer {
 	text-align: center;
 }
 
-.title {
+.tcon-title {
 	margin: 0;
 	text-align: center;
 	color: white;
@@ -102,13 +102,13 @@ footer {
 	}
 }
 
-.tagline {
+.tcon-tagline {
 	margin-top: 0;
 	margin-bottom: 48px;
 	color: white;
 }
 
-.buttons-container {
+.tcons-row {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -120,9 +120,5 @@ footer {
 
 	h3 {
 		color: #D40600;
-	}
-
-	.tcon--plus {
-		padding: 1.25rem 0;
 	}
 }

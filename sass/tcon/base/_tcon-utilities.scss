@@ -1,8 +1,8 @@
-@mixin tcon_lines {
-	border-radius: $tcon-radius;
+@mixin tcon_menu_lines {
+	border-radius: $tcon-menu-radius;
 	display: inline-block;
 	height: $tcon-size/7;
-	width: $tcon-size;
 	transition: $tcon-transition;
-	background: $tcon-color;
+	width: $tcon-size;
+	background: $tcon-menu-color;
 }

@@ -1,9 +1,15 @@
-## Required Javascript code
+## Required Javascript
 
-However the transformicons are mostly powered by CSS, a little piece of JavaScript is required to toggle the transformed states.
+Transformicons are mostly powered by CSS however, a little piece of JavaScript is required to toggle the transformed states.
 
 ```javascript
-function $$(selector, root) {
+var tconEvent = {
+	click: true,
+	touchstart: true
+};
+
+// Returns an array of nodes like jQuery
+function $tcon(selector, root) {
 	return Array.prototype.slice.call((root || document).querySelectorAll(selector));
 }
 
@@ -13,17 +19,12 @@ function toggleTcons(event) {
 	event.preventDefault();
 }
 
-var tconEvent = {
-	click: true,
-	touchstart: true
-};
-
 function handleTcons(tcon) {
 	for (var prop in tconEvent) {
 		tcon.addEventListener(prop, toggleTcons);
 	}
 }
 
-var tcons = $$('[data-tcon="button"]');
-tcons.forEach(handleTcons);
+var tcon_buttons = $tcon('[data-tcon="icon"]');
+tcon_buttons.forEach(handleTcons);
 ```

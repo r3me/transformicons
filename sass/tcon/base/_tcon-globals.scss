@@ -1,11 +1,15 @@
 [data-tcon="icon"] {
+	appearance: none;
+	border: none;
 	cursor: pointer;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 40px;
-	speak: none;
-	width: 40px;
+	height: $tcon-size;
+	transition: $tcon-transition;
+	width: $tcon-size;
+	user-select: none;
+	background: transparent;
 	> * { display: block; }
 	&:focus { outline: none; }
 }

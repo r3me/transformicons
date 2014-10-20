@@ -18,9 +18,15 @@
 		<h1>Transformicons -- Documentation</h1>    
 		
 			<section class="fragment">
-				<h2 id="required-javascript-code">Required Javascript code</h2>
-<p>However the transformicons are mostly powered by CSS, a little piece of JavaScript is required to toggle the transformed states.</p>
-<pre><code class="lang-javascript">function $$(selector, root) {
+				<h2 id="required-javascript">Required Javascript</h2>
+<p>Transformicons are mostly powered by CSS however, a little piece of JavaScript is required to toggle the transformed states.</p>
+<pre><code class="lang-javascript">var tconEvent = {
+    click: true,
+    touchstart: true
+};
+
+// Returns an array of nodes like jQuery
+function $tcon(selector, root) {
     return Array.prototype.slice.call((root || document).querySelectorAll(selector));
 }
 
@@ -30,28 +36,24 @@ function toggleTcons(event) {
     event.preventDefault();
 }
 
-var tconEvent = {
-    click: true,
-    touchstart: true
-};
-
 function handleTcons(tcon) {
     for (var prop in tconEvent) {
         tcon.addEventListener(prop, toggleTcons);
     }
 }
 
-var tcons = $$(&#39;[data-tcon=&quot;button&quot;]&#39;);
-tcons.forEach(handleTcons);
+var tcon_buttons = $tcon(&#39;[data-tcon=&quot;icon&quot;]&#39;);
+tcon_buttons.forEach(handleTcons);
 </code></pre>
 
 			</section>
 		
 			<section class="fragment">
-				<h2 id="the-transformicons">The transformicons</h2>
-<h3 id="the-minus">The Minus</h3>
-<h4 id="required-markup">Required markup</h4>
-<pre><code class="lang-markup">&lt;span data-tcon=&quot;icon&quot; class=&quot;&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+				<h2 id="transformicons-markup">Transformicons Markup</h2>
+<h3 id="menu">Menu</h3>
+<pre><code class="lang-markup">&lt;button type=&quot;button&quot; data-tcon=&quot;icon&quot; class=&quot;tcon tcon-x&quot; aria-label=&quot;toggle menu&quot;&gt;
+    &lt;span class=&quot;tcon__lines&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+&lt;/button&gt;
 </code></pre>
 
 			</section>

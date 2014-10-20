@@ -1,7 +1,9 @@
-## The transformicons
-### The Minus
-#### Required markup
+## Transformicons Markup
+
+### Menu
 
 ```markup
-<span data-tcon="icon" class="" aria-hidden="true"></span>
+<button type="button" data-tcon="icon" class="tcon tcon-x" aria-label="toggle menu">
+	<span class="tcon__lines" aria-hidden="true"></span>
+</button>
 ```
