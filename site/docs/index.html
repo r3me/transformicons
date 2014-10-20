@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Transformicons - Docs</title>
+
+		<style>
+			body {
+				width: 80%;
+				margin: 8px auto;
+				font-size: 110%;
+				font-family: Helvetica;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Transformicons -- Documentation</h1>    
+		
+			<section class="fragment">
+				<h2 id="required-javascript-code">Required Javascript code</h2>
+<p>However the transformicons are mostly powered by Sass (CSS), a little piece of javascript is required.</p>
+<pre><code>    var transformicon = document.querySelectorAll(&#39;[data-transformicon=&quot;button&quot;]&#39;);
+
+    [].forEach.call(transformicon, function(transformicon){
+        var open = false;
+
+        transformicon.onclick = function(event){2
+            event.preventDefault();
+
+            if(!open) {
+                this.classList.add(&#39;is--closed&#39;);
+                open = true;
+            } else {
+                this.classList.remove(&#39;is--closed&#39;);
+                open = false;
+            }
+        }
+    });
+</code></pre>
+			</section>
+		
+			<section class="fragment">
+				<h2 id="the-transformicons">The transformicons</h2>
+<h3 id="the-minus">The Minus</h3>
+<h4 id="required-markup">Required markup</h4>
+<pre><code>    &lt;button type=&quot;button&quot; role=&quot;button&quot; aria-label=&quot;&quot; data-transformicon=&quot;button&quot; class=&quot;transformicon transformicon-minus&quot;&gt;
+        &lt;span class=&quot;transformicon__lines&quot;&gt;&lt;/span&gt;
+    &lt;/button&gt;
+</code></pre>
+			</section>
+		
+	</body>
+</html>
