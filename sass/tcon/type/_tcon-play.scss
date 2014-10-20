@@ -24,13 +24,15 @@
 	@include tcon_triangle(right, 24px, black);
 	padding: 0;
 	transition: .3s all ease-in-out;
+	transform: translateX(50%);
 
 	&.is-transformed {
 		@include tcon_triangle(inherit, inherit, transparent);
 		border: inherit solid transparent;
 		background: black;
-		height: auto;
+		height: 48px;
 		width: 48px;
+		transform: translateX(0);
 	}
 }
 

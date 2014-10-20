@@ -12,6 +12,7 @@
 	<header role="banner">
 		<h1 class="title">Transformicons</h1>
 		<p class="tagline">Presented in a neatly packaged Sass library</p>
+
 		<nav role="navigation">
 			<a href="#">Package Builder</a>
 			<a href="#">Documentation</a>
@@ -74,23 +75,33 @@
 	</footer>
 
 	<script>
-		var tcon = document.querySelectorAll('[data-tcon="button"]');
+		// Transformicons State Handling
+		//
+		// @function
+		// $$ - returns an array of nodes like jQuery
+		function $$(selector, root) {
+			return Array.prototype.slice.call((root || document).querySelectorAll(selector));
+		}
 
-		[].forEach.call(tcon, function(tcon){
-			var open = false;
+		function toggleTcons(event) {
+			var tcon_state = 'is-transformed';
+			this.classList[this.classList.contains(tcon_state) ? 'remove' : 'add'](tcon_state);
+			event.preventDefault();
+		}
 
-			tcon.onclick = function(event){
-				event.preventDefault();
+		var tconEvent = {
+			click: true,
+			touchstart: true
+		};
 
-				if(!open) {
-					this.classList.add('is-transformed');
-					open = true;
-				} else {
-					this.classList.remove('is-transformed');
-					open = false;
-				}
+		function handleTcons(tcon) {
+			for (var prop in tconEvent) {
+				tcon.addEventListener(prop, toggleTcons);
 			}
-		});
+		}
+
+		var tcon_buttons = $$('[data-tcon="button"]');
+		tcon_buttons.forEach(handleTcons);
 	</script>
 </body>
 </html>

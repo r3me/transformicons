@@ -20,23 +20,29 @@
 			<section class="fragment">
 				<h2 id="required-javascript-code">Required Javascript code</h2>
 <p>However the transformicons are mostly powered by CSS, a little piece of JavaScript is required to toggle the transformed states.</p>
-<pre><code class="lang-javascript">    var transformicon = document.querySelectorAll(&#39;[data-transformicon=&quot;button&quot;]&#39;);
+<pre><code class="lang-javascript">function $$(selector, root) {
+    return Array.prototype.slice.call((root || document).querySelectorAll(selector));
+}
 
-    [].forEach.call(transformicon, function(transformicon) {
-        var open = false;
+function toggleTcons(event) {
+    var tcon_state = &#39;is-transformed&#39;;
+    this.classList[this.classList.contains(tcon_state) ? &#39;remove&#39; : &#39;add&#39;](tcon_state);
+    event.preventDefault();
+}
 
-        transformicon.onclick = function(event) {
-            event.preventDefault();
+var tconEvent = {
+    click: true,
+    touchstart: true
+};
 
-            if(!open) {
-                this.classList.add(&#39;is-transformed&#39;);
-                open = true;
-            } else {
-                this.classList.remove(&#39;is-transformed&#39;);
-                open = false;
-            }
-        }
-    });
+function handleTcons(tcon) {
+    for (var prop in tconEvent) {
+        tcon.addEventListener(prop, toggleTcons);
+    }
+}
+
+var tcons = $$(&#39;[data-tcon=&quot;button&quot;]&#39;);
+tcons.forEach(handleTcons);
 </code></pre>
 
 			</section>
