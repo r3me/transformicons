@@ -12,7 +12,6 @@ Transformicons : Animated CSS Icons
 Install dependencies
 
 ```bash
-$ bundle install
 $ npm install
 ```
 
