@@ -1,10 +1,11 @@
-[data-tcon="button"] {
-	// display: inline-block;
-	display: table;
-	border: none;
-	background: none;
+[data-tcon="icon"] {
 	cursor: pointer;
-	user-select: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 40px;
+	speak: none;
+	width: 40px;
 	> * { display: block; }
 	&:focus { outline: none; }
 }

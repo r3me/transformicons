@@ -17,7 +17,6 @@ body {
 
 body {
 	background: white;
-	color: lighten(#12171A, 30%);
 	font-family: "Source Sans pro", sans-serif;
 }
 
@@ -50,7 +49,6 @@ header {
 	height: 50vh;
 	padding: 10px 0;
 	width: 100%;
-	// background: #FDDF05;
 	background: #D40600;
 }
 
@@ -121,12 +119,7 @@ footer {
 	text-align: center;
 
 	h3 {
-		// color: #FDDF05;
 		color: #D40600;
-	}
-
-	[data-tcon="button"] {
-		margin: 0 1em;
 	}
 
 	.tcon--plus {

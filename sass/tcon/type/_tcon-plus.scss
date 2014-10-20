@@ -1,6 +1,6 @@
 .tcon--plus {
 	width: $tcon-width;
-	height: $tcon-width;
+	height: auto;
 	border: $tcon-width/12 solid $tcon-plus-color;
 	border-radius: $tcon-circle-radius;
 	position: relative;
@@ -12,6 +12,7 @@
 		width: 100%;
 		height: 100%;
 		position: absolute;
+		left: 0;
 		transition: .3s all ease-in-out;
 	}
 	&:before,
@@ -47,6 +48,7 @@
 		width: 100%;
 		height: 100%;
 		position: absolute;
+		left: 0;
 		transition: .3s all ease-in-out;
 	}
 	&:before,

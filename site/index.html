@@ -23,49 +23,49 @@
 	<main role="main">
 		<div class="buttons-container">
 			<h3>Navigation</h3>
-			<button type="button" role="button" aria-label="" data-tcon="button" class="tcon tcon-x">
+			<span data-tcon="icon" class="tcon tcon-x" aria-hidden="true">
 				<span class="tcon__lines"></span>
-			</button>
+			</span>
 
-			<button type="button" role="button" aria-label="" data-tcon="button" class="tcon tcon-x2">
+			<span data-tcon="icon" class="tcon tcon-x2" aria-hidden="true">
 				<span class="tcon__lines"></span>
-			</button>
+			</span>
 
-			<button type="button" role="button" aria-label="" data-tcon="button" class="tcon tcon-arrow tcon-arrow--up">
+			<span data-tcon="icon" class="tcon tcon-arrow tcon-arrow--up" aria-hidden="true">
 				<span class="tcon__lines"></span>
-			</button>
+			</span>
 
-			<button type="button" role="button" aria-label="" data-tcon="button" class="tcon tcon-arrow">
+			<span data-tcon="icon" class="tcon tcon-arrow" aria-hidden="true">
 				<span class="tcon__lines"></span>
-			</button>
+			</span>
 
-			<button type="button" role="button" aria-label="" data-tcon="button" class="tcon tcon-minus">
+			<span data-tcon="icon" class="tcon tcon-minus" aria-hidden="true">
 				<span class="tcon__lines"></span>
-			</button>
+			</span>
 		</div>
 
 		<div class="buttons-container">
 			<h3>Grid</h3>
-			<button type="button" role="button" aria-label="" data-tcon="button" class="tcon-grid tcon-grid--rearrange">
+			<span data-tcon="icon" class="tcon-grid tcon-grid--rearrange" aria-hidden="true">
 				<span class="tcon__grid-item"></span>
-			</button>
+			</span>
 
-			<button type="button" role="button" aria-label="" data-tcon="button" class="tcon-grid tcon-grid--collapse">
+			<span data-tcon="icon" class="tcon-grid tcon-grid--collapse" aria-hidden="true">
 				<span class="tcon__grid-item"></span>
-			</button>
+			</span>
 		</div>
 
 		<div class="buttons-container">
 			<h3>Add/Remove</h3>
-			<button type="button" role="button" aria-label="" data-tcon="button" class="tcon tcon--plusminus"></button>
-			<button type="button" role="button" aria-label="" data-tcon="button" class="tcon tcon--plus"></button>
+			<span data-tcon="icon" class="tcon tcon--plusminus" aria-hidden="true"></span>
+			<span data-tcon="icon" class="tcon tcon--plus" aria-hidden="true"></span>
 		</div>
 
 		<!-- Video -->
 		<div class="buttons-container">
 			<h3>Video</h3>
-			<!-- <button type="button" role="button" aria-label="" data-tcon="button" class="tcon tcon--playpause"></button> -->
-			<button type="button" role="button" aria-label="" data-tcon="button" class="tcon tcon--play"></button>
+			<!-- <span data-tcon="icon" class="tcon tcon--playpause" aria-hidden="true"></span> -->
+			<span data-tcon="icon" class="tcon tcon--play" aria-hidden="true"></span>
 		</div>
 	</main>
 
@@ -75,11 +75,13 @@
 	</footer>
 
 	<script>
-		// Transformicons State Handling
-		//
-		// @function
-		// $$ - returns an array of nodes like jQuery
-		function $$(selector, root) {
+		var tconEvent = {
+			click: true,
+			touchstart: true
+		};
+
+		// Returns an array of nodes like jQuery
+		function $tcon(selector, root) {
 			return Array.prototype.slice.call((root || document).querySelectorAll(selector));
 		}
 
@@ -89,18 +91,13 @@
 			event.preventDefault();
 		}
 
-		var tconEvent = {
-			click: true,
-			touchstart: true
-		};
-
 		function handleTcons(tcon) {
 			for (var prop in tconEvent) {
 				tcon.addEventListener(prop, toggleTcons);
 			}
 		}
 
-		var tcon_buttons = $$('[data-tcon="button"]');
+		var tcon_buttons = $tcon('[data-tcon="icon"]');
 		tcon_buttons.forEach(handleTcons);
 	</script>
 </body>

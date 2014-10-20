@@ -1,13 +1,9 @@
 .tcon {
-	padding: $tcon-size/2 $tcon-size/4;
 	transition: $tcon-transition;
 }
 
 .tcon__lines {
 	@include tcon_lines;
-
-	display: table-cell;
-
 	position: relative;
 
 	&:before,
