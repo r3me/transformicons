@@ -33,3 +33,19 @@
 		width: 48px;
 	}
 }
+
+// .tcon--playpause {
+// 	@include tcon_triangle(right, 24px, black);
+// 	padding: 0;
+// 	transition: .3s all ease-in-out;
+
+// 	&.is-transformed {
+// 		@include tcon_triangle(inherit, inherit, transparent);
+// 		border: inherit solid transparent;
+// 		background: black;
+// 		height: auto;
+// 		width: 48px;
+// 		&:before {}
+// 		&:after {}
+// 	}
+// }

@@ -5,7 +5,11 @@
 
 .tcon__lines {
 	@include tcon_lines;
+
+	display: table-cell;
+
 	position: relative;
+
 	&:before,
 	&:after {
 	 @include tcon_lines;

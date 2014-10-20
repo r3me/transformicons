@@ -1,9 +1,10 @@
 [data-tcon="button"] {
-	display: inline-block;
+	// display: inline-block;
+	display: table;
 	border: none;
 	background: none;
 	cursor: pointer;
 	user-select: none;
 	> * { display: block; }
-	&:focus { outline: 1px dotted gray; }
+	&:focus { outline: none; }
 }
