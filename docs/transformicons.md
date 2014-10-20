@@ -2,8 +2,8 @@
 ### The Minus
 #### Required markup
 
-``` 
-	<button type="button" role="button" aria-label="" data-transformicon="button" class="transformicon transformicon-minus">
+```markup
+	<button type="button" data-transformicon="button" class="transformicon transformicon-minus" aria-label="" role="button">
 		<span class="transformicon__lines"></span>
 	</button>
 ```

@@ -19,35 +19,37 @@
 		
 			<section class="fragment">
 				<h2 id="required-javascript-code">Required Javascript code</h2>
-<p>However the transformicons are mostly powered by Sass (CSS), a little piece of javascript is required.</p>
-<pre><code>    var transformicon = document.querySelectorAll(&#39;[data-transformicon=&quot;button&quot;]&#39;);
+<p>However the transformicons are mostly powered by CSS, a little piece of JavaScript is required to toggle the transformed states.</p>
+<pre><code class="lang-javascript">    var transformicon = document.querySelectorAll(&#39;[data-transformicon=&quot;button&quot;]&#39;);
 
-    [].forEach.call(transformicon, function(transformicon){
+    [].forEach.call(transformicon, function(transformicon) {
         var open = false;
 
-        transformicon.onclick = function(event){2
+        transformicon.onclick = function(event) {
             event.preventDefault();
 
             if(!open) {
-                this.classList.add(&#39;is--closed&#39;);
+                this.classList.add(&#39;is-transformed&#39;);
                 open = true;
             } else {
-                this.classList.remove(&#39;is--closed&#39;);
+                this.classList.remove(&#39;is-transformed&#39;);
                 open = false;
             }
         }
     });
 </code></pre>
+
 			</section>
 		
 			<section class="fragment">
 				<h2 id="the-transformicons">The transformicons</h2>
 <h3 id="the-minus">The Minus</h3>
 <h4 id="required-markup">Required markup</h4>
-<pre><code>    &lt;button type=&quot;button&quot; role=&quot;button&quot; aria-label=&quot;&quot; data-transformicon=&quot;button&quot; class=&quot;transformicon transformicon-minus&quot;&gt;
+<pre><code class="lang-markup">    &lt;button type=&quot;button&quot; data-transformicon=&quot;button&quot; class=&quot;transformicon transformicon-minus&quot; aria-label=&quot;&quot; role=&quot;button&quot;&gt;
         &lt;span class=&quot;transformicon__lines&quot;&gt;&lt;/span&gt;
     &lt;/button&gt;
 </code></pre>
+
 			</section>
 		
 	</body>
