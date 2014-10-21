@@ -120,7 +120,16 @@ footer {
 	padding: 25px 0;
 	text-align: center;
 
+	> div {
+		flex: 1;
+		display: flex;
+		justify-content: space-between;
+	}
+
 	h3 {
+		display: flex;
+		flex: 1;
+		justify-content: flex-start;
 		color: #D40600;
 	}
 }
