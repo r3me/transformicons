@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Transformicons - Docs</title>
+		<link rel="stylesheet" href="prism.css">
 
 		<style>
 			body {
@@ -12,14 +13,20 @@
 				font-size: 110%;
 				font-family: Helvetica;
 			}
+
+			[data-language] {
+				font-size: 14px;
+			}
 		</style>
 	</head>
 	<body>
-		<h1><%- title %></h1>    
+		<h1><%- title %></h1>
 		<% _.forEach(fragments, function(fragment) { %>
 			<section class="fragment">
 				<%= fragment.body %>
 			</section>
 		<% }) %>
+
+		<script src="prism.js"></script>
 	</body>
 </html>
