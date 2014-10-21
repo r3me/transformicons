@@ -24,11 +24,13 @@
 .tcon--play {
 	@include tcon_triangle(right, 20px, black);
 	padding: 0;
+	width: $tcon-size;
 
 	&.is-transformed {
 		@include tcon_triangle(inherit, inherit, transparent);
-		background: black;
 		width: $tcon-size;
+		transform: rotate(180deg);
+		background: black;
 	}
 }
 
