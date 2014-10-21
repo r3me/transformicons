@@ -18,7 +18,7 @@ $ npm install
 Start a server and watch Sass files
 
 ```bash
-$ gulp
+$ npm start
 ```
 
 --
