@@ -6,7 +6,7 @@
         // Browser global
         root.transformicons = factory();
     }
-}(this || window, x = function () {
+}(this || window, function () {
 
 	// MODULE TRANSFORMICON
 	"use strict";
