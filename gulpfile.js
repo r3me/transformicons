@@ -21,13 +21,13 @@ gulp.task('serve', function() {
 
 // Compiling
 gulp.task('sass', function() {
-  gulp.src('site/styles/style.scss')
+  gulp.src('site/css/src/style.scss')
     .pipe($.sass())
     .pipe($.autoprefixer({
       browsers: ['last 2 versions'],
       cascade: false
     }))
-    .pipe(gulp.dest('site/styles'));
+    .pipe(gulp.dest('site/css'));
 });
 
 

@@ -111,7 +111,7 @@ footer {
   color: white;
 }
 
-.tcons-row {
+.tcon-row {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -125,7 +125,7 @@ footer {
     box-shadow: none;
   }
 
-  > div {
+  .tcon-row__items {
     flex: 1;
     display: flex;
     justify-content: space-between;
