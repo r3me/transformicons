@@ -20,3 +20,17 @@ $tcon-plus-bg: transparent;
 $tcon-circle-radius: 80%;
 $tcon-plus-radius: ($tcon-size / 8);
 $tcon-plus-color: black;
+
+
+// Loader
+$spinner_speed: .675s;
+$spinner_radius: 80%;
+$spinner_fill_radius: 90px;
+
+$spinner_size: 50px;
+$spinner_thickness: 10px;
+$spinner_inner_circle: $spinner_size - $spinner_thickness;
+
+$spinner_color: black;
+$spinner_bg: lightgray;
+$spinner_inner_bg: white;

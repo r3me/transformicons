@@ -1,8 +1,8 @@
-.tcon--check {
-  position: relative;
+.tcon--plusck {
   height: $tcon-size;
-  width: $tcon-size;
+  position: relative;
   transform: scale(.75);
+  width: $tcon-size;
 
   &::before,
   &::after {
@@ -19,22 +19,36 @@
     background: black;
   }
 
-  &::after {
+  &:after {
     transform: rotate(90deg);
   }
+}
 
-  &.is-transformed {
 
-    &::before {
+.tcon--plus-check {
+  &.is-transformed{
+    &:before {
       transform: rotate(-135deg) translate(0px, -4px);
       width: 22px;
     }
 
-    &::after {
-      transform: rotate(-45deg) translate(4px, 4px);
+    &:after {
+      transform: rotate(-45deg) translate(4px, 4px); 
       width:34px;
     }
-
   }
+}
 
+
+.tcon--plus-minus {
+  &.is-transformed{
+    &:before {
+      transform: rotate(180deg) translate(0px, 0);
+      width:19px;
+    }
+    &:after {
+      transform: rotate(-180deg) translate(-15px, 0); 
+      width:19px;
+    }
+  }
 }
