@@ -7,7 +7,13 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width">
 	<link rel="stylesheet" href="styles/style.css">
-	<script type="text/javascript" src="javascript/transformicons.js"></script>
+	<script type="text/javascript" src="javascript/transformicons-live.js"></script>
+	<script type="text/javascript">
+		transformicons.config({
+			eventTransform : "mouseover touchstart",
+			eventRevert : "mouseout touchend"
+		});
+	</script>
 </head>
 <body>
 	<header role="banner">
@@ -81,10 +87,6 @@
 		<small>Props to <a href="//bennettfeely.com">Bennett Feely</a> and <a href="//sarasoueidan.com">Sara Soueidan</a>. Licensed under <a href="//opensource.org/licenses/MIT">MIT</a></small>
 		<small>Read the <a href="//sarasoueidan.com/blog/navicon-transformicons">article</a> on making transformicons by Sara Soueidan</small>
 	</footer>
-
-	<script type="text/javascript">
-		transformicons.init();
-	</script>
 
 </body>
 </html>
