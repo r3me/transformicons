@@ -1,19 +1,27 @@
 .tcon__lines {
-	@include tcon_menu_lines;
-	position: relative;
+  @include tcon_menu_lines;
+  position: relative;
 
-	&:before,
-	&:after {
-		content: '';
-		@include tcon_menu_lines;
-		position: absolute;
-		left: 0;
-		width: 100%;
-		transform-origin: $tcon-size/14 center;
-	}
+  &::before,
+  &::after {
+    @include tcon_menu_lines;
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    transform-origin: ($tcon-size / 14) center;
+  }
 
-	&:before { top: $tcon-size/4; }
-	&:after { top: -$tcon-size/4; }
+  &::before {
+    top: ($tcon-size / 4);
+  }
 
-	.is-transformed & {transform: scale3d(.8,.8,.8); }
+  &::after {
+    top: -($tcon-size / 4);
+  }
+
+  .is-transformed & {
+    transform: scale3d(.8, .8, .8);
+  }
+
 }

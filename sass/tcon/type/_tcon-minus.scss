@@ -1,13 +1,19 @@
 .tcon-minus {
-	width: auto;
-	&.is-transformed {
-		.tcon__lines {
-			&:before,
-			&:after {
-				transform: none;
-				top:0;
-				width: $tcon-size;
-			}
-		}
-	}
+  width: auto;
+
+  &.is-transformed {
+
+    .tcon__lines {
+
+      &::before,
+      &::after {
+        transform: none;
+        top:0;
+        width: $tcon-size;
+      }
+
+    }
+
+  }
+
 }

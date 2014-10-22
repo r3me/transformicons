@@ -4,7 +4,7 @@ $tcon-transition: .3s !default;
 
 
 // Menu
-$tcon-menu-radius: $tcon-size/14 !default;
+$tcon-menu-radius: ($tcon-size / 14) !default;
 $tcon-menu-color: black !default;
 
 
@@ -12,14 +12,11 @@ $tcon-menu-color: black !default;
 $tcon-grid-color: black !default;
 $tcon-grid-transition: .3s !default;
 $tcon-grid-base: .5rem !default;
-$tcon-grid-space: $tcon-grid-base/4 !default;
+$tcon-grid-space: ($tcon-grid-base / 4) !default;
 
 
 // Add/Remove
 $tcon-plus-bg: transparent;
 $tcon-circle-radius: 80%;
-$tcon-plus-radius: $tcon-size/8;
+$tcon-plus-radius: ($tcon-size / 8);
 $tcon-plus-color: black;
-
-
-// Video
