@@ -1,52 +1,25 @@
-@mixin tcon_triangle($point, $border-width, $color) {
-	border: $border-width solid transparent;
-		@if $point == left {
-		border-#{right}: $border-width solid $color;
-	}
-	@if $point == right {
-		border-#{left}: $border-width solid $color;
-	}
-	@if $point == top {
-		border-#{bottom}: $border-width solid $color;
-	}
-	@if $point == bottom {
-		border-#{top}: $border-width solid $color;
-	}
-	@else if $point == null {
-		border: none;
-	}
-	border-#{$point}: 0;
-	height: 0;
-	width: 0;
-}
-
+// http://triangle.designyourcode.io
+$color: black;
 
 .tcon--play {
-	@include tcon_triangle(right, 20px, black);
-	padding: 0;
-	width: $tcon-size;
-
-	&.is-transformed {
-		@include tcon_triangle(inherit, inherit, transparent);
-		width: $tcon-size;
-		transform: rotate(180deg);
-		background: black;
-	}
+  cursor: pointer;
+  padding-top: 0;
+  padding-bottom: 0;
+  width: $tcon-size;
+  height: $tcon-size;
+  transition: .3s all ease-in-out;
+  transform-origin: center center;
+  &:after {
+    border-style: solid;
+    border-width: $tcon-size/2 0 $tcon-size/2 $tcon-size/2;
+    border-color: transparent transparent transparent $color;
+    content: "";
+    display: block;
+    height: 0;
+    width: $tcon-size;
+  }
+  &.is-transformed {
+    background: $color;
+    transform: rotate(-360deg);
+  }
 }
-
-
-// .tcon--playpause {
-// 	@include tcon_triangle(right, 24px, black);
-// 	padding: 0;
-// 	transition: .3s all ease-in-out;
-
-// 	&.is-transformed {
-// 		@include tcon_triangle(inherit, inherit, transparent);
-// 		border: inherit solid transparent;
-// 		background: black;
-// 		height: auto;
-// 		width: 48px;
-// 		&:before {}
-// 		&:after {}
-// 	}
-// }
