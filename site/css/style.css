@@ -206,7 +206,7 @@ footer {
     position: static;
     width: auto; }
 
-.tcon__lines {
+.tcon-menu__lines {
   display: inline-block;
   height: 5.71429px;
   width: 40px;
@@ -214,7 +214,7 @@ footer {
   transition: 0.3s;
   background: black;
   position: relative; }
-  .tcon__lines::before, .tcon__lines::after {
+  .tcon-menu__lines::before, .tcon-menu__lines::after {
     display: inline-block;
     height: 5.71429px;
     width: 40px;
@@ -227,104 +227,104 @@ footer {
     width: 100%;
     -webkit-transform-origin: 2.85714px center;
     transform-origin: 2.85714px center; }
-  .tcon__lines::before {
+  .tcon-menu__lines::before {
     top: 10px; }
-  .tcon__lines::after {
+  .tcon-menu__lines::after {
     top: -10px; }
-  .is-transformed .tcon__lines {
+  .is-transformed .tcon-menu__lines {
     -webkit-transform: scale3d(0.8, 0.8, 0.8);
     transform: scale3d(0.8, 0.8, 0.8); }
 
 .tcon-grid {
   padding: 1rem; }
-  .tcon-grid .tcon__grid-item {
+  .tcon-grid .tcon-grid__item {
     width: 0.5rem;
     height: 0.5rem;
     background: black;
     color: black;
     transition: 0.3s; }
 
-.tcon-grid.is-transformed .tcon__grid-item {
+.tcon-grid.is-transformed .tcon-grid__item {
   -webkit-transform: rotate3d(0, 0, 1, -45deg) scale3d(0.8, 0.8, 0.8);
   transform: rotate3d(0, 0, 1, -45deg) scale3d(0.8, 0.8, 0.8); }
 
-.tcon-grid.tcon-grid--rearrange .tcon__grid-item {
+.tcon-grid--rearrange .tcon-grid__item {
   box-shadow: -0.625rem -0.625rem, 0 -0.625rem, 0.625rem -0.625rem, -0.625rem 0, 0.625rem 0, -0.625rem 0.625rem, 0 0.625rem, 0.625rem 0.625rem; }
 
-.tcon-grid--rearrange.is-transformed .tcon__grid-item {
+.tcon-grid--rearrange.is-transformed .tcon-grid__item {
   box-shadow: 0 -0.5rem, 0 -1rem, 0.5rem 0, -1rem 0, 1rem 0, -0.5rem 0, 0 1rem, 0 0.5rem; }
 
-.tcon-grid--collapse .tcon__grid-item {
+.tcon-grid--collapse .tcon-grid__item {
   box-shadow: -0.625rem 0, -0.625rem 0.625rem, 0.625rem 0, 0.625rem -0.625rem, 0 -0.625rem, -0.625rem -0.625rem, 0 0.625rem, 0.625rem 0.625rem; }
 
-.tcon-grid--collapse.is-transformed .tcon__grid-item {
+.tcon-grid--collapse.is-transformed .tcon-grid__item {
   box-shadow: -0.5rem 0, 0 0 transparent, 0.5rem 0, 0 0 transparent, 0 -0.5rem, 0 0 transparent, 0 0.5rem, 0 0 transparent; }
 
-.tcon-x {
+.tcon-menu--xcross {
   width: auto; }
-  .tcon-x.is-transformed .tcon__lines {
+  .tcon-menu--xcross.is-transformed .tcon-menu__lines {
     background: transparent; }
-    .tcon-x.is-transformed .tcon__lines::before, .tcon-x.is-transformed .tcon__lines::after {
+    .tcon-menu--xcross.is-transformed .tcon-menu__lines::before, .tcon-menu--xcross.is-transformed .tcon-menu__lines::after {
       -webkit-transform-origin: 50% 50%;
       transform-origin: 50% 50%;
       top: 0;
       width: 40px; }
-    .tcon-x.is-transformed .tcon__lines::before {
+    .tcon-menu--xcross.is-transformed .tcon-menu__lines::before {
       -webkit-transform: rotate3d(0, 0, 1, 45deg);
       transform: rotate3d(0, 0, 1, 45deg); }
-    .tcon-x.is-transformed .tcon__lines::after {
+    .tcon-menu--xcross.is-transformed .tcon-menu__lines::after {
       -webkit-transform: rotate3d(0, 0, 1, -45deg);
       transform: rotate3d(0, 0, 1, -45deg); }
 
-.tcon-x2 {
+.tcon-menu--xbutterfly {
   width: auto; }
-  .tcon-x2 .tcon__lines {
+  .tcon-menu--xbutterfly .tcon-menu__lines {
     transition: background 0.3s 0.5s ease; }
-    .tcon-x2 .tcon__lines::before, .tcon-x2 .tcon__lines::after {
+    .tcon-menu--xbutterfly .tcon-menu__lines::before, .tcon-menu--xbutterfly .tcon-menu__lines::after {
       -webkit-transform-origin: 50% 50%;
       transform-origin: 50% 50%;
       transition: top 0.3s 0.6s ease, -webkit-transform 0.3s ease;
       transition: top 0.3s 0.6s ease, transform 0.3s ease; }
-  .tcon-x2.is-transformed .tcon__lines {
+  .tcon-menu--xbutterfly.is-transformed .tcon-menu__lines {
     transition: background 0.3s 0s ease;
     background: transparent; }
-    .tcon-x2.is-transformed .tcon__lines::before, .tcon-x2.is-transformed .tcon__lines::after {
+    .tcon-menu--xbutterfly.is-transformed .tcon-menu__lines::before, .tcon-menu--xbutterfly.is-transformed .tcon-menu__lines::after {
       transition: top 0.3s ease, -webkit-transform 0.3s 0.5s ease;
       transition: top 0.3s ease, transform 0.3s 0.5s ease;
       top: 0;
       width: 40px; }
-    .tcon-x2.is-transformed .tcon__lines::before {
+    .tcon-menu--xbutterfly.is-transformed .tcon-menu__lines::before {
       -webkit-transform: rotate3d(0, 0, 1, 45deg);
       transform: rotate3d(0, 0, 1, 45deg); }
-    .tcon-x2.is-transformed .tcon__lines::after {
+    .tcon-menu--xbutterfly.is-transformed .tcon-menu__lines::after {
       -webkit-transform: rotate3d(0, 0, 1, -45deg);
       transform: rotate3d(0, 0, 1, -45deg); }
 
-.tcon-arrow {
+.tcon-menu--arrow, .tcon-menu--arrowleft {
   width: auto; }
-  .tcon-arrow.is-transformed .tcon__lines::before, .tcon-arrow.is-transformed .tcon__lines::after {
+  .tcon-menu--arrow.is-transformed .tcon-menu__lines::before, .is-transformed.tcon-menu--arrowleft .tcon-menu__lines::before, .tcon-menu--arrow.is-transformed .tcon-menu__lines::after, .is-transformed.tcon-menu--arrowleft .tcon-menu__lines::after {
     top: 0;
     width: 22.22222px; }
-  .tcon-arrow.is-transformed .tcon__lines::before {
+  .tcon-menu--arrow.is-transformed .tcon-menu__lines::before, .is-transformed.tcon-menu--arrowleft .tcon-menu__lines::before {
     -webkit-transform: rotate3d(0, 0, 1, 45deg);
     transform: rotate3d(0, 0, 1, 45deg); }
-  .tcon-arrow.is-transformed .tcon__lines::after {
+  .tcon-menu--arrow.is-transformed .tcon-menu__lines::after, .is-transformed.tcon-menu--arrowleft .tcon-menu__lines::after {
     -webkit-transform: rotate3d(0, 0, 1, -45deg);
     transform: rotate3d(0, 0, 1, -45deg); }
 
-.tcon-arrow--up {
+.tcon-menu--arrowup {
   width: auto; }
-  .tcon-arrow--up.is-transformed {
+  .tcon-menu--arrowup.is-transformed {
     -webkit-transform: scale3d(0.8, 0.8, 0.8) rotate3d(0, 0, 1, 90deg);
     transform: scale3d(0.8, 0.8, 0.8) rotate3d(0, 0, 1, 90deg); }
 
-.tcon-arrow--rotate.is-transformed {
+.tcon-menu--arrow360left.is-transformed {
   -webkit-transform: rotate3d(0, 0, 1, 360deg);
   transform: rotate3d(0, 0, 1, 360deg); }
 
-.tcon-minus {
+.tcon-menu--minus {
   width: auto; }
-  .tcon-minus.is-transformed .tcon__lines::before, .tcon-minus.is-transformed .tcon__lines::after {
+  .tcon-menu--minus.is-transformed .tcon-menu__lines::before, .tcon-menu--minus.is-transformed .tcon-menu__lines::after {
     -webkit-transform: none;
     transform: none;
     top: 0;
@@ -390,28 +390,6 @@ footer {
     -webkit-transform: translate(50%, -50%) rotate(0);
     transform: translate(50%, -50%) rotate(0); }
 
-.tcon--play {
-  cursor: pointer;
-  padding-top: 0;
-  padding-bottom: 0;
-  width: 40px;
-  height: 40px;
-  transition: 0.3s all ease-in-out;
-  -webkit-transform-origin: center center;
-  transform-origin: center center; }
-  .tcon--play:after {
-    border-style: solid;
-    border-width: 20px 0 20px 20px;
-    border-color: transparent transparent transparent black;
-    content: "";
-    display: block;
-    height: 0;
-    width: 40px; }
-  .tcon--play.is-transformed {
-    background: black;
-    -webkit-transform: rotate(-360deg);
-    transform: rotate(-360deg); }
-
 .tcon--plusck {
   height: 40px;
   position: relative;
@@ -452,7 +430,28 @@ footer {
   transform: rotate(-180deg) translate(-15px, 0);
   width: 19px; }
 
-.spin-loader {
+.tcon-vid--play {
+  padding-top: 0;
+  padding-bottom: 0;
+  width: 40px;
+  height: 40px;
+  transition: 0.3s all ease-in-out;
+  -webkit-transform-origin: center center;
+  transform-origin: center center; }
+  .tcon-vid--play:after {
+    border-style: solid;
+    border-width: 20px 0 20px 20px;
+    border-color: transparent transparent transparent black;
+    content: "";
+    display: block;
+    height: 0;
+    width: 40px; }
+  .tcon-vid--play.is-transformed {
+    background: black;
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg); }
+
+.tcon-loader--spinner {
   border-radius: 80%;
   height: 50px;
   width: 50px;
@@ -460,11 +459,11 @@ footer {
   -webkit-animation: spin 0.675s linear 0 infinite normal;
   animation: spin 0.675s linear 0 infinite normal;
   background: lightgray; }
-  .spin-loader:before, .spin-loader:after {
+  .tcon-loader--spinner:before, .tcon-loader--spinner:after {
     content: "";
     display: block;
     position: absolute; }
-  .spin-loader:before {
+  .tcon-loader--spinner:before {
     border-radius: 0 90px 90px 0;
     height: 50px;
     width: 50%;
@@ -473,7 +472,7 @@ footer {
     background: black;
     background-image: linear-gradient(lightgray, black);
     z-index: 1; }
-  .spin-loader:after {
+  .tcon-loader--spinner:after {
     border-radius: 80%;
     height: 40px;
     width: 40px;

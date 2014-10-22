@@ -1,9 +1,9 @@
-.tcon-arrow {
+.tcon-menu--arrow {
   width: auto;
 
   &.is-transformed {
 
-    .tcon__lines {
+    .tcon-menu__lines {
 
       &::before,
       &::after {
@@ -26,7 +26,12 @@
 }
 
 
-.tcon-arrow--up {
+.tcon-menu--arrowleft {
+  @extend .tcon-menu--arrow;
+}
+
+
+.tcon-menu--arrowup {
 	width: auto;
 
 	&.is-transformed {
@@ -36,7 +41,7 @@
 }
 
 
-.tcon-arrow--rotate {
+.tcon-menu--arrow360left {
 
 	&.is-transformed {
     transform: rotate3d(0, 0, 1, 360deg);

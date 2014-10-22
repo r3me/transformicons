@@ -1,9 +1,9 @@
-.tcon-minus {
+.tcon-menu--minus {
   width: auto;
 
   &.is-transformed {
 
-    .tcon__lines {
+    .tcon-menu__lines {
 
       &::before,
       &::after {

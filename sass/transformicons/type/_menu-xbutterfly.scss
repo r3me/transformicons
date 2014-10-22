@@ -1,7 +1,7 @@
-.tcon-x2 {
+.tcon-menu--xbutterfly {
   width: auto;
 
-  .tcon__lines {
+  .tcon-menu__lines {
     transition: background .3s .5s ease;
 
     &::before,
@@ -14,7 +14,7 @@
 
   &.is-transformed {
 
-    .tcon__lines {
+    .tcon-menu__lines {
       transition: background .3s 0s ease;
       background: transparent;
 

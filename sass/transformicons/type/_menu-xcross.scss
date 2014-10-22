@@ -1,9 +1,9 @@
-.tcon-x {
+.tcon-menu--xcross {
   width: auto;
 
   &.is-transformed {
 
-    .tcon__lines {
+    .tcon-menu__lines {
       background: transparent;
 
       &::before,

@@ -1,10 +1,10 @@
-.tcon__lines {
-  @include tcon_menu_lines;
+.tcon-menu__lines {
+  @include tconMenuLines;
   position: relative;
 
   &::before,
   &::after {
-    @include tcon_menu_lines;
+    @include tconMenuLines;
     content: '';
     position: absolute;
     left: 0;
