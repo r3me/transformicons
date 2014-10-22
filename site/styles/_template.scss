@@ -82,6 +82,7 @@ main {
 	display: block;
 	max-width: 786px;
 	margin: 0 auto;
+	padding: 40px 0;
 	width: 100%;
 }
 
@@ -119,6 +120,10 @@ footer {
 	box-shadow: 0 1px 0 rgb(219, 219, 219);
 	padding: 25px 0;
 	text-align: center;
+
+	&:last-child {
+		box-shadow: none;
+	}
 
 	> div {
 		flex: 1;
