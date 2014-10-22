@@ -1,37 +1,40 @@
 .tcon--check {
-	height: $tcon-size;
-	position: relative;
-	transform: scale(.75);
-	width: $tcon-size;
+  position: relative;
+  height: $tcon-size;
+  width: $tcon-size;
+  transform: scale(.75);
 
-	&:before,
-	&:after {
-		border-radius: 2px;
-		content: "";
-		display: block;
-		height: 10px;
-		margin: -5px 0 0 -17px;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transition: $tcon-transition;
-		width: 34px;
-		background: black;
-	}
+  &::before,
+  &::after {
+    content: "";
+    border-radius: 2px;
+    display: block;
+    width: 34px;
+    height: 10px;
+    margin: -5px 0 0 -17px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transition: $tcon-transition;
+    background: black;
+  }
 
-	&:after {
-		transform: rotate(90deg);
-	}
+  &::after {
+    transform: rotate(90deg);
+  }
 
-	&.is-transformed{
-		&:before {
-			transform: rotate(-135deg) translate(0px, -4px);
-			width: 22px;
-		}
+  &.is-transformed {
 
-		&:after {
-			transform: rotate(-45deg) translate(4px, 4px); 
-			width:34px;
-		}
-	}
+    &::before {
+      transform: rotate(-135deg) translate(0px, -4px);
+      width: 22px;
+    }
+
+    &::after {
+      transform: rotate(-45deg) translate(4px, 4px);
+      width:34px;
+    }
+
+  }
+
 }

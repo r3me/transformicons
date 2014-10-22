@@ -1,19 +1,28 @@
 .tcon-x {
-	width: auto;
+  width: auto;
 
-	&.is-transformed {
-		.tcon__lines {
-			background: transparent;
+  &.is-transformed {
 
-			&:before,
-			&:after {
-				transform-origin: 50% 50%;
-				top: 0;
-				width: $tcon-size;
-			}
+    .tcon__lines {
+      background: transparent;
 
-			&:before { transform: rotate3d(0, 0, 1, 45deg); }
-			&:after { transform: rotate3d(0, 0, 1, -45deg); }
-		}
-	}
+      &::before,
+      &::after {
+        transform-origin: 50% 50%;
+        top: 0;
+        width: $tcon-size;
+      }
+
+      &::before {
+        transform: rotate3d(0, 0, 1, 45deg);
+      }
+
+      &::after {
+        transform: rotate3d(0, 0, 1, -45deg);
+      }
+
+    }
+
+  }
+
 }
