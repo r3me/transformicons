@@ -83,7 +83,9 @@
 	</footer>
 
 	<script type="text/javascript">
-		transformicons.init();
+		transformicons.add('[data-tcon="icon"]') // add default behavior for all elements with the data attribute
+									.remove('.tcon-x')				 // remove default behavior for the first icon
+									.add('.tcon-x', {transform: "mouseover", revert: "mouseout"}); // add new behavior for the first icon
 	</script>
 
 </body>

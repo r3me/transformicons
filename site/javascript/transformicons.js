@@ -8,49 +8,173 @@
     }
 }(this || window, function () {
 
+	// ####################
 	// MODULE TRANSFORMICON
-	"use strict";
-
-	var SETTINGS = {
-		container: document,
-		selector: '[data-tcon="icon"]',
-		transformClass : 'is-transformed',
-		eventTransform : "click touchstart",
-		eventRevert : "click touchstart"
-	}
+	// ####################
+	'use strict';
 
 	var
 		tcon = {}, // static class
-		eventTypes = ["eventTransform", "eventRevert"];
+		_transformClass = 'is-transformed',
 
-	var updateListeners = function (remove) {
-		var
-			method = (remove ? 'remove' : 'add') + 'EventListener',
-			elements = Array.prototype.slice.call(SETTINGS.container.querySelectorAll(SETTINGS.selector));
-			
-		elements.forEach(function(element) {
-			eventTypes.forEach(function (type) {
-				SETTINGS[type].split(" ").forEach(function(event) {
-					element[method](event, handleEvent);
-				});
-			});
-		});
-	}
+		// const
+		DEFAULT_EVENTS = {
+			transform : ['click', 'touchstart'],
+			revert : ['click', 'touchstart']
+		};
 
-	var handleEvent = function (event) {
-		this.classList[this.classList.contains(SETTINGS.transformClass) ? 'remove' : 'add'](SETTINGS.transformClass);
-		// event.preventDefault();
+	// ##############
+	// private methods
+	// ##############
+
+	/**
+	* Normalize a selector string, a single DOM element or an array of elements into an array of DOM elements.
+	* @private
+	*
+	* @param {(string|element|array)} elements - Selector, DOM element or Array of DOM elements
+	* @returns {array} Array of DOM elements
+	*/
+	var getElementList = function (elements) {
+		if (typeof elements === 'string') {
+			return Array.prototype.slice.call(document.querySelectorAll(elements));
+		} else if (typeof elements === 'undefined' || elements instanceof Array) {
+			return elements;
+		} else {
+			return [elements];
+		}
 	};
 
-	// public
-	tcon.init = function (options) {
-		updateListeners(true);
-		for (var prop in options) {
-			SETTINGS[prop] = options[prop];
+	/**
+	* Normalize a string with eventnames separated by spaces or an array of eventnames into an array of eventnames.
+	* @private
+	*
+	* @param {(string|array)} elements - String with eventnames separated by spaces or array of eventnames
+	* @returns {array} Array of eventnames
+	*/
+	var getEventList = function (events) {
+		if (typeof events === 'string') {
+			return events.toLowerCase().split(' ');
+		} else {
+			return events;
 		}
-		updateListeners();
+	};
+
+	/**
+	* Attach or remove transformicon events to one or more elements.
+	* @private
+	*
+	* @param {(string|element|array)} elements - Selector, DOM element or Array of DOM elements to be toggled
+	* @param {object} [events] - An Object containing one or more special event definitions
+	* @param {boolean} [remove=false] - Defines wether the listeners should be added (default) or removed.
+	*/
+	var setListeners = function (elements, events, remove) {
+		var
+			method = (remove ? 'remove' : 'add') + 'EventListener',
+			elementList = getElementList(elements),
+			currentElement = elementList.length,
+			eventLists = {};
+		
+		// get events or use defaults
+		for (var prop in DEFAULT_EVENTS) {
+			eventLists[prop] = (events && events[prop]) ? getEventList(events[prop]) : DEFAULT_EVENTS[prop];
+		}
+		
+		// add or remove all events for all occasions to all elements
+		while(currentElement--) {
+			for (var occasion in eventLists) {
+				var currentEvent = eventLists[occasion].length;
+				while(currentEvent--) {
+					elementList[currentElement][method](eventLists[occasion][currentEvent], handleEvent);
+				}
+			}
+		}
+	};
+
+	/**
+	* Event handler for transform events.
+	* @private
+	*
+	* @param {object} event - event object
+	*/
+	var handleEvent = function (event) {
+		tcon.toggle(event.currentTarget);
+	};
+
+	// ##############
+	// public methods
+	// ##############
+
+	/**
+	* Add transformicon behavior to one or more elements.
+	* @public
+	*
+	* @param {(string|element|array)} elements - Selector, DOM element or Array of DOM elements to be toggled
+	* @param {object} [events] - An Object containing one or more special event definitions
+	* @param {(string|array)} [events.transform] - One or more events that trigger the transform. Can be an Array or string with events seperated by space.
+	* @param {(string|array)} [events.revert] - One or more events that trigger the reversion. Can be an Array or string with events seperated by space.
+	* @returns {transformicon} transformicon instance for chaining
+	*/
+	tcon.add = function (elements, events) {
+		setListeners(elements, events);
 		return tcon;
-	}
+	};
+
+	/**
+	* Remove transformicon behavior from one or more elements.
+	* @public
+	*
+	* @param {(string|element|array)} elements - Selector, DOM element or Array of DOM elements to be toggled
+	* @param {object} [events] - An Object containing one or more special event definitions
+	* @param {(string|array)} [events.transform] - One or more events that trigger the transform. Can be an Array or string with events seperated by space.
+	* @param {(string|array)} [events.revert] - One or more events that trigger the reversion. Can be an Array or string with events seperated by space.
+	* @returns {transformicon} transformicon instance for chaining
+	*/
+	tcon.remove = function (elements, events) {
+		setListeners(elements, events, true);
+		return tcon;
+	};
+
+	/**
+	* Put one or more elements in the transformed state.
+	* @public
+	*
+	* @param {(string|element|array)} elements - Selector, DOM element or Array of DOM elements to be transformed
+	* @returns {transformicon} transformicon instance for chaining
+	*/
+	tcon.transform = function (elements) {
+		getElementList(elements).forEach(function(element) {
+			element.classList.add(_transformClass);
+		});
+		return tcon;
+	};
+
+	/**
+	* Revert one or more elements to the original state.
+	* @public
+	*
+	* @param {(string|element|array)} elements - Selector, DOM element or Array of DOM elements to be reverted
+	* @returns {transformicon} transformicon instance for chaining
+	*/
+	tcon.revert = function (elements) {
+		getElementList(elements).forEach(function(element) {
+			element.classList.remove(_transformClass);
+		});
+		return tcon;
+	};
+	
+	/**
+	* Toggles one or more elements between transformed and original state.
+	* @public
+	*
+	* @param {(string|element|array)} elements - Selector, DOM element or Array of DOM elements to be toggled
+	* @returns {transformicon} transformicon instance for chaining
+	*/
+	tcon.toggle = function (elements) {
+		getElementList(elements).forEach(function(element) {
+			tcon[element.classList.contains(_transformClass) ? 'revert' : 'transform'](element);
+		});
+		return tcon;
+	};
 
 	return tcon;
 }));
