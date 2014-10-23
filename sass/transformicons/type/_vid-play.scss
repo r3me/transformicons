@@ -1,0 +1,24 @@
+.tcon-vid--play {
+  padding-top: 0;
+  padding-bottom: 0;
+  width: $tcon-size;
+  height: $tcon-size;
+  transition: .3s all ease-in-out;
+  transform-origin: center center;
+
+  &:after {
+    border-style: solid;
+    // // http://triangle.designyourcode.io
+    border-width: $tcon-size/2 0 $tcon-size/2 $tcon-size/2;
+    border-color: transparent transparent transparent $tcon-vid-color;
+    content: "";
+    display: block;
+    height: 0;
+    width: $tcon-size;
+  }
+
+  &.#{$tcon-jstransform} {
+    background: $tcon-vid-color;
+    transform: rotate(-360deg);
+  }
+}

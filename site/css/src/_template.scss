@@ -1,0 +1,140 @@
+* {
+  &:before,
+  &:after {
+    box-sizing: inherit;
+  }
+}
+
+html {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: white;
+  font-family: "Source Sans pro", sans-serif;
+}
+
+a {
+  color: black;
+
+  &:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+h1 {
+  font-size: 5em;
+  font-weight: normal;
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 2em;
+  text-align: center;
+  font-weight: 300;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 50vh;
+  padding: 10px 0;
+  width: 100%;
+  background: #D40600;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  a {
+    border: 2px solid white;
+    border-radius: 2px;
+    transition: .3s border ease-in-out, .3s background ease-in-out, .3s color ease-in-out;
+    text-decoration: none;
+    display: inline-block;
+    margin: auto 10px;
+    padding: 20px;
+    background: white;
+    color: black;
+    &:hover {
+      border: 2px solid white;
+      background: transparent;
+      color: white;
+    }
+    &:active {
+      transform: translateY(2px);
+    }
+  }
+}
+
+main {
+  display: block;
+  max-width: 786px;
+  margin: 0 auto;
+  padding: 40px 0;
+  width: 100%;
+}
+
+footer {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.tcon-title {
+  margin: 0;
+  text-align: center;
+  color: white;
+
+  &:after {
+    content: "Animated CSS Icons";
+    margin-left: 6px;
+    vertical-align: middle;
+    font-size: 2rem;
+    color: white;
+  }
+}
+
+.tcon-tagline {
+  margin-top: 0;
+  margin-bottom: 48px;
+  color: white;
+}
+
+.tcon-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  box-shadow: 0 1px 0 rgb(219, 219, 219);
+  padding: 25px 0;
+  text-align: center;
+
+  &:last-child {
+    box-shadow: none;
+  }
+
+  .tcon-row__items {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  h3 {
+    display: flex;
+    flex: 1;
+    justify-content: flex-start;
+    color: #D40600;
+  }
+}

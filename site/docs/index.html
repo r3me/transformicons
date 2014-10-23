@@ -1,62 +1,69 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Transformicons - Docs</title>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Transformicons Documentation</title>
+    <link rel="stylesheet" href="prism.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+      [data-language] {
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <header role="banner">
+      <h1 class="tcon-title">Transformicons</h1>
+      <p class="tcon-tagline">Project documentation explaining how to use Transformicons</p>
+    </header>
 
-		<style>
-			body {
-				width: 80%;
-				margin: 8px auto;
-				font-size: 110%;
-				font-family: Helvetica;
-			}
-		</style>
-	</head>
-	<body>
-		<h1>Transformicons -- Documentation</h1>    
-		
-			<section class="fragment">
-				<h2 id="required-javascript">Required Javascript</h2>
+    <main role="main">
+    
+      <section class="fragment">
+        <h2 id="required-javascript">Required Javascript</h2>
 <p>Transformicons are mostly powered by CSS however, a little piece of JavaScript is required to toggle the transformed states.</p>
 <pre><code class="lang-javascript">var tconEvent = {
-    click: true,
-    touchstart: true
+  click: true,
+  touchstart: true
 };
 
 // Returns an array of nodes like jQuery
 function $tcon(selector, root) {
-    return Array.prototype.slice.call((root || document).querySelectorAll(selector));
+  return Array.prototype.slice.call((root || document).querySelectorAll(selector));
 }
 
 function toggleTcons(event) {
-    var tcon_state = &#39;is-transformed&#39;;
-    this.classList[this.classList.contains(tcon_state) ? &#39;remove&#39; : &#39;add&#39;](tcon_state);
-    event.preventDefault();
+  var tcon_state = &#39;is-transformed&#39;;
+  this.classList[this.classList.contains(tcon_state) ? &#39;remove&#39; : &#39;add&#39;](tcon_state);
+  event.preventDefault();
 }
 
 function handleTcons(tcon) {
-    for (var prop in tconEvent) {
-        tcon.addEventListener(prop, toggleTcons);
-    }
+  for (var prop in tconEvent) {
+    tcon.addEventListener(prop, toggleTcons);
+  }
 }
 
 var tcon_buttons = $tcon(&#39;[data-tcon=&quot;icon&quot;]&#39;);
 tcon_buttons.forEach(handleTcons);
 </code></pre>
 
-			</section>
-		
-			<section class="fragment">
-				<h2 id="transformicons-markup">Transformicons Markup</h2>
-<h3 id="menu">Menu</h3>
-<pre><code class="lang-markup">&lt;button type=&quot;button&quot; data-tcon=&quot;icon&quot; class=&quot;tcon tcon-x&quot; aria-label=&quot;toggle menu&quot;&gt;
-    &lt;span class=&quot;tcon__lines&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+      </section>
+    
+      <section class="fragment">
+        <h2 id="icon-markup">Icon Markup</h2>
+<h3 id="x-butterfly-menu">X Butterfly Menu</h3>
+<pre><code class="lang-markup">&lt;button type=&quot;button&quot; class=&quot;tcon-menu--xbutterfly&quot; data-tcon=&quot;icon&quot; aria-label=&quot;toggle menu&quot;&gt;
+  &lt;span class=&quot;tcon-menu__lines&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+  &lt;span class=&quot;tcon-visuallyhidden&quot;&gt;toggle menu&lt;/span&gt;
 &lt;/button&gt;
 </code></pre>
 
-			</section>
-		
-	</body>
+      </section>
+    
+    </main>
+
+    <script src="prism.js"></script>
+  </body>
 </html>

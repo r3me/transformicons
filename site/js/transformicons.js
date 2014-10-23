@@ -15,7 +15,7 @@
 
 	var
 		tcon = {}, // static class
-		_transformClass = 'is-transformed',
+		_transformClass = 'tcon-transform',
 
 		// const
 		DEFAULT_EVENTS = {
@@ -73,7 +73,7 @@
 			elementList = getElementList(elements),
 			currentElement = elementList.length,
 			eventLists = {};
-		
+
 		// get events or use defaults
 		for (var prop in DEFAULT_EVENTS) {
 			eventLists[prop] = (events && events[prop]) ? getEventList(events[prop]) : DEFAULT_EVENTS[prop];
