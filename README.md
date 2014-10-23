@@ -1,9 +1,13 @@
-Transformicons : Animated CSS Symbols and Buttons
+Transformicons
 ======================
 
-*What's a transformicon?* It's an animated CSS symbol/button presented in a neatly packaged library for Sass and CSS.
+*What's a transformicon?*
 
-**Browser Support** : IE10+, Chrome 36+, Safari 6+, Firefox 30+, Opera 22+, iOS 7+, Android 4+, Chrome for Android 38+
+It's an animated CSS symbol/button presented in a neatly packaged library for Sass and CSS.
+
+**What browsers do you support?**
+
+IE10+, Chrome 36+, Safari 6+, Firefox 30+, Opera 22+, iOS 7+, Android 4+, Chrome for Android 38+
 
 --
 

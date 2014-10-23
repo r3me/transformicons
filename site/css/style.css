@@ -442,7 +442,7 @@ footer {
     -webkit-transform: rotate(-360deg);
     transform: rotate(-360deg); }
 
-.tcon-loader--spinner {
+.tcon-loader--spinner360 {
   border-radius: 80%;
   height: 50px;
   width: 50px;
@@ -450,11 +450,11 @@ footer {
   -webkit-animation: spin 0.675s linear 0 infinite normal;
   animation: spin 0.675s linear 0 infinite normal;
   background: lightgray; }
-  .tcon-loader--spinner:before, .tcon-loader--spinner:after {
+  .tcon-loader--spinner360:before, .tcon-loader--spinner360:after {
     content: "";
     display: block;
     position: absolute; }
-  .tcon-loader--spinner:before {
+  .tcon-loader--spinner360:before {
     border-radius: 0 90px 90px 0;
     height: 50px;
     width: 50%;
@@ -463,7 +463,7 @@ footer {
     background: black;
     background-image: linear-gradient(lightgray, black);
     z-index: 1; }
-  .tcon-loader--spinner:after {
+  .tcon-loader--spinner360:after {
     border-radius: 80%;
     height: 40px;
     width: 40px;
