@@ -1,87 +1,133 @@
+
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>Transformicons: Animated CSS Icons</title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width">
-	<link rel="stylesheet" href="styles/style.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Transformicons: Animated CSS Icons</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, user-scalable=1, initial-scale=1">
+  <meta name="msapplication-tap-highlight" content="no">
+  <link rel="stylesheet" href="css/style.css">
 	<script type="text/javascript" src="javascript/transformicons.js"></script>
 </head>
 <body>
-	<header role="banner">
-		<h1 class="tcon-title">Transformicons</h1>
-		<p class="tcon-tagline">Presented in a neatly packaged Sass library</p>
+  <header role="banner">
+    <h1 class="tcon-title">Transformicons</h1>
+    <p class="tcon-tagline">Presented in a neatly packaged Sass & CSS library</p>
 
-		<nav role="navigation">
-			<a href="#">Package Builder</a>
-			<a href="docs">Documentation</a>
-			<a href="//github.com/grayghostvisuals/transformicons">GitHub</a>
-		</nav>
-	</header>
+    <nav role="navigation">
+      <a href="#">Builder</a>
+      <a href="docs">Documentation</a>
+      <a href="//github.com/grayghostvisuals/transformicons">GitHub</a>
+    </nav>
+  </header>
 
-	<main role="main">
-		<div class="tcons-row">
-			<h3>Navigation</h3>
-			<button type="button" data-tcon="icon" class="tcon tcon-x" aria-label="toggle menu">
-				<span class="tcon__lines" aria-hidden="true"></span>
-			</button>
+  <main role="main">
+    <div class="tcon-row">
+      <h3>Menu</h3>
+      <div class="tcon-row__items">
+        <button type="button" class="tcon-menu--xcross" data-tcon="icon" aria-label="toggle menu">
+          <span class="tcon-menu__lines" aria-hidden="true"></span>
+          <span class="tcon-visuallyhidden">toggle menu</span>
+        </button>
 
-			<button type="button" data-tcon="icon" class="tcon tcon-x2" aria-label="toggle menu">
-				<span class="tcon__lines" aria-hidden="true"></span>
-			</button>
+        <button type="button" class="tcon-menu--xbutterfly" data-tcon="icon" aria-label="toggle menu">
+          <span class="tcon-menu__lines" aria-hidden="true"></span>
+          <span class="tcon-visuallyhidden">toggle menu</span>
+        </button>
 
-			<button type="button" data-tcon="icon" class="tcon tcon-arrow tcon-arrow--up" aria-label="toggle menu">
-				<span class="tcon__lines" aria-hidden="true"></span>
-			</button>
+        <button type="button" class="tcon-menu--arrow tcon-menu--arrowup" data-tcon="icon" aria-label="toggle menu">
+          <span class="tcon-menu__lines" aria-hidden="true"></span>
+          <span class="tcon-visuallyhidden">toggle menu</span>
+        </button>
 
-			<button type="button" data-tcon="icon" class="tcon tcon-arrow" aria-label="toggle menu">
-				<span class="tcon__lines" aria-hidden="true"></span>
-			</button>
+        <button type="button" class="tcon-menu--arrow tcon-menu--arrow360left" data-tcon="icon" aria-label="toggle menu">
+          <span class="tcon-menu__lines" aria-hidden="true"></span>
+          <span class="tcon-visuallyhidden">toggle menu</span>
+        </button>
 
-			<button type="button" data-tcon="icon" class="tcon tcon-minus" aria-label="">
-				<span class="tcon__lines" aria-hidden="true"></span>
-			</button>
-		</div>
+        <button type="button" class="tcon-menu--arrow tcon-menu--arrowleft" data-tcon="icon" aria-label="toggle menu">
+          <span class="tcon-menu__lines" aria-hidden="true"></span>
+          <span class="tcon-visuallyhidden">toggle menu</span>
+        </button>
 
-		<div class="tcons-row">
-			<h3>Grid</h3>
-			<button type="button" data-tcon="icon" class="tcon-grid tcon-grid--rearrange" aria-label="">
-				<span class="tcon__grid-item" aria-hidden="true"></span>
-			</button>
+        <button type="button" class="tcon-menu--minus" data-tcon="icon" aria-label="toggle menu">
+          <span class="tcon-menu__lines" aria-hidden="true"></span>
+          <span class="tcon-visuallyhidden">toggle menu</span>
+        </button>
+      </div>
+    </div>
 
-			<button type="button" data-tcon="icon" class="tcon-grid tcon-grid--collapse" aria-label="">
-				<span class="tcon__grid-item" aria-hidden="true"></span>
-			</button>
+    <div class="tcon-row">
+      <h3>Grid</h3>
+      <div class="tcon-row__items">
+        <button type="button" class="tcon-grid tcon-grid--rearrange" data-tcon="icon" aria-label="toggle grid">
+          <span class="tcon-grid__item" aria-hidden="true"></span>
+          <span class="tcon-visuallyhidden">toggle grid</span>
+        </button>
 
-			<button type="button" data-tcon="icon" aria-label="" class="tcon-grid tcon-grid--rearrange">
-        <span class="tcon__grid-item" aria-hidden="true"></span>
-      </button>
+        <button type="button" class="tcon-grid tcon-grid--collapse" data-tcon="icon" aria-label="toggle grid">
+          <span class="tcon-grid__item" aria-hidden="true"></span>
+          <span class="tcon-visuallyhidden">toggle grid</span>
+        </button>
 
-      <button type="button" data-tcon="icon" aria-label="" class="tcon-grid tcon-grid--collapse">
-        <span class="tcon__grid-item" aria-hidden="true"></span>
-      </button>
-		</div>
+        <button type="button" class="tcon-grid tcon-grid--rearrange" data-tcon="icon" aria-label="toggle grid">
+          <span class="tcon-grid__item" aria-hidden="true"></span>
+          <span class="tcon-visuallyhidden">toggle grid</span>
+        </button>
 
-		<div class="tcons-row">
-			<h3>Add/Remove</h3>
-			<button type="button" data-tcon="icon" class="tcon tcon--check" aria-label=""></button>
-			<button type="button" data-tcon="icon" class="tcon tcon--plusminus" aria-hidden="true" aria-label=""></button>
-			<button type="button" data-tcon="icon" class="tcon tcon--plus" aria-hidden="true" aria-label=""></button>
-		</div>
+        <button type="button" class="tcon-grid tcon-grid--collapse" data-tcon="icon" aria-label="toggle grid">
+          <span class="tcon-grid__item" aria-hidden="true"></span>
+          <span class="tcon-visuallyhidden">toggle grid</span>
+        </button>
+      </div>
+    </div>
 
-		<div class="tcons-row">
-			<h3>Video</h3>
-			<button type="button" data-tcon="icon" class="tcon tcon--play" role="button" aria-label=""></button>
-		</div>
-	</main>
+    <div class="tcon-row">
+      <h3>Add/Remove</h3>
+      <div class="tcon-row__items">
+        <button type="button" data-tcon="icon" class="tcon-plus tcon-plus--minus" aria-label="add item">
+          <span class="tcon-visuallyhidden">add item</span>
+        </button>
 
-	<footer role="contentinfo">
-		<small>Props to <a href="//bennettfeely.com">Bennett Feely</a> and <a href="//sarasoueidan.com">Sara Soueidan</a>. Licensed under <a href="//opensource.org/licenses/MIT">MIT</a></small>
-		<small>Read the <a href="//sarasoueidan.com/blog/navicon-transformicons">article</a> on making transformicons by Sara Soueidan</small>
-	</footer>
+        <button type="button" data-tcon="icon" class="tcon-plus tcon-plus--check" aria-label="add item">
+          <span class="tcon-visuallyhidden">add item</span>
+        </button>
 
+        <button type="button" data-tcon="icon" class="tcon-plus--minusfold" aria-hidden="true" aria-label="add item">
+          <span class="tcon-visuallyhidden">add item</span>
+        </button>
+
+        <button type="button" data-tcon="icon" class="tcon-plus--circle" aria-hidden="true" aria-label="add item">
+          <span class="tcon-visuallyhidden">add item</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="tcon-row">
+      <h3>Video</h3>
+      <div class="tcon-row__items">
+        <button type="button" data-tcon="icon" class="tcon-vid--play" role="button" aria-label="play video">
+          <span class="tcon-visuallyhidden">play video</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="tcon-row">
+      <h3>Loaders</h3>
+      <div class="tcon-row__items">
+        <div class="tcon-loader--spinner" aria-label="loading">
+          <span class="tcon-visuallyhidden">loading</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <small>Props to <a href="//bennettfeely.com">Bennett Feely</a> and <a href="//sarasoueidan.com">Sara Soueidan</a>. Project licensed under <a href="//opensource.org/licenses/MIT">MIT</a>.</small>
+    <small>Read the <a href="//sarasoueidan.com/blog/navicon-transformicons">article</a> on making transformicons by Sara Soueidan</small>
+  </footer>
 	<script type="text/javascript">
 		transformicons.add('[data-tcon="icon"]') // add default behavior for all elements with the data attribute
 									.remove('.tcon-x')				 // remove default behavior for the first icon

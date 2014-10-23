@@ -4,3 +4,4 @@ node_modules/
 compass_app_log.txt
 site/styles/style.css.map
 site/styles/style.css
+npm-debug.log
