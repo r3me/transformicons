@@ -1,8 +1,8 @@
 .tcon-plus--minusfold {
-  width: $tcon-size;
   height: $tcon-size;
   position: relative;
   transform: scale(1.25);
+  width: $tcon-size;
 
   &::before,
   &::after {

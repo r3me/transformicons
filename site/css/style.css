@@ -108,12 +108,6 @@ footer {
   margin: 0;
   text-align: center;
   color: white; }
-  .tcon-title:after {
-    content: "Animated CSS Icons";
-    margin-left: 6px;
-    vertical-align: middle;
-    font-size: 2rem;
-    color: white; }
 
 .tcon-tagline {
   margin-top: 0;
@@ -163,7 +157,7 @@ footer {
     justify-content: flex-start;
     color: #D40600; }
 
-[data-tcon="icon"] {
+.tcon {
   appearance: none;
   border: none;
   cursor: pointer;
@@ -184,9 +178,9 @@ footer {
   user-select: none;
   width: 40px;
   background: transparent; }
-  [data-tcon="icon"] > * {
+  .tcon > * {
     display: block; }
-  [data-tcon="icon"]:focus {
+  .tcon:focus {
     outline: none; }
 
 .tcon-visuallyhidden {
@@ -368,11 +362,11 @@ footer {
   width: 19px; }
 
 .tcon-plus--minusfold {
-  width: 40px;
   height: 40px;
   position: relative;
   -webkit-transform: scale(1.25);
-  transform: scale(1.25); }
+  transform: scale(1.25);
+  width: 40px; }
   .tcon-plus--minusfold::before, .tcon-plus--minusfold::after {
     content: "";
     display: block;
