@@ -2,7 +2,6 @@
   width: auto;
 
   .tcon-menu__lines {
-    transition: background .3s .5s ease;
 
     &::before,
     &::after {
@@ -12,14 +11,13 @@
 
   }
 
-  &.is-transformed {
+  &.#{$tcon-jstransform} {
 
     .tcon-menu__lines {
-      transition: background .3s 0s ease;
       background: transparent;
 
       &::before,
-      &::after{
+      &::after {
         transition: top .3s ease, transform .3s .5s ease;
         top: 0;
         width: $tcon-size;

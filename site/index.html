@@ -85,20 +85,20 @@
     <div class="tcon-row">
       <h3>Add/Remove</h3>
       <div class="tcon-row__items">
-        <button type="button" data-tcon="icon" class="tcon tcon--plusck tcon--plus-minus" aria-label="add item">
+        <button type="button" data-tcon="icon" class="tcon-plus tcon-plus--minus" aria-label="add item">
           <span class="tcon-visuallyhidden">add item</span>
         </button>
 
-        <button type="button" data-tcon="icon" class="tcon tcon--plusck tcon--plus-check" aria-label="add item">
+        <button type="button" data-tcon="icon" class="tcon-plus tcon-plus--check" aria-label="add item">
           <span class="tcon-visuallyhidden">add item</span>
         </button>
 
-        <button type="button" data-tcon="icon" class="tcon tcon--plusminus" aria-hidden="true" aria-label="add/remove item">
-          <span class="tcon-visuallyhidden">add/remove item</span>
+        <button type="button" data-tcon="icon" class="tcon-plus--minusfold" aria-hidden="true" aria-label="add item">
+          <span class="tcon-visuallyhidden">add item</span>
         </button>
 
-        <button type="button" data-tcon="icon" class="tcon tcon--plus" aria-hidden="true" aria-label="add/remove item">
-          <span class="tcon-visuallyhidden">add/remove item</span>
+        <button type="button" data-tcon="icon" class="tcon-plus--circle" aria-hidden="true" aria-label="add item">
+          <span class="tcon-visuallyhidden">add item</span>
         </button>
       </div>
     </div>
@@ -106,8 +106,8 @@
     <div class="tcon-row">
       <h3>Video</h3>
       <div class="tcon-row__items">
-        <button type="button" data-tcon="icon" class="tcon-vid--play" role="button" aria-label="play/stop video">
-          <span class="tcon-visuallyhidden">play/stop video</span>
+        <button type="button" data-tcon="icon" class="tcon-vid--play" role="button" aria-label="play video">
+          <span class="tcon-visuallyhidden">play video</span>
         </button>
       </div>
     </div>
@@ -139,7 +139,7 @@
     }
 
     function toggleTcons(event) {
-      var tcon_state = 'is-transformed';
+      var tcon_state = 'tcon-transform';
       this.classList[this.classList.contains(tcon_state) ? 'remove' : 'add'](tcon_state);
       event.preventDefault();
     }

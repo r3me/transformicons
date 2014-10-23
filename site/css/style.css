@@ -231,7 +231,7 @@ footer {
     top: 10px; }
   .tcon-menu__lines::after {
     top: -10px; }
-  .is-transformed .tcon-menu__lines {
+  .tcon-transform .tcon-menu__lines {
     -webkit-transform: scale3d(0.8, 0.8, 0.8);
     transform: scale3d(0.8, 0.8, 0.8); }
 
@@ -244,71 +244,56 @@ footer {
     color: black;
     transition: 0.3s; }
 
-.tcon-grid.is-transformed .tcon-grid__item {
+.tcon-grid.tcon-transform .tcon-grid__item {
   -webkit-transform: rotate3d(0, 0, 1, -45deg) scale3d(0.8, 0.8, 0.8);
   transform: rotate3d(0, 0, 1, -45deg) scale3d(0.8, 0.8, 0.8); }
 
-.tcon-grid--rearrange .tcon-grid__item {
-  box-shadow: -0.625rem -0.625rem, 0 -0.625rem, 0.625rem -0.625rem, -0.625rem 0, 0.625rem 0, -0.625rem 0.625rem, 0 0.625rem, 0.625rem 0.625rem; }
-
-.tcon-grid--rearrange.is-transformed .tcon-grid__item {
-  box-shadow: 0 -0.5rem, 0 -1rem, 0.5rem 0, -1rem 0, 1rem 0, -0.5rem 0, 0 1rem, 0 0.5rem; }
-
-.tcon-grid--collapse .tcon-grid__item {
-  box-shadow: -0.625rem 0, -0.625rem 0.625rem, 0.625rem 0, 0.625rem -0.625rem, 0 -0.625rem, -0.625rem -0.625rem, 0 0.625rem, 0.625rem 0.625rem; }
-
-.tcon-grid--collapse.is-transformed .tcon-grid__item {
-  box-shadow: -0.5rem 0, 0 0 transparent, 0.5rem 0, 0 0 transparent, 0 -0.5rem, 0 0 transparent, 0 0.5rem, 0 0 transparent; }
-
 .tcon-menu--xcross {
   width: auto; }
-  .tcon-menu--xcross.is-transformed .tcon-menu__lines {
+  .tcon-menu--xcross.tcon-transform .tcon-menu__lines {
     background: transparent; }
-    .tcon-menu--xcross.is-transformed .tcon-menu__lines::before, .tcon-menu--xcross.is-transformed .tcon-menu__lines::after {
+    .tcon-menu--xcross.tcon-transform .tcon-menu__lines::before, .tcon-menu--xcross.tcon-transform .tcon-menu__lines::after {
       -webkit-transform-origin: 50% 50%;
       transform-origin: 50% 50%;
       top: 0;
       width: 40px; }
-    .tcon-menu--xcross.is-transformed .tcon-menu__lines::before {
+    .tcon-menu--xcross.tcon-transform .tcon-menu__lines::before {
       -webkit-transform: rotate3d(0, 0, 1, 45deg);
       transform: rotate3d(0, 0, 1, 45deg); }
-    .tcon-menu--xcross.is-transformed .tcon-menu__lines::after {
+    .tcon-menu--xcross.tcon-transform .tcon-menu__lines::after {
       -webkit-transform: rotate3d(0, 0, 1, -45deg);
       transform: rotate3d(0, 0, 1, -45deg); }
 
 .tcon-menu--xbutterfly {
   width: auto; }
-  .tcon-menu--xbutterfly .tcon-menu__lines {
-    transition: background 0.3s 0.5s ease; }
-    .tcon-menu--xbutterfly .tcon-menu__lines::before, .tcon-menu--xbutterfly .tcon-menu__lines::after {
-      -webkit-transform-origin: 50% 50%;
-      transform-origin: 50% 50%;
-      transition: top 0.3s 0.6s ease, -webkit-transform 0.3s ease;
-      transition: top 0.3s 0.6s ease, transform 0.3s ease; }
-  .tcon-menu--xbutterfly.is-transformed .tcon-menu__lines {
-    transition: background 0.3s 0s ease;
+  .tcon-menu--xbutterfly .tcon-menu__lines::before, .tcon-menu--xbutterfly .tcon-menu__lines::after {
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    transition: top 0.3s 0.6s ease, -webkit-transform 0.3s ease;
+    transition: top 0.3s 0.6s ease, transform 0.3s ease; }
+  .tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines {
     background: transparent; }
-    .tcon-menu--xbutterfly.is-transformed .tcon-menu__lines::before, .tcon-menu--xbutterfly.is-transformed .tcon-menu__lines::after {
+    .tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines::before, .tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines::after {
       transition: top 0.3s ease, -webkit-transform 0.3s 0.5s ease;
       transition: top 0.3s ease, transform 0.3s 0.5s ease;
       top: 0;
       width: 40px; }
-    .tcon-menu--xbutterfly.is-transformed .tcon-menu__lines::before {
+    .tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines::before {
       -webkit-transform: rotate3d(0, 0, 1, 45deg);
       transform: rotate3d(0, 0, 1, 45deg); }
-    .tcon-menu--xbutterfly.is-transformed .tcon-menu__lines::after {
+    .tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines::after {
       -webkit-transform: rotate3d(0, 0, 1, -45deg);
       transform: rotate3d(0, 0, 1, -45deg); }
 
 .tcon-menu--arrow, .tcon-menu--arrowleft {
   width: auto; }
-  .tcon-menu--arrow.is-transformed .tcon-menu__lines::before, .is-transformed.tcon-menu--arrowleft .tcon-menu__lines::before, .tcon-menu--arrow.is-transformed .tcon-menu__lines::after, .is-transformed.tcon-menu--arrowleft .tcon-menu__lines::after {
+  .tcon-menu--arrow.tcon-transform .tcon-menu__lines::before, .tcon-transform.tcon-menu--arrowleft .tcon-menu__lines::before, .tcon-menu--arrow.tcon-transform .tcon-menu__lines::after, .tcon-transform.tcon-menu--arrowleft .tcon-menu__lines::after {
     top: 0;
     width: 22.22222px; }
-  .tcon-menu--arrow.is-transformed .tcon-menu__lines::before, .is-transformed.tcon-menu--arrowleft .tcon-menu__lines::before {
+  .tcon-menu--arrow.tcon-transform .tcon-menu__lines::before, .tcon-transform.tcon-menu--arrowleft .tcon-menu__lines::before {
     -webkit-transform: rotate3d(0, 0, 1, 45deg);
     transform: rotate3d(0, 0, 1, 45deg); }
-  .tcon-menu--arrow.is-transformed .tcon-menu__lines::after, .is-transformed.tcon-menu--arrowleft .tcon-menu__lines::after {
+  .tcon-menu--arrow.tcon-transform .tcon-menu__lines::after, .tcon-transform.tcon-menu--arrowleft .tcon-menu__lines::after {
     -webkit-transform: rotate3d(0, 0, 1, -45deg);
     transform: rotate3d(0, 0, 1, -45deg); }
 
@@ -318,85 +303,37 @@ footer {
     -webkit-transform: scale3d(0.8, 0.8, 0.8) rotate3d(0, 0, 1, 90deg);
     transform: scale3d(0.8, 0.8, 0.8) rotate3d(0, 0, 1, 90deg); }
 
-.tcon-menu--arrow360left.is-transformed {
+.tcon-menu--arrow360left.tcon-transform {
   -webkit-transform: rotate3d(0, 0, 1, 360deg);
   transform: rotate3d(0, 0, 1, 360deg); }
 
 .tcon-menu--minus {
   width: auto; }
-  .tcon-menu--minus.is-transformed .tcon-menu__lines::before, .tcon-menu--minus.is-transformed .tcon-menu__lines::after {
+  .tcon-menu--minus.tcon-transform .tcon-menu__lines::before, .tcon-menu--minus.tcon-transform .tcon-menu__lines::after {
     -webkit-transform: none;
     transform: none;
     top: 0;
     width: 40px; }
 
-.tcon--plus {
-  border: 3.33333px solid black;
-  border-radius: 80%;
-  position: relative;
-  background: transparent; }
-  .tcon--plus::before, .tcon--plus::after {
-    content: "";
-    display: block;
-    position: absolute;
-    left: 0;
-    transition: 0.3s all ease-in-out;
-    border-radius: 5px;
-    top: 50%;
-    -webkit-transform: translate(50%, -50%) rotate(0);
-    transform: translate(50%, -50%) rotate(0);
-    width: 50%;
-    height: 3.33333px;
-    background: black; }
-  .tcon--plus:after {
-    top: 50%;
-    width: 50%;
-    height: 3.33333px;
-    -webkit-transform: translate(50%, -50%) rotate(90deg);
-    transform: translate(50%, -50%) rotate(90deg); }
-  .tcon--plus.is-transformed::before {
-    -webkit-transform: translate(50%, -50%) rotate(45deg);
-    transform: translate(50%, -50%) rotate(45deg); }
-  .tcon--plus.is-transformed::after {
-    -webkit-transform: translate(50%, -50%) rotate(-45deg);
-    transform: translate(50%, -50%) rotate(-45deg); }
+.tcon-grid--collapse .tcon-grid__item {
+  box-shadow: -0.625rem 0, -0.625rem 0.625rem, 0.625rem 0, 0.625rem -0.625rem, 0 -0.625rem, -0.625rem -0.625rem, 0 0.625rem, 0.625rem 0.625rem; }
 
-.tcon--plusminus {
-  width: 40px;
-  height: 40px;
-  position: relative;
-  -webkit-transform: scale(1.25);
-  transform: scale(1.25); }
-  .tcon--plusminus::before, .tcon--plusminus::after {
-    content: "";
-    display: block;
-    position: absolute;
-    left: 0;
-    transition: 0.3s all ease-in-out;
-    border-radius: 5px;
-    top: 50%;
-    -webkit-transform: translate(50%, -50%) rotate(0);
-    transform: translate(50%, -50%) rotate(0);
-    width: 50%;
-    height: 3.33333px;
-    background: black; }
-  .tcon--plusminus::after {
-    top: 50%;
-    width: 50%;
-    height: 3.33333px;
-    -webkit-transform: translate(50%, -50%) rotate(90deg);
-    transform: translate(50%, -50%) rotate(90deg); }
-  .tcon--plusminus.is-transformed::after {
-    -webkit-transform: translate(50%, -50%) rotate(0);
-    transform: translate(50%, -50%) rotate(0); }
+.tcon-grid--collapse.tcon-transform .tcon-grid__item {
+  box-shadow: -0.5rem 0, 0 0 transparent, 0.5rem 0, 0 0 transparent, 0 -0.5rem, 0 0 transparent, 0 0.5rem, 0 0 transparent; }
 
-.tcon--plusck {
+.tcon-grid--rearrange .tcon-grid__item {
+  box-shadow: -0.625rem -0.625rem, 0 -0.625rem, 0.625rem -0.625rem, -0.625rem 0, 0.625rem 0, -0.625rem 0.625rem, 0 0.625rem, 0.625rem 0.625rem; }
+
+.tcon-grid--rearrange.tcon-transform .tcon-grid__item {
+  box-shadow: 0 -0.5rem, 0 -1rem, 0.5rem 0, -1rem 0, 1rem 0, -0.5rem 0, 0 1rem, 0 0.5rem; }
+
+.tcon-plus {
   height: 40px;
   position: relative;
   -webkit-transform: scale(0.75);
   transform: scale(0.75);
   width: 40px; }
-  .tcon--plusck::before, .tcon--plusck::after {
+  .tcon-plus::before, .tcon-plus::after {
     content: "";
     border-radius: 2px;
     display: block;
@@ -408,27 +345,87 @@ footer {
     left: 50%;
     transition: 0.3s;
     background: black; }
-  .tcon--plusck:after {
+  .tcon-plus:after {
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg); }
 
-.tcon--plus-check.is-transformed:before {
+.tcon-plus--check.tcon-transform:before {
   -webkit-transform: rotate(-135deg) translate(0px, -4px);
   transform: rotate(-135deg) translate(0px, -4px);
   width: 22px; }
-.tcon--plus-check.is-transformed:after {
+.tcon-plus--check.tcon-transform:after {
   -webkit-transform: rotate(-45deg) translate(4px, 4px);
   transform: rotate(-45deg) translate(4px, 4px);
   width: 34px; }
 
-.tcon--plus-minus.is-transformed:before {
+.tcon-plus--minus.tcon-transform:before {
   -webkit-transform: rotate(180deg) translate(0px, 0);
   transform: rotate(180deg) translate(0px, 0);
   width: 19px; }
-.tcon--plus-minus.is-transformed:after {
+.tcon-plus--minus.tcon-transform:after {
   -webkit-transform: rotate(-180deg) translate(-15px, 0);
   transform: rotate(-180deg) translate(-15px, 0);
   width: 19px; }
+
+.tcon-plus--minusfold {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  -webkit-transform: scale(1.25);
+  transform: scale(1.25); }
+  .tcon-plus--minusfold::before, .tcon-plus--minusfold::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    transition: 0.3s all ease-in-out;
+    border-radius: 5px;
+    top: 50%;
+    -webkit-transform: translate(50%, -50%) rotate(0);
+    transform: translate(50%, -50%) rotate(0);
+    width: 50%;
+    height: 3.33333px;
+    background: black; }
+  .tcon-plus--minusfold::after {
+    top: 50%;
+    width: 50%;
+    height: 3.33333px;
+    -webkit-transform: translate(50%, -50%) rotate(90deg);
+    transform: translate(50%, -50%) rotate(90deg); }
+  .tcon-plus--minusfold.tcon-transform::after {
+    -webkit-transform: translate(50%, -50%) rotate(0);
+    transform: translate(50%, -50%) rotate(0); }
+
+.tcon-plus--circle {
+  border: 3.33333px solid black;
+  border-radius: 80%;
+  position: relative;
+  background: transparent; }
+  .tcon-plus--circle::before, .tcon-plus--circle::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    transition: 0.3s all ease-in-out;
+    border-radius: 5px;
+    top: 50%;
+    -webkit-transform: translate(50%, -50%) rotate(0);
+    transform: translate(50%, -50%) rotate(0);
+    width: 50%;
+    height: 3.33333px;
+    background: black; }
+  .tcon-plus--circle:after {
+    top: 50%;
+    width: 50%;
+    height: 3.33333px;
+    -webkit-transform: translate(50%, -50%) rotate(90deg);
+    transform: translate(50%, -50%) rotate(90deg); }
+  .tcon-plus--circle.tcon-transform::before {
+    -webkit-transform: translate(50%, -50%) rotate(45deg);
+    transform: translate(50%, -50%) rotate(45deg); }
+  .tcon-plus--circle.tcon-transform::after {
+    -webkit-transform: translate(50%, -50%) rotate(-45deg);
+    transform: translate(50%, -50%) rotate(-45deg); }
 
 .tcon-vid--play {
   padding-top: 0;
@@ -446,7 +443,7 @@ footer {
     display: block;
     height: 0;
     width: 40px; }
-  .tcon-vid--play.is-transformed {
+  .tcon-vid--play.tcon-transform {
     background: black;
     -webkit-transform: rotate(-360deg);
     transform: rotate(-360deg); }

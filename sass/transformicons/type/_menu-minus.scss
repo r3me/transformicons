@@ -1,7 +1,7 @@
 .tcon-menu--minus {
   width: auto;
 
-  &.is-transformed {
+  &.#{$tcon-jstransform} {
 
     .tcon-menu__lines {
 

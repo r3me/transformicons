@@ -1,7 +1,7 @@
 .tcon-menu--arrow {
   width: auto;
 
-  &.is-transformed {
+  &.#{$tcon-jstransform} {
 
     .tcon-menu__lines {
 
@@ -43,7 +43,7 @@
 
 .tcon-menu--arrow360left {
 
-	&.is-transformed {
+	&.#{$tcon-jstransform} {
     transform: rotate3d(0, 0, 1, 360deg);
   }
 

@@ -20,7 +20,7 @@
     top: -($tcon-size / 4);
   }
 
-  .is-transformed & {
+  .#{$tcon-jstransform} & {
     transform: scale3d(.8, .8, .8);
   }
 
