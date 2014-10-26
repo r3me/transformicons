@@ -3,6 +3,6 @@
 node_modules/
 .DS_Store
 compass_app_log.txt
-site/styles/style.css.map
-site/styles/style.css
+site/css/style.css.map
+site/css/style.css
 npm-debug.log
