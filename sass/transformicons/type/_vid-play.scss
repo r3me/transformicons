@@ -8,13 +8,14 @@
 
   &:after {
     border-style: solid;
-    // // http://triangle.designyourcode.io
+    // http://triangle.designyourcode.io
     border-width: $tcon-size/2 0 $tcon-size/2 $tcon-size/2;
     border-color: transparent transparent transparent $tcon-vid-color;
     content: "";
     display: block;
     height: 0;
     width: $tcon-size;
+    transform: translateX(25%);
   }
 
   &.#{$tcon-jstransform} {
