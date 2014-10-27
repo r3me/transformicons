@@ -1,90 +1,97 @@
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>Transformicons: Animated CSS Symbols and Buttons</title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, user-scalable=1, initial-scale=1">
-	<meta name="msapplication-tap-highlight" content="no">
-	<link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Transformicons: Animated CSS Symbols and Buttons</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, user-scalable=1, initial-scale=1">
+  <meta name="msapplication-tap-highlight" content="no">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<header role="banner">
-		<h1 class="tcon-title">Transformicons</h1>
-		<p class="tcon-tagline">Package Builder</p>
+  <header role="banner">
+    <h1 class="tcon-title">Transformicons</h1>
+    <p class="tcon-tagline">Package Builder</p>
 
-		<nav role="navigation">
-			<a href="#">Builder</a>
-			<a href="docs">Documentation</a>
-			<a href="//github.com/grayghostvisuals/transformicons">GitHub</a>
-		</nav>
-	</header>
+    <nav role="navigation">
+      <a href="builder.html">Builder</a>
+      <a href="docs">Documentation</a>
+      <a href="//github.com/grayghostvisuals/transformicons">GitHub</a>
+    </nav>
+  </header>
 
-	<main role="main">
-		<form role="form" id="builder">
-			<h2>Customized Sass Build</h2>
-			<div>
-				<!-- <h3>Utilities</h3>
-				<ul>
-					<li><label for=""><input type="checkbox"> Possibly Extra Mixin files will go here</label></li>
-				</ul> -->
+  <main role="main">
+    <form role="form" id="builder">
+      <h2>Customized Sass Build</h2>
+      <div>
+        <!-- <h3>Utilities</h3>
+        <ul>
+          <li><label for=""><input type="checkbox"> Possibly Extra Mixin files will go here</label></li>
+        </ul> -->
 
-				<h3>Menu</h3>
-				<ul>
-					<li><label for=""><input type="checkbox"> to 360 Left</label></li>
-					<li><label for=""><input type="checkbox"> to Butterfly X</label></li>
-					<li><label for=""><input type="checkbox"> to Minus</label></li>
-				</ul>
+        <h3>Menu</h3>
+        <ul>
+          <li>
+            <label for="">
+              <input type="checkbox" data-files="base/_config-globals.scss base/_global-styles.scss base/_config-menu.scss style/_menu-lines.scss type/_menu-xbutterfly.scss"> to Butterfly X
+            </label>
+          </li>
+          <li>
+            <label for="">
+              <input type="checkbox" data-files="base/_config-globals.scss base/_global-styles.scss base/_config-menu.scss style/_menu-lines.scss type/_menu-minus.scss"> to Minus
+            </label>
+          </li>
+        </ul>
 
-				<h3>Grid</h3>
-				<ul>
-					<li>
-						<label for="">
-							<input type="checkbox" data-files="base/_config-grid.scss style/_grid.scss type/_grid-collapse.scss"> to Collapse
-						</label>
-					</li>
-					<li>
-						<label for="">
-							<input type="checkbox" data-files="base/_config-grid.scss style/_grid.scss type/_grid-rearrange.scss"> to Rearrange
-						</label>
-					</li>
-				</ul>
-				
-				<h3>Add/Rm</h3>
-				<ul>
-					<li><label for=""><input type="checkbox"> Plus to Minus Fold</label></li>
-					<li><label for=""><input type="checkbox"> Plus to Minus Rotate</label></li>
-				</ul>
-				
-				<h3>Loaders</h3>
-				<ul>
-					<li><label for=""><input type="checkbox"> Gradient Spinner</label></li>
-					<li><label for=""><input type="checkbox"> 360fade</label></li>
-				</ul>
-			</div>
-			<input type="submit" value="generate">
-		</form>
+        <h3>Grid</h3>
+        <ul>
+          <li>
+            <label for="">
+              <input type="checkbox" data-files="base/_config-globals.scss base/_global-styles.scss base/_config-grid.scss style/_grid.scss type/_grid-collapse.scss"> to Collapse
+            </label>
+          </li>
+          <li>
+            <label for="">
+              <input type="checkbox" data-files="base/_config-globals.scss base/_global-styles.scss base/_config-grid.scss style/_grid.scss type/_grid-rearrange.scss"> to Rearrange
+            </label>
+          </li>
+        </ul>
 
-		<div id="tcon-source">
-			<textarea name="" id=""></textarea>
-		</div>
-	</main>
+        <h3>Add/Rm</h3>
+        <ul>
+          <li><label for=""><input type="checkbox"> Plus to Minus Fold</label></li>
+          <li><label for=""><input type="checkbox"> Plus to Minus Rotate</label></li>
+        </ul>
 
-	<footer role="contentinfo">
-		<small>Props to <a href="//bennettfeely.com">Bennett Feely</a> and <a href="//sarasoueidan.com">Sara Soueidan</a>. Project licensed under <a href="//opensource.org/licenses/MIT">MIT</a>.</small>
-		<small>Read the <a href="//sarasoueidan.com/blog/navicon-transformicons">article</a> on making transformicons by Sara Soueidan</small>
-	</footer>
+        <h3>Loaders</h3>
+        <ul>
+          <li><label for=""><input type="checkbox"> Gradient Spinner</label></li>
+          <li><label for=""><input type="checkbox"> 360fade</label></li>
+        </ul>
+      </div>
+      <input type="submit" value="generate">
+    </form>
 
-	<script src="js/transformicons.js"></script>
-	<script> transformicons.add('.tcon'); </script>
-	<script src="js/builder.js"></script>
-	<script> 
-		builder.init({
-			checkboxes: document.querySelectorAll('#builder input[type="checkbox"]'),
-			form: document.querySelector('#builder'),
-			textarea: document.querySelector('#tcon-source textarea')
-		});
-	</script>
+    <div id="tcon-source">
+      <textarea name="" id=""></textarea>
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <small>Props to <a href="//bennettfeely.com">Bennett Feely</a> and <a href="//sarasoueidan.com">Sara Soueidan</a>. Project licensed under <a href="//opensource.org/licenses/MIT">MIT</a>.</small>
+    <small>Read the <a href="//sarasoueidan.com/blog/navicon-transformicons">article</a> on making transformicons by Sara Soueidan</small>
+  </footer>
+
+  <script src="js/transformicons.js"></script>
+  <script> transformicons.add('.tcon'); </script>
+  <script src="js/builder.js"></script>
+  <script> 
+    builder.init({
+      checkboxes: document.querySelectorAll('#builder input[type="checkbox"]'),
+      form: document.querySelector('#builder'),
+      textarea: document.querySelector('#tcon-source textarea')
+    });
+  </script>
 </body>
 </html>
