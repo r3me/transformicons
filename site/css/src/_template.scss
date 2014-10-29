@@ -1,3 +1,7 @@
+// Color palette
+// http://coolors.co/d40600-f54244-282832-4f364e-5e405d
+// http://coolors.co/07182a-759da7-a7c8cf-eef0ef-e6e6e8
+
 * {
   &:before,
   &:after {
@@ -46,10 +50,10 @@ header {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  height: 50vh;
+  min-height: 487px;
   padding: 10px 0;
   width: 100%;
-  background: #D40600;
+  background: #2C2335;
 }
 
 nav {
@@ -60,17 +64,17 @@ nav {
   a {
     border: 2px solid white;
     border-radius: 2px;
-    transition: .3s border ease-in-out, .3s background ease-in-out, .3s color ease-in-out;
+    transition: .2s border ease-in-out, .2s background ease-in-out, .2s color ease-in-out;
     text-decoration: none;
     display: inline-block;
     margin: auto 10px;
     padding: 20px;
-    background: white;
-    color: black;
+    background: transparent;
+    color: white;
     &:hover {
       border: 2px solid white;
-      background: transparent;
-      color: white;
+      background: white;
+      color: black;
     }
     &:active {
       transform: translateY(2px);
@@ -99,7 +103,7 @@ footer {
 
 .tcon-tagline {
   margin-top: 0;
-  margin-bottom: 48px;
+  margin-bottom: 24px;
   color: white;
 }
 

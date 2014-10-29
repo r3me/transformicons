@@ -1,10 +1,10 @@
-$tcon-mail: 40px;
+$tcon-envelope-size: 40px;
+$tcon-envelope-transition: .2s transform ease-in-out;
 
 .tcon-mail--envelope {
-  width: $tcon-mail;
-  height: $tcon-mail/2;
+  width: $tcon-envelope-size;
+  height: $tcon-envelope-size/2;
   background: #3D3F41;
-  border-radius: 0 0 8px 8px;
   position: relative;
 
   &:before,
@@ -14,38 +14,38 @@ $tcon-mail: 40px;
     position: absolute;
     bottom: 0;
     top: 0;
-    width: $tcon-mail;
+    width: $tcon-envelope-size;
   }
 
   &:before {
     left: 0;
-    border-left: $tcon-mail solid #BCBCBD;
-    border-top: $tcon-mail/2 solid transparent;
+    border-left: $tcon-envelope-size solid #BCBCBD;
+    border-top: $tcon-envelope-size/2 solid transparent;
   }
 
   &:after {
     right: 0;
-    border-right: $tcon-mail solid #A5ACAE;
-    border-top: $tcon-mail/2 solid transparent;
+    border-right: $tcon-envelope-size solid #A5ACAE;
+    border-top: $tcon-envelope-size/2 solid transparent;
   }
 
   &.tcon-transform .tcon-mail--envelope__flap {
-    transform: rotate3d(360,0,0, 180deg);
+    transform: rotate3d(360, 0, 0, 180deg);
     transform-origin: 0 100%;
   }
 }
 
 
 .tcon-mail--envelope__flap {
-  border-bottom: $tcon-mail/4 solid transparent;
-  border-left: $tcon-mail/2 solid transparent;
-  border-right: $tcon-mail/2 solid transparent;
+  border-bottom: $tcon-envelope-size/4 solid transparent;
+  border-left: $tcon-envelope-size/2 solid transparent;
+  border-right: $tcon-envelope-size/2 solid transparent;
   border-color: transparent;
   border-bottom-color: #AEB3B5;
   position: absolute;
   transform: rotate3d(0,0,0,0deg);
   transform-origin: 0 100%;
-  transition:.3s transform ease-in-out;
-  top: -$tcon-mail/4;
+  transition: $tcon-envelope-transition;
+  top: -$tcon-envelope-size/4;
   left: 0;
 }
