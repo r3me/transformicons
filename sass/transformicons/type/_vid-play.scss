@@ -3,6 +3,9 @@
   padding-bottom: 0;
   width: $tcon-size;
   height: $tcon-size;
+
+  // @each $profile, $bgcolor in $profiles {}
+
   transition: .3s all ease-in-out;
   transform-origin: center center;
 
