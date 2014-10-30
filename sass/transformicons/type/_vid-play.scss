@@ -1,28 +1,27 @@
 .tcon-vid--play {
+  height: $tcon-vidplay-size;
   padding-top: 0;
   padding-bottom: 0;
-  width: $tcon-size;
-  height: $tcon-size;
+  width: $tcon-vidplay-size;
 
-  // @each $profile, $bgcolor in $profiles {}
-
-  transition: .3s all ease-in-out;
-  transform-origin: center center;
+  @each $property, $value in $tcon-vidplay-settings {
+    #{$property} : #{$value};
+  }
 
   &:after {
     border-style: solid;
-    // http://triangle.designyourcode.io
-    border-width: $tcon-size/2 0 $tcon-size/2 $tcon-size/2;
-    border-color: transparent transparent transparent $tcon-vid-color;
+    border-width: $tcon-vidplay-size/2 0 $tcon-vidplay-size/2 $tcon-vidplay-size/2; // http://triangle.designyourcode.io
+    border-color: transparent transparent transparent $tcon-vidplay-color;
     content: "";
     display: block;
     height: 0;
-    width: $tcon-size;
     transform: translateX(25%);
+    width: $tcon-vidplay-size;
   }
 
   &.#{$tcon-jstransform} {
-    background: $tcon-vid-color;
-    transform: rotate(-360deg);
+    @each $property, $value in $tcon-vidplay-transformation {
+      #{$property} : #{$value};
+    }
   }
 }

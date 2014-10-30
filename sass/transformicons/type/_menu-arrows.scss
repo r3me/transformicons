@@ -2,9 +2,7 @@
   width: auto;
 
   &.#{$tcon-jstransform} {
-
     .tcon-menu__lines {
-
       &::before,
       &::after {
         top: 0;
@@ -18,11 +16,8 @@
       &::after {
         transform: rotate3d(0, 0, 1, -45deg);
       }
-
     }
-
   }
-
 }
 
 
@@ -34,17 +29,18 @@
 .tcon-menu--arrowup {
 	width: auto;
 
-	&.is-transformed {
-    transform: scale3d(.8,.8,.8) rotate3d(0, 0, 1,90deg);
+	&.#{$tcon-jstransform} {
+    @each $property, $value in $tcon-menu-arrowleft-transformation {
+      #{$property} : #{$value};
+    }
   }
-
 }
 
 
 .tcon-menu--arrow360left {
-
 	&.#{$tcon-jstransform} {
-    transform: rotate3d(0, 0, 1, 360deg);
+    @each $property, $value in $tcon-menu-arrow360left-transformation {
+      #{$property} : #{$value};
+    }
   }
-
 }
