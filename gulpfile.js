@@ -46,9 +46,9 @@ gulp.task('docs', function() {
         });
         return fragments;
       })([
-        'transformicons',
+        'markup',
         'sass',
-        'required-javascript'
+        'javascript'
       ])
   };
 

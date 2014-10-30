@@ -41,7 +41,7 @@
             <path fill="#E5E5E5" d="M28.7 48.7l33 5-1.6-18-33-5z"/>
             <path fill="#fff" d="M79.7 116.7l-9 2-9-2v-63h18z"/>
             <path fill="#E5E5E5" d="M61.7 53.7v63l9 2v-65z"/>
-            <path fill="rgba(131, 14, 14, 0.81)" d="M127.6 11.7l-10.2 122.5-46.7 12.7L24 134.2 13.7 11.7h113.9m13.1-12H.7l12 143.9 58 15.7 58-15.7 12-143.9z"/>
+            <path fill="#D40600" d="M127.6 11.7l-10.2 122.5-46.7 12.7L24 134.2 13.7 11.7h113.9m13.1-12H.7l12 143.9 58 15.7 58-15.7 12-143.9z"/>
           </g>
         </svg>
       </a>
@@ -56,10 +56,14 @@
 <h3 id="foundation">Foundation</h3>
 <p>Our markup is strong and built with <a href="http://a11yproject.com">A11Y</a> in mind. Since not all screen readers know what <code>aria-label</code> is yet
 we&#39;ve chosen to include important text in a <code>.tcon-visuallyhidden</code> span using <a href="https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/main.css#L133-L142">HTML5 Boilerplate</a> methods that is screen reader friendly.</p>
+<p><strong>Buttons</strong></p>
 <pre><code class="lang-markup">&lt;button type=&quot;button&quot; class=&quot;tcon&quot; aria-label=&quot;[description]&quot;&gt;
   &lt;span class=&quot;&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
   &lt;span class=&quot;tcon-visuallyhidden&quot;&gt;[screen reader text]&lt;/span&gt;
 &lt;/button&gt;
+</code></pre>
+<p><strong>Symbols/Icons</strong></p>
+<pre><code class="lang-markup">&lt;span class=&quot;tcon&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
 </code></pre>
 
       </section>
@@ -67,7 +71,7 @@ we&#39;ve chosen to include important text in a <code>.tcon-visuallyhidden</code
       <section class="fragment">
         <h2 id="sass">Sass</h2>
 <h3 id="structure">Structure</h3>
-<p>Even though we provide a Vanilla CSS port we also support Sass (<code>.scss</code>). Authors have the option of using the transformicon builder in order to customize.
+<p>Using the custom builder authors have the option to customize their Sass port of Transformicons.
 Each Sass partial is structured according to config, variation and icon(s) chosen. Your specific <code>_icons.scss</code> file will vary depending on your custom build
 options chosen.</p>
 <p><strong>_icons.scss</strong></p>
@@ -98,13 +102,16 @@ options chosen.</p>
 <li><strong>UMD Pattern</strong> : Using the Universal Module Definition pattern supports synchronous and asynchronous loading like require.js. In synchronous mode the global transformicon is exported, while with asynchronous loading a reference can be custom.</li>
 <li><strong>Encapsulation</strong> : Polluting the global namespace is bad practice. We only add the global handle (<code>transformicon</code>) to the root, if loaded synchronously.</li>
 </ul>
-<h3 id="methods">Methods</h3>
+<h3 id="arguments">Arguments</h3>
 <ul>
-<li><code>@param elements (string|element|array)</code> - Selector, DOM element or Array of DOM elements to be toggled</li>
-<li><code>@param events {object}</code> - An Object containing one or more special event definitions</li>
-<li><code>@param events.transform {(string|array)}</code> - One or more events that trigger the transform. Can be an Array or string with events seperated by space.</li>
-<li><code>@param events.revert {(string|array)}</code> - One or more events that trigger the reversion. Can be an Array or string with events seperated by space.</li>
+<li><code>elements (string|element|array)</code> - Selector, DOM element or Array of DOM elements to be toggled</li>
+<li><code>events {object}</code> - An Object containing one or more special event definitions<ul>
+<li><code>transform {(string|array)}</code> - One or more events that trigger the transform. Can be an Array or string with events seperated by space.</li>
+<li><code>revert {(string|array)}</code> - One or more events that trigger the reversion. Can be an Array or string with events seperated by space.</li>
 </ul>
+</li>
+</ul>
+<h3 id="methods">Methods</h3>
 <p><strong><code>transformicons.add(elements, events)</code></strong><br>Adds functionality to elements. If no events are supplied, the default click events are used.</p>
 <p><strong><code>transformicons.transform(elements)</code></strong><br>Manually trigger a transform</p>
 <p><strong><code>transformicons.remove(elements, events)</code></strong><br>Removes functionality from elements. If no events are supplied, the default click events are used.</p>

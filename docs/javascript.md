@@ -7,12 +7,14 @@ Transformicons are mostly powered by CSS however, a little piece of JavaScript i
 - **UMD Pattern** : Using the Universal Module Definition pattern supports synchronous and asynchronous loading like require.js. In synchronous mode the global transformicon is exported, while with asynchronous loading a reference can be custom.
 - **Encapsulation** : Polluting the global namespace is bad practice. We only add the global handle (``transformicon``) to the root, if loaded synchronously.
 
-### Methods
+### Arguments
 
-- ``@param elements (string|element|array)`` - Selector, DOM element or Array of DOM elements to be toggled
-- ``@param events {object}`` - An Object containing one or more special event definitions
-- ``@param events.transform {(string|array)}`` - One or more events that trigger the transform. Can be an Array or string with events seperated by space.
-- ``@param events.revert {(string|array)}`` - One or more events that trigger the reversion. Can be an Array or string with events seperated by space.
+- ``elements (string|element|array)`` - Selector, DOM element or Array of DOM elements to be toggled
+- ``events {object}`` - An Object containing one or more special event definitions
+	- ``transform {(string|array)}`` - One or more events that trigger the transform. Can be an Array or string with events seperated by space.
+	- ``revert {(string|array)}`` - One or more events that trigger the reversion. Can be an Array or string with events seperated by space.
+
+### Methods
 
 **``transformicons.add(elements, events)``**	
 Adds functionality to elements. If no events are supplied, the default click events are used.
