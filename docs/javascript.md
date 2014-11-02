@@ -1,10 +1,10 @@
 ## Javascript
 
 ### Benefits
-Transformicons are mostly powered by CSS however, a little piece of JavaScript is required to toggle the transformed states.
+Transformicons are mostly powered by CSS however, a little piece of JavaScript is required to toggle the transformed states. We've taken the time to ensure the greatest amount of flexibility has been given to the code so that you the author can have…
 
 - **Full Event Control** : A user should be able to define arbitrary events and specify which one should transform and which one reverts the icon. We allow you to choose, but by default we use click and touchstart.
-- **UMD Pattern** : Using the Universal Module Definition pattern supports synchronous and asynchronous loading like require.js. In synchronous mode the global transformicon is exported, while with asynchronous loading a reference can be custom.
+- **UMD Pattern** : Using the Universal Module Definition pattern supports synchronous and asynchronous loading like [require.js](http://requirejs.org). In synchronous mode the global transformicon is exported, while with asynchronous loading a reference can be custom.
 - **Encapsulation** : Polluting the global namespace is bad practice. We only add the global handle (``transformicon``) to the root, if loaded synchronously.
 
 ### Arguments
