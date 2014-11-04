@@ -9,10 +9,37 @@ Transformicons are mostly powered by CSS however, a little piece of JavaScript i
 
 ### Arguments
 
-- ``elements (string|element|array)`` - Selector, DOM element or Array of DOM elements to be toggled
-- ``events {object}`` - An Object containing one or more special event definitions
-	- ``transform {(string|array)}`` - One or more events that trigger the transform. Can be an Array or string with events seperated by space.
-	- ``revert {(string|array)}`` - One or more events that trigger the reversion. Can be an Array or string with events seperated by space.
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th><code>elements</code></th>
+      <td>(string|element|array)</td>
+      <td>Selector, DOM element or Array of DOM elements to be toggled</td>
+    </tr>
+    <tr>
+      <th><code>events</code></th>
+      <td>{object}</td>
+      <td>An Object containing one or more special event definitions</td>
+    </tr>
+    <tr>
+      <th><code>transform</code></th>
+      <td>{(string|array)}</td>
+      <td>One or more events that trigger the transform. Can be an Array or string with events seperated by space.</td>
+    </tr>
+    <tr>
+      <th><code>revert</code></th>
+      <td>{(string|array)}</td>
+      <td>One or more events that trigger the reversion. Can be an Array or string with events seperated by space.</td>
+    </tr>
+  </tbody>
+</table>
 
 ### Methods
 
@@ -31,8 +58,7 @@ Manually trigger reversion to original state.
 **``transformicon.toggle(elements)``**	
 Toggle between transformed and original state.
 
-### Example
-
+**transformicons.js**
 ```javascript
 transformicons.add('.tcon') // add default behavior for all elements with the class .tcon
               .remove('.tcon-menu--xcross') // remove default behavior for the first icon
