@@ -14,29 +14,116 @@
   </head>
   <body>
     <header role="banner">
+      <a href="/">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="141.3" height="159.7" viewBox="0 0 141.3 159.7">
+          <g>
+            <path fill="#D40600" d="M5.7 5.7h130l-12.1 133.5-52.9 14.5-53.9-14.5z"/>
+            <defs>
+              <path id="a" d="M70.7-3.3h76v165h-76z"/>
+            </defs>
+            <clipPath id="b">
+              <use xlink:href="#a" overflow="visible"/>
+            </clipPath>
+            <g clip-path="url(#b)">
+              <linearGradient id="c" gradientUnits="userSpaceOnUse" x1="4.682" y1="79.668" x2="136.667" y2="79.668">
+                <stop offset=".006" stop-color="#D40600"/>
+                <stop offset=".191" stop-color="#D90E09"/>
+                <stop offset=".499" stop-color="#E52523"/>
+                <stop offset=".889" stop-color="#F9494C"/>
+                <stop offset="1" stop-color="#FF5459"/>
+              </linearGradient>
+              <path fill="url(#c)" d="M4.7 5.7h132l-12.3 133.5-53.7 14.5L16 139.2z"/>
+            </g>
+            <path fill="#C10202" d="M81.1 76.6l27.6-8.5 2.4 7.5-11 7.9zM60.1 76.6l-27.6-8.5-2.4 7.5 11 7.9z"/>
+            <path opacity=".3" fill="#7C0404" d="M41.1 81.5L30.6 74l-.5 1.6 11 7.9 19-6.9-3-.9zM100.1 81.5l10.5-7.5.5 1.6-11 7.9-19-6.9 2.9-.9z"/>
+            <path fill="#7C0404" d="M41.1 81.5L30.6 74"/>
+            <path fill="#fff" d="M112.7 48.7l-33 5 1.5-18 33-5z"/>
+            <path fill="#E5E5E5" d="M28.7 48.7l33 5-1.6-18-33-5z"/>
+            <path fill="#fff" d="M79.7 116.7l-9 2-9-2v-63h18z"/>
+            <path fill="#E5E5E5" d="M61.7 53.7v63l9 2v-65z"/>
+            <path fill="#D40600" d="M127.6 11.7l-10.2 122.5-46.7 12.7L24 134.2 13.7 11.7h113.9m13.1-12H.7l12 143.9 58 15.7 58-15.7 12-143.9z"/>
+          </g>
+        </svg>
+      </a>
       <h1 class="tcon-title">Transformicons</h1>
-      <p class="tcon-tagline">Project documentation explaining how to use Transformicons</p>
+      <p class="tcon-tagline">Author Documentation</p>
     </header>
 
     <main role="main">
     
       <section class="fragment">
-        <h2 id="required-javascript">Required Javascript</h2>
-<p>Transformicons are mostly powered by CSS however, a little piece of JavaScript is required to toggle the transformed states.</p>
-<pre><code class="lang-javascript">transformicons.add(&#39;[data-tcon=&quot;icon&quot;]&#39;) // add default behavior for all elements with the data attribute
-              .remove(&#39;.tcon-menu--xcross&#39;) // remove default behavior for the first icon
-              .add(&#39;.tcon-menu--xcross&#39;, {transform: &quot;mouseover&quot;, revert: &quot;mouseout&quot;}); // add new behavior for the first icon
+        <h2 id="markup">Markup</h2>
+<h3 id="foundation">Foundation</h3>
+<p>Our markup is strong and built with <a href="http://a11yproject.com">A11Y</a> in mind. Since not all screen readers know what <code>aria-label</code> is yet
+we&#39;ve chosen to include important text in a <code>.tcon-visuallyhidden</code> span using <a href="https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/main.css#L133-L142">HTML5 Boilerplate</a> methods that is screen reader friendly.</p>
+<p><strong>Buttons</strong></p>
+<pre><code class="lang-markup">&lt;button type=&quot;button&quot; class=&quot;tcon&quot; aria-label=&quot;[description]&quot;&gt;
+  &lt;span class=&quot;&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+  &lt;span class=&quot;tcon-visuallyhidden&quot;&gt;[screen reader text]&lt;/span&gt;
+&lt;/button&gt;
+</code></pre>
+<p><strong>Symbols/Icons</strong></p>
+<pre><code class="lang-markup">&lt;span class=&quot;tcon&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
 </code></pre>
 
       </section>
     
       <section class="fragment">
-        <h2 id="icon-markup">Icon Markup</h2>
-<h3 id="x-butterfly-menu">X Butterfly Menu</h3>
-<pre><code class="lang-markup">&lt;button type=&quot;button&quot; class=&quot;tcon tcon-menu--xbutterfly&quot; aria-label=&quot;toggle menu&quot;&gt;
-  &lt;span class=&quot;tcon-menu__lines&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
-  &lt;span class=&quot;tcon-visuallyhidden&quot;&gt;toggle menu&lt;/span&gt;
-&lt;/button&gt;
+        <h2 id="sass">Sass</h2>
+<h3 id="structure">Structure</h3>
+<p>Using the custom builder authors have the option to customize their Sass port of Transformicons.
+Each Sass partial is structured according to config, variation and icon(s) chosen. Your specific <code>_icons.scss</code> file will vary depending on your custom build
+options chosen.</p>
+<p><strong>_icons.scss</strong></p>
+<pre><code class="lang-scss">// Config
+@import &quot;base/config-globals&quot;;
+@import &quot;base/config-menu&quot;;
+@import &quot;base/config-utilities&quot;;
+@import &quot;base/global-styles&quot;;
+
+// Variations
+@import &quot;style/menu-lines&quot;;
+
+// Icons
+@import &quot;type/menu-xcross&quot;;
+@import &quot;type/menu-xbutterfly&quot;;
+@import &quot;type/menu-arrows&quot;;
+@import &quot;type/menu-minus&quot;;
+</code></pre>
+
+      </section>
+    
+      <section class="fragment">
+        <h2 id="javascript">Javascript</h2>
+<h3 id="benefits">Benefits</h3>
+<p>Transformicons are mostly powered by CSS however, a little piece of JavaScript is required to toggle the transformed states. We&#39;ve taken the time to ensure the greatest amount of flexibility has been given to the code so that you the author can have…</p>
+<ul>
+<li><strong>Full Event Control</strong> : A user should be able to define arbitrary events and specify which one should transform and which one reverts the icon. We allow you to choose, but by default we use click and touchstart.</li>
+<li><strong>UMD Pattern</strong> : Using the Universal Module Definition pattern supports synchronous and asynchronous loading like <a href="http://requirejs.org">require.js</a>. In synchronous mode the global transformicon is exported, while with asynchronous loading a reference can be custom.</li>
+<li><strong>Encapsulation</strong> : Polluting the global namespace is bad practice. We only add the global handle (<code>transformicon</code>) to the root, if loaded synchronously.</li>
+</ul>
+<h3 id="arguments">Arguments</h3>
+<ul>
+<li><code>elements (string|element|array)</code> - Selector, DOM element or Array of DOM elements to be toggled</li>
+<li><code>events {object}</code> - An Object containing one or more special event definitions<ul>
+<li><code>transform {(string|array)}</code> - One or more events that trigger the transform. Can be an Array or string with events seperated by space.</li>
+<li><code>revert {(string|array)}</code> - One or more events that trigger the reversion. Can be an Array or string with events seperated by space.</li>
+</ul>
+</li>
+</ul>
+<h3 id="methods">Methods</h3>
+<p><strong><code>transformicons.add(elements, events)</code></strong><br>Adds functionality to elements. If no events are supplied, the default click events are used.</p>
+<p><strong><code>transformicons.transform(elements)</code></strong><br>Manually trigger a transform</p>
+<p><strong><code>transformicons.remove(elements, events)</code></strong><br>Removes functionality from elements. If no events are supplied, the default click events are used.</p>
+<p><strong><code>transformicon.revert(elements)</code></strong><br>Manually trigger reversion to original state.</p>
+<p><strong><code>transformicon.toggle(elements)</code></strong><br>Toggle between transformed and original state.</p>
+<h3 id="example">Example</h3>
+<pre><code class="lang-javascript">transformicons.add(&#39;.tcon&#39;) // add default behavior for all elements with the class .tcon
+              .remove(&#39;.tcon-menu--xcross&#39;) // remove default behavior for the first icon
+              .add(&#39;.tcon-menu--xcross&#39;, {
+                  transform: &quot;mouseover&quot;,
+                  revert: &quot;mouseout&quot;
+              }); // add new behavior for the first icon
 </code></pre>
 
       </section>

@@ -1,3 +1,7 @@
+// Color palette
+// http://coolors.co/d40600-f54244-282832-4f364e-5e405d
+// http://coolors.co/07182a-759da7-a7c8cf-eef0ef-e6e6e8
+
 * {
   &:before,
   &:after {
@@ -46,10 +50,10 @@ header {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  height: 50vh;
+  min-height: 487px;
   padding: 10px 0;
   width: 100%;
-  background: #D40600;
+  background: #1E1C3D;
 }
 
 nav {
@@ -58,19 +62,19 @@ nav {
   align-items: center;
   width: 100%;
   a {
-    border: 2px solid white;
+    border: 2px solid #FFFEFE;
     border-radius: 2px;
-    transition: .3s border ease-in-out, .3s background ease-in-out, .3s color ease-in-out;
+    transition: .2s border ease-in-out, .2s background ease-in-out, .2s color ease-in-out;
     text-decoration: none;
     display: inline-block;
     margin: auto 10px;
     padding: 20px;
-    background: white;
-    color: black;
+    background: transparent;
+    color: #FFFEFE;
     &:hover {
-      border: 2px solid white;
-      background: transparent;
-      color: white;
+      border: 2px solid #FFFEFE;
+      background: #FFFEFE;
+      color: black;
     }
     &:active {
       transform: translateY(2px);
@@ -94,13 +98,13 @@ footer {
 .tcon-title {
   margin: 0;
   text-align: center;
-  color: white;
+  color: #FFFEFE;
 }
 
 .tcon-tagline {
   margin-top: 0;
-  margin-bottom: 48px;
-  color: white;
+  margin-bottom: 24px;
+  color: #FFFEFE;
 }
 
 .tcon-row {
@@ -120,6 +124,7 @@ footer {
   .tcon-row__items {
     flex: 1;
     display: flex;
+    align-items: center;
     justify-content: space-between;
   }
 
@@ -127,6 +132,6 @@ footer {
     display: flex;
     flex: 1;
     justify-content: flex-start;
-    color: #D40600;
+    color: #A8A8A8;
   }
 }
