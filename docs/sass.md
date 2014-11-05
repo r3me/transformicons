@@ -5,7 +5,7 @@ Using the custom builder authors have the option to customize their Sass port of
 Each Sass partial is structured according to config, variation and icon(s) chosen. Your specific ``_icons.scss`` file will vary depending on your custom build
 options chosen.
 
-**_icons.scss**
+**_tcons.scss**
 ```scss
 // Config
 @import "base/config-globals";

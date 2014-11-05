@@ -3,7 +3,7 @@
 ### Benefits
 Transformicons are mostly powered by CSS however, a little piece of JavaScript is required to toggle the transformed states. We've taken the time to ensure the greatest amount of flexibility has been given to the code so that you the author can have…
 
-- **Full Event Control** : A user should be able to define arbitrary events and specify which one should transform and which one reverts the icon. We allow you to choose, but by default we use click and touchstart.
+- **Full Event Control** : A user should be able to define arbitrary events and specify which one should transform and which one reverts the icon. We allow you to choose, but by default we use ``click`` and ``touchstart``.
 - **UMD Pattern** : Using the Universal Module Definition pattern supports synchronous and asynchronous loading like [require.js](http://requirejs.org). In synchronous mode the global transformicon is exported, while with asynchronous loading a reference can be custom.
 - **Encapsulation** : Polluting the global namespace is bad practice. We only add the global handle (``transformicon``) to the root, if loaded synchronously.
 
@@ -12,7 +12,7 @@ Transformicons are mostly powered by CSS however, a little piece of JavaScript i
 <table>
   <thead>
     <tr>
-      <th>Property</th>
+      <th>Argument</th>
       <th>Type</th>
       <th>Description</th>
     </tr>
@@ -28,6 +28,20 @@ Transformicons are mostly powered by CSS however, a little piece of JavaScript i
       <td>{object}</td>
       <td>An Object containing one or more special event definitions</td>
     </tr>
+  </tbody>
+</table>
+
+### Objects
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
     <tr>
       <th><code>transform</code></th>
       <td>{(string|array)}</td>
@@ -41,22 +55,45 @@ Transformicons are mostly powered by CSS however, a little piece of JavaScript i
   </tbody>
 </table>
 
+
 ### Methods
 
-**``transformicons.add(elements, events)``**	
-Adds functionality to elements. If no events are supplied, the default click events are used.
-
-**``transformicons.transform(elements)``**	
-Manually trigger a transform
-
-**``transformicons.remove(elements, events)``**	
-Removes functionality from elements. If no events are supplied, the default click events are used.
-
-**``transformicon.revert(elements)``**	
-Manually trigger reversion to original state.
-
-**``transformicon.toggle(elements)``**	
-Toggle between transformed and original state.
+<table>
+  <thead>
+    <tr>
+      <th>Event Methods</th>
+      <th>Arguments</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th><code>transformicons.add()</code></th>
+      <td><code>elements, events</code></td>
+      <td>Adds functionality to elements. If no events are supplied, the default click events are used</td>
+    </tr>
+    <tr>
+      <th><code>transformicons.transform()</code></th>
+      <td><code>elements</code></td>
+      <td>Manually trigger a transform</td>
+    </tr>
+    <tr>
+      <th><code>transformicons.remove()</code></th>
+      <td><code>elements, events</code></td>
+      <td>Removes functionality from elements. If no events are supplied, the default click events are used</td>
+    </tr>
+    <tr>
+      <th><code>transformicon.revert()</code></th>
+      <td><code>elements</code></td>
+      <td>Manually trigger reversion to original state</td>
+    </tr>
+    <tr>
+      <th><code>transformicon.toggle()</code></th>
+      <td><code>elements</code></td>
+      <td>Toggle between transformed and original state</td>
+    </tr>
+  </tbody>
+</table>
 
 **transformicons.js**
 ```javascript

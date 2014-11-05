@@ -80,7 +80,7 @@ we&#39;ve chosen to include important text in a <code>.tcon-visuallyhidden</code
 <p>Using the custom builder authors have the option to customize their Sass port of Transformicons.
 Each Sass partial is structured according to config, variation and icon(s) chosen. Your specific <code>_icons.scss</code> file will vary depending on your custom build
 options chosen.</p>
-<p><strong>_icons.scss</strong></p>
+<p><strong>_tcons.scss</strong></p>
 <pre><code class="lang-scss">// Config
 @import &quot;base/config-globals&quot;;
 @import &quot;base/config-menu&quot;;
@@ -104,7 +104,7 @@ options chosen.</p>
 <h3 id="benefits">Benefits</h3>
 <p>Transformicons are mostly powered by CSS however, a little piece of JavaScript is required to toggle the transformed states. We&#39;ve taken the time to ensure the greatest amount of flexibility has been given to the code so that you the author can have…</p>
 <ul>
-<li><strong>Full Event Control</strong> : A user should be able to define arbitrary events and specify which one should transform and which one reverts the icon. We allow you to choose, but by default we use click and touchstart.</li>
+<li><strong>Full Event Control</strong> : A user should be able to define arbitrary events and specify which one should transform and which one reverts the icon. We allow you to choose, but by default we use <code>click</code> and <code>touchstart</code>.</li>
 <li><strong>UMD Pattern</strong> : Using the Universal Module Definition pattern supports synchronous and asynchronous loading like <a href="http://requirejs.org">require.js</a>. In synchronous mode the global transformicon is exported, while with asynchronous loading a reference can be custom.</li>
 <li><strong>Encapsulation</strong> : Polluting the global namespace is bad practice. We only add the global handle (<code>transformicon</code>) to the root, if loaded synchronously.</li>
 </ul>
@@ -112,7 +112,7 @@ options chosen.</p>
 <table>
   <thead>
     <tr>
-      <th>Property</th>
+      <th>Argument</th>
       <th>Type</th>
       <th>Description</th>
     </tr>
@@ -128,6 +128,19 @@ options chosen.</p>
       <td>{object}</td>
       <td>An Object containing one or more special event definitions</td>
     </tr>
+  </tbody>
+</table>
+
+<h3 id="objects">Objects</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
     <tr>
       <th><code>transform</code></th>
       <td>{(string|array)}</td>
@@ -141,12 +154,45 @@ options chosen.</p>
   </tbody>
 </table>
 
+
 <h3 id="methods">Methods</h3>
-<p><strong><code>transformicons.add(elements, events)</code></strong><br>Adds functionality to elements. If no events are supplied, the default click events are used.</p>
-<p><strong><code>transformicons.transform(elements)</code></strong><br>Manually trigger a transform</p>
-<p><strong><code>transformicons.remove(elements, events)</code></strong><br>Removes functionality from elements. If no events are supplied, the default click events are used.</p>
-<p><strong><code>transformicon.revert(elements)</code></strong><br>Manually trigger reversion to original state.</p>
-<p><strong><code>transformicon.toggle(elements)</code></strong><br>Toggle between transformed and original state.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Event Methods</th>
+      <th>Arguments</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th><code>transformicons.add()</code></th>
+      <td><code>elements, events</code></td>
+      <td>Adds functionality to elements. If no events are supplied, the default click events are used</td>
+    </tr>
+    <tr>
+      <th><code>transformicons.transform()</code></th>
+      <td><code>elements</code></td>
+      <td>Manually trigger a transform</td>
+    </tr>
+    <tr>
+      <th><code>transformicons.remove()</code></th>
+      <td><code>elements, events</code></td>
+      <td>Removes functionality from elements. If no events are supplied, the default click events are used</td>
+    </tr>
+    <tr>
+      <th><code>transformicon.revert()</code></th>
+      <td><code>elements</code></td>
+      <td>Manually trigger reversion to original state</td>
+    </tr>
+    <tr>
+      <th><code>transformicon.toggle()</code></th>
+      <td><code>elements</code></td>
+      <td>Toggle between transformed and original state</td>
+    </tr>
+  </tbody>
+</table>
+
 <p><strong>transformicons.js</strong></p>
 <pre><code class="lang-javascript">transformicons.add(&#39;.tcon&#39;) // add default behavior for all elements with the class .tcon
               .remove(&#39;.tcon-menu--xcross&#39;) // remove default behavior for the first icon

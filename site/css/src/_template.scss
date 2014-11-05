@@ -45,6 +45,30 @@ h2 {
   font-weight: 300;
 }
 
+thead {
+  background: rgba(95, 98, 121, 0.19);
+  border: 1px solid #E4E4E4;
+  border-left: none;
+  border-right: none;
+}
+table {
+  background: rgba(30, 28, 61, 0.03);
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  border: 1px solid #E4E4E4;
+  border-top: none;
+}
+th,td {
+  padding: 10px;
+}
+tr {
+  vertical-align: top;
+}
+tbody tr:nth-child(odd) {
+  background: white;
+}
+
 header {
   display: flex;
   align-items: center;
