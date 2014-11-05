@@ -60,8 +60,8 @@ gulp.task('docs', function() {
 
 // Watching
 gulp.task('watch', function() {
-  gulp.watch('sass/**/*.scss', ['sass']);
-  gulp.watch('site/styles/**/*.scss', ['sass']);
+  gulp.watch('dist/**/*.scss', ['sass']);
+  gulp.watch('site/css/**/*.scss', ['sass']);
   gulp.watch(['docs/assets/*', 'docs/*'], ['docs']);
 });
 
