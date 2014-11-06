@@ -2,10 +2,10 @@
 
 ### Structure
 Using the custom builder authors have the option to customize their Sass port of Transformicons.
-Each Sass partial is structured according to config, variation and icon(s) chosen. Your specific ``_icons.scss`` file will vary depending on your custom build
+Each Sass partial is structured according to config, variation and icon(s) chosen. Your specific ``_tcons.scss`` file will vary depending on your custom build
 options chosen.
 
-**_tcons.scss**
+<code>**_tcons.scss**</code>
 ```scss
 // Config
 @import "base/config-globals";
@@ -19,6 +19,4 @@ options chosen.
 // Icons
 @import "type/menu-xcross";
 @import "type/menu-xbutterfly";
-@import "type/menu-arrows";
-@import "type/menu-minus";
 ```
