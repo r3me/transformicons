@@ -37,19 +37,19 @@ Transformicons are mostly powered by CSS however, a little piece of JavaScript i
   <thead>
     <tr>
       <th>Property</th>
-      <th>Type</th>
+      <th>Value</th>
       <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th><code>transform</code></th>
-      <td>{(string|array)}</td>
+      <td><code>{(string|array)}</code></td>
       <td>One or more events that trigger the transform. Can be an Array or string with events seperated by space.</td>
     </tr>
     <tr>
       <th><code>revert</code></th>
-      <td>{(string|array)}</td>
+      <td><code>{(string|array)}</code></td>
       <td>One or more events that trigger the reversion. Can be an Array or string with events seperated by space.</td>
     </tr>
   </tbody>
@@ -61,7 +61,7 @@ Transformicons are mostly powered by CSS however, a little piece of JavaScript i
 <table>
   <thead>
     <tr>
-      <th>Event Methods</th>
+      <th>Event Method</th>
       <th>Arguments</th>
       <th>Description</th>
     </tr>
@@ -95,7 +95,7 @@ Transformicons are mostly powered by CSS however, a little piece of JavaScript i
   </tbody>
 </table>
 
-**transformicons.js**
+<code>**transformicons.js**</code>
 ```javascript
 transformicons.add('.tcon') // add default behavior for all elements with the class .tcon
               .remove('.tcon-menu--xcross') // remove default behavior for the first icon
