@@ -53,63 +53,74 @@
   </header>
 
   <main role="main">
-    <form role="form" id="builder">
-      <h2>Customized Sass Build</h2>
-      <div>
-        <!-- <h3>Utilities</h3>
-        <ul>
-          <li><label for=""><input type="checkbox"> Possibly Extra Mixin files will go here</label></li>
-        </ul> -->
+    <form action="#" id="builder" role="form" >
+      <h2>Builder</h2>
+      <div class="tcons-build-opts">
+        <fieldset>
+          <legend>Icons</legend>
+          <h3>Menu</h3>
+          <ul>
+            <li>
+              <label for="">
+                <input type="checkbox" data-files="base/_config-globals.scss base/_global-styles.scss base/_config-menu.scss style/_menu-lines.scss type/_menu-xbutterfly.scss"> Line Menu to Butterfly X
+              </label>
+            </li>
+            <li>
+              <label for="">
+                <input type="checkbox" data-files="base/_config-globals.scss base/_global-styles.scss base/_config-menu.scss style/_menu-lines.scss type/_menu-minus.scss"> Line Menu to Minus
+              </label>
+            </li>
+          </ul>
 
-        <h3>Menu</h3>
-        <ul>
-          <li>
-            <label for="">
-              <input type="checkbox" data-files="base/_config-globals.scss base/_global-styles.scss base/_config-menu.scss style/_menu-lines.scss type/_menu-xbutterfly.scss"> to Butterfly X
-            </label>
-          </li>
-          <li>
-            <label for="">
-              <input type="checkbox" data-files="base/_config-globals.scss base/_global-styles.scss base/_config-menu.scss style/_menu-lines.scss type/_menu-minus.scss"> to Minus
-            </label>
-          </li>
-        </ul>
+          <h3>Grid</h3>
+          <ul>
+            <li>
+              <label for="">
+                <input type="checkbox" data-files="base/_config-globals.scss base/_global-styles.scss base/_config-grid.scss style/_grid.scss type/_grid-collapse.scss"> to Collapse
+              </label>
+            </li>
+            <li>
+              <label for="">
+                <input type="checkbox" data-files="base/_config-globals.scss base/_global-styles.scss base/_config-grid.scss style/_grid.scss type/_grid-rearrange.scss"> to Rearrange
+              </label>
+            </li>
+          </ul>
 
-        <h3>Grid</h3>
-        <ul>
-          <li>
-            <label for="">
-              <input type="checkbox" data-files="base/_config-globals.scss base/_global-styles.scss base/_config-grid.scss style/_grid.scss type/_grid-collapse.scss"> to Collapse
-            </label>
-          </li>
-          <li>
-            <label for="">
-              <input type="checkbox" data-files="base/_config-globals.scss base/_global-styles.scss base/_config-grid.scss style/_grid.scss type/_grid-rearrange.scss"> to Rearrange
-            </label>
-          </li>
-        </ul>
+          <h3>Add/Rm</h3>
+          <ul>
+            <li><label for=""><input type="checkbox"> Plus to Minus Fold</label></li>
+            <li><label for=""><input type="checkbox"> Plus to Minus Rotate</label></li>
+          </ul>
 
-        <h3>Add/Rm</h3>
-        <ul>
-          <li><label for=""><input type="checkbox"> Plus to Minus Fold</label></li>
-          <li><label for=""><input type="checkbox"> Plus to Minus Rotate</label></li>
-        </ul>
+          <h3>Loaders</h3>
+          <ul>
+            <li><label for=""><input type="checkbox"> Gradient Spinner</label></li>
+            <li><label for=""><input type="checkbox"> 360fade</label></li>
+          </ul>
+        </fieldset>
 
-        <h3>Loaders</h3>
-        <ul>
-          <li><label for=""><input type="checkbox"> Gradient Spinner</label></li>
-          <li><label for=""><input type="checkbox"> 360fade</label></li>
-        </ul>
+        <fieldset>
+          <legend>Output</legend>
+          <h3>Styles</h3>
+          <label for=""><input type="radio" name="tcon_stylesheet" value="sass">Sass</label>
+          <label for=""><input type="radio" name="tcon_stylesheet" value="css">CSS</label>
+
+          <h3>JavaScript</h3>
+          <label for=""><input type="radio"name="tcon_javascript" value="unminifiedjs">transformicons.js</label>
+          <label for=""><input type="radio"name="tcon_javascript" value="minifiedjs">transformicons.min.js</label>
+        </fieldset>
       </div>
-      <input type="submit" value="generate css">
+
+      <input type="submit" value="Build">
     </form>
 
     <div id="tcon-source">
-      <textarea name="" id="tcons-css-output"></textarea>
-
-      <label><input type="checkbox">download the unminified js</label>
-      <label><input type="checkbox">download the minified js</label>
-      <label><input type="checkbox">download the minified and unminified js</label>
+      <h3>Markup</h3>
+      <textarea name="" id="tcon-source__html"></textarea>
+      <h3>Styles</h3>
+      <textarea name="" id="tcon-source__styles"></textarea>
+      <h3>JavaScript</h3>
+      <textarea name="" id="tcon-source__js"></textarea>
     </div>
   </main>
 
