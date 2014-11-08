@@ -198,6 +198,7 @@ footer {
   }
 }
 
+<<<<<<< HEAD
 #builder {
   background: rgba(234, 234, 234, 0.35);
   padding: 10px 20px;
@@ -213,4 +214,15 @@ footer {
   list-style-type: none;
   padding: 0;
   margin: 0;
+=======
+#tcons-contributors {
+  display: flex;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.contributor-avatar {
+  max-width: 100%;
+>>>>>>> 63d729097200a713cef6bce265684cb8f5e2551f
 }
