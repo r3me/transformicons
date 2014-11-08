@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, user-scalable=1, initial-scale=1">
   <meta name="msapplication-tap-highlight" content="no">
   <link rel="stylesheet" href="css/style.css">
+  <script data-main="js/src/builder" src="js/lib/require.js"></script>
 </head>
 <body>
   <header role="banner">
@@ -47,7 +48,7 @@
 
     <nav role="navigation">
       <a href="builder.html">Builder</a>
-      <a href="docs">Documentation</a>
+      <a href="docs.html">Documentation</a>
       <a href="//github.com/grayghostvisuals/transformicons">GitHub</a>
     </nav>
   </header>
@@ -133,20 +134,15 @@
   </main>
 
   <footer role="contentinfo">
-    <small>Props to <a href="//bennettfeely.com">Bennett Feely</a> and <a href="//sarasoueidan.com">Sara Soueidan</a>. Project licensed under <a href="//opensource.org/licenses/MIT">MIT</a>.</small>
-    <small>Read the <a href="//sarasoueidan.com/blog/navicon-transformicons">article</a> on making transformicons by Sara Soueidan</small>
-  </footer>
+    <div class="github-data">
+      <h3>Join us on <a href="//github.com/grayghostvisuals/transformicons">GitHub</a> <span> <a href="//github.com/grayghostvisuals/transformicons/graphs/contributors"><span class="data contributors">&nbsp;</span> Contributors</a> <a href="//github.com/grayghostvisuals/transformicons"><span class="data stars">&nbsp;</span> Stars</a> <a href="//github.com/grayghostvisuals/transformicons/issues"><span class="data open-issues">&nbsp;</span> Open Issues</a></span></h3>
+      <ul id="tcons-contributors"></ul>
+      <ul class="tcons-pager tcons-contributors__pagination"></ul>
+    </div>
 
-  <script src="js/transformicons.js"></script>
-  <script> transformicons.add('.tcon'); </script>
-  <script src="js/builder.js"></script>
-  <script>
-    builder({
-      form: '#builder',
-      input: '.tcon-builder-input',
-      output: '#tcon-source__styles',
-      type: 'tcon_stylesheet'
-    });
-  </script>
+    <small>Project licensed under <a href="//opensource.org/licenses/MIT">MIT</a> &copy; <span class="tcons-copyright"></span>. Props to <a href="//bennettfeely.com">Bennett Feely</a> and <a href="//sarasoueidan.com">Sara Soueidan</a>.</small>
+    <small>Read the <a href="//sarasoueidan.com/blog/navicon-transformicons">article</a> on making transformicons by Sara Soueidan</small>
+    <p class="tcons-notice">Notice an issue or want to help? <a href="//github.com/grayghostvisuals/transformicons">Please contribute</a>.</p>
+  </footer>
 </body>
 </html>
