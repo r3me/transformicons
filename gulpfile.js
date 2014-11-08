@@ -1,6 +1,6 @@
 var gulp         = require('gulp'),
-    autoprefixer = require('gulp-autoprefixer'),
-    $            = require('gulp-load-plugins')();
+    $            = require('gulp-load-plugins')(),
+    builder      = require('./builder');
 
 $.exec   = require('child_process').exec;
 $.fs     = require('fs');
@@ -12,7 +12,13 @@ gulp.task('serve', function() {
   $.connect.server({
     root: ['site'],
     port: 3000,
-    livereload: true
+    livereload: true,
+    middleware: function(connect) {
+      return [
+        connect().use(connect.query()),
+        connect().use(builder.middleware())
+      ];
+    }
   });
 
   $.exec('open http://localhost:3000');
