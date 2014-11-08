@@ -1,0 +1,36 @@
+{
+	"menu": {
+		"xbutterfly": [
+			"base/_config-menu.scss",
+			"style/_menu-lines.scss",
+			"type/_menu-xbutterfly.scss"
+		],
+		"minus": [
+			"base/_config-menu.scss",
+			"style/_menu-lines.scss",
+			"type/_menu-minus.scss"
+		]
+	},
+	"grid": {
+		"collapse": [
+			"base/_config-grid.scss",
+			"style/_grid.scss",
+			"type/_grid-collapse.scss"
+		],
+		"rearrange": [
+			"base/_config-grid.scss",
+			"style/_grid.scss",
+			"type/_grid-rearrange.scss"
+		]
+	},
+	"plus": {
+		"minusfold": [
+			"base/_config-addrm.scss",
+			"type/_addrm-plus-minusfold.scss"
+		],
+		"minusrotate": [
+			"base/_config-addrm.scss",
+			"type/_addrm-plus-minusrotate.scss"
+		]
+	}
+}
