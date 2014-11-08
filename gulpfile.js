@@ -52,9 +52,9 @@ gulp.task('docs', function() {
       ])
   };
 
-  gulp.src('docs/assets/index.html')
+  gulp.src('docs/assets/docs.html')
     .pipe($.template(data))
-    .pipe(gulp.dest('site/docs'));
+    .pipe(gulp.dest('site'));
 });
 
 
