@@ -69,10 +69,33 @@ tbody tr:nth-child(odd) {
   background: white;
 }
 
+legend {
+  background: white;
+  padding: 5px 10px;
+  display: block;
+  text-align: center;
+}
+fieldset {
+  border: none;
+  border-radius: 2px;
+  margin: 20px 0;
+  background: rgb(221, 221, 221);
+}
 textarea {
   display: block;
   min-height: 150px;
   width: 100%;
+  background: #DBDAE2;
+  border: none;
+  resize: none;
+  background: #DBDAE2;
+  border: none;
+  resize: none;
+  border-radius: 2px;
+  padding: 12px;
+  box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.18);
+  font-family: monospace;
+  font-size: medium;
 }
 
 input[value="Build"] {
@@ -173,4 +196,21 @@ footer {
     justify-content: flex-start;
     color: #A8A8A8;
   }
+}
+
+#builder {
+  background: rgba(234, 234, 234, 0.35);
+  padding: 10px 20px;
+  border-radius: 2px;
+}
+
+.tcons-items {
+  display: flex;
+}
+
+// Remove Normalize List Styles 
+.list-reset {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
