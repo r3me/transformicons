@@ -159,3 +159,14 @@ footer {
     color: #A8A8A8;
   }
 }
+
+#tcons-contributors {
+  display: flex;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.contributor-avatar {
+  max-width: 100%;
+}
