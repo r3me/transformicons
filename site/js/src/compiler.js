@@ -1,68 +1,39 @@
-define(function() {
-  var builder = (function(document, undefined) {
+define(['jquery'], function($) {
+  var builder = (function() {
     'use strict';
 
     function getQueryString(input) {
-      var tmp = [];
-
-      [].forEach.call(document.querySelectorAll(input), function(elm) {
-        elm.checked && tmp.push(elm.getAttribute('data-transform'));
-      });
-
-      return tmp.join('&');
-    }
-
-    function getContent(type, qs, cb) {
-      var request = new XMLHttpRequest(),
-          url     = window.location.origin + '/build/' + type + '?' + qs;
-
-      request.open('GET', url, false);
-
-      request.onload = function() {
-        if (request.status >= 200 && request.status < 400){
-          cb && cb(request.responseText);
-        } else {
-          console.warn('unknown error while reaching ' + url);
-        }
-      };
-
-      request.send();
-    }
-
-    function getStylesheet(name) {
-      var type = 'css';
-
-      [].forEach.call(document.querySelectorAll('input[name="' + name + '"]'), function(elm) {
-        if (elm.checked) {
-          type = elm.value;
-        }
-      });
-
-      return type;
+      return $(input + ':checked').map(function() {
+        return $(this).data('transform');
+      }).get().join('&');
     }
 
     function buildStyles(input, type, cb) {
-      var queryString = getQueryString(input);
-      if (!queryString.length) {
+      var qs = getQueryString(input),
+          stylesheet, url;
+
+      if (!qs.length) {
         cb && cb({ err: 'nothing to query'});
         return;
       }
 
-      getContent(getStylesheet(type), queryString, function(data) {
-        cb && cb(null, data);
-      });
+      stylesheet = $('input[name="' + type + '"]:checked').val() || 'css';
+      url = window.location.origin + '/build/' + stylesheet + '?' + qs;
+      $.get(url, function(data) {
+          cb && cb(null, data);
+        });
     }
 
     return function(options) {
-      document.querySelector(options.form).addEventListener('submit', function(e) {
+      $(options.form).submit(function(e) {
         buildStyles(options.input, options.type, function(err, data) {
-          document.querySelector(options.output).innerHTML = data || '';
+          $(options.output).html(data || '');
         });
         e.preventDefault();
       });
     };
 
-  })(this.document);
+  })();
 
   return builder;
 });
