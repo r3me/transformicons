@@ -141,4 +141,4 @@ exports.middleware = function() {
       next();
     });
   };
-}
+};
