@@ -1,68 +1,61 @@
-define(function() {
-  var builder = (function(document, undefined) {
+define(['jquery'], function($) {
+  var builder = (function() {
     'use strict';
 
+    var BASE = '/build/';
+
     function getQueryString(input) {
-      var tmp = [];
-
-      [].forEach.call(document.querySelectorAll(input), function(elm) {
-        elm.checked && tmp.push(elm.getAttribute('data-transform'));
-      });
-
-      return tmp.join('&');
+      return $(input + ':checked').map(function() {
+        return $(this).data('transform');
+      }).get().join('&');
     }
 
-    function getContent(type, qs, cb) {
-      var request = new XMLHttpRequest(),
-          url     = window.location.origin + '/build/' + type + '?' + qs;
-
-      request.open('GET', url, false);
-
-      request.onload = function() {
-        if (request.status >= 200 && request.status < 400){
-          cb && cb(request.responseText);
-        } else {
-          console.warn('unknown error while reaching ' + url);
-        }
-      };
-
-      request.send();
+    function getRadioValue(name) {
+      return $('input[name="' + name + '"]:checked').val();
     }
 
-    function getStylesheet(name) {
-      var type = 'css';
-
-      [].forEach.call(document.querySelectorAll('input[name="' + name + '"]'), function(elm) {
-        if (elm.checked) {
-          type = elm.value;
-        }
-      });
-
-      return type;
+    function getBase() {
+      return window.location.origin + BASE;
     }
 
     function buildStyles(input, type, cb) {
-      var queryString = getQueryString(input);
-      if (!queryString.length) {
+      var qs = getQueryString(input),
+          url;
+
+      if (!qs.length) {
         cb && cb({ err: 'nothing to query'});
         return;
       }
 
-      getContent(getStylesheet(type), queryString, function(data) {
-        cb && cb(null, data);
-      });
+      url = getBase() + (getRadioValue(type) || 'css') + '?' + qs;
+      $.get(url, function(data) {
+          cb && cb(null, data);
+        });
+    }
+
+    function buildJS(type, cb) {
+      var url = getBase() + 'js?' + getRadioValue(type);
+      $.get(url, function(data) {
+          cb && cb(null, data);
+        });
     }
 
     return function(options) {
-      document.querySelector(options.form).addEventListener('submit', function(e) {
-        buildStyles(options.input, options.type, function(err, data) {
-          document.querySelector(options.output).innerHTML = data || '';
+      $(options.form).submit(function(e) {
+
+        buildStyles(options.input, options.type.styles, function(err, data) {
+          $(options.output.styles).html(data || '');
         });
+
+        buildJS(options.type.js, function(err, data) {
+          $(options.output.js).html(data || '');
+        });
+
         e.preventDefault();
       });
     };
 
-  })(this.document);
+  })();
 
   return builder;
 });

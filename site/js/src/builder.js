@@ -4,7 +4,13 @@ require(['config', 'globals', 'compiler', '../lib/transformicons'], function(con
   builder({
     form: '#builder',
     input: '.tcon-builder-input',
-    output: '#tcon-source__styles',
-    type: 'tcon_stylesheet'
+    output: {
+    	styles: '#tcon-source__styles',
+    	js: '#tcon-source__js'
+    },
+    type: {
+      styles: 'tcon_stylesheet',
+      js: 'tcon_javascript'
+    }
   });
 });

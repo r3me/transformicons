@@ -1,15 +1,33 @@
 var gulp                  = require('gulp'),
     gutil                 = require('gulp-util'),
     concat                = require('gulp-concat'),
+    uglify                = require('gulp-uglify'),
     autoprefixer          = require('gulp-autoprefixer'),
     sass                  = require('gulp-sass'),
     _                     = require('lodash'),
     url                   = require('url'),
     deps                  = require('./deps.json'),
-    ROOT                  = __dirname + '/dist/transformicons/',
+    FILENAME              = 'transformicons',
+    ROOT                  = __dirname + '/dist/',
+    ROOT_SCSS             = ROOT + FILENAME + '/',
     CONCAT_FILE_IN_MEMORY = './tcons.scss',
+    BASE                  = '/build/',
     MSG_START             = 'WARN: "',
-    MSG_END               = '" transform is not defined in deps.json';
+    MSG_END               = '" transform is not defined in deps.json',
+    contentMap            =  {
+                            'css': {
+                              build: buildCSS,
+                              mime : 'text/css'
+                            },
+                            'scss': {
+                              build: buildSCSS,
+                              mime: 'text/plain'
+                            },
+                            'js': {
+                              build: buildJS,
+                              mime: 'text/javascript'
+                            }
+                          };
 
 // get files dependencies for all transformations
 // implicit include:
@@ -49,71 +67,78 @@ function getDependencies(params) {
 
 function getFiles(params) {
   return getDependencies(params).map(function(path) {
-    return ROOT + path;
+    return ROOT_SCSS + path;
   });
+}
+
+function buildStylesheet(isCSS, params, cb) {
+
+  gulp.src(getFiles(params))
+    .pipe(concat(CONCAT_FILE_IN_MEMORY))
+    .pipe(isCSS ? sass() : gutil.noop())
+    .pipe(isCSS ? autoprefixer({
+                    browsers: ['last 2 versions'],
+                    cascade: false
+                  }) : gutil.noop())
+    .pipe(gutil.buffer(function(err, data) {
+      cb && cb(err, data);
+    }));
 }
 
 function buildSCSS(params, cb) {
 
-  gulp.src(getFiles(params))
-    .pipe(concat(CONCAT_FILE_IN_MEMORY))
+  buildStylesheet(false, params, function(err, data) {
+      cb && cb(err, data);
+    });
+}
+
+function buildCSS(params, cb) {
+
+  buildStylesheet(true, params, function(err, data) {
+    cb && cb(err, data);
+  });
+}
+
+function buildJS(params, cb) {
+
+  gulp.src(ROOT + FILENAME + '.js')
+    .pipe(params.minified === 'true' ? uglify() : gutil.noop())
     .pipe(gutil.buffer(function(err, files) {
       if (err) {
         cb & cb(err);
         return;
       }
 
-      cb && cb(null, files[0]._contents);
-     }));
-}
-
-function buildCSS(params, cb) {
-
-  gulp.src(getFiles(params))
-    .pipe(concat(CONCAT_FILE_IN_MEMORY))
-    .pipe(sass())
-    .pipe(autoprefixer({
-      browsers: ['last 2 versions'],
-      cascade: false
-    }))
-    .pipe(gutil.buffer(function(err, files) { // TODO: duplicate code
-      if (err) {
-        cb & cb(err);
-        return;
-      }
-
-      cb && cb(null, files[0]._contents);
+      cb && cb(null, files);
     }));
 }
 
 exports.middleware = function() {
-  return function(req, res, next) {
-    var parseUrl = url.parse(req.url),
-        type     = 'css',
-        fn       = buildCSS;
 
-    if (parseUrl.pathname.indexOf('/build/') === -1) {
+  return function(req, res, next) {
+    var pathname = url.parse(req.url).pathname;
+    if (pathname.indexOf(BASE) === -1) {
       next();
       return;
     }
 
-    if (parseUrl.pathname.indexOf('/scss') !== -1) {
-      type = 'scss';
-      fn = buildSCSS;
+    var type = pathname.substring(BASE.length, pathname.length);
+    if (!type || !contentMap[type]) {
+      next();
+      return;
     }
 
-    fn(req.query, function(err, buffer) {
+    contentMap[type].build(req.query, function(err, buffer) {
 
-      if (err) {
-        console.log(err);
-        return;
+      if (!err && buffer) {
+        var contents = buffer[0]._contents;
+        // TODO change file if minified
+        res.setHeader('Content-Disposition', 'attachment; filename="' + FILENAME + '.' + type + '"');
+        res.setHeader('Content-Type', contentMap[type].mime);
+        res.setHeader('Content-Length', contents.length);
+        res.end(contents);
       }
-
-      res.setHeader('Content-Disposition', 'attachment; filename="transformicons.' + type + '"');
-      res.setHeader('Content-Type', type === 'css' ? 'text/css' : 'text/plain');
-      res.setHeader('Content-Length', buffer.length);
-      res.end(buffer);
       next();
     });
   };
-};
+}
