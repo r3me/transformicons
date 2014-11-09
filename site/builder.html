@@ -122,13 +122,39 @@
         <h3>Markup</h3>
         <textarea name="" id="tcon-source__html"></textarea>
       </div>
-      <div>
+
+      <div class="tcon-tabs">
         <h3>Styles</h3>
-        <textarea name="" id="tcon-source__styles"></textarea>
+        <ul class="tcon-tabs__nav clearfix list-reset" data-tabgroup="tcon-styles-build">
+          <li><a href="#tcon-css" class="active">CSS</a></li>
+          <li><a href="#tcon-sass">Sass</a></li>
+        </ul>
+
+        <section id="tcon-styles-build" class="tcon-tabs__group">
+          <div id="tcon-css">
+            <textarea name="" id="tcon-source__styles"></textarea>
+          </div>
+          <div id="tcon-sass">
+            <textarea name="" id=""></textarea>
+          </div>
+        </section>
       </div>
-      <div>
+
+      <div class="tcon-tabs">
         <h3>JavaScript</h3>
-        <textarea name="" id="tcon-source__js"></textarea>
+        <ul class="tcon-tabs__nav clearfix list-reset" data-tabgroup="tcon-js-build">
+          <li><a href="#tcon-jsmin" class="active">Minified</a></li>
+          <li><a href="#tcon-jsunmin">Unminified</a></li>
+        </ul>
+
+        <section id="tcon-js-build" class="tcon-tabs__group">
+          <div id="tcon-jsmin">
+            <textarea name="" id="tcon-source__js"></textarea>
+          </div>
+          <div id="tcon-jsunmin">
+            <textarea name="" id=""></textarea>
+          </div>
+        </section>
       </div>
     </div>
   </main>
