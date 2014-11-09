@@ -5,8 +5,10 @@ require(['config', 'globals', 'compiler', '../lib/transformicons', 'tcontabs'], 
     form: '#builder',
     input: '.tcon-builder-input',
     output: {
-      styles: '#tcon-source__styles',
-      js: '#tcon-source__js'
+      css: '#tcon-source__styles-css',
+      sass: '#tcon-source__styles-sass',
+      jsmin: '#tcon-source__js-min',
+      jsunmin: '#tcon-source__js-unmin'
     },
     type: {
       styles: 'tcon_stylesheet',

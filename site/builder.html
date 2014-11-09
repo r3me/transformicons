@@ -63,7 +63,7 @@
           <ul class="tcons-items list-reset">
             <li>
               <label for="">
-                <input class="tcon-builder-input" type="checkbox" data-transform="menu=xbutterfly"> Menu to X - Butterfly Style
+                <input class="tcon-builder-input" type="checkbox" data-transform="menu=xbutterfly" checked> Menu to X - Butterfly Style
               </label>
             </li>
             <li>
@@ -105,12 +105,22 @@
         <fieldset>
           <legend>Output</legend>
           <h3>Styles</h3>
-          <label for=""><input type="radio" name="tcon_stylesheet" value="scss">Sass</label>
-          <label for=""><input type="radio" name="tcon_stylesheet" value="css">CSS</label>
+          <label for="">
+            <input type="radio" name="tcon_stylesheet" value="scss">Sass
+          </label>
+
+          <label for="">
+            <input type="radio" name="tcon_stylesheet" value="css" checked>CSS
+          </label>
 
           <h3>JavaScript</h3>
-          <label for=""><input type="radio" name="tcon_javascript" value="minified=false">transformicons.js</label>
-          <label for=""><input type="radio" name="tcon_javascript" value="minified=true">transformicons.min.js</label>
+          <label for="">
+            <input type="radio" name="tcon_javascript" value="minified=false"><code>transformicons.js</code>
+          </label>
+
+          <label for="">
+            <input type="radio" name="tcon_javascript" value="minified=true" checked><code>transformicons.min.js</code>
+          </label>
         </fieldset>
       </div>
 
@@ -132,10 +142,10 @@
 
         <section id="tcon-styles-build" class="tcon-tabs__group">
           <div id="tcon-css">
-            <textarea name="" id="tcon-source__styles"></textarea>
+            <textarea name="" id="tcon-source__styles-css"></textarea>
           </div>
           <div id="tcon-sass">
-            <textarea name="" id=""></textarea>
+            <textarea name="" id="tcon-source__styles-sass"></textarea>
           </div>
         </section>
       </div>
@@ -149,10 +159,10 @@
 
         <section id="tcon-js-build" class="tcon-tabs__group">
           <div id="tcon-jsmin">
-            <textarea name="" id="tcon-source__js"></textarea>
+            <textarea name="" id="tcon-source__js-min"></textarea>
           </div>
           <div id="tcon-jsunmin">
-            <textarea name="" id=""></textarea>
+            <textarea name="" id="tcon-source__js-unmin"></textarea>
           </div>
         </section>
       </div>
