@@ -1,54 +1,54 @@
 {
-  'menu': {
-    'xbutterfly': [
-      'base/_config-globals.scss',
-      'base/_config-menu.scss',
-      'base/_config-utilities.scss',
-      'base/_global-styles.scss',
-      'style/_menu-lines.scss',
-      'type/_menu-xbutterfly.scss'
+  "menu": {
+    "xbutterfly": [
+      "base/_config-globals.scss",
+      "base/_config-menu.scss",
+      "base/_config-utilities.scss",
+      "base/_global-styles.scss",
+      "style/_menu-lines.scss",
+      "type/_menu-xbutterfly.scss"
     ],
 
-    'minus': [
-      'base/_config-globals.scss',
-      'base/_config-menu.scss',
-      'base/_config-utilities.scss',
-      'base/_global-styles.scss',
-      'style/_menu-lines.scss',
-      'type/_menu-minus.scss'
+    "minus": [
+      "base/_config-globals.scss",
+      "base/_config-menu.scss",
+      "base/_config-utilities.scss",
+      "base/_global-styles.scss",
+      "style/_menu-lines.scss",
+      "type/_menu-minus.scss"
     ]
   },
 
-  'grid': {
-    'collapse': [
-      'base/_config-globals.scss',
-      'base/_config-grid.scss',
-      'base/_global-styles.scss',
-      'style/_grid.scss',
-      'type/_grid-collapse.scss'
+  "grid": {
+    "collapse": [
+      "base/_config-globals.scss",
+      "base/_config-grid.scss",
+      "base/_global-styles.scss",
+      "style/_grid.scss",
+      "type/_grid-collapse.scss"
     ],
 
-    'rearrange': [
-      'base/_config-globals.scss',
-      'base/_config-grid.scss',
-      'base/_global-styles.scss',
-      'style/_grid.scss',
-      'type/_grid-rearrange.scss'
+    "rearrange": [
+      "base/_config-globals.scss",
+      "base/_config-grid.scss",
+      "base/_global-styles.scss",
+      "style/_grid.scss",
+      "type/_grid-rearrange.scss"
     ]
   },
 
-  'plus': {
-    'minusfold': [
-      'base/_config-globals.scss',
-      'base/_config-addrm.scss',
-      'base/_global-styles.scss',
-      'type/_addrm-plus-minusfold.scss'
+  "plus": {
+    "minusfold": [
+      "base/_config-globals.scss",
+      "base/_config-addrm.scss",
+      "base/_global-styles.scss",
+      "type/_addrm-plus-minusfold.scss"
     ],
-    'minusrotate': [
-      'base/_config-globals.scss',
-      'base/_config-addrm.scss',
-      'base/_global-styles.scss',
-      'type/_addrm-plus-minusrotate.scss'
+    "minusrotate": [
+      "base/_config-globals.scss",
+      "base/_config-addrm.scss",
+      "base/_global-styles.scss",
+      "type/_addrm-plus-minusrotate.scss"
     ]
   }
 }
