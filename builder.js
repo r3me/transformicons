@@ -11,11 +11,12 @@ var gulp                  = require('gulp'),
     MSG_START             = 'WARN: "',
     MSG_END               = '" transform is not defined in deps.json';
 
-/* get files dependencies for all transformations   */
-/* implicit include:                                */
-/* "base/_config-globals.scss",                     */
-/* "base/_global-styles.scss",                      */
-/* "base/_config-utilities.scss"                    */
+// get files dependencies for all transformations
+// implicit include:
+// "base/_config-globals.scss",
+// "base/_global-styles.scss",
+// "base/_config-utilities.scss"
+
 function getDependencies(params) {
   var files = ['base/_config-globals.scss',
                'base/_global-styles.scss',
@@ -82,7 +83,7 @@ function buildCSS(params, cb) {
       }
 
       cb && cb(null, files[0]._contents);
-     }));
+    }));
 }
 
 exports.middleware = function() {
