@@ -3,6 +3,8 @@
 // http://coolors.co/07182a-759da7-a7c8cf-eef0ef-e6e6e8
 
 * {
+  box-sizing: border-box;
+
   &:before,
   &:after {
     box-sizing: inherit;

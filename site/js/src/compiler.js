@@ -14,7 +14,7 @@ define(function() {
 
     function getContent(type, qs, cb) {
       var request = new XMLHttpRequest(),
-          url = window.location.origin + '/build/' + type + '?' + qs;
+          url     = window.location.origin + '/build/' + type + '?' + qs;
 
       request.open('GET', url, false);
 
