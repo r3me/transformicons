@@ -2,10 +2,16 @@ define(['jquery'], function($) {
   var builder = (function() {
     'use strict';
 
+    var BASE = '/build/';
+
     function getQueryString(input) {
       return $(input + ':checked').map(function() {
         return $(this).data('transform');
       }).get().join('&');
+    }
+
+    function getRadioValue(name) {
+      return $('input[name="' + name + '"]:checked').val();
     }
 
     function buildStyles(input, type, cb) {
@@ -17,18 +23,33 @@ define(['jquery'], function($) {
         return;
       }
 
-      stylesheet = $('input[name="' + type + '"]:checked').val() || 'css';
-      url = window.location.origin + '/build/' + stylesheet + '?' + qs;
+      stylesheet = getRadioValue(type) || 'css';
+      url = window.location.origin + BASE + stylesheet + '?' + qs;
       $.get(url, function(data) {
+          cb && cb(null, data);
+        });
+    }
+
+    function buildJS(type, cb) {
+      var url = window.location.origin + BASE + 'js?minify=',
+          minify = getRadioValue(type);
+
+      $.get(url + minify, function(data) {
           cb && cb(null, data);
         });
     }
 
     return function(options) {
       $(options.form).submit(function(e) {
-        buildStyles(options.input, options.type, function(err, data) {
-          $(options.output).html(data || '');
+
+        buildStyles(options.input, options.type.styles, function(err, data) {
+          $(options.output.styles).html(data || '');
         });
+
+        buildJS(options.type.js, function(err, data) {
+          $(options.output.js).html(data || '');
+        });
+
         e.preventDefault();
       });
     };
