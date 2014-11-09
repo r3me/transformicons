@@ -14,27 +14,28 @@ define(['jquery'], function($) {
       return $('input[name="' + name + '"]:checked').val();
     }
 
+    function getBase() {
+      return window.location.origin + BASE;
+    }
+
     function buildStyles(input, type, cb) {
       var qs = getQueryString(input),
-          stylesheet, url;
+          url;
 
       if (!qs.length) {
         cb && cb({ err: 'nothing to query'});
         return;
       }
 
-      stylesheet = getRadioValue(type) || 'css';
-      url = window.location.origin + BASE + stylesheet + '?' + qs;
+      url = getBase() + (getRadioValue(type) || 'css') + '?' + qs;
       $.get(url, function(data) {
           cb && cb(null, data);
         });
     }
 
     function buildJS(type, cb) {
-      var url = window.location.origin + BASE + 'js?minify=',
-          minify = getRadioValue(type);
-
-      $.get(url + minify, function(data) {
+      var url = getBase() + 'js?' + getRadioValue(type);
+      $.get(url, function(data) {
           cb && cb(null, data);
         });
     }

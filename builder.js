@@ -102,7 +102,7 @@ function buildCSS(params, cb) {
 function buildJS(params, cb) {
 
   gulp.src(ROOT + FILENAME + '.js')
-    .pipe(params.minify === 'true' ? uglify() : gutil.noop())
+    .pipe(params.minified === 'true' ? uglify() : gutil.noop())
     .pipe(gutil.buffer(function(err, files) {
       if (err) {
         cb & cb(err);
