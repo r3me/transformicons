@@ -55,20 +55,24 @@
 
   <main role="main">
     <h2>Builder</h2>
-    <form action="#" id="builder" role="form">
+
+    <form action="#" id="tcon-builder" role="form">
       <div class="tcons-build-opts">
         <fieldset>
           <legend>Icons</legend>
+
           <h3>Menu</h3>
+
           <ul class="tcons-items list-reset">
             <li>
-              <label for="">
-                <input class="tcon-builder-input" type="checkbox" data-transform="menu=xbutterfly" checked> Menu to X - Butterfly Style
+              <label for="tcon-menu--butterfly">
+                <input class="tcon-builder-input" id="tcon-menu--butterfly" type="checkbox" data-transform="menu=xbutterfly" checked> Menu to X <small>(Butterfly Style)</small>
               </label>
             </li>
+
             <li>
-              <label for="">
-              <input class="tcon-builder-input" type="checkbox" data-transform="menu=minus"> Menu to Minus
+              <label for="tcon-menu--minus">
+              <input class="tcon-builder-input" id="tcon-menu--minus" type="checkbox" data-transform="menu=minus"> Menu to Minus
               </label>
             </li>
           </ul>
@@ -76,13 +80,13 @@
           <h3>Grid</h3>
           <ul class="tcons-items list-reset">
             <li>
-              <label for="">
-              <input class="tcon-builder-input" type="checkbox" data-transform="grid=collapse"> to Collapse
+              <label for="tcon-grid--collapsex">
+              <input class="tcon-builder-input" id="tcon-grid--collapsex" type="checkbox" data-transform="grid=collapse"> Collapse to X
               </label>
             </li>
             <li>
-              <label for="">
-              <input class="tcon-builder-input" type="checkbox" data-transform="grid=rearrange"> to Rearrange
+              <label for="tcon-grid--rearrangex">
+              <input class="tcon-builder-input" id="tcon-grid--rearrangex" type="checkbox" data-transform="grid=rearrange"> Rearrange to X
               </label>
             </li>
           </ul>
@@ -90,13 +94,13 @@
           <h3>Add/Rm</h3>
           <ul class="tcons-items list-reset">
             <li>
-              <label for="">
-                <input class="tcon-builder-input" type="checkbox" data-transform="plus=minusfold"> Plus to Minus Fold
+              <label for="tcon-addrm--plusminusfold">
+                <input class="tcon-builder-input" id="tcon-addrm--plusminusfold" type="checkbox" data-transform="plus=minusfold"> Plus to Minus <small>(Fold Style)</small>
               </label>
             </li>
             <li>
-              <label for="">
-                <input class="tcon-builder-input" type="checkbox" data-transform="plus=minusrotate"> Plus to Minus Rotate
+              <label for="tcon-addrm--plusminusrotate">
+                <input class="tcon-builder-input" id="tcon-addrm--plusminusrotate" type="checkbox" data-transform="plus=minusrotate"> Plus to Minus <small>(Rotate Style)</small>
               </label>
             </li>
           </ul>
@@ -105,32 +109,37 @@
         <fieldset>
           <legend>Output</legend>
           <h3>Styles</h3>
-          <label for="">
-            <input type="radio" name="tcon_stylesheet" value="css" checked> CSS
+
+          <label for="tcon-stylesheet--css">
+            <input type="radio" name="tcon_stylesheet" id="tcon-stylesheet--css" value="css" checked> CSS
           </label>
 
-          <label for="">
-            <input type="radio" name="tcon_stylesheet" value="scss"> Scss
+          <label for="tcon-stylesheet--sass">
+            <input type="radio" name="tcon_stylesheet" id="tcon-stylesheet--sass" value="scss"> Sass
           </label>
 
           <h3>JavaScript</h3>
-          <label for="">
-            <input type="radio" name="tcon_javascript" value="minified=true" checked> Minified
+          <label for="tcon-stylesheet--jsmin">
+            <input type="radio" name="tcon_javascript" id="tcon-stylesheet--jsmin" value="minified=true" checked> Minified
           </label>
 
-          <label for="">
-            <input type="radio" name="tcon_javascript" value="minified=false"> Unminified
+          <label for="tcon-stylesheet--jsunmin">
+            <input type="radio" name="tcon_javascript" id="tcon-stylesheet--jsunmin" value="minified=false"> Unminified
           </label>
         </fieldset>
       </div>
 
-      <input type="submit" value="Build">
+      <input type="submit" class="tcon-btn" value="Build">
     </form>
 
     <div id="tcon-source">
-      <div>
+      <div class="tcon-tabs">
         <h3>Markup</h3>
-        <textarea name="" id="tcon-source__html"></textarea>
+        <section class="tcon-tabs__group">
+          <div>
+            <textarea id="tcon-source__html"></textarea>
+          </div>
+        </section>
       </div>
 
       <div class="tcon-tabs">
@@ -142,10 +151,10 @@
 
         <section id="tcon-styles-build" class="tcon-tabs__group">
           <div id="tcon-css">
-            <textarea name="" id="tcon-source__styles-css"></textarea>
+            <textarea id="tcon-source__styles-css"></textarea>
           </div>
           <div id="tcon-sass">
-            <textarea name="" id="tcon-source__styles-sass"></textarea>
+            <textarea id="tcon-source__styles-sass"></textarea>
           </div>
         </section>
       </div>
@@ -159,10 +168,10 @@
 
         <section id="tcon-js-build" class="tcon-tabs__group">
           <div id="tcon-jsmin">
-            <textarea name="" id="tcon-source__js-min"></textarea>
+            <textarea id="tcon-source__js-min"></textarea>
           </div>
           <div id="tcon-jsunmin">
-            <textarea name="" id="tcon-source__js-unmin"></textarea>
+            <textarea id="tcon-source__js-unmin"></textarea>
           </div>
         </section>
       </div>

@@ -2,7 +2,7 @@ require(['config', 'globals', 'compiler', '../lib/transformicons', 'tcontabs'], 
   transformicons.add('.tcon');
 
   builder({
-    form: '#builder',
+    form: '#tcon-builder',
     input: '.tcon-builder-input',
     output: {
       css: '#tcon-source__styles-css',
