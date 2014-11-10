@@ -3,11 +3,8 @@
 
 var gulp            = require('gulp'),
     gulpLoadPlugins = require('gulp-load-plugins'),
-    $               = gulpLoadPlugins();
-
-
-// Node Setup
-// ===================================================
+    $               = gulpLoadPlugins(),
+    builder         = require('./builder');
 
 $.exec   = require('child_process').exec;
 $.fs     = require('fs');
@@ -41,9 +38,15 @@ var paths = {
 
 gulp.task('serve', function() {
   $.connect.server({
-    root: ['site'],
+    root: [paths.site],
     port: 3000,
-    livereload: true
+    livereload: true,
+    middleware: function(connect) {
+      return [
+        connect().use(connect.query()),
+        connect().use(builder.middleware())
+      ];
+    }
   });
 
   $.exec('open http://localhost:3000');
