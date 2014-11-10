@@ -1,49 +1,63 @@
 define(['jquery'], function($) {
 
-  $('.tcon-tabs__group > div').hide();
-  $('.tcon-tabs__group > div:first-of-type').show();
+  var $tcontabs_panel      = $('.tcon-tabs__group > div'),
+      $tcontabs_panel_one  = $('.tcon-tabs__group > div:first-of-type'),
+      $tcontabs_panel_last = $('.tcon-tabs__group > div:last-of-type'),
+      $tcon_style_radio    = $('input[name="tcon_stylesheet"]:radio'),
+      $tcon_js_radio       = $('input[name="tcon_javascript"]:radio'),
+      $tcon_css_tab        = $('#css-tab'),
+      $tcon_sass_tab       = $('#sass-tab'),
+      $tcon_jsmin_tab      = $('#jsmin-tab'),
+      $tcon_jsunmin_tab    = $('#jsunmin-tab'),
+      active_tab_class     = 'active';
 
-  $('input[name="tcon_stylesheet"]:radio').change(function() {
+  $tcontabs_panel.hide();
+  $tcontabs_panel_one.show();
+
+  $tcon_style_radio.change(function() {
     var input_style_val = $('input[name="tcon_stylesheet"]:checked').val();
 
     if(input_style_val === 'css') {
-      $('.tcon-tabs__group > div').hide();
-      $('.tcon-tabs__group > div:first-of-type').show();
-      $('#css-tab').addClass('active');
-      $('#sass-tab').removeClass('active');
+      $tcontabs_panel.hide();
+      $tcontabs_panel_one.show();
+      $tcon_css_tab.addClass(active_tab_class);
+      $tcon_sass_tab.removeClass(active_tab_class);
     } else {
-      $('.tcon-tabs__group > div').hide();
-      $('.tcon-tabs__group > div:last-of-type').show();
-      $('#css-tab').removeClass('active');
-      $('#sass-tab').addClass('active');
+      $tcontabs_panel.hide();
+      $tcontabs_panel_last.show();
+      $tcon_css_tab.removeClass(active_tab_class);
+      $tcon_sass_tab.addClass(active_tab_class);
     }
   });
 
-  $('input[name="tcon_javascript"]:radio').change(function() {
+
+  $tcon_js_radio.change(function() {
     var input_js_val = $('input[name="tcon_javascript"]:checked').val();
 
     if(input_js_val === 'minified=true') {
-      $('.tcon-tabs__group > div').hide();
-      $('.tcon-tabs__group > div:first-of-type').show();
-      $('#jsmin-tab').addClass('active');
-      $('#jsunmin-tab').removeClass('active');
+      $tcontabs_panel.hide();
+      $tcontabs_panel_one.show();
+      $tcon_jsmin_tab.addClass(active_tab_class);
+      $tcon_jsunmin_tab.removeClass(active_tab_class);
     } else {
-      $('.tcon-tabs__group > div').hide();
-      $('.tcon-tabs__group > div:last-of-type').show();
-      $('#jsmin-tab').removeClass('active');
-      $('#jsunmin-tab').addClass('active');
+      $tcontabs_panel_one.hide();
+      $tcontabs_panel_last.show();
+      $tcon_jsmin_tab.removeClass(active_tab_class);
+      $tcon_jsunmin_tab.addClass(active_tab_class);
     }
   });
 
-  $('.tcon-tabs__nav a').click(function(e){
+
+  $('.tcon-tabs__nav a').on('click touchstart', function(e){
     e.preventDefault();
 
     var $this    = $(this),
         tabgroup = '#'+$this.parents('.tcon-tabs__nav').data('tabgroup'),
         others   = $this.closest('li').siblings().children('a'),
         target   = $this.attr('href');
-    others.removeClass('active');
-    $this.addClass('active');
+
+    others.removeClass(active_tab_class);
+    $this.addClass(active_tab_class);
     $(tabgroup).children('div').hide();
     $(target).show();
   });
