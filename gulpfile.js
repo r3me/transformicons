@@ -1,16 +1,44 @@
-var gulp         = require('gulp'),
-    $            = require('gulp-load-plugins')(),
-    builder      = require('./builder');
+// Gulp Setup
+// ===================================================
+
+var gulp            = require('gulp'),
+    gulpLoadPlugins = require('gulp-load-plugins'),
+    $               = gulpLoadPlugins(),
+    builder         = require('./builder');
 
 $.exec   = require('child_process').exec;
 $.fs     = require('fs');
 $.marked = require('marked');
 
 
+// Paths
+// ===================================================
+
+var paths_dir = {
+  docs: 'docs',
+  docsasset: 'assets',
+  site: 'site',
+  dist: 'dist',
+  sitecss: 'css',
+  sitesass: 'src',
+};
+
+var paths = {
+  docs: paths_dir.docs,
+  docsasset: paths_dir.docs + '/' + paths_dir.docsasset,
+  site: paths_dir.site,
+  dist: paths_dir.dist,
+  sitecss: paths_dir.site + '/' + paths_dir.sitecss,
+  sitesass: paths_dir.site + '/' + paths_dir.sitecss + '/' + paths_dir.sitesass
+};
+
+
 // Server
+// ===================================================
+
 gulp.task('serve', function() {
   $.connect.server({
-    root: ['site'],
+    root: [paths.site],
     port: 3000,
     livereload: true,
     middleware: function(connect) {
@@ -26,19 +54,23 @@ gulp.task('serve', function() {
 
 
 // Styles Compiling
+// ===================================================
+
 gulp.task('sass', function() {
-  gulp.src('site/css/src/**/*.scss')
+  gulp.src(paths.sitesass + '/**/*.scss')
     .pipe($.sass())
     .pipe($.autoprefixer({
       browsers: ['last 2 versions'],
       cascade: false
     }))
-    .pipe(gulp.dest('site/css'))
+    .pipe(gulp.dest(paths.sitecss))
     .pipe($.connect.reload());
 });
 
 
 // Documentation
+// ===================================================
+
 gulp.task('docs', function() {
   var data = {
     'title': 'Transformicons Documentation',
@@ -46,7 +78,7 @@ gulp.task('docs', function() {
     'fragments': (function(pages) {
         var fragments = [];
         pages.forEach(function(fileName) {
-          var file = $.fs.readFileSync('docs/' + fileName + '.md', {encoding: 'utf8'});
+          var file = $.fs.readFileSync(paths.docs + '/' + fileName + '.md', {encoding: 'utf8'});
           fragments.push({
             'body': $.marked(file)
           });
@@ -59,16 +91,18 @@ gulp.task('docs', function() {
       ])
   };
 
-  gulp.src('docs/assets/*.html')
+  gulp.src(paths.docsasset + '/*.html')
     .pipe($.template(data))
-    .pipe(gulp.dest('site'));
+    .pipe(gulp.dest(paths.site));
 });
 
 
 // Watching
+// ===================================================
+
 gulp.task('watch', function() {
-  gulp.watch(['dist/**/*.scss', 'site/css/**/*.scss'], ['sass']);
-  gulp.watch(['docs/assets/*', 'docs/*'], ['docs']);
+  gulp.watch([paths.dist + '/**/*.scss', paths.sitesass + '/**/*.scss'], ['sass']);
+  gulp.watch([paths.docsasset + '/*', paths.docs + '*'], ['docs']);
 });
 
 
