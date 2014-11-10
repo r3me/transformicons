@@ -1,5 +1,7 @@
-require(['config', 'globals', 'compiler', '../lib/transformicons', 'tcontabs'], function(config, globals, builder, transformicons, tcontabs) {
-  transformicons.add('.tcon');
+require(['config', 'globals', 'compiler', 'tcontabs'], function(config, globals, builder, tcontabs) {
+
+  // Build Junk
+  // ===============================================
 
   builder({
     form: '#tcon-builder',
@@ -14,5 +16,17 @@ require(['config', 'globals', 'compiler', '../lib/transformicons', 'tcontabs'], 
       styles: 'tcon_stylesheet',
       js: 'tcon_javascript'
     }
+  });
+
+
+  // Scroll Animation For Submit
+  // ===============================================
+
+  var tconsource_os = $('#tcon-source').offset().top;
+
+  $('input[type="submit"]').on('click', function() {
+     $('html, body').animate({
+      scrollTop: tconsource_os
+    }, 350);
   });
 });

@@ -2,6 +2,9 @@
 // http://coolors.co/d40600-f54244-282832-4f364e-5e405d
 // http://coolors.co/07182a-759da7-a7c8cf-eef0ef-e6e6e8
 
+// Globals
+// ===================================
+
 * {
   box-sizing: border-box;
 
@@ -72,16 +75,17 @@ tbody tr:nth-child(odd) {
 }
 
 legend {
-  background: white;
-  padding: 5px 10px;
   display: block;
+  padding: 5px 10px;
+  font-weight: bolder;
   text-align: center;
+  background: white;
 }
 fieldset {
   border: none;
   border-radius: 2px;
   margin: 20px 0;
-  background: rgb(221, 221, 221);
+  background: #DBDAE2;
 }
 textarea {
   display: block;
@@ -107,6 +111,16 @@ input[value="Build"] {
   margin: 20px auto;
   padding: 1em;
   width: 100%;
+  font-size: medium;
+  background: Red;
+  color: white;
+
+  &:hover {
+    cursor: pointer;
+  }
+  &:active {
+    transform: translateY(2px);
+  }
 }
 
 header {
@@ -159,6 +173,10 @@ footer {
   text-align: center;
 }
 
+
+// Site Titles
+// ===================================
+
 .tcon-title {
   margin: 0;
   text-align: center;
@@ -170,6 +188,10 @@ footer {
   margin-bottom: 24px;
   color: #FFFEFE;
 }
+
+
+// Site Layout
+// ===================================
 
 .tcon-row {
   display: flex;
@@ -200,21 +222,23 @@ footer {
   }
 }
 
+
+// Form Builder
+// ===================================
+
 #tcon-builder {
-  background: rgba(234, 234, 234, 0.35);
-  padding: 10px 20px;
-  border-radius: 2px;
+  fieldset {
+    padding: 0 32px 40px;
+  }
 }
 
 .tcons-items {
   display: flex;
 }
 
-.list-reset {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
+
+// GitHub Contributors
+// ===================================
 
 #tcons-contributors {
   display: flex;
@@ -227,6 +251,10 @@ footer {
 .contributor-avatar {
   max-width: 100%;
 }
+
+
+// Builder Text Tabs
+// ===================================
 
 .tcon-tabs__nav {
   li {
@@ -253,6 +281,16 @@ footer {
     padding: 30px;
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.08);
   }
+}
+
+
+// Helper
+// ===================================
+
+.list-reset {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .clearfix:after {
