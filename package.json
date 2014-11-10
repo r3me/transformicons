@@ -1,11 +1,13 @@
 {
   "name": "Transformicons",
-  "version": "0.1.1",
   "description": "Animated CSS Symbols and Buttons",
+  "version": "0.1.1",
+  "author": "Bennett Feely, Sara Soueidan, Dennis Gaebel, Jan Paepke, Arthur Verschaeve",
+  "homepage": "https://github.com/grayghostvisuals/transformicons",
   "main": "/",
-  "scripts": {
-    "start": "node node_modules/gulp/bin/gulp",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/grayghostvisuals/transformicons/issues"
   },
   "repository": {
     "type": "git",
@@ -18,12 +20,10 @@
     "icons",
     "transformicons"
   ],
-  "author": "Bennett Feely, Sara Soueidan, Dennis Gaebel, Jan Paepke, Arthur Verschaeve",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/grayghostvisuals/transformicons/issues"
+  "scripts": {
+    "start": "node node_modules/gulp/bin/gulp",
+    "test": "make test"
   },
-  "homepage": "https://github.com/grayghostvisuals/transformicons",
   "devDependencies": {
     "gulp": "^3.8.10",
     "gulp-autoprefixer": "^1.0.1",
@@ -31,6 +31,7 @@
     "gulp-load-plugins": "^0.7.0",
     "gulp-sass": "^1.2.2",
     "gulp-template": "^1.1.1",
-    "marked": "^0.3.2"
+    "marked": "^0.3.2",
+    "vows" : ">= 0.5.9"
   }
 }
