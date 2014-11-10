@@ -1,6 +1,4 @@
-# The most important one is the language key. 
-# Tells Travis which language env to select.
 language: node_js
 node_js:
   - "0.11"
-  - "0.10.31"
+  - "0.10"
