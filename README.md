@@ -1,5 +1,6 @@
 Transformicons
 ======================
+[![Build Status](https://travis-ci.org/grayghostvisuals/transformicons.svg?branch=master)](https://travis-ci.org/grayghostvisuals/transformicons)
 
 ![](https://dl.dropboxusercontent.com/u/41114960/github/transformicons/site.png)
 
