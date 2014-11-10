@@ -1,3 +1,6 @@
 language: node_js
 node_js:
   - "0.10"
+script: ./script/ci-build-libsass
+before_install: ./script/ci-install-deps
+install: ./script/ci-install-compiler
