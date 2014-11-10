@@ -22,7 +22,7 @@
   ],
   "scripts": {
     "start": "node node_modules/gulp/bin/gulp",
-    "test": "make test"
+    "test": "gulp --verbose"
   },
   "devDependencies": {
     "gulp": "^3.8.10",
