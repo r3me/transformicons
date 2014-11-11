@@ -14,3 +14,6 @@ before_install:
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 20;
   - sudo g++ --version;
   - sudo apt-get update -qq;
+
+after_success:
+  - npm run-script coverage
