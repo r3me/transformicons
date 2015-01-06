@@ -21,8 +21,8 @@
     "transformicons"
   ],
   "scripts": {
-    "start": "node node_modules/gulp/bin/gulp",
-    "postinstall": "npm start",
+    "start": "npm install",
+    "postinstall": "gulp",
     "test": "make test"
   },
   "dependencies": {
