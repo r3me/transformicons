@@ -5,4 +5,5 @@ node_modules/
 compass_app_log.txt
 site/css/style.css.map
 site/css/style.css
+site/docs.html
 npm-debug.log
