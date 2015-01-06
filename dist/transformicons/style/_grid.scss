@@ -1,6 +1,6 @@
 .tcon-grid {
   padding: $tcon-grid-base*2;
-  .tcon-grid__item {  
+  .tcon-grid__item {
     width: $tcon-grid-base;
     height: $tcon-grid-base;
     background: $tcon-grid-color;
@@ -11,9 +11,7 @@
 
 
 .tcon-grid.#{$tcon-jstransform} {
-
   .tcon-grid__item {
-    transform: rotate3d(0,0,1,-45deg)  scale3d(.8,.8,.8);
+    transform: map-values($tcon-grid-morph);
   }
-
 }

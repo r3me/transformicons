@@ -39,6 +39,7 @@ function getDependencies(params) {
   var files = ['base/_config-globals.scss',
                'base/_global-styles.scss',
                'base/_config-utilities.scss'];
+  console.log(files[0]);
 
   for(var initial in params) {
 

@@ -25,7 +25,7 @@ require(['config', 'globals', 'compiler', 'tcontabs'], function(config, globals,
   var tconsource_os = $('#tcon-source').offset().top;
 
   $('input[type="submit"]').on('click', function() {
-     $('html, body').animate({
+    $('html, body').animate({
       scrollTop: tconsource_os
     }, 350);
   });
