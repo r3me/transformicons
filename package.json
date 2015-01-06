@@ -2,6 +2,9 @@
   "name": "Transformicons",
   "description": "Animated CSS Symbols and Buttons",
   "version": "0.1.1",
+  "engines": {
+    "node": "0.10.x"
+  },
   "author": "Bennett Feely, Sara Soueidan, Dennis Gaebel, Jan Paepke, Arthur Verschaeve",
   "homepage": "https://github.com/grayghostvisuals/transformicons",
   "main": "/",
@@ -21,9 +24,9 @@
     "transformicons"
   ],
   "scripts": {
-    "start": "npm install",
-    "postinstall": "gulp",
-    "test": "make test"
+    "start": "node node_modules/gulp/bin/gulp",
+    "test": "make test",
+    "postinstall": "gulp"
   },
   "dependencies": {
     "gulp": "^3.8.10",

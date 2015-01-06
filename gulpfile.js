@@ -39,7 +39,7 @@ var paths = {
 gulp.task('serve', function() {
   $.connect.server({
     root: [paths.site],
-    port: 3000,
+    port: 5000,
     livereload: true,
     middleware: function(connect) {
       return [
@@ -49,7 +49,7 @@ gulp.task('serve', function() {
     }
   });
 
-  $.exec('open http://localhost:3000');
+  $.exec('open http://localhost:5000');
 });
 
 
