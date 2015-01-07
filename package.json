@@ -5,7 +5,7 @@
   "engines": {
     "node": "0.10.x"
   },
-  "author": "Bennett Feely, Sara Soueidan, Dennis Gaebel, Jan Paepke, Arthur Verschaeve",
+  "author": "Bennett Feely, Sara Soueidan, Dennis Gaebel, Jan Paepke, Arthur Verschaeve, J.Fischer",
   "homepage": "https://github.com/grayghostvisuals/transformicons",
   "main": "/",
   "license": "MIT",
@@ -20,7 +20,6 @@
     "sass",
     "icons",
     "animated",
-    "icons",
     "transformicons"
   ],
   "scripts": {

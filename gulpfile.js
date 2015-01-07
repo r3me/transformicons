@@ -109,5 +109,5 @@ gulp.task('watch', function() {
 // Tasks
 // ===================================================
 
-gulp.task('default', ['sass', 'docs', 'watch', 'serve']);
 gulp.task('build', ['sass', 'docs']);
+gulp.task('default', ['sass', 'docs', 'watch', 'serve']);
