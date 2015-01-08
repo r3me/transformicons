@@ -23,7 +23,7 @@
     "transformicons"
   ],
   "scripts": {
-    "start": "node node_modules/gulp/bin/gulp build",
+    "start": "node node_modules/gulp/bin/gulp",
     "test": "make test",
     "postinstall": "gulp build"
   },
