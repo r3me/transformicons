@@ -3,9 +3,9 @@ requirejs.config({
   paths : {
     'jquery': [
       '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min',
-      'lib/jquery.min'
+      'lib/jquery'
     ],
-    'modernizr': 'lib/modernizr.min'
+    'modernizr': 'lib/modernizr'
   },
   shim: {
     'modernizr': {
