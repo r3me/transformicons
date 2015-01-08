@@ -1,1 +1,2 @@
-web: node web.js && gulp prod
+web: node web.js
+worker: gulp prod
