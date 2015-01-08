@@ -52,20 +52,6 @@ gulp.task('serve', function() {
   $.exec('open http://localhost:5000');
 });
 
-gulp.task('deploy', function() {
-  $.connect.server({
-    root: [paths.site],
-    port: 5000,
-    livereload: false,
-    middleware: function(connect) {
-      return [
-        connect().use(connect.query()),
-        connect().use(builder.middleware())
-      ];
-    }
-  });
-});
-
 
 // Styles Compiling
 // ===================================================
@@ -79,16 +65,6 @@ gulp.task('sass', function() {
     }))
     .pipe(gulp.dest(paths.sitecss))
     .pipe($.connect.reload());
-});
-
-gulp.task('build-sass', function() {
-  gulp.src(paths.sitesass + '/**/*.scss')
-    .pipe($.sass())
-    .pipe($.autoprefixer({
-      browsers: ['last 2 versions'],
-      cascade: false
-    }))
-    .pipe(gulp.dest(paths.sitecss));
 });
 
 
@@ -133,5 +109,5 @@ gulp.task('watch', function() {
 // Tasks
 // ===================================================
 
-gulp.task('build', ['build-sass', 'docs', 'watch']);
+gulp.task('build', ['sass', 'docs']);
 gulp.task('default', ['sass', 'docs', 'watch', 'serve']);
