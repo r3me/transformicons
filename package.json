@@ -25,7 +25,7 @@
   "scripts": {
     "start": "node node_modules/gulp/bin/gulp",
     "test": "make test",
-    "postinstall": "gulp build"
+    "postinstall": "gulp"
   },
   "dependencies": {
     "express": "^4.4.5",
