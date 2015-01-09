@@ -97,7 +97,7 @@ gulp.task('usemin', function () {
       html: [$.minifyHtml({empty: true})],
       js: [$.uglify()]
     }))
-    .pipe(gulp.dest('site/dist'));
+    .pipe(gulp.dest('site'));
 });
 
 
@@ -142,4 +142,5 @@ gulp.task('watch', function() {
 // Tasks
 // ===================================================
 
+gulp.task('build', ['cloud', 'sass', 'docs', 'usemin']);
 gulp.task('default', ['sass', 'docs', 'watch', 'serve']);
