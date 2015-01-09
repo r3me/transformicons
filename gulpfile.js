@@ -130,6 +130,24 @@ gulp.task('docs', function() {
 });
 
 
+// Template Engine
+// ===================================================
+
+var ext = require('gulp-extname');
+var assemble = require('assemble');
+
+assemble.layouts('site/templates/layouts/*.hbs');
+assemble.partials('site/templates/partials/*.hbs');
+assemble.pages('site/templates/pages/*.hbs');
+assemble.option('layout', 'default');
+
+gulp.task('assemble', function () {
+  return assemble.src('site/templates/pages/*.hbs')
+    .pipe(ext())
+    .pipe(assemble.dest('site'));
+});
+
+
 // Watching
 // ===================================================
 
