@@ -35,7 +35,7 @@ var paths = {
 };
 
 
-// Server
+// Development Server
 // ===================================================
 
 gulp.task('serve', function() {
@@ -55,10 +55,10 @@ gulp.task('serve', function() {
 });
 
 
-// Production server
+// Heroku Server
 // ===================================================
 
-gulp.task('prod', function() {
+gulp.task('cloud', function() {
   $.connect.server({
     root: [paths.site],
     port: process.env.PORT || 5000,
