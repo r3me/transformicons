@@ -142,5 +142,5 @@ gulp.task('watch', function() {
 // Tasks
 // ===================================================
 
-gulp.task('build', ['cloud', 'sass', 'docs', 'usemin']);
+gulp.task('build', ['cloud', 'sass', 'docs']);
 gulp.task('default', ['sass', 'docs', 'watch', 'serve']);
