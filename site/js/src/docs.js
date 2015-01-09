@@ -1,1 +1,0 @@
-//require(['config', 'globals'], function(config, globals) {});

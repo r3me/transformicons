@@ -6,12 +6,7 @@
     <title><%- title %></title>
     <link rel="stylesheet" href="css/prism.css">
     <link rel="stylesheet" href="css/style.css">
-    <style>
-      [data-language] {
-        font-size: 14px;
-      }
-    </style>
-    <script data-main="js/src/docs" src="js/src/lib/require.js"></script>
+    <style>[data-language] {font-size: 14px;}</style>
   </head>
   <body>
     <header role="banner">
@@ -76,6 +71,10 @@
       <p class="tcons-notice">Notice an issue or want to help? <a href="//github.com/grayghostvisuals/transformicons">Please contribute</a>.</p>
     </footer>
 
-    <script src="js/src/lib/prism.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/lib/jquery.js"><\/script>')</script>
+
+    <script src="js/src/contributors.js"></script>
+    <script src="js/lib/prism.js"></script>
   </body>
 </html>
