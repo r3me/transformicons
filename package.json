@@ -28,8 +28,6 @@
     "postinstall": "gulp build"
   },
   "dependencies": {
-    "express": "^4.4.5",
-    "ws": "0.4.x",
     "gulp": "^3.8.10",
     "gulp-autoprefixer": "^1.0.1",
     "gulp-concat": "^2.4.1",
