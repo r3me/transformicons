@@ -25,7 +25,7 @@
   "scripts": {
     "start": "node node_modules/gulp/bin/gulp",
     "test": "make test",
-    "postinstall": "gulp build"
+    "postinstall": "gulp docs && gulp sass && gulp usemin"
   },
   "dependencies": {
     "gulp": "^3.8.10",

@@ -92,7 +92,7 @@ gulp.task('sass', function() {
 // ===================================================
 
 gulp.task('usemin', function () {
-  return gulp.src([paths.site + '/index.html', paths.site + '/builder.html'])
+  return gulp.src([paths.site + '/index.html', paths.site + '/builder.html', paths.site + '/docs.html'])
     .pipe($.usemin({
       html: [$.minifyHtml({empty: true})],
       js: [$.uglify()]
@@ -142,5 +142,4 @@ gulp.task('watch', function() {
 // Tasks
 // ===================================================
 
-gulp.task('build', ['sass', 'docs', 'usemin']);
 gulp.task('default', ['sass', 'docs', 'watch', 'serve']);
