@@ -19,6 +19,7 @@ var paths_dir = {
   docsasset: 'assets',
   site: 'site',
   dist: 'dist',
+  sitejs: 'js',
   sitecss: 'css',
   sitesass: 'src',
 };
@@ -28,6 +29,7 @@ var paths = {
   docsasset: paths_dir.docs + '/' + paths_dir.docsasset,
   site: paths_dir.site,
   dist: paths_dir.dist,
+  sitejs: paths_dir.site + '/' + paths_dir.sitejs,
   sitecss: paths_dir.site + '/' + paths_dir.sitecss,
   sitesass: paths_dir.site + '/' + paths_dir.sitecss + '/' + paths_dir.sitesass
 };
@@ -86,6 +88,19 @@ gulp.task('sass', function() {
 });
 
 
+// Scripts
+// ===================================================
+
+gulp.task('usemin', function () {
+  return gulp.src([paths.site + '/index.html', paths.site + '/builder.html'])
+    .pipe($.usemin({
+      html: [$.minifyHtml({empty: true})],
+      js: [$.uglify()]
+    }))
+    .pipe(gulp.dest('site'));
+});
+
+
 // Documentation
 // ===================================================
 
@@ -127,5 +142,5 @@ gulp.task('watch', function() {
 // Tasks
 // ===================================================
 
-gulp.task('build', ['sass', 'docs']);
+gulp.task('build', ['sass', 'docs', 'usemin']);
 gulp.task('default', ['sass', 'docs', 'watch', 'serve']);
