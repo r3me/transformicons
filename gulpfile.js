@@ -97,7 +97,7 @@ gulp.task('usemin', function () {
       html: [$.minifyHtml({empty: true})],
       js: [$.uglify()]
     }))
-    .pipe(gulp.dest('site'));
+    .pipe(gulp.dest('site/dist'));
 });
 
 
