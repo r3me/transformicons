@@ -53,6 +53,24 @@ gulp.task('serve', function() {
 });
 
 
+// Production server
+// ===================================================
+
+gulp.task('prod', function() {
+  $.connect.server({
+    root: [paths.site],
+    port: process.env.PORT || 5000,
+    livereload: false,
+    middleware: function(connect) {
+      return [
+      connect().use(connect.query()),
+      connect().use(builder.middleware())
+      ];
+    }
+  });
+});
+
+
 // Styles Compiling
 // ===================================================
 

@@ -24,3 +24,8 @@ wss.on('connection', function(ws) {
     clearInterval(id);
   });
 });
+
+
+app.get('/builder.html', function(request, response) {
+  console.log('responding at' + response);
+});
