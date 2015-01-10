@@ -3,21 +3,29 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
     <title>{{title}}</title>
     <meta name="description" content="{{description}}">
+
     <meta name="viewport" content="width=device-width, user-scalable=1, initial-scale=1">
     <meta name="msapplication-tap-highlight" content="no">
+
     <link rel="stylesheet" href="css/style.css">
   </head>
+
   <body>
     <header role="banner">
       {{> logo}}
+
       <h1 class="tcon-title">Transformicons</h1>
       <p class="tcon-tagline">Animated symbols and buttons packaged for Sass & CSS</p>
+
       {{> nav}}
     </header>
 
-    <main role="main">{% body %}</main>
+    <main role="main">
+      {% body %}
+    </main>
 
     {{> footer}}
 
@@ -29,8 +37,10 @@
     <script src="js/src/contributors.js"></script>
     <script src="js/lib/transformicons.js"></script>
     <!-- endbuild -->
+
     <script>transformicons.add('.tcon');</script>
     {{/is~}}
+
     {{~#is basename 'builder'}}
     <!-- build:js js/build/builder.min.js -->
     <script src="js/src/contributors.js"></script>
