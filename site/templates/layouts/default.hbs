@@ -1,8 +1,8 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>{{title}}</title>
     <meta name="description" content="{{description}}">
@@ -10,6 +10,9 @@
     <meta name="viewport" content="width=device-width, user-scalable=1, initial-scale=1">
     <meta name="msapplication-tap-highlight" content="no">
 
+    {{~#is basename 'docs'}}
+    <link rel="stylesheet" href="css/prism.css">
+    {{/is~}}
     <link rel="stylesheet" href="css/style.css">
   </head>
 
@@ -37,7 +40,6 @@
     <script src="js/src/contributors.js"></script>
     <script src="js/lib/transformicons.js"></script>
     <!-- endbuild -->
-
     <script>transformicons.add('.tcon');</script>
     {{/is~}}
 
@@ -46,6 +48,13 @@
     <script src="js/src/contributors.js"></script>
     <script src="js/src/compiler.js"></script>
     <script src="js/src/builder.js"></script>
+    <!-- endbuild -->
+    {{/is~}}
+
+    {{~#is basename 'docs'}}
+    <!-- build:js js/build/docs.min.js -->
+    <script src="js/src/contributors.js"></script>
+    <script src="js/lib/prism.js"></script>
     <!-- endbuild -->
     {{/is~}}
   </body>

@@ -5,7 +5,9 @@
 var gulp            = require('gulp'),
     gulpLoadPlugins = require('gulp-load-plugins'),
     $               = gulpLoadPlugins(),
-    builder         = require('./builder');
+    builder         = require('./builder'),
+    ext             = require('gulp-extname'),
+    assemble        = require('assemble');
 
 $.exec   = require('child_process').exec;
 $.fs     = require('fs');
@@ -20,16 +22,18 @@ var paths_dir = {
   docs: 'docs',
   docsasset: 'assets',
   site: 'site',
+  templates : 'templates',
   dist: 'dist',
   sitejs: 'js',
   sitecss: 'css',
-  sitesass: 'src',
+  sitesass: 'src'
 };
 
 var paths = {
   docs: paths_dir.docs,
   docsasset: paths_dir.docs + '/' + paths_dir.docsasset,
   site: paths_dir.site,
+  templates: paths_dir.site + '/' + paths_dir.templates,
   dist: paths_dir.dist,
   sitejs: paths_dir.site + '/' + paths_dir.sitejs,
   sitecss: paths_dir.site + '/' + paths_dir.sitecss,
@@ -97,7 +101,7 @@ gulp.task('sass', function() {
 // Docs Compiling
 // ===================================================
 
-gulp.task('docs', function() {
+gulp.task('docs', ['assemble'], function() {
   var data = {
     'title': 'Transformicons Documentation',
 
@@ -117,9 +121,9 @@ gulp.task('docs', function() {
       ])
   };
 
-  gulp.src(paths.docsasset + '/*.html')
+  gulp.src(paths.docsasset + '/*.hbs')
     .pipe($.template(data))
-    .pipe(gulp.dest(paths.site));
+    .pipe(gulp.dest(paths.templates + '/pages/'));
 });
 
 
@@ -127,18 +131,15 @@ gulp.task('docs', function() {
 // Template Compiling
 // ===================================================
 
-var ext      = require('gulp-extname'),
-    assemble = require('assemble');
-
-assemble.layouts('site/templates/layouts/*.hbs');
-assemble.partials('site/templates/includes/*.hbs');
-assemble.pages('site/templates/content/*.hbs');
+assemble.layouts(paths.templates + '/layouts/*.hbs');
+assemble.partials(paths.templates + '/includes/*.hbs');
+assemble.pages(paths.templates + '/content/*.hbs');
 assemble.option('layout', 'default');
 
 gulp.task('assemble', function() {
-  return assemble.src('site/templates/pages/*.hbs')
+  return assemble.src(paths.templates + '/pages/*.hbs')
     .pipe(ext())
-    .pipe(assemble.dest('site'));
+    .pipe(assemble.dest(paths.site));
 });
 
 
@@ -152,7 +153,7 @@ gulp.task('usemin', ['assemble'], function() {
         html: [$.minifyHtml({empty: true})],
         js: [$.uglify()]
       }))
-      .pipe(gulp.dest('site'));
+      .pipe(gulp.dest(paths.site));
       return stream;
 });
 
@@ -172,5 +173,5 @@ gulp.task('watch', function() {
 // Tasks
 // ===================================================
 
-gulp.task('default', ['sass', 'docs', 'watch', 'serve']);
+gulp.task('default', ['docs', 'sass', 'watch', 'serve']);
 gulp.task('build', ['docs', 'sass', 'usemin', 'cloud']);
