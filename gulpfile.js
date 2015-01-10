@@ -101,29 +101,29 @@ gulp.task('sass', function() {
 // Docs Compiling
 // ===================================================
 
-gulp.task('docs', ['assemble'], function() {
+gulp.task('docs', function() {
   var data = {
     'title': 'Transformicons Documentation',
 
     'fragments': (function(pages) {
         var fragments = [];
+
         pages.forEach(function(fileName) {
-          var file = $.fs.readFileSync(paths.docs + '/' + fileName + '.md', {encoding: 'utf8'});
-          fragments.push({
-            'body': $.marked(file)
-          });
+          var file = $.fs.readFileSync(paths.docs + '/' + fileName + '.md', { encoding: 'utf8' });
+
+          fragments.push({ 'body': $.marked(file) });
         });
+
         return fragments;
-      })([
-        'markup',
-        'sass',
-        'javascript'
-      ])
+
+      })([ 'markup', 'sass', 'javascript' ])
   };
 
-  gulp.src(paths.docsasset + '/*.hbs')
+  var stream = gulp.src(paths.docsasset + '/*.hbs')
     .pipe($.template(data))
     .pipe(gulp.dest(paths.templates + '/pages/'));
+
+  return stream;
 });
 
 
@@ -136,10 +136,12 @@ assemble.partials(paths.templates + '/includes/*.hbs');
 assemble.pages(paths.templates + '/content/*.hbs');
 assemble.option('layout', 'default');
 
-gulp.task('assemble', function() {
-  return assemble.src(paths.templates + '/pages/*.hbs')
+gulp.task('assemble', ['docs'], function() {
+  var stream = assemble.src(paths.templates + '/pages/*.hbs')
     .pipe(ext())
     .pipe(assemble.dest(paths.site));
+
+  return stream;
 });
 
 
@@ -150,28 +152,28 @@ gulp.task('assemble', function() {
 gulp.task('usemin', ['assemble'], function() {
   var stream = gulp.src([paths.site + '/index.html', paths.site + '/builder.html', paths.site + '/docs.html'])
       .pipe($.usemin({
-        html: [$.minifyHtml({empty: true})],
+        html: [$.minifyHtml({ empty: true })],
         js: [$.uglify()]
       }))
-      .pipe(gulp.dest(paths.site));
-      return stream;
+      .pipe(gulp.dest(paths.site ));
+
+  return stream;
 });
 
 
 // ===================================================
-// Watching
+// File Monitoring
 // ===================================================
 
 gulp.task('watch', function() {
   gulp.watch([paths.dist + '/**/*.scss', paths.sitesass + '/**/*.scss'], ['sass']);
   gulp.watch([paths.docsasset + '/*', paths.docs + '*'], ['docs']);
-  gulp.watch([paths.site + '/templates/**/*.hbs'], ['assemble']);
 });
 
 
 // ===================================================
-// Tasks
+// Gulp Instructions
 // ===================================================
 
-gulp.task('default', ['docs', 'sass', 'watch', 'serve']);
-gulp.task('build', ['docs', 'sass', 'usemin', 'cloud']);
+gulp.task('default', ['docs', 'assemble', 'sass', 'watch', 'serve']);
+gulp.task('build', ['docs', 'assemble', 'sass', 'usemin', 'cloud']);
