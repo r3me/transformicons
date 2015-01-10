@@ -39,9 +39,7 @@
     "gulp-usemin": "^0.3.8",
     "gulp-util": "^3.0.1",
     "lodash": "^2.4.1",
-    "marked": "^0.3.2"
-  },
-  "devDependencies": {
+    "marked": "^0.3.2",
     "assemble": "git://github.com/assemble/assemble#v0.6.0",
     "gulp-extname": "^0.2.0"
   }
