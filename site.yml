@@ -1,5 +1,18 @@
 # =============================================
-# ASSEMBLE CONFIG
+# BUILD CONFIG
 # =============================================
 
-title:       Transformicons
+# Templates
+templates:         site/templates
+layouts:           <%= site.templates %>/layouts
+layout:            default
+pages:             <%= site.templates %>/pages
+includes:          <%= site.templates %>/{includes,pages}
+
+
+# =============================================
+# PROJECT METADATA
+# =============================================
+
+# Site
+title:              Transformicons

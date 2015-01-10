@@ -1,4 +1,5 @@
-// Gulp Setup
+// ===================================================
+// Setup
 // ===================================================
 
 var gulp            = require('gulp'),
@@ -11,7 +12,8 @@ $.fs     = require('fs');
 $.marked = require('marked');
 
 
-// Paths
+// ===================================================
+// Config
 // ===================================================
 
 var paths_dir = {
@@ -35,10 +37,11 @@ var paths = {
 };
 
 
+// ===================================================
 // Development Server
 // ===================================================
 
-gulp.task('serve', function() {
+gulp.task('serve', ['assemble'], function() {
   $.connect.server({
     root: [paths.site],
     port: 5000,
@@ -55,6 +58,7 @@ gulp.task('serve', function() {
 });
 
 
+// ===================================================
 // Heroku Server
 // ===================================================
 
@@ -73,7 +77,8 @@ gulp.task('cloud', function() {
 });
 
 
-// Styles Compiling
+// ===================================================
+// Sass Compiling
 // ===================================================
 
 gulp.task('sass', function() {
@@ -88,7 +93,8 @@ gulp.task('sass', function() {
 });
 
 
-// Documentation
+// ===================================================
+// Docs Compiling
 // ===================================================
 
 gulp.task('docs', function() {
@@ -117,6 +123,7 @@ gulp.task('docs', function() {
 });
 
 
+// ===================================================
 // Template Compiling
 // ===================================================
 
@@ -135,31 +142,35 @@ gulp.task('assemble', function() {
 });
 
 
+// ===================================================
 // Production Prep
 // ===================================================
 
 gulp.task('usemin', ['assemble'], function() {
   var stream = gulp.src([paths.site + '/index.html', paths.site + '/builder.html', paths.site + '/docs.html'])
-    .pipe($.usemin({
-      html: [$.minifyHtml({empty: true})],
-      js: [$.uglify()]
-    }))
-    .pipe(gulp.dest('site'));
-    return stream;
+      .pipe($.usemin({
+        html: [$.minifyHtml({empty: true})],
+        js: [$.uglify()]
+      }))
+      .pipe(gulp.dest('site'));
+      return stream;
 });
 
 
+// ===================================================
 // Watching
 // ===================================================
 
 gulp.task('watch', function() {
   gulp.watch([paths.dist + '/**/*.scss', paths.sitesass + '/**/*.scss'], ['sass']);
   gulp.watch([paths.docsasset + '/*', paths.docs + '*'], ['docs']);
+  gulp.watch([paths.site + '/templates/**/*.hbs'], ['assemble']);
 });
 
 
+// ===================================================
 // Tasks
 // ===================================================
 
+gulp.task('default', ['sass', 'docs', 'watch', 'serve']);
 gulp.task('build', ['docs', 'sass', 'usemin', 'cloud']);
-gulp.task('default', ['sass', 'docs', 'assemble', 'watch', 'serve']);
