@@ -152,12 +152,29 @@ gulp.task('assemble', ['docs'], function() {
 gulp.task('usemin', ['assemble'], function() {
   var stream = gulp.src([paths.site + '/index.html', paths.site + '/builder.html', paths.site + '/docs.html'])
       .pipe($.usemin({
+        css: [$.rev()],
         html: [$.minifyHtml({ empty: true })],
-        js: [$.uglify()]
+        js: [$.uglify(), $.rev()]
       }))
-      .pipe(gulp.dest(paths.site ));
+      .pipe(gulp.dest(paths.site));
 
   return stream;
+});
+
+
+// ===================================================
+// Ground Zero
+// ===================================================
+
+gulp.task('clean', function() {
+  return gulp.src([
+        paths.site + '/css/style.css',
+        paths.site + '/css/style.*.css',
+        paths.site + '/*.html',
+        paths.site + '/js/build',
+        paths.templates + '/pages/docs.hbs'
+      ], { read: false })
+    .pipe($.clean());
 });
 
 
