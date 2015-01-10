@@ -5,6 +5,7 @@ node_modules/
 compass_app_log.txt
 site/js/build/
 site/*.html
+site/templates/pages/docs.hbs
 site/css/*.css.map
 site/css/style.css
 npm-debug.log
