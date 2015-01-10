@@ -88,19 +88,6 @@ gulp.task('sass', function() {
 });
 
 
-// Scripts
-// ===================================================
-
-gulp.task('usemin', function () {
-  return gulp.src([paths.site + '/index.html', paths.site + '/builder.html', paths.site + '/docs.html'])
-    .pipe($.usemin({
-      html: [$.minifyHtml({empty: true})],
-      js: [$.uglify()]
-    }))
-    .pipe(gulp.dest('site'));
-});
-
-
 // Documentation
 // ===================================================
 
@@ -130,21 +117,35 @@ gulp.task('docs', function() {
 });
 
 
-// Template Engine
+// Template Compiling
 // ===================================================
 
-var ext = require('gulp-extname');
-var assemble = require('assemble');
+var ext      = require('gulp-extname'),
+    assemble = require('assemble');
 
 assemble.layouts('site/templates/layouts/*.hbs');
-assemble.partials('site/templates/partials/*.hbs');
-assemble.pages('site/templates/pages/*.hbs');
+assemble.partials('site/templates/includes/*.hbs');
+assemble.pages('site/templates/content/*.hbs');
 assemble.option('layout', 'default');
 
-gulp.task('assemble', function () {
+gulp.task('assemble', function() {
   return assemble.src('site/templates/pages/*.hbs')
     .pipe(ext())
     .pipe(assemble.dest('site'));
+});
+
+
+// Production Prep
+// ===================================================
+
+gulp.task('usemin', ['assemble'], function() {
+  var stream = gulp.src([paths.site + '/index.html', paths.site + '/builder.html', paths.site + '/docs.html'])
+    .pipe($.usemin({
+      html: [$.minifyHtml({empty: true})],
+      js: [$.uglify()]
+    }))
+    .pipe(gulp.dest('site'));
+    return stream;
 });
 
 
@@ -160,5 +161,5 @@ gulp.task('watch', function() {
 // Tasks
 // ===================================================
 
-gulp.task('build', ['cloud', 'sass', 'docs', 'usemin']);
-gulp.task('default', ['sass', 'docs', 'watch', 'serve']);
+gulp.task('build', ['docs', 'sass', 'usemin', 'cloud']);
+gulp.task('default', ['sass', 'docs', 'assemble', 'watch', 'serve']);
