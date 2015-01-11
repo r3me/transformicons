@@ -144,6 +144,7 @@ nav {
     padding: 20px;
     background: transparent;
     color: #FFFEFE;
+    &.active,
     &:hover {
       border: 2px solid #FFFEFE;
       background: #FFFEFE;
@@ -169,7 +170,7 @@ footer {
 }
 
 
-// Site Titles
+// Titles
 // ===================================
 
 .tcon-title {
@@ -248,38 +249,7 @@ footer {
 }
 
 
-// Builder Text Tabs
-// ===================================
-
-.tcon-tabs__nav {
-  li {
-    float: left;
-    width: 20%;
-  }
-  a {
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    color: #888;
-    padding: 10px 0;
-    background: #f7f7f7;
-    
-    &:hover,
-    &.active {
-      background: #ddd;
-    }
-  }
-}
-
-.tcon-tabs__group {
-  div {
-    padding: 30px;
-    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.08);
-  }
-}
-
-
-// Helper
+// Helpers
 // ===================================
 
 .list-reset {

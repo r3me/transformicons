@@ -39,7 +39,6 @@ function getDependencies(params) {
   var files = ['base/_config-globals.scss',
                'base/_global-styles.scss',
                'base/_config-utilities.scss'];
-  console.log(files[0]);
 
   for(var initial in params) {
 
@@ -49,18 +48,24 @@ function getDependencies(params) {
     }
 
     params[initial].forEach(function(target) {
+
       if (deps[initial]) {
+
         if (deps[initial][target]) {
+
           deps[initial][target].forEach(function(file) {
             files.push(file);
           });
+
         } else {
           console.warn(MSG_START + initial + '" to "' + target + MSG_END);
         }
       } else {
         console.warn(MSG_START + initial + MSG_END);
       }
+
     });
+
   }
 
   return _.uniq(files);
@@ -72,6 +77,22 @@ function getFiles(params) {
     return ROOT_SCSS + path;
   });
 }
+
+
+// Markup Generator
+// function buildMarkup(params, key, cb) {
+//   gulp.src('site/templates/includes/.hbs')
+//     .pipe(assemble())
+//     .pipe(gutil.buffer(function(err, files) {
+
+//       if (err) {
+//         cb & cb(err);
+//         return;
+//       }
+
+//       cb && cb(null, key, files);
+//     }));
+// }
 
 
 function buildStylesheet(isCSS, params, cb) {
@@ -90,14 +111,14 @@ function buildStylesheet(isCSS, params, cb) {
 
 function buildSCSS(params, key, cb) {
   buildStylesheet(false, params, function(err, data) {
-      cb && cb(err, key, data);
-    });
+    cb && cb(err, key, data);
+  });
 }
 
 
 function buildCSS(params, key, cb) {
   buildStylesheet(true, params, function(err, data) {
-    cb && cb(err, key, data);
+    cb && cb(err,key,data);
   });
 }
 
@@ -115,6 +136,7 @@ function buildJS(params, key, cb) {
     }));
 }
 
+
 function process(res, data) {
   var contents = data.buffer[0]._contents;
 
@@ -127,6 +149,7 @@ function process(res, data) {
   res.setHeader('Content-Length', contents.length);
   res.end(contents);
 }
+
 
 exports.middleware = function() {
   return function(req, res, next) {

@@ -51,9 +51,11 @@
     {{~#is basename 'builder'}}
     <!-- build:js js/build/builder.min.js -->
     <script src="js/src/contributors.js"></script>
+    <script src="js/lib/transformicons.js"></script>
     <script src="js/src/compiler.js"></script>
     <script src="js/src/builder.js"></script>
     <!-- endbuild -->
+    <script>transformicons.add('.tcon');</script>
     {{/is~}}
 
     {{~#is basename 'docs'}}

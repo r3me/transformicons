@@ -3,6 +3,7 @@ var builder = (function() {
 
   var BASE = '/build/';
 
+
   function getQueryString(input) {
     return $(input + ':checked').map(function() {
       return $(this).data('transform');
@@ -28,7 +29,7 @@ var builder = (function() {
         url;
 
     if (!qs.length) {
-      cb && cb({ err: 'nothing to query'});
+      cb && cb({ err: 'nothing to query' });
       return;
     }
 
@@ -89,10 +90,10 @@ builder({
   form: '#tcon-builder',
   input: '.tcon-builder-input',
   output: {
-    css: '#tcon-source__styles-css',
-    sass: '#tcon-source__styles-sass',
-    jsmin: '#tcon-source__js-min',
-    jsunmin: '#tcon-source__js-unmin'
+    css: '#tcon-src--styles',
+    sass: '#tcon-src--styles',
+    jsmin: '#tcon-src--js',
+    jsunmin: '#tcon-src--js'
   },
   type: {
     styles: 'tcon_stylesheet',
