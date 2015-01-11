@@ -3,7 +3,6 @@ var builder = (function() {
 
   var BASE = '/build/';
 
-
   function getQueryString(input) {
     return $(input + ':checked').map(function() {
       return $(this).data('transform');
@@ -12,17 +11,14 @@ var builder = (function() {
     .join('&');
   }
 
-
   function getRadioValue(name) {
     var val = $('input[name="' + name + '"]:checked').val();
     return val;
   }
 
-
   function getBase() {
     return window.location.origin + BASE;
   }
-
 
   function buildStyles(input, type, cb) {
     var qs = getQueryString(input),
@@ -40,7 +36,6 @@ var builder = (function() {
     });
   }
 
-
   function buildJS(type, cb) {
     var url = getBase() + 'js?' + getRadioValue(type);
 
@@ -48,7 +43,6 @@ var builder = (function() {
       cb && cb(null, data);
     });
   }
-
 
   return function(options) {
     $(options.form).submit(function(e) {
@@ -83,7 +77,6 @@ var builder = (function() {
       e.preventDefault();
     });
   };
-
 })();
 
 builder({

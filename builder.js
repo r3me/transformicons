@@ -29,12 +29,7 @@ var gulp                  = require('gulp'),
                               }
                             };
 
-// get files dependencies for all transformations
-// implicit include:
-// "base/_config-globals.scss",
-// "base/_global-styles.scss",
-// "base/_config-utilities.scss"
-
+// Dependencies for all transformations
 function getDependencies(params) {
   var files = ['base/_config-globals.scss',
                'base/_global-styles.scss',
@@ -71,29 +66,11 @@ function getDependencies(params) {
   return _.uniq(files);
 }
 
-
 function getFiles(params) {
   return getDependencies(params).map(function(path) {
     return ROOT_SCSS + path;
   });
 }
-
-
-// Markup Generator
-// function buildMarkup(params, key, cb) {
-//   gulp.src('site/templates/includes/.hbs')
-//     .pipe(assemble())
-//     .pipe(gutil.buffer(function(err, files) {
-
-//       if (err) {
-//         cb & cb(err);
-//         return;
-//       }
-
-//       cb && cb(null, key, files);
-//     }));
-// }
-
 
 function buildStylesheet(isCSS, params, cb) {
   gulp.src(getFiles(params))
@@ -108,20 +85,17 @@ function buildStylesheet(isCSS, params, cb) {
     }));
 }
 
-
 function buildSCSS(params, key, cb) {
   buildStylesheet(false, params, function(err, data) {
     cb && cb(err, key, data);
   });
 }
 
-
 function buildCSS(params, key, cb) {
   buildStylesheet(true, params, function(err, data) {
     cb && cb(err,key,data);
   });
 }
-
 
 function buildJS(params, key, cb) {
   gulp.src(ROOT + FILENAME + '.js')
@@ -136,7 +110,6 @@ function buildJS(params, key, cb) {
     }));
 }
 
-
 function process(res, data) {
   var contents = data.buffer[0]._contents;
 
@@ -149,7 +122,6 @@ function process(res, data) {
   res.setHeader('Content-Length', contents.length);
   res.end(contents);
 }
-
 
 exports.middleware = function() {
   return function(req, res, next) {
