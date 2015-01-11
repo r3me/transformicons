@@ -10,6 +10,7 @@ var gulp                  = require('gulp'),
     FILENAME              = 'transformicons',
     ROOT                  = __dirname + '/dist/',
     ROOT_SCSS             = ROOT + FILENAME + '/',
+    TEMPLATES             = __dirname + '/site/templates/includes/',
     BASE                  = '/build/',
     MSG_START             = 'WARN: "',
     MSG_END               = '" transform is not defined in deps.json',
@@ -26,6 +27,10 @@ var gulp                  = require('gulp'),
                               'js': {
                                 build: buildJS,
                                 mime: 'text/javascript'
+                              },
+                              'html': {
+                                build: buildHTML,
+                                mime : 'text/html'
                               }
                             };
 
@@ -110,6 +115,29 @@ function buildJS(params, key, cb) {
     }));
 }
 
+function buildHTML(params, key, cb) {
+  var markupFiles = [];
+
+  for(var initial in params) {
+    // only array to simplify processing
+    if (params[initial] && !Array.isArray(params[initial])) {
+      params[initial] = [params[initial]];
+    }
+
+    params[initial].forEach(function(target) {
+      markupFiles.push(TEMPLATES + initial + '-' + target + '.hbs');
+    });
+  }
+
+  // TODO: use assemble with layout for button if provide
+  gulp.src(markupFiles)
+    .pipe(concat('./markup' + new Date().getTime()))
+    .pipe(gutil.buffer(function(err, data) {
+      console.log(err);
+      cb && cb(err, key, data);
+    }));
+}
+
 function process(res, data) {
   var contents = data.buffer[0]._contents;
 
@@ -125,9 +153,10 @@ function process(res, data) {
 
 exports.middleware = function() {
   return function(req, res, next) {
+
     var parseUrl = url.parse(req.url);
         pathname = parseUrl.pathname,
-        key = parseUrl.path,
+        key      = parseUrl.path,
         filename = FILENAME;
 
     if (pathname.indexOf(BASE) === -1) {

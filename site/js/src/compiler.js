@@ -20,6 +20,23 @@ var builder = (function() {
     return window.location.origin + BASE;
   }
 
+  function buildMarkup(input, cb) {
+    // TODO: remove duplicate code
+    var qs = getQueryString(input),
+        url;
+
+    if (!qs.length) {
+      cb && cb({ err: 'nothing to query'});
+      return;
+    }
+
+    url = getBase() + ('html') + '?' + qs;
+
+    $.get(url, function(data) {
+      cb && cb(null, data);
+    });
+  }
+
   function buildStyles(input, type, cb) {
     var qs = getQueryString(input),
         url;
@@ -48,29 +65,36 @@ var builder = (function() {
     $(options.form).submit(function(e) {
 
       var input_style_val = $('input[name="tcon_stylesheet"]:checked').val(),
-          input_js_val    = $('input[name="tcon_javascript"]:checked').val();
+          input_js_val    = $('input[name="tcon_javascript"]:checked').val(),
+          input           = options.input,
+          type            = options.type,
+          output          = options.output;
+
+      buildMarkup(input, function(err, data) {
+        $(output.html).html(data || '');
+      });
 
       if(input_style_val === 'css') {
-        buildStyles(options.input, options.type.styles, function(err, data) {
-          $(options.output.css).html(data || '');
+        buildStyles(input, type.styles, function(err, data) {
+          $(output.css).html(data || '');
         });
       }
 
       if(input_style_val === 'scss') {
-        buildStyles(options.input, options.type.styles, function(err, data) {
-          $(options.output.sass).html(data || '');
+        buildStyles(input, type.styles, function(err, data) {
+          $(output.sass).html(data || '');
         });
       }
 
       if(input_js_val === 'minified=true') {
-        buildJS(options.type.js, function(err, data) {
-          $(options.output.jsmin).html(data || '');
+        buildJS(type.js, function(err, data) {
+          $(output.jsmin).html(data || '');
         });
       }
 
       if(input_js_val === 'minified=false') {
-        buildJS(options.type.js, function(err, data) {
-          $(options.output.jsunmin).html(data || '');
+        buildJS(type.js, function(err, data) {
+          $(output.jsunmin).html(data || '');
         });
       }
 
@@ -83,6 +107,7 @@ builder({
   form: '#tcon-builder',
   input: '.tcon-builder-input',
   output: {
+    html: '#tcon-src--html',
     css: '#tcon-src--styles',
     sass: '#tcon-src--styles',
     jsmin: '#tcon-src--js',
