@@ -6,10 +6,10 @@ var gulp            = require('gulp'),
     gulpLoadPlugins = require('gulp-load-plugins'),
     $               = gulpLoadPlugins(),
     builder         = require('./builder'),
-    ext             = require('gulp-extname'),
-    assemble        = require('assemble');
+    assemble        = require('assemble'),
+    ext             = require('gulp-extname');
 
-$.exec   = require('child_process').exec;
+$.exec   = require('child_process').exec; // http://krasimirtsonev.com/blog/article/Nodejs-managing-child-processes-starting-stopping-exec-spawn
 $.fs     = require('fs');
 $.marked = require('marked');
 
@@ -45,7 +45,7 @@ var paths = {
 // Development Server
 // ===================================================
 
-gulp.task('serve', ['assemble'], function() {
+gulp.task('servedev', ['assemble'], function() {
   $.connect.server({
     root: [paths.site],
     port: 5000,
@@ -66,7 +66,7 @@ gulp.task('serve', ['assemble'], function() {
 // Heroku Server
 // ===================================================
 
-gulp.task('cloud', function() {
+gulp.task('serveprod', function() {
   $.connect.server({
     root: [paths.site],
     port: process.env.PORT || 5000,
@@ -150,7 +150,11 @@ gulp.task('assemble', ['docs'], function() {
 // ===================================================
 
 gulp.task('usemin', ['assemble'], function() {
-  var stream = gulp.src([paths.site + '/index.html', paths.site + '/builder.html', paths.site + '/docs.html'])
+  var stream = gulp.src([
+        paths.site + '/index.html',
+        paths.site + '/builder.html',
+        paths.site + '/docs.html'
+      ])
       .pipe($.usemin({
         css: [$.rev()],
         html: [$.minifyHtml({ empty: true })],
@@ -170,6 +174,8 @@ gulp.task('clean', function() {
   return gulp.src([
         paths.site + '/css/style.css',
         paths.site + '/css/style.*.css',
+        paths.site + '/css/style.*.css',
+        paths.site + '/css/prism.*.css',
         paths.site + '/*.html',
         paths.site + '/js/build',
         paths.templates + '/pages/docs.hbs'
@@ -192,5 +198,5 @@ gulp.task('watch', function() {
 // Gulp Instructions
 // ===================================================
 
-gulp.task('default', ['docs', 'assemble', 'sass', 'watch', 'serve']);
-gulp.task('build', ['docs', 'assemble', 'sass', 'usemin', 'cloud']);
+gulp.task('default', ['docs', 'assemble', 'sass', 'watch', 'servedev']);
+gulp.task('build', ['docs', 'assemble', 'sass', 'usemin', 'serveprod']);

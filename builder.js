@@ -77,6 +77,29 @@ function getFiles(params) {
   });
 }
 
+function buildHTML(params, key, cb) {
+  var markupFiles = [];
+
+  for(var initial in params) {
+    // only array to simplify processing
+    if (params[initial] && !Array.isArray(params[initial])) {
+      params[initial] = [params[initial]];
+    }
+
+    params[initial].forEach(function(target) {
+      markupFiles.push(TEMPLATES + initial + '-' + target + '.hbs');
+    });
+  }
+
+  // TODO: use assemble with layout for button if provide
+  gulp.src(markupFiles)
+    .pipe(concat('./markup' + new Date().getTime()))
+    .pipe(gutil.buffer(function(err, data) {
+      console.log(err);
+      cb && cb(err, key, data);
+    }));
+}
+
 function buildStylesheet(isCSS, params, cb) {
   gulp.src(getFiles(params))
     .pipe(concat('./tmp' + new Date().getTime()))
@@ -112,29 +135,6 @@ function buildJS(params, key, cb) {
       }
 
       cb && cb(null, key, files);
-    }));
-}
-
-function buildHTML(params, key, cb) {
-  var markupFiles = [];
-
-  for(var initial in params) {
-    // only array to simplify processing
-    if (params[initial] && !Array.isArray(params[initial])) {
-      params[initial] = [params[initial]];
-    }
-
-    params[initial].forEach(function(target) {
-      markupFiles.push(TEMPLATES + initial + '-' + target + '.hbs');
-    });
-  }
-
-  // TODO: use assemble with layout for button if provide
-  gulp.src(markupFiles)
-    .pipe(concat('./markup' + new Date().getTime()))
-    .pipe(gutil.buffer(function(err, data) {
-      console.log(err);
-      cb && cb(err, key, data);
     }));
 }
 

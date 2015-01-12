@@ -15,7 +15,7 @@ description: Animated symbols and buttons custom builder for Sass & CSS
         <li>
           {{> menu-xbutterfly}}
           <label for="tcon-menu--butterfly">
-            <input class="tcon-builder-input" id="tcon-menu--butterfly" type="checkbox" data-transform="menu=xbutterfly" checked> Menu to X <small>(Butterfly Style)</small>
+            <input class="tcon-builder-input" id="tcon-menu--butterfly" type="checkbox" data-transform="menu=xbutterfly"> Menu to X (Butterfly Style)
           </label>
         </li>
 
@@ -25,10 +25,50 @@ description: Animated symbols and buttons custom builder for Sass & CSS
           <input class="tcon-builder-input" id="tcon-menu--minus" type="checkbox" data-transform="menu=minus"> Menu to Minus
           </label>
         </li>
+
+        <li>
+          {{> menu-xcross}}
+          <label for="tcon-menu--xcross">
+          <input class="tcon-builder-input" id="tcon-menu--xcross" type="checkbox" data-transform="menu=xcross"> Menu to X (Crossover Style)
+          </label>
+        </li>
+
+        <li>
+          {{> menu-arrowup}}
+          <label for="tcon-menu--arrowup">
+          <input class="tcon-builder-input" id="tcon-menu--arrowup" type="checkbox" data-transform="menu=arrowup"> Menu to Upwards Arrow
+          </label>
+        </li>
+
+        <li>
+          {{> menu-arrow360}}
+          <label for="tcon-menu--arrow360">
+          <input class="tcon-builder-input" id="tcon-menu--arrow360" type="checkbox" data-transform="menu=arrow360"> Menu Arrow Spins 360deg
+          </label>
+        </li>
+
+        <li>
+          {{> menu-arrowleft}}
+          <label for="tcon-menu--arrowleft">
+          <input class="tcon-builder-input" id="tcon-menu--arrowleft" type="checkbox" data-transform="menu=arrowleft"> Menu Arrow Points Left
+          </label>
+        </li>
       </ul>
 
       <h3 class="tcon-builder__title">Grid</h3>
       <ul class="tcons-items list-reset">
+        <li>
+          {{> grid-collapse}}
+          <label for="tcon-grid--collapsex">
+          <input class="tcon-builder-input" id="tcon-grid--collapsex" type="checkbox" data-transform="grid=collapse"> Collapse to X
+          </label>
+        </li>
+        <li>
+          {{> grid-rearrange}}
+          <label for="tcon-grid--rearrangex">
+          <input class="tcon-builder-input" id="tcon-grid--rearrangex" type="checkbox" data-transform="grid=rearrange"> Rearrange to X
+          </label>
+        </li>
         <li>
           {{> grid-collapse}}
           <label for="tcon-grid--collapsex">
@@ -57,6 +97,42 @@ description: Animated symbols and buttons custom builder for Sass & CSS
             <input class="tcon-builder-input" id="tcon-addrm--plusminusrotate" type="checkbox" data-transform="plus=minusrotate"> Plus to Minus <small>(Rotate Style)</small>
           </label>
         </li>
+        <li>
+          {{> plus-check}}
+          <label for="tcon-addrm--check">
+            <input class="tcon-builder-input" id="tcon-addrm--check" type="checkbox" data-transform="plus=check"> Plus to Checkmark</small>
+          </label>
+        </li>
+      </ul>
+
+      <h3 class="tcon-builder__title">Mail</h3>
+      <ul class="tcons-items list-reset">
+        <li>
+          {{> mail-envelope}}
+          <label for="tcon-mail--env">
+            <input class="tcon-builder-input" id="tcon-mail--env" type="checkbox" data-transform="mail=envelope"> Envelope
+          </label>
+        </li>
+      </ul>
+
+      <h3 class="tcon-builder__title">Video</h3>
+      <ul class="tcons-items list-reset">
+        <li>
+          {{> vid-play}}
+          <label for="tcon-vid--playstop">
+            <input class="tcon-builder-input" id="tcon-vid--playstop" type="checkbox" data-transform="vid=playstop"> Play to Stop
+          </label>
+        </li>
+      </ul>
+
+      <h3 class="tcon-builder__title">Loaders</h3>
+      <ul class="tcons-items list-reset">
+        <li>
+          {{> loader-spinner360}}
+          <label for="tcon-loader--spinner360">
+            <input class="tcon-builder-input" id="tcon-loader--spinner360" type="checkbox" data-transform="loader=spinner360"> Spinning 360 Loader
+          </label>
+        </li>
       </ul>
     </fieldset>
 
@@ -65,7 +141,7 @@ description: Animated symbols and buttons custom builder for Sass & CSS
       <h3 class="tcon-builder__title">Styles</h3>
 
       <label for="tcon-stylesheet--css">
-        <input type="radio" name="tcon_stylesheet" id="tcon-stylesheet--css" value="css" checked> CSS
+        <input type="radio" name="tcon_stylesheet" id="tcon-stylesheet--css" value="css"> CSS
       </label>
 
       <label for="tcon-stylesheet--sass">
@@ -74,7 +150,7 @@ description: Animated symbols and buttons custom builder for Sass & CSS
 
       <h3 class="tcon-builder__title">JavaScript</h3>
       <label for="tcon-stylesheet--jsmin">
-        <input type="radio" name="tcon_javascript" id="tcon-stylesheet--jsmin" value="minified=true" checked> Minified
+        <input type="radio" name="tcon_javascript" id="tcon-stylesheet--jsmin" value="minified=true"> Minified
       </label>
 
       <label for="tcon-script--jsunmin">
@@ -90,21 +166,21 @@ description: Animated symbols and buttons custom builder for Sass & CSS
   <div class="tcon-src__html">
     <h3>Markup</h3>
     <div>
-      <textarea id="tcon-src--html"></textarea>
+      <pre class="language-html"><code><textarea id="tcon-src--html"></textarea></code></pre>
     </div>
   </div>
 
   <div class="tcon-src__styles">
     <h3>Styles</h3>
     <div>
-      <textarea id="tcon-src--styles"></textarea>
+      <pre class="language-scss"><code><textarea id="tcon-src--styles"></textarea></code></pre>
     </div>
   </div>
 
   <div class="tcon-src__js">
     <h3>JavaScript</h3>
     <div>
-      <textarea id="tcon-src--js"></textarea>
+      <pre class="language-javascript"><code><textarea id="tcon-src--js"></textarea></code></pre>
     </div>
   </div>
 </div>

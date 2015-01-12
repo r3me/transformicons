@@ -1,4 +1,4 @@
-## Javascript
+## JavaScript
 
 ### Benefits
 Transformicons are mostly powered by CSS however, a little piece of JavaScript is required to toggle the transformed states. We've taken the time to ensure the greatest amount of flexibility has been given to the code so that you the author can have…

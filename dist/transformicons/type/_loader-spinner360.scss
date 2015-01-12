@@ -1,5 +1,6 @@
 .tcon-loader--spinner360 {
   border-radius: 80%;
+  display: block;
   height: $spinner_size;
   width: $spinner_size;
   position: relative;
@@ -17,22 +18,20 @@
     border-radius: 0 $spinner_fill_radius $spinner_fill_radius 0;
     height: $spinner_size;
     width: 50%;
-    top: 0;
-    right: 0;
+    top: 0; right: 0;
+    z-index: 1;
     background: $spinner_color;
     background-image: linear-gradient($spinner_bg, $spinner_color);
-    z-index: 1;
   }
 
   &:after {
     border-radius: $spinner_radius;
     height: $spinner_inner_circle;
     width: $spinner_inner_circle;
-    top: 50%;
-    left: 50%;
+    top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    background: $spinner_inner_bg;
     z-index: 1;
+    background: $spinner_inner_bg;
   }
 }
 
@@ -100,11 +99,12 @@ $c   : #555;
 
 // * * * GENERAL CSS * * *
 
-.arrow{
+.arrow {
+  display: block;
   width: $w;
   height: $h;
   position: relative;
-  display: inline-block;
+  // display: inline-block;
   margin: $h/4 $w/4;
   //border:1px solid #EDB;
   
