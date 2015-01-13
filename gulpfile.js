@@ -8,7 +8,8 @@ var gulp            = require('gulp'),
     builder         = require('./builder'),
     assemble        = require('assemble'),
     ext             = require('gulp-extname'),
-    minifyHtml       = require('gulp-minify-html');
+    minifyHtml      = require('gulp-minify-html'),
+    minifyCSS       = require('gulp-minify-css');
 
 $.exec   = require('child_process').exec; // http://krasimirtsonev.com/blog/article/Nodejs-managing-child-processes-starting-stopping-exec-spawn
 $.fs     = require('fs');
@@ -99,6 +100,14 @@ gulp.task('sass', function() {
   return stream;
 });
 
+gulp.task('cssmin', ['sass'], function() {
+  var stream = gulp.src(paths.sitecss + '/*.css')
+    .pipe(minifyCSS({keepBreaks:true}))
+    .pipe(gulp.dest(paths.sitecss));
+
+  return stream;
+});
+
 
 // ===================================================
 // Docs Compiling
@@ -152,7 +161,7 @@ gulp.task('assemble', ['docs'], function() {
 // Production Prep
 // ===================================================
 
-gulp.task('usemin', ['assemble', 'sass'], function() {
+gulp.task('usemin', ['assemble', 'cssmin'], function() {
   var stream = gulp.src([
         paths.site + '/index.html',
         paths.site + '/builder.html',
