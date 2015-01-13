@@ -7,7 +7,8 @@ var gulp            = require('gulp'),
     $               = gulpLoadPlugins(),
     builder         = require('./builder'),
     assemble        = require('assemble'),
-    ext             = require('gulp-extname');
+    ext             = require('gulp-extname'),
+    minifyCSS       = require('gulp-minify-css');
 
 $.exec   = require('child_process').exec; // http://krasimirtsonev.com/blog/article/Nodejs-managing-child-processes-starting-stopping-exec-spawn
 $.fs     = require('fs');
@@ -82,11 +83,11 @@ gulp.task('serveprod', function() {
 
 
 // ===================================================
-// Sass Compiling
+// Stylesheets
 // ===================================================
 
 gulp.task('sass', function() {
-  gulp.src(paths.sitesass + '/**/*.scss')
+  var stream = gulp.src(paths.sitesass + '/**/*.scss')
     .pipe($.sass())
     .pipe($.autoprefixer({
       browsers: ['last 2 versions'],
@@ -94,6 +95,14 @@ gulp.task('sass', function() {
     }))
     .pipe(gulp.dest(paths.sitecss))
     .pipe($.connect.reload());
+
+  return stream;
+});
+
+gulp.task('cssmin', ['sass'], function() {
+  gulp.src(paths.sitecss + '*.css')
+    .pipe(minifyCSS({ cache:true, keepBreaks:false }))
+    .pipe(gulp.dest(paths.sitecss));
 });
 
 
@@ -149,7 +158,7 @@ gulp.task('assemble', ['docs'], function() {
 // Production Prep
 // ===================================================
 
-gulp.task('usemin', ['assemble'], function() {
+gulp.task('usemin', ['assemble', 'sass'], function() {
   var stream = gulp.src([
         paths.site + '/index.html',
         paths.site + '/builder.html',
@@ -172,10 +181,7 @@ gulp.task('usemin', ['assemble'], function() {
 
 gulp.task('clean', function() {
   return gulp.src([
-        paths.site + '/css/style.css',
-        paths.site + '/css/style.*.css',
-        paths.site + '/css/style.*.css',
-        paths.site + '/css/prism.*.css',
+        paths.site + '/css/*.css',
         paths.site + '/*.html',
         paths.site + '/js/build',
         paths.templates + '/pages/docs.hbs'
@@ -199,4 +205,4 @@ gulp.task('watch', function() {
 // ===================================================
 
 gulp.task('default', ['docs', 'assemble', 'sass', 'watch', 'servedev']);
-gulp.task('build', ['docs', 'assemble', 'sass', 'usemin', 'serveprod']);
+gulp.task('build', ['docs', 'assemble', 'sass', 'cssmin', 'usemin', 'serveprod']);
