@@ -8,6 +8,6 @@ site/*.html
 site/templates/pages/docs.hbs
 site/css/*.css.map
 site/css/style.css
-site/css/prism-*.css
+site/css/prism.*.css
 site/css/style.*.css
 npm-debug.log
