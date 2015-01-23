@@ -10,6 +10,12 @@
     <meta name="viewport" content="width=device-width, user-scalable=1, initial-scale=1">
     <meta name="msapplication-tap-highlight" content="no">
 
+    {{~#is basename 'builder'}}
+    <!-- build:css css/prism.min.css -->
+    <link rel="stylesheet" href="css/prism.css">
+    <!-- endbuild -->
+    {{/is~}}
+
     {{~#is basename 'docs'}}
     <!-- build:css css/prism.min.css -->
     <link rel="stylesheet" href="css/prism.css">
@@ -48,6 +54,7 @@
 
     {{#is basename 'builder'}}
     <!-- build:js js/build/builder.min.js -->
+    <script src="js/lib/prism.js"></script>
     <script src="js/src/contributors.js"></script>
     <script src="js/lib/transformicons.js"></script>
     <script src="js/src/compiler.js"></script>

@@ -14,7 +14,7 @@ description: Animated symbols and buttons custom builder for Sass & CSS
         <li>
           {{> menu-xbutterfly}}
           <label for="tcon-menu--butterfly">
-            <input class="tcon-builder-input" id="tcon-menu--butterfly" type="checkbox" data-transform="menu=xbutterfly"> Menu to X (Butterfly Style)
+            <input class="tcon-builder-input" id="tcon-menu--butterfly" type="checkbox" data-transform="menu=xbutterfly" checked> Menu to X (Butterfly Style)
           </label>
         </li>
         <li>
@@ -63,18 +63,6 @@ description: Animated symbols and buttons custom builder for Sass & CSS
           <input class="tcon-builder-input" id="tcon-grid--rearrangex" type="checkbox" data-transform="grid=rearrange"> Rearrange to X
           </label>
         </li>
-        <li>
-          {{> grid-collapse}}
-          <label for="tcon-grid--collapsex">
-          <input class="tcon-builder-input" id="tcon-grid--collapsex" type="checkbox" data-transform="grid=collapse"> Collapse to X
-          </label>
-        </li>
-        <li>
-          {{> grid-rearrange}}
-          <label for="tcon-grid--rearrangex">
-          <input class="tcon-builder-input" id="tcon-grid--rearrangex" type="checkbox" data-transform="grid=rearrange"> Rearrange to X
-          </label>
-        </li>
       </ul>
 
       <h3 class="tcon-builder__title">Add/Rm</h3>
@@ -89,12 +77,6 @@ description: Animated symbols and buttons custom builder for Sass & CSS
           {{> plus-minus}}
           <label for="tcon-addrm--plusminusrotate">
             <input class="tcon-builder-input" id="tcon-addrm--plusminusrotate" type="checkbox" data-transform="plus=minusrotate"> Plus to Minus <small>(Rotate Style)</small>
-          </label>
-        </li>
-        <li>
-          {{> plus-check}}
-          <label for="tcon-addrm--check">
-            <input class="tcon-builder-input" id="tcon-addrm--check" type="checkbox" data-transform="plus=check"> Plus to Checkmark</small>
           </label>
         </li>
       </ul>
@@ -139,12 +121,12 @@ description: Animated symbols and buttons custom builder for Sass & CSS
       </label>
 
       <label for="tcon-stylesheet--sass">
-        <input type="radio" name="tcon_stylesheet" id="tcon-stylesheet--sass" value="scss"> Sass
+        <input type="radio" name="tcon_stylesheet" id="tcon-stylesheet--sass" value="scss" checked> Sass
       </label>
 
       <h3 class="tcon-builder__title">JavaScript</h3>
       <label for="tcon-stylesheet--jsmin">
-        <input type="radio" name="tcon_javascript" id="tcon-stylesheet--jsmin" value="minified=true"> Minified
+        <input type="radio" name="tcon_javascript" id="tcon-stylesheet--jsmin" value="minified=true" checked> Minified
       </label>
 
       <label for="tcon-script--jsunmin">
@@ -160,14 +142,14 @@ description: Animated symbols and buttons custom builder for Sass & CSS
   <div class="tcon-src__html">
     <h3>Markup</h3>
     <div>
-      <pre class="language-html"><code><textarea id="tcon-src--html"></textarea></code></pre>
+      <pre><code class="language-html"><textarea id="tcon-src--html"></textarea></code></pre>
     </div>
   </div>
 
   <div class="tcon-src__styles">
     <h3>Styles</h3>
     <div>
-      <pre class="language-scss"><code><textarea id="tcon-src--styles"></textarea></code></pre>
+      <pre><code id="tcon-src" class="language-scss"><textarea id="tcon-src--styles"></textarea></code></pre>
     </div>
   </div>
 

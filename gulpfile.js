@@ -198,8 +198,10 @@ gulp.task('clean', function() {
 // ===================================================
 
 gulp.task('watch', function() {
+  $.livereload.listen();
   gulp.watch([paths.dist + '/**/*.scss', paths.sitesass + '/**/*.scss'], ['sass']);
   gulp.watch([paths.docsasset + '/*', paths.docs + '*'], ['docs']);
+  // gulp.watch([paths.templates + '/**/*.hbs', paths.site + '/*.html'], ['assembledev']);
 });
 
 

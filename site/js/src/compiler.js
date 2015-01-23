@@ -61,6 +61,10 @@ var builder = (function() {
     });
   }
 
+  function appendTconCall(output) {
+    $(output).append("transformicons.add('.tcon');");
+  }
+
   return function(options) {
     $(options.form).submit(function(e) {
 
@@ -72,29 +76,36 @@ var builder = (function() {
 
       buildMarkup(input, function(err, data) {
         $(output.html).html(data || '');
+        Prism.highlightAll(true);
       });
 
       if(input_style_val === 'css') {
         buildStyles(input, type.styles, function(err, data) {
           $(output.css).html(data || '');
+          Prism.highlightAll(true);
         });
       }
 
       if(input_style_val === 'scss') {
         buildStyles(input, type.styles, function(err, data) {
           $(output.sass).html(data || '');
+          Prism.highlightAll(true);
         });
       }
 
       if(input_js_val === 'minified=true') {
         buildJS(type.js, function(err, data) {
           $(output.jsmin).html(data || '');
+          appendTconCall(output.jsmin);
+          Prism.highlightAll(true);
         });
       }
 
       if(input_js_val === 'minified=false') {
         buildJS(type.js, function(err, data) {
           $(output.jsunmin).html(data || '');
+          appendTconCall(output.jsunmin);
+          Prism.highlightAll(true);
         });
       }
 
