@@ -11,3 +11,4 @@ site/css/*.css
 site/css/prism.*.css
 site/css/style.*.css
 npm-debug.log
+.env

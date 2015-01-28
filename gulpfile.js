@@ -44,13 +44,13 @@ var paths = {
 
 
 // ===================================================
-// Development Server
+// Server
 // ===================================================
 
-gulp.task('servedev', ['assemble'], function() {
+gulp.task('serve', ['assemble'], function() {
   $.connect.server({
     root: [paths.site],
-    port: 5000,
+    port: process.env.PORT || 5000,
     livereload: true,
     middleware: function(connect) {
       return [
@@ -60,26 +60,9 @@ gulp.task('servedev', ['assemble'], function() {
     }
   });
 
-  $.exec('open http://localhost:5000');
-});
-
-
-// ===================================================
-// Heroku Server
-// ===================================================
-
-gulp.task('serveprod', function() {
-  $.connect.server({
-    root: [paths.site],
-    port: process.env.PORT || 5000,
-    livereload: false,
-    middleware: function(connect) {
-      return [
-      connect().use(connect.query()),
-      connect().use(builder.middleware())
-      ];
-    }
-  });
+  // console.log(process.env.NODE_ENV);
+  if(process.env.NODE_ENV === 'development' || process.env.NODE_ENV === undefined)
+    $.exec('open http://localhost:5000');
 });
 
 
@@ -209,5 +192,10 @@ gulp.task('watch', function() {
 // Gulp Instructions
 // ===================================================
 
-gulp.task('default', ['sass', 'assemble', 'watch', 'servedev']);
-gulp.task('build', ['usemin', 'serveprod']);
+if(process.env.NODE_ENV === 'development') {
+  gulp.task('default', ['sass', 'assemble', 'watch', 'serve']);
+} else if(process.env.NODE_ENV === 'production') {
+  gulp.task('default', ['usemin', 'serve']);
+} else {
+  gulp.task('default', ['sass', 'assemble', 'watch', 'serve']);
+}
