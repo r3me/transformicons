@@ -51,7 +51,15 @@ gulp.task('serve', ['assemble'], function() {
   $.connect.server({
     root: [paths.site],
     port: process.env.PORT || 5000,
-    livereload: true,
+    livereload: {
+      enable: function() {
+        if(process.env.NODE_ENV === 'development' || process.env.NODE_ENV === undefined) {
+          true
+        } else {
+          false
+        }
+      }
+    },
     middleware: function(connect) {
       return [
         connect().use(connect.query()),
