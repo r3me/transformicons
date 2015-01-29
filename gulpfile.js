@@ -51,15 +51,7 @@ gulp.task('serve', ['assemble'], function() {
   $.connect.server({
     root: [paths.site],
     port: process.env.PORT || 5000,
-    livereload: {
-      enable: function() {
-        if(process.env.NODE_ENV === 'development' || process.env.NODE_ENV === undefined) {
-          true
-        } else {
-          false
-        }
-      }
-    },
+    livereload: process.env.NODE_ENV === 'development' || process.env.NODE_ENV === undefined ? true : false,
     middleware: function(connect) {
       return [
         connect().use(connect.query()),
@@ -68,7 +60,6 @@ gulp.task('serve', ['assemble'], function() {
     }
   });
 
-  // console.log(process.env.NODE_ENV);
   if(process.env.NODE_ENV === 'development' || process.env.NODE_ENV === undefined)
     $.exec('open http://localhost:5000');
 });
@@ -93,7 +84,7 @@ gulp.task('sass', function() {
 
 gulp.task('cssmin', ['sass'], function() {
   var stream = gulp.src(paths.sitecss + '/*.css')
-    .pipe(minifyCSS({keepBreaks:true}))
+    .pipe(minifyCSS({ keepBreaks:true }))
     .pipe(gulp.dest(paths.sitecss));
 
   return stream;
@@ -189,10 +180,8 @@ gulp.task('clean', function() {
 // ===================================================
 
 gulp.task('watch', function() {
-  $.livereload.listen();
   gulp.watch([paths.dist + '/**/*.scss', paths.sitesass + '/**/*.scss'], ['sass']);
-  gulp.watch([paths.docsasset + '/*', paths.docs + '*'], ['docs']);
-  // gulp.watch([paths.templates + '/**/*.hbs', paths.site + '/*.html'], ['assembledev']);
+  gulp.watch([paths.templates + '/**/*.hbs', paths.site + '/*.html', paths.docsasset + '/*', paths.docs + '*'], ['assemble']);
 });
 
 
@@ -200,10 +189,8 @@ gulp.task('watch', function() {
 // Gulp Instructions
 // ===================================================
 
-if(process.env.NODE_ENV === 'development') {
-  gulp.task('default', ['sass', 'assemble', 'watch', 'serve']);
-} else if(process.env.NODE_ENV === 'production') {
-  gulp.task('default', ['usemin', 'serve']);
+if(process.env.NODE_ENV === 'development' || process.env.NODE_ENV === undefined) {
+  gulp.task('default', ['sass', 'assemble', 'serve', 'watch']);
 } else {
-  gulp.task('default', ['sass', 'assemble', 'watch', 'serve']);
+  gulp.task('default', ['usemin', 'serve']);
 }
