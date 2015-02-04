@@ -6,7 +6,9 @@ Transformicons
 
 **What's a transformicon?**
 
-It's an animated symbol/button using CSS and presented in a neatly packaged library for Sass along with Vanilla CSS.
+It's an animated symbol/button that morphs using either SVG or CSS and presented in a neatly packaged library.
+
+We also provide a builder that gives developers the ability to select their preferred transformicons and output for finer control.
 
 **What browsers do you support?**
 
@@ -35,6 +37,8 @@ $ npm install
 ```bash
 $ npm start
 ```
+
+You'll find all our working files in the ``dist`` directory for Transformicons' JavaScript requirement and Sass for each transformicon. Any markup will be found in the ``site > templates`` directory. We use assemble to build our markup so make sure you're never editing a file with the ``.html`` extension. Assemble files use the ``.hbs`` file extension. These are the files you should be editing instead.
 
 --
 
