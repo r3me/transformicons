@@ -9,7 +9,7 @@ var gulp                  = require('gulp'),
     deps                  = require('./deps.json'),
     FILENAME              = 'transformicons',
     ROOT                  = __dirname + '/dist/',
-    ROOT_SCSS             = ROOT + FILENAME + '/',
+    ROOT_SCSS             = ROOT + '/sass/',
     TEMPLATES             = __dirname + '/site/templates/includes/',
     BASE                  = '/build/',
     MSG_START             = 'WARN: "',
@@ -126,7 +126,7 @@ function buildCSS(params, key, cb) {
 }
 
 function buildJS(params, key, cb) {
-  gulp.src(ROOT + FILENAME + '.js')
+  gulp.src(ROOT + '/js/' + FILENAME + '.js')
     .pipe(params.minified === 'true' ? uglify() : gutil.noop())
     .pipe(gutil.buffer(function(err, files) {
       if (err) {

@@ -76,20 +76,17 @@ var builder = (function() {
 
       buildMarkup(input, function(err, data) {
         $(output.html).html(data || '');
-        Prism.highlightAll(true);
       });
 
       if(input_style_val === 'css') {
         buildStyles(input, type.styles, function(err, data) {
           $(output.css).html(data || '');
-          Prism.highlightAll(true);
         });
       }
 
       if(input_style_val === 'scss') {
         buildStyles(input, type.styles, function(err, data) {
           $(output.sass).html(data || '');
-          Prism.highlightAll(true);
         });
       }
 
@@ -97,7 +94,6 @@ var builder = (function() {
         buildJS(type.js, function(err, data) {
           $(output.jsmin).html(data || '');
           appendTconCall(output.jsmin);
-          Prism.highlightAll(true);
         });
       }
 
@@ -105,7 +101,6 @@ var builder = (function() {
         buildJS(type.js, function(err, data) {
           $(output.jsunmin).html(data || '');
           appendTconCall(output.jsunmin);
-          Prism.highlightAll(true);
         });
       }
 

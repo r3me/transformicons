@@ -9,7 +9,8 @@ var gulp            = require('gulp'),
     assemble        = require('assemble'),
     ext             = require('gulp-extname'),
     minifyHtml      = require('gulp-minify-html'),
-    minifyCSS       = require('gulp-minify-css');
+    minifyCSS       = require('gulp-minify-css'),
+    del             = require('del');
 
 $.exec   = require('child_process').exec; // http://krasimirtsonev.com/blog/article/Nodejs-managing-child-processes-starting-stopping-exec-spawn
 $.fs     = require('fs');
@@ -91,6 +92,12 @@ gulp.task('cssmin', ['sass'], function() {
 });
 
 
+gulp.task('copy', function() {
+  gulp.src(paths.dist + '/' + 'js/transformicons.js')
+      .pipe(gulp.dest(paths.sitejs + '/'  + 'lib'));
+});
+
+
 // ===================================================
 // Docs Compiling
 // ===================================================
@@ -130,7 +137,7 @@ assemble.partials(paths.templates + '/includes/*.hbs');
 assemble.pages(paths.templates + '/content/*.hbs');
 assemble.option('layout', 'default');
 
-gulp.task('assemble', ['docs'], function() {
+gulp.task('assemble', ['docs', 'copy'], function() {
   var stream = assemble.src(paths.templates + '/pages/*.hbs')
     .pipe(ext())
     .pipe(assemble.dest(paths.site));
@@ -143,7 +150,7 @@ gulp.task('assemble', ['docs'], function() {
 // Production Prep
 // ===================================================
 
-gulp.task('usemin', ['assemble', 'cssmin'], function() {
+gulp.task('usemin', ['assemble', 'cssmin', 'copy'], function() {
   var stream = gulp.src([
         paths.site + '/index.html',
         paths.site + '/builder.html',
@@ -164,14 +171,14 @@ gulp.task('usemin', ['assemble', 'cssmin'], function() {
 // Ground Zero
 // ===================================================
 
-gulp.task('clean', function() {
-  return gulp.src([
-        paths.site + '/css/*.css',
-        paths.site + '/*.html',
-        paths.site + '/js/build',
-        paths.templates + '/pages/docs.hbs'
-      ], { read: false })
-    .pipe($.clean());
+gulp.task('clean', function(cb) {
+  del([
+    paths.site + '/css/*.css',
+    paths.site + '/*.html',
+    paths.site + '/js/build',
+    paths.sitejs + '/lib/transformicons.js',
+    paths.templates + '/pages/docs.hbs'
+  ], cb);
 });
 
 

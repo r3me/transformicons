@@ -10,13 +10,11 @@
   user-select: none;
   width: $tcon-size;
   background: transparent;
-
   > * {
     display: block;
   }
-
   &:focus {
-    outline: 1px dotted #1E1C3D;
+    outline: none; // come back to this. styling needed still
   }
 }
 
@@ -32,7 +30,6 @@
   padding: 0;
   position: absolute;
   width: 1px;
-
   &:active,
   &:focus {
     clip: auto;

@@ -1,7 +1,7 @@
 {
   "name": "Transformicons",
   "description": "Animated CSS Symbols and Buttons",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "engines": {
     "node": "0.10.x"
   },
@@ -47,7 +47,7 @@
     "marked": "0.3.3"
   },
   "devDependencies": {
-    "gulp-clean": "0.3.1",
+    "del": "^1.1.1",
     "gulp-livereload": "3.7.0"
   }
 }
