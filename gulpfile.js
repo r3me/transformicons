@@ -133,7 +133,7 @@ gulp.task('docs', function() {
 // ===================================================
 
 assemble.layouts(paths.templates + '/layouts/*.hbs');
-assemble.partials(paths.templates + '/includes/*.hbs');
+assemble.partials(paths.templates + '/includes/**/*.hbs');
 assemble.pages(paths.templates + '/content/*.hbs');
 assemble.option('layout', 'default');
 
@@ -171,15 +171,16 @@ gulp.task('usemin', ['assemble', 'cssmin', 'copy'], function() {
 // Ground Zero
 // ===================================================
 
-// gulp.task('clean', function(cb) {
-//   del([
-//     paths.site + '/css/*.css',
-//     paths.site + '/*.html',
-//     paths.site + '/js/build',
-//     paths.sitejs + '/lib/transformicons.js',
-//     paths.templates + '/pages/docs.hbs'
-//   ], cb);
-// });
+gulp.task('clean', function() {
+  return gulp.src([
+        paths.site + '/css/*.css',
+        paths.site + '/*.html',
+        paths.site + '/js/build',
+        paths.sitejs + '/lib/transformicons.js',
+        paths.templates + '/pages/docs.hbs'
+      ], { read: false })
+    .pipe($.clean());
+});
 
 
 // ===================================================
