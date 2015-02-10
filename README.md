@@ -24,7 +24,7 @@ All of our documentation has been written in markdown and can be directly viewed
 ### Contributing
 If you would like to contribute to the Transformicons project please make sure that anything feature related is isolated to a new branch and titled with the name of the feature being developed.
 
-Local installation is dead simple. We use all local files and directories to run this project. This ensures you the developer don't need to  install anythign directly or globally to your system. Also take note we use libsass for preprocessing all of our Sass code.
+Local installation is dead simple. We use all local files and directories to run this project. This ensures you the developer don't need to install anything directly or globally to your system. Also take note we use libsass for preprocessing all of our Sass code.
 
 **Install dependencies**
 
