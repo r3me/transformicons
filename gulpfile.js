@@ -10,7 +10,6 @@ var gulp            = require('gulp'),
     ext             = require('gulp-extname'),
     minifyHtml      = require('gulp-minify-html'),
     minifyCSS       = require('gulp-minify-css');
-    // del             = require('del');
 
 $.exec   = require('child_process').exec; // http://krasimirtsonev.com/blog/article/Nodejs-managing-child-processes-starting-stopping-exec-spawn
 $.fs     = require('fs');
