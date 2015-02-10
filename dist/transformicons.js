@@ -19,8 +19,8 @@
 
     // const
     DEFAULT_EVENTS = {
-      transform : ['click', 'touchstart'],
-      revert : ['click', 'touchstart']
+      transform : ['click'],
+      revert : ['click']
     };
 
   // ##############
