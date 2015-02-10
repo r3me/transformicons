@@ -6,6 +6,7 @@ compass_app_log.txt
 site/js/build/
 site/*.html
 site/templates/pages/docs.hbs
+site/js/lib/transformicons.js
 site/css/*.css.map
 site/css/*.css
 site/css/prism.*.css

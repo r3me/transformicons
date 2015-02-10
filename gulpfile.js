@@ -9,8 +9,8 @@ var gulp            = require('gulp'),
     assemble        = require('assemble'),
     ext             = require('gulp-extname'),
     minifyHtml      = require('gulp-minify-html'),
-    minifyCSS       = require('gulp-minify-css');
-    //del             = require('del');
+    minifyCSS       = require('gulp-minify-css'),
+    del             = require('del');
 
 $.exec   = require('child_process').exec; // http://krasimirtsonev.com/blog/article/Nodejs-managing-child-processes-starting-stopping-exec-spawn
 $.fs     = require('fs');
@@ -137,7 +137,7 @@ assemble.partials(paths.templates + '/includes/*.hbs');
 assemble.pages(paths.templates + '/content/*.hbs');
 assemble.option('layout', 'default');
 
-gulp.task('assemble', ['docs',l 'copy'], function() {
+gulp.task('assemble', ['docs', 'copy'], function() {
   var stream = assemble.src(paths.templates + '/pages/*.hbs')
     .pipe(ext())
     .pipe(assemble.dest(paths.site));
@@ -171,15 +171,15 @@ gulp.task('usemin', ['assemble', 'cssmin', 'copy'], function() {
 // Ground Zero
 // ===================================================
 
-// gulp.task('clean', function(cb) {
-//   del([
-//     paths.site + '/css/*.css',
-//     paths.site + '/*.html',
-//     paths.site + '/js/build',
-//     paths.sitejs + '/lib/transformicons.js',
-//     paths.templates + '/pages/docs.hbs'
-//   ], cb);
-// });
+gulp.task('clean', function(cb) {
+  del([
+    paths.site + '/css/*.css',
+    paths.site + '/*.html',
+    paths.site + '/js/build',
+    paths.sitejs + '/lib/transformicons.js',
+    paths.templates + '/pages/docs.hbs'
+  ], cb);
+});
 
 
 // ===================================================
