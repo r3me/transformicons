@@ -20,22 +20,18 @@
   }
 }
 
-
 .tcon-menu--arrowleft {
   @extend .tcon-menu--arrow;
 }
 
-
 .tcon-menu--arrowup {
 	width: auto;
-
 	&.#{$tcon-jstransform} {
     @each $property, $value in $tcon-menu-arrowleft-transformation {
       #{$property} : #{$value};
     }
   }
 }
-
 
 .tcon-menu--arrow360left {
 	&.#{$tcon-jstransform} {

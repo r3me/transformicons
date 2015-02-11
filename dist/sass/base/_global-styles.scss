@@ -10,9 +10,11 @@
   user-select: none;
   width: $tcon-size;
   background: transparent;
+
   > * {
     display: block;
   }
+
   &:focus {
     outline: none; // come back to this. styling needed still
   }

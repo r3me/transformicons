@@ -1,5 +1,4 @@
 .tcon-grid--collapse {
-
   .tcon-grid__item {
     box-shadow:
       -($tcon-grid-base+$tcon-grid-space) 0,
@@ -11,12 +10,9 @@
       0 ($tcon-grid-base+$tcon-grid-space),
       ($tcon-grid-base+$tcon-grid-space) ($tcon-grid-base+$tcon-grid-space);
   }
-
 }
 
-
 .tcon-grid--collapse.#{$tcon-jstransform} {
-
   .tcon-grid__item {
     box-shadow:
       -$tcon-grid-base 0,
@@ -28,5 +24,4 @@
       0 $tcon-grid-base,
       0 0 transparent;
   }
-
 }

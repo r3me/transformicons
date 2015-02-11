@@ -2,24 +2,21 @@
   width: auto;
 
   .tcon-menu__lines {
-
     &::before,
     &::after {
       transform-origin: 50% 50%;
       transition: top .3s .6s ease, transform .3s ease;
     }
-
   }
 
   &.#{$tcon-jstransform} {
-
     .tcon-menu__lines {
       background: transparent;
 
       &::before,
       &::after {
-        transition: top .3s ease, transform .3s .5s ease;
         top: 0;
+        transition: top .3s ease, transform .3s .5s ease;
         width: $tcon-size;
       }
 
@@ -30,9 +27,6 @@
       &::after {
         transform: rotate3d(0, 0, 1, -45deg);
       }
-
     }
-
   }
-
 }

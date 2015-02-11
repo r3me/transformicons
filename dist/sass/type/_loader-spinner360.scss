@@ -4,7 +4,7 @@
   height: $spinner_size;
   width: $spinner_size;
   position: relative;
-  animation: spin $spinner_speed linear 0 infinite normal;
+  animation: tcon-spin360 $spinner_speed linear 0 infinite normal;
   background: $spinner_bg;
 
   &:before,
@@ -28,7 +28,8 @@
     border-radius: $spinner_radius;
     height: $spinner_inner_circle;
     width: $spinner_inner_circle;
-    top: 50%; left: 50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
     background: $spinner_inner_bg;
@@ -39,12 +40,11 @@
 // Config
 // =========================================================
 
-@keyframes spin {
+@keyframes tcon-spin360 {
   to {
     transform: rotate(360deg);
   }
 }
-
 
 
 // Arrow Loader

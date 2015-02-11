@@ -27,11 +27,8 @@
   }
 
   &.#{$tcon-jstransform} {
-
     &::after {
       transform: translate(50%, -50%) rotate(0);
     }
-
   }
-
 }

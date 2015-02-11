@@ -8,8 +8,8 @@
     content: '';
     position: absolute;
     left: 0;
-    width: 100%;
     transform-origin: ($tcon-size / 14) center;
+    width: 100%;
   }
 
   &::before {
@@ -23,5 +23,4 @@
   .#{$tcon-jstransform} & {
     transform: scale3d(.8, .8, .8);
   }
-
 }

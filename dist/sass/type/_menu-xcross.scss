@@ -2,7 +2,6 @@
   width: auto;
 
   &.#{$tcon-jstransform} {
-
     .tcon-menu__lines {
       background: transparent;
 
@@ -20,9 +19,6 @@
       &::after {
         transform: rotate3d(0, 0, 1, -45deg);
       }
-
     }
-
   }
-
 }
