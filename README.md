@@ -6,7 +6,7 @@ Transformicons
 
 **What's a transformicon?**
 
-It's an animated symbol/button that morphs using either SVG or CSS and presented in a neatly packaged library.
+It's an animated symbol/button/icon that morphs using a combination of SVG, CSS or HTML.
 
 We also provide a builder that gives developers the ability to select their preferred transformicons and output for finer control.
 
@@ -17,7 +17,7 @@ IE10+, Chrome 36+, Safari 6+, Firefox 30+, Opera 22+, iOS 7+, Android 4+, Chrome
 --
 
 ### Documentation
-All of our documentation has been written in markdown and can be directly viewed on our site or under our [docs](https://github.com/grayghostvisuals/transformicons/tree/master/docs) directory. Feel free to reach out for help in the issue tracker making sure to title your issue as descriptive as possible. Please make sure you've also checked older issues that may relate to your question first before filing in order to avoid bogging down the issue tracker.
+All of our documentation has been written in markdown and can be [directly viewed on our site](http://www.transformicons.com/docs.html) or under our [docs](https://github.com/grayghostvisuals/transformicons/tree/master/docs) directory of this repo. Feel free to reach out for help in the issue tracker making sure to title your issue as descriptive as possible. Please make sure you've also checked older issues that may relate to your question first before filing in order to avoid bogging down the issue tracker.
 
 --
 
@@ -38,7 +38,9 @@ $ npm install
 $ npm start
 ```
 
-You'll find all our working files in the ``dist`` directory for Transformicons' JavaScript requirement and Sass for each transformicon. Any markup will be found in the ``site > templates`` directory. We use assemble to build our markup so make sure you're never editing a file with the ``.html`` extension. Assemble files use the ``.hbs`` file extension. These are the files you should be editing instead.
+Since a Sass coding guidelines document has been written (and a good one too) by [Hugo](http://hugogiraudel.com), it only seems fitting to abide loosely by it's suggestions. The [http://sass-guidelin.es](http://sass-guidelin.es) is what we strive towards as we write Sass and we hope you do the same. Enough said.
+
+You'll find all our working files in the ``dist`` directory for Transformicons' JavaScript requirement and related Sass. Any markup for the Transformicons objects will be found in the ``site/templates/includes/tcons`` directory. We use assemble to build our markup so make sure you're never editing a file with the ``.html`` extension. Assemble files use the ``.hbs`` file extension. These are the files you should be editing instead.
 
 --
 

@@ -2,9 +2,7 @@
   width: auto;
 
   &.#{$tcon-jstransform} {
-
     .tcon-menu__lines {
-
       &::before,
       &::after {
         transform: none;
