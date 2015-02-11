@@ -9,7 +9,8 @@ var gulp            = require('gulp'),
     assemble        = require('assemble'),
     ext             = require('gulp-extname'),
     minifyHtml      = require('gulp-minify-html'),
-    minifyCSS       = require('gulp-minify-css');
+    minifyCSS       = require('gulp-minify-css'),
+    del             = process.env.NODE_ENV === 'development' || process.env.NODE_ENV === undefined ? require('del') : '';
 
 $.exec   = require('child_process').exec; // http://krasimirtsonev.com/blog/article/Nodejs-managing-child-processes-starting-stopping-exec-spawn
 $.fs     = require('fs');
@@ -170,15 +171,14 @@ gulp.task('usemin', ['assemble', 'cssmin', 'copy'], function() {
 // Ground Zero
 // ===================================================
 
-gulp.task('clean', function() {
-  return gulp.src([
-        paths.site + '/css/*.css',
-        paths.site + '/*.html',
-        paths.site + '/js/build',
-        paths.sitejs + '/lib/transformicons.js',
-        paths.templates + '/pages/docs.hbs'
-      ], { read: false })
-    .pipe($.clean());
+gulp.task('clean', function(cb) {
+  del([
+    paths.site + '/css/*.css',
+    paths.site + '/*.html',
+    paths.site + '/js/build',
+    paths.sitejs + '/lib/transformicons.js',
+    paths.templates + '/pages/docs.hbs'
+  ], cb);
 });
 
 
