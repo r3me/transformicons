@@ -10,11 +10,11 @@
     <meta name="viewport" content="width=device-width, user-scalable=1, initial-scale=1">
     <meta name="msapplication-tap-highlight" content="no">
 
-    {{~#or basename 'builder, docs'}}
+    {{#isnt basename 'index'}}
     <!-- build:css css/prism.min.css -->
     <link rel="stylesheet" href="css/prism.css">
     <!-- endbuild -->
-    {{/or~}}
+    {{/isnt}}
 
     <!-- build:css css/style.min.css -->
     <link rel="stylesheet" href="css/style.css">
@@ -62,8 +62,8 @@
     <!-- endbuild -->
     {{/is}}
 
-    {{#or basename 'index, builder'}}
+    {{#isnt basename 'docs'}}
     <script>transformicons.add('.tcon');</script>
-    {{/or}}
+    {{/isnt}}
   </body>
 </html>
