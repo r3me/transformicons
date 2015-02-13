@@ -92,12 +92,6 @@ gulp.task('cssmin', ['sass'], function() {
 });
 
 
-gulp.task('copy', function() {
-  gulp.src(paths.dist + '/' + 'js/transformicons.js')
-      .pipe(gulp.dest(paths.sitejs + '/'  + 'lib'));
-});
-
-
 // ===================================================
 // Docs Compiling
 // ===================================================
@@ -150,15 +144,15 @@ gulp.task('assemble', ['docs', 'copy'], function() {
 // Production Prep
 // ===================================================
 
-gulp.task('usemin', ['assemble', 'cssmin', 'copy'], function() {
+gulp.task('usemin', ['assemble', 'cssmin'], function() {
   var stream = gulp.src([
         paths.site + '/index.html',
         paths.site + '/builder.html',
         paths.site + '/docs.html'
       ])
       .pipe($.usemin({
-        css: [$.rev()],
         html: [$.minifyHtml({ empty: true })],
+        css: [$.rev()],
         js: [$.uglify(), $.rev()]
       }))
       .pipe(gulp.dest(paths.site));
@@ -168,7 +162,7 @@ gulp.task('usemin', ['assemble', 'cssmin', 'copy'], function() {
 
 
 // ===================================================
-// Ground Zero
+// Utilities
 // ===================================================
 
 gulp.task('clean', function(cb) {
@@ -179,6 +173,13 @@ gulp.task('clean', function(cb) {
     paths.sitejs + '/lib/transformicons.js',
     paths.templates + '/pages/docs.hbs'
   ], cb);
+});
+
+gulp.task('copy', function() {
+  var stream = gulp.src(paths.dist + '/' + 'js/transformicons.js')
+      .pipe(gulp.dest(paths.sitejs + '/'  + 'lib'));
+
+  return stream;
 });
 
 
