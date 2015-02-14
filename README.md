@@ -43,10 +43,10 @@ Since a Sass coding guidelines document has been established by [Hugo](http://hu
 You'll find all our working files in the ``dist`` directory for Transformicons' JavaScript requirement and related Sass. Any markup for the Transformicons objects will be found in the ``site/templates/includes/tcons`` directory. We use assemble to build our markup so make sure you're never editing a file with the ``.html`` extension. Assemble files use the ``.hbs`` file extension. These are the files you should be editing instead.
 
 ### Development
-As you develop please keep in mind all our development work takes place on Transformicons' ``development`` branch. This is the branch you should branch off of when submitting any pull requests for your submitted work. For example…fork this project, then branch off of the ``development`` branch then branch an additional time based on the topic you're currently working on.
+As you develop please keep in mind all our development work takes place on Transformicons' ``development`` branch. This is where you should branch off of when working on any bug fixes or features. For example…fork this project, branch off of ``development``, and finally branch an additional time based on the topic you're working on. Pull Requests should be sent to the ``development`` branch instead of ``master`` in order to have finer control over our deployments and comitted code.
 
 ### Transformicons Specs
-Objects submitted to Transformicons must abide by the following regulations to be accepted into the library…
+Objects submitted to Transformicons must abide by the following guidelines in order to be accepted into the library…
 
 - Fully Tested.
 - Proportions must be a maximum of 40px wide and no more than 40px tall.
