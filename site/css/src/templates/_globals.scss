@@ -1,0 +1,95 @@
+// Titles
+// ===================================
+
+.tcon-title {
+  margin: 0;
+  text-align: center;
+  color: #FFFEFE;
+}
+
+.tcon-tagline {
+  margin-top: 0;
+  margin-bottom: 24px;
+  color: #FFFEFE;
+}
+
+
+// Site Layout
+// ===================================
+
+.tcon-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  box-shadow: 0 1px 0 rgb(219, 219, 219);
+  padding: 25px 0;
+  text-align: center;
+
+  &:last-child {
+    box-shadow: none;
+  }
+
+  .tcon-row__items {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 260px;
+
+    .tcon {
+      margin: 0 6px;
+    }
+  }
+
+  h3 {
+    display: flex;
+    flex: 1;
+    justify-content: flex-start;
+    color: #A8A8A8;
+  }
+}
+
+
+// Form Builder
+// ===================================
+
+.tcons-items {
+  display: flex;
+}
+
+.tcons-items li {
+  background: #F7F1F1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0 6px;
+  padding: 10px;
+  width: 50%;
+}
+
+#tcon-src--html {
+  color: #CF6949;
+}
+#tcon-src--js {
+  color: #EFEFEF;
+}
+
+
+// GitHub Contributors
+// ===================================
+
+#tcons-contributors {
+  display: flex;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.contributor-avatar {
+  width: 800px;
+  max-width: 100%;
+}
