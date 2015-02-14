@@ -44,5 +44,12 @@ You'll find all our working files in the ``dist`` directory for Transformicons' 
 
 --
 
+#### **Noteworthy Mentions**
+
+- Featured resource in [Codrops Collective #154](http://tympanus.net/codrops/collective/collective-154)
+- Daily top 10 feature on [Product Hunt](http://www.producthunt.com/posts/transformicons)
+
+--
+
 Props to [@bennettfeely](//twitter.com/bennettfeely) and [@SaraSoueidan](//twitter.com/SaraSoueidan).
 Licensed under [MIT](//opensource.org/licenses/MIT)
