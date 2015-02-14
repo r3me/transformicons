@@ -1,12 +1,8 @@
-// Color palette
-// http://coolors.co/d40600-f54244-282832-4f364e-5e405d
-// http://coolors.co/07182a-759da7-a7c8cf-eef0ef-e6e6e8
-
-// Globals
-// ===================================
-
 * {
-  box-sizing: border-box;
+  &:before,
+  &:after {
+    box-sizing: inherit;
+  }
 }
 
 html {
@@ -17,11 +13,11 @@ html,
 body {
   height: 100%;
   margin: 0;
+  padding: 0;
 }
 
 body {
   background: white;
-  font-family: "Source Sans pro", sans-serif;
 }
 
 a {
@@ -33,24 +29,13 @@ a {
   }
 }
 
-h1 {
-  font-size: 5em;
-  font-weight: normal;
-  font-weight: 300;
-}
-
-h2 {
-  font-size: 2em;
-  text-align: center;
-  font-weight: 300;
-}
-
 thead {
   background: rgba(95, 98, 121, 0.19);
   border: 1px solid #E4E4E4;
   border-left: none;
   border-right: none;
 }
+
 table {
   background: rgba(30, 28, 61, 0.03);
   width: 100%;
@@ -59,12 +44,15 @@ table {
   border: 1px solid #E4E4E4;
   border-top: none;
 }
+
 th,td {
   padding: 10px;
 }
+
 tr {
   vertical-align: top;
 }
+
 tbody tr:nth-child(odd) {
   background: white;
 }
@@ -75,11 +63,13 @@ legend {
   font-weight: bolder;
   text-align: center;
 }
+
 fieldset {
   border: none;
   margin: 20px 0;
   padding: 0;
 }
+
 textarea {
   display: block;
   min-height: 150px;
@@ -110,6 +100,7 @@ input[value="Build"] {
   &:hover {
     cursor: pointer;
   }
+
   &:active {
     transform: translateY(2px);
   }
@@ -131,6 +122,7 @@ nav {
   justify-content: center;
   align-items: center;
   width: 100%;
+
   a {
     border: 2px solid #FFFEFE;
     border-radius: 2px;
@@ -141,12 +133,14 @@ nav {
     padding: 20px;
     background: transparent;
     color: #FFFEFE;
+
     &.active,
     &:hover {
       border: 2px solid #FFFEFE;
       background: #FFFEFE;
       color: black;
     }
+
     &:active {
       transform: translateY(2px);
     }
@@ -164,120 +158,4 @@ main {
 footer {
   padding: 40px 0;
   text-align: center;
-}
-
-
-// Titles
-// ===================================
-
-.tcon-title {
-  margin: 0;
-  text-align: center;
-  color: #FFFEFE;
-}
-
-.tcon-tagline {
-  margin-top: 0;
-  margin-bottom: 24px;
-  color: #FFFEFE;
-}
-
-
-// Site Layout
-// ===================================
-
-.tcon-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-content: center;
-  align-items: center;
-  box-shadow: 0 1px 0 rgb(219, 219, 219);
-  padding: 25px 0;
-  text-align: center;
-
-  &:last-child {
-    box-shadow: none;
-  }
-
-  .tcon-row__items {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 260px;
-
-    .tcon {
-      margin: 0 6px;
-    }
-  }
-
-  h3 {
-    display: flex;
-    flex: 1;
-    justify-content: flex-start;
-    color: #A8A8A8;
-  }
-}
-
-
-// Form Builder
-// ===================================
-
-.tcons-items {
-  display: flex;
-}
-
-.tcons-items li {
-  background: #F7F1F1;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin: 0 6px;
-  padding: 10px;
-  // border-radius: 4px;
-  // box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.38), 0 1px 1px rgba(253, 250, 250, 1);
-  
-  width: 50%;
-}
-
-#tcon-src--html {
-  color: #CF6949;
-}
-#tcon-src--js {
-  color: #EFEFEF;
-}
-
-
-// GitHub Contributors
-// ===================================
-
-#tcons-contributors {
-  display: flex;
-  flex: 1;
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-}
-
-.contributor-avatar {
-  width: 800px;
-  max-width: 100%;
-}
-
-
-// Helpers
-// ===================================
-
-.list-reset {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
 }

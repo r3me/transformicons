@@ -6,9 +6,9 @@ Transformicons
 
 **What's a transformicon?**
 
-It's an animated symbol/button/icon that morphs using a combination of SVG, CSS or HTML.
+It's an animated symbol/button/icon that morphs using a combination of SVG, CSS and HTML.
 
-We also provide a builder that gives developers the ability to select their preferred transformicons and output for finer control.
+We also provide a builder that gives developers the ability to select their preferred Transformicons and output for finer control.
 
 **What browsers do you support?**
 
@@ -38,9 +38,28 @@ $ npm install
 $ npm start
 ```
 
-Since a Sass coding guidelines document has been written (and a good one too) by [Hugo](http://hugogiraudel.com), it only seems fitting to abide loosely by it's suggestions. The [http://sass-guidelin.es](http://sass-guidelin.es) is what we strive towards as we write Sass and we hope you do the same. Enough said.
+Since a Sass coding guidelines document has been established by [Hugo](http://hugogiraudel.com), it only seems fitting to abide loosely by it's suggestions. The [http://sass-guidelin.es](http://sass-guidelin.es) is what we strive towards as we write Sass and we hope you do the same. Enough said.
 
 You'll find all our working files in the ``dist`` directory for Transformicons' JavaScript requirement and related Sass. Any markup for the Transformicons objects will be found in the ``site/templates/includes/tcons`` directory. We use assemble to build our markup so make sure you're never editing a file with the ``.html`` extension. Assemble files use the ``.hbs`` file extension. These are the files you should be editing instead.
+
+### Development
+As you develop please keep in mind all our development work takes place on Transformicons' ``development`` branch. This is the branch you should branch off of when submitting any pull requests for your submitted work. For example…fork this project, then branch off of the ``development`` branch then branch an additional time based on the topic you're currently working on.
+
+### Transformicons Specs
+Objects submitted to Transformicons must abide by the following regulations to be accepted into the library…
+
+- Fully Tested.
+- Proportions must be a maximum of 40px wide and no more than 40px tall.
+- Make sense to users and yourself.
+- If your Transformicon is truly is a ``button`` please surround the object in a ``button`` tag otherwise use a ``span`` or ``div``. See our documentation for examples.
+- Provide custom control over color and appearance for traits such as border-radius. This way authors can control the visual aspect to match their design.
+
+--
+
+#### **Noteworthy Mentions**
+
+- Featured resource in [Codrops Collective #154](http://tympanus.net/codrops/collective/collective-154)
+- Daily top 10 feature on [Product Hunt](http://www.producthunt.com/posts/transformicons)
 
 --
 

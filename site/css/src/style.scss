@@ -1,3 +1,10 @@
-@import "fonts";
-@import "template";
+// Color Palettes
+// http://coolors.co/d40600-f54244-282832-4f364e-5e405d
+// http://coolors.co/07182a-759da7-a7c8cf-eef0ef-e6e6e8
+@import "base/globals";
+@import "typography/fonts";
+@import "typography/globals";
+@import "typography/headers";
+@import "templates/globals";
 @import "../../../dist/sass/index/tcons";
+@import "utilities/helpers";
