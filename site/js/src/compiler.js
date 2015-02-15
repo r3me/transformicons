@@ -61,8 +61,9 @@ var builder = (function() {
     });
   }
 
-  function appendTconCall(output) {
-    $(output).append("transformicons.add('.tcon');");
+  function render(type, data) {
+    $('code.language-' + type).html('').append($('<textarea />').html(data || ''));
+    Prism.highlightElement($('code.language-' + type)[0], true);
   }
 
   return function(options) {
@@ -71,36 +72,33 @@ var builder = (function() {
       var input_style_val = $('input[name="tcon_stylesheet"]:checked').val(),
           input_js_val    = $('input[name="tcon_javascript"]:checked').val(),
           input           = options.input,
-          type            = options.type,
-          output          = options.output;
+          type            = options.type;
 
       buildMarkup(input, function(err, data) {
-        $(output.html).html(data || '');
+          render('html', data);
       });
 
       if(input_style_val === 'css') {
         buildStyles(input, type.styles, function(err, data) {
-          $(output.css).html(data || '');
+          render('scss', data);
         });
       }
 
       if(input_style_val === 'scss') {
         buildStyles(input, type.styles, function(err, data) {
-          $(output.sass).html(data || '');
+          render('scss', data);
         });
       }
 
       if(input_js_val === 'minified=true') {
         buildJS(type.js, function(err, data) {
-          $(output.jsmin).html(data || '');
-          appendTconCall(output.jsmin);
+          render('javascript', data + "transformicons.add('.tcon');");
         });
       }
 
       if(input_js_val === 'minified=false') {
         buildJS(type.js, function(err, data) {
-          $(output.jsunmin).html(data || '');
-          appendTconCall(output.jsunmin);
+          render('javascript', data + "transformicons.add('.tcon');");
         });
       }
 
@@ -112,13 +110,6 @@ var builder = (function() {
 builder({
   form: '#tcon-builder',
   input: '.tcon-builder-input',
-  output: {
-    html: '#tcon-src--html',
-    css: '#tcon-src--styles',
-    sass: '#tcon-src--styles',
-    jsmin: '#tcon-src--js',
-    jsunmin: '#tcon-src--js'
-  },
   type: {
     styles: 'tcon_stylesheet',
     js: 'tcon_javascript'
