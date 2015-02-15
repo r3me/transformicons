@@ -81,14 +81,6 @@
     ]
   },
 
-  "vid": {
-    "playstop": [
-      "base/_config-video.scss",
-      "style/_tcon-style.scss",
-      "type/_vid-play.scss"
-    ]
-  },
-
   "loader": {
     "spinner360": [
       "base/_config-loader.scss",
