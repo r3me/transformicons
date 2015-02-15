@@ -93,7 +93,9 @@ function buildHTML(params, key, cb) {
   gulp.src(markupFiles)
     .pipe(concat('./markup' + new Date().getTime()))
     .pipe(gutil.buffer(function(err, data) {
-      console.log(err);
+      if (err) {
+        console.log(err);
+      }
       cb && cb(err, key, data);
     }));
 }
@@ -137,6 +139,11 @@ function buildJS(params, key, cb) {
 }
 
 function process(res, data) {
+  if (!data.buffer[0]) {
+    console.log('no data content to return');
+    res.end();
+    return;
+  }
   var contents = data.buffer[0]._contents;
 
   if (data.minified) {
