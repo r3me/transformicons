@@ -71,14 +71,15 @@ fieldset {
 }
 
 textarea {
+  box-sizing: border-box;
   display: block;
   min-height: 150px;
   width: 100%;
+  max-width: 100%;
   border: none;
   resize: none;
   background: #312B56;
   border: none;
-  resize: none;
   border-radius: 2px;
   padding: 12px;
   font-family: monospace;
