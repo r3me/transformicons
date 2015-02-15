@@ -2,39 +2,97 @@
   "menu": {
     "xbutterfly": [
       "base/_config-menu.scss",
+      "style/_tcon-style.scss",
       "style/_menu-lines.scss",
       "type/_menu-xbutterfly.scss"
     ],
 
     "minus": [
       "base/_config-menu.scss",
+      "style/_tcon-style.scss",
       "style/_menu-lines.scss",
       "type/_menu-minus.scss"
+    ],
+
+    "xcross": [
+      "base/_config-menu.scss",
+      "style/_tcon-style.scss",
+      "style/_menu-lines.scss",
+      "type/_menu-xcross.scss"
+    ],
+
+    "arrowup": [
+      "base/_config-menu.scss",
+      "style/_tcon-style.scss",
+      "style/_menu-lines.scss",
+      "type/_menu-arrows.scss"
+    ],
+
+    "arrow360": [
+      "base/_config-menu.scss",
+      "style/_tcon-style.scss",
+      "style/_menu-lines.scss",
+      "type/_menu-arrow360.scss"
+    ],
+
+    "arrowleft": [
+      "base/_config-menu.scss",
+      "style/_tcon-style.scss",
+      "style/_menu-lines.scss",
+      "type/_menu-arrows.scss"
     ]
   },
 
   "grid": {
     "collapse": [
       "base/_config-grid.scss",
+      "style/_tcon-style.scss",
       "style/_grid.scss",
       "type/_grid-collapse.scss"
     ],
 
     "rearrange": [
       "base/_config-grid.scss",
+      "style/_tcon-style.scss",
       "style/_grid.scss",
       "type/_grid-rearrange.scss"
     ]
   },
 
-  "plus": {
+  "addremove": {
     "minusfold": [
       "base/_config-addrm.scss",
+      "style/_tcon-style.scss",
       "type/_addrm-plus-minusfold.scss"
     ],
+
     "minusrotate": [
       "base/_config-addrm.scss",
+      "style/_tcon-style.scss",
       "type/_addrm-plus-minusrotate.scss"
+    ]
+  },
+
+  "mail": {
+    "envelope": [
+      "base/_config-mail.scss",
+      "style/_tcon-style.scss",
+      "type/_mail-envelope.scss"
+    ]
+  },
+
+  "vid": {
+    "playstop": [
+      "base/_config-video.scss",
+      "style/_tcon-style.scss",
+      "type/_vid-play.scss"
+    ]
+  },
+
+  "loader": {
+    "spinner360": [
+      "base/_config-loader.scss",
+      "type/_loader-spinner360.scss"
     ]
   }
 }

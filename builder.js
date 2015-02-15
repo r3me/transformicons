@@ -36,9 +36,7 @@ var gulp                  = require('gulp'),
 
 // Dependencies for all transformations
 function getDependencies(params) {
-  var files = ['base/_config-globals.scss',
-               'base/_global-styles.scss',
-               'base/_config-utilities.scss'];
+  var files = ['base/_config-globals.scss'];
 
   for(var initial in params) {
 

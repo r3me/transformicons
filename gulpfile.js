@@ -188,8 +188,17 @@ gulp.task('copy', function() {
 // ===================================================
 
 gulp.task('watch', function() {
-  gulp.watch([paths.dist + '/**/*.scss', paths.sitesass + '/**/*.scss'], ['sass']);
-  gulp.watch([paths.templates + '/**/*.hbs', paths.site + '/*.html', paths.docsasset + '/*', paths.docs + '*'], ['assemble']);
+  gulp.watch([
+    paths.dist + '/**/*.scss',
+    paths.sitesass + '/**/*.scss'
+  ], ['sass']);
+
+  gulp.watch([
+    paths.templates + '/**/*.hbs',
+    paths.site + '/*.html',
+    paths.docsasset + '/*',
+    paths.docs + '*'
+  ], ['assemble']);
 });
 
 
