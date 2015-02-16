@@ -63,7 +63,10 @@ var builder = (function() {
 
   function render(type, data) {
     $('code.language-' + type).html('').append($('<textarea />').html(data || ''));
-    Prism.highlightElement($('code.language-' + type)[0], true);
+
+    // Come back to this. I feel this portion affects the usability as Prism removes the entire textarea
+    // tag making it hard to copy and past from which are typical tasks for users using this portion.
+    // Prism.highlightElement($('code.language-' + type)[0], true);
   }
 
   return function(options) {
