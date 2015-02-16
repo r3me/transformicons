@@ -4,21 +4,24 @@
       "base/_config-menu.scss",
       "style/_tcon-button.scss",
       "style/_menu-lines.scss",
-      "type/_menu-xbutterfly.scss"
+      "type/_menu-xbutterfly.scss",
+      "utilities/_tcons-hiddentxt.scss"
     ],
 
     "minus": [
       "base/_config-menu.scss",
       "style/_tcon-button.scss",
       "style/_menu-lines.scss",
-      "type/_menu-minus.scss"
+      "type/_menu-minus.scss",
+      "utilities/_tcons-hiddentxt.scss"
     ],
 
     "xcross": [
       "base/_config-menu.scss",
       "style/_tcon-button.scss",
       "style/_menu-lines.scss",
-      "type/_menu-xcross.scss"
+      "type/_menu-xcross.scss",
+      "utilities/_tcons-hiddentxt.scss"
     ],
 
     "arrowup": [
@@ -26,7 +29,8 @@
       "style/_tcon-button.scss",
       "style/_menu-lines.scss",
       "style/_menu-arrows.scss",
-      "type/_menu-arrowup.scss"
+      "type/_menu-arrowup.scss",
+      "utilities/_tcons-hiddentxt.scss"
     ],
 
     "arrow360": [
@@ -34,7 +38,8 @@
       "style/_tcon-button.scss",
       "style/_menu-lines.scss",
       "style/_menu-arrows.scss",
-      "type/_menu-arrow360.scss"
+      "type/_menu-arrow360.scss",
+      "utilities/_tcons-hiddentxt.scss"
     ],
 
     "arrowleft": [
@@ -42,7 +47,8 @@
       "style/_tcon-button.scss",
       "style/_menu-lines.scss",
       "style/_menu-arrows.scss",
-      "type/_menu-arrowleft.scss"
+      "type/_menu-arrowleft.scss",
+      "utilities/_tcons-hiddentxt.scss"
     ]
   },
 
@@ -51,14 +57,16 @@
       "base/_config-grid.scss",
       "style/_tcon-button.scss",
       "style/_grid3X3.scss",
-      "type/_grid-collapse.scss"
+      "type/_grid-collapse.scss",
+      "utilities/_tcons-hiddentxt.scss"
     ],
 
     "rearrange": [
       "base/_config-grid.scss",
       "style/_tcon-button.scss",
       "style/_grid3X3.scss",
-      "type/_grid-rearrange.scss"
+      "type/_grid-rearrange.scss",
+      "utilities/_tcons-hiddentxt.scss"
     ]
   },
 
@@ -66,13 +74,17 @@
     "plus-minusrotate": [
       "base/_config-addrm.scss",
       "style/_tcon-button.scss",
-      "type/_addrm-plus-minusrotate.scss"
+      "style/_addrm-plus.scss",
+      "type/_addrm-plus-minusrotate.scss",
+      "utilities/_tcons-hiddentxt.scss"
     ],
 
     "plus-check": [
       "base/_config-addrm.scss",
       "style/_tcon-button.scss",
-      "type/_addrm-plus-check.scss"
+      "style/_addrm-plus.scss",
+      "type/_addrm-plus-check.scss",
+      "utilities/_tcons-hiddentxt.scss"
     ]
   },
 
@@ -80,14 +92,16 @@
     "envelope": [
       "base/_config-mail.scss",
       "style/_tcon-button.scss",
-      "type/_mail-envelope.scss"
+      "type/_mail-envelope.scss",
+      "utilities/_tcons-hiddentxt.scss"
     ]
   },
 
   "loader": {
     "spinner360": [
       "base/_config-loader.scss",
-      "type/_loader-spinner360.scss"
+      "type/_loader-spinner360.scss",
+      "utilities/_tcons-hiddentxt.scss"
     ]
   }
 }

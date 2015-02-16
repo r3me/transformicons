@@ -13,27 +13,32 @@
 @import "../style/menu-lines";
 @import "../style/menu-arrows";
 @import "../style/grid3X3";
+@import "../style/addrm-plus";
 
 
 // Type
+// ==== menu
 @import "../type/menu-xbutterfly";
 @import "../type/menu-xcross";
 @import "../type/menu-minus";
 @import "../type/menu-arrow360";
 @import "../type/menu-arrowleft";
 @import "../type/menu-arrowup";
-
+// ==== grid
 @import "../type/grid-collapse";
 @import "../type/grid-rearrange";
-
-@import "../type/addrm-plus";
+// ==== add/rm
 @import "../type/addrm-plus-check";
 @import "../type/addrm-plus-minusrotate";
 @import "../type/addrm-plus-minusfold";
 @import "../type/addrm-plus-circle";
-
+// ==== mail
 @import "../type/mail-envelope";
-
+// ==== video
 @import "../type/vid-play";
-
+// ==== loaders
 @import "../type/loader-spinner360";
+
+
+// Utilities
+@import "../utilities/tcons-hiddentxt";
