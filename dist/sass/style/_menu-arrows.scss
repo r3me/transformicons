@@ -1,0 +1,21 @@
+.tcon-menu--arrow {
+  width: auto;
+
+  &.#{$tcon-jstransform} {
+    .tcon-menu__lines {
+      &::before,
+      &::after {
+        top: 0;
+        width: ($tcon-size / 1.8);
+      }
+
+      &::before {
+        transform: rotate3d(0, 0, 1, 45deg);
+      }
+
+      &::after {
+        transform: rotate3d(0, 0, 1, -45deg);
+      }
+    }
+  }
+}

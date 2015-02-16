@@ -25,13 +25,15 @@
       "base/_config-menu.scss",
       "style/_tcon-style.scss",
       "style/_menu-lines.scss",
-      "type/_menu-arrows.scss"
+      "style/_menu-arrows.scss",
+      "type/_menu-arrowup.scss"
     ],
 
     "arrow360": [
       "base/_config-menu.scss",
       "style/_tcon-style.scss",
       "style/_menu-lines.scss",
+      "style/_menu-arrows.scss",
       "type/_menu-arrow360.scss"
     ],
 
@@ -39,7 +41,8 @@
       "base/_config-menu.scss",
       "style/_tcon-style.scss",
       "style/_menu-lines.scss",
-      "type/_menu-arrows.scss"
+      "style/_menu-arrows.scss",
+      "type/_menu-arrowleft.scss"
     ]
   },
 

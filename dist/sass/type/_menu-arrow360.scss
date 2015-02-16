@@ -1,0 +1,7 @@
+.tcon-menu--arrow360left {
+  &.#{$tcon-jstransform} {
+    @each $property, $value in $tcon-menu-arrow360left-transformation {
+      #{$property} : #{$value};
+    }
+  }
+}

@@ -1,0 +1,8 @@
+.tcon-menu--arrowup {
+  width: auto;
+  &.#{$tcon-jstransform} {
+    @each $property, $value in $tcon-menu-arrowleft-transformation {
+      #{$property} : #{$value};
+    }
+  }
+}
