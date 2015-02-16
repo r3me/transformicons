@@ -4,7 +4,7 @@
   height: $spinner_size;
   width: $spinner_size;
   position: relative;
-  animation: tcon-spin360 $spinner_speed linear 0 infinite normal;
+  animation: tcon-spin360 $spinner_speed linear infinite forwards;
   background: $spinner_bg;
 
   &:before,
