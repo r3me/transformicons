@@ -62,17 +62,17 @@
     ]
   },
 
-  "addremove": {
-    "minusfold": [
-      "base/_config-addrm.scss",
-      "style/_tcon-button.scss",
-      "type/_addrm-plus-minusfold.scss"
-    ],
-
-    "minusrotate": [
+  "addrm": {
+    "plus-minusrotate": [
       "base/_config-addrm.scss",
       "style/_tcon-button.scss",
       "type/_addrm-plus-minusrotate.scss"
+    ],
+
+    "plus-check": [
+      "base/_config-addrm.scss",
+      "style/_tcon-button.scss",
+      "type/_addrm-plus-check.scss"
     ]
   },
 
