@@ -81,12 +81,21 @@
 // GitHub Contributors
 // ===================================
 
+@keyframes avatar-fadein {
+  to {
+    opacity: 1;
+  }
+}
+
 #tcons-contributors {
+  animation: avatar-fadein 400ms 1 forwards ease-in;
+  animation-delay: 900ms;
   display: flex;
   flex: 1;
   margin: 0;
   padding: 0;
   list-style-type: none;
+  opacity: 0;
 }
 
 .contributor-avatar {
