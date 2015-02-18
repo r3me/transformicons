@@ -7,6 +7,13 @@ Transformicons are mostly powered by CSS however, a little piece of JavaScript i
 - **UMD Pattern** : Using the Universal Module Definition pattern supports synchronous and asynchronous loading like [require.js](http://requirejs.org). In synchronous mode the global transformicon is exported, while with asynchronous loading a reference can be custom.
 - **Encapsulation** : Polluting the global namespace is bad practice. We only add the global handle (``transformicon``) to the root, if loaded synchronously.
 
+When integrating a custom build into your project the ``.add()`` method line below is required and should directly follow the transformicons JavaScript library we've provided.
+
+```html
+<script src="site/js/transformicons.js"></script>
+<script>transformicons.add('.tcon')</script>
+```
+
 ### Arguments
 
 <table>
@@ -94,6 +101,8 @@ Transformicons are mostly powered by CSS however, a little piece of JavaScript i
     </tr>
   </tbody>
 </table>
+
+**example**
 
 ```javascript
 transformicons.add('.tcon') // add default behavior for all elements with the class .tcon

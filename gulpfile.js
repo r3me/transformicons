@@ -195,6 +195,7 @@ gulp.task('watch', function() {
 
   gulp.watch([
     paths.templates + '/**/*.hbs',
+    paths.docs + '/**/*.md',
     paths.site + '/*.html',
     paths.docsasset + '/*',
     paths.docs + '*'
