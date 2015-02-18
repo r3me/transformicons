@@ -95,13 +95,15 @@ var builder = (function() {
 
       if(input_js_val === 'minified=true') {
         buildJS(type.js, function(err, data) {
-          render('javascript', data + "transformicons.add('.tcon');");
+          // render('javascript', data + "transformicons.add('.tcon');"); // see issue #56 https://github.com/grayghostvisuals/transformicons/issues/56
+          render('javascript', data);
         });
       }
 
       if(input_js_val === 'minified=false') {
         buildJS(type.js, function(err, data) {
-          render('javascript', data + "transformicons.add('.tcon');");
+          // render('javascript', data + "transformicons.add('.tcon');"); // see issue #56 https://github.com/grayghostvisuals/transformicons/issues/56
+          render('javascript', data);
         });
       }
 
