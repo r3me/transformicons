@@ -8,45 +8,49 @@ layout: default
 <form action="#" id="tcon-builder" role="form">
   <div class="tcons-build__options">
     <fieldset>
-      <legend>Icons</legend>
-
       <h3 class="tcon-builder__title">Menu</h3>
       <ul class="tcons-items list-reset">
         <li>
           {{> menu-xbutterfly}}
-          <label for="tcon-menu--butterfly">
-            <input class="tcon-builder-input" id="tcon-menu--butterfly" type="checkbox" data-transform="menu=xbutterfly" checked> Menu to X (Butterfly Style)
-          </label>
+          <div class="tcon-ckbox">
+            <input class="tcon-builder-input" id="tcon-menu--butterfly" type="checkbox" data-transform="menu=xbutterfly" checked>
+            <label for="tcon-menu--butterfly">Menu to X (Butterfly Style)</label>
+          </div>
         </li>
         <li>
           {{> menu-minus}}
-          <label for="tcon-menu--minus">
-          <input class="tcon-builder-input" id="tcon-menu--minus" type="checkbox" data-transform="menu=minus"> Menu to Minus
-          </label>
+          <div class="tcon-ckbox">
+            <input class="tcon-builder-input" id="tcon-menu--minus" type="checkbox" data-transform="menu=minus">
+            <label for="tcon-menu--minus">Menu to Minus</label>
+          </div>
         </li>
         <li>
           {{> menu-xcross}}
-          <label for="tcon-menu--xcross">
-          <input class="tcon-builder-input" id="tcon-menu--xcross" type="checkbox" data-transform="menu=xcross"> Menu to X (Crossover Style)
-          </label>
+          <div class="tcon-ckbox">
+            <input class="tcon-builder-input" id="tcon-menu--xcross" type="checkbox" data-transform="menu=xcross">
+            <label for="tcon-menu--xcross">Menu to X (Crossover Style)</label>
+          </div>
         </li>
         <li>
           {{> menu-arrowup}}
-          <label for="tcon-menu--arrowup">
-          <input class="tcon-builder-input" id="tcon-menu--arrowup" type="checkbox" data-transform="menu=arrowup"> Menu to Upwards Arrow
-          </label>
+          <div class="tcon-ckbox">
+            <input class="tcon-builder-input" id="tcon-menu--arrowup" type="checkbox" data-transform="menu=arrowup">
+            <label for="tcon-menu--arrowup">Menu to Upwards Arrow</label>
+          </div>
         </li>
         <li>
           {{> menu-arrow360}}
-          <label for="tcon-menu--arrow360">
-          <input class="tcon-builder-input" id="tcon-menu--arrow360" type="checkbox" data-transform="menu=arrow360"> Menu Arrow Spins 360deg
-          </label>
+          <div class="tcon-ckbox">
+            <input class="tcon-builder-input" id="tcon-menu--arrow360" type="checkbox" data-transform="menu=arrow360">
+            <label for="tcon-menu--arrow360">Menu Arrow Spins 360deg</label>
+          </div>
         </li>
         <li>
           {{> menu-arrowleft}}
-          <label for="tcon-menu--arrowleft">
-          <input class="tcon-builder-input" id="tcon-menu--arrowleft" type="checkbox" data-transform="menu=arrowleft"> Menu Arrow Points Left
-          </label>
+          <div class="tcon-ckbox">
+            <input class="tcon-builder-input" id="tcon-menu--arrowleft" type="checkbox" data-transform="menu=arrowleft">
+            <label for="tcon-menu--arrowleft">Menu Arrow Points Left</label>
+          </div>
         </li>
       </ul>
 
@@ -54,15 +58,17 @@ layout: default
       <ul class="tcons-items list-reset">
         <li>
           {{> grid-collapse}}
-          <label for="tcon-grid--collapsex">
-          <input class="tcon-builder-input" id="tcon-grid--collapsex" type="checkbox" data-transform="grid=collapse"> Collapse to X
-          </label>
+          <div class="tcon-ckbox">
+            <input class="tcon-builder-input" id="tcon-grid--collapsex" type="checkbox" data-transform="grid=collapse">
+            <label for="tcon-grid--collapsex">Collapse to X</label>
+          </div>
         </li>
         <li>
           {{> grid-rearrange}}
-          <label for="tcon-grid--rearrangex">
-          <input class="tcon-builder-input" id="tcon-grid--rearrangex" type="checkbox" data-transform="grid=rearrange"> Rearrange to X
-          </label>
+          <div class="tcon-ckbox">
+            <input class="tcon-builder-input" id="tcon-grid--rearrangex" type="checkbox" data-transform="grid=rearrange">
+            <label for="tcon-grid--rearrangex">Rearrange to X</label>
+          </div>
         </li>
       </ul>
 
@@ -70,16 +76,18 @@ layout: default
       <ul class="tcons-items list-reset">
         <li>
           {{> addrm-plus-check}}
-          <label for="tcon-addrm--pluscheck">
-            <input class="tcon-builder-input" id="tcon-addrm--pluscheck" type="checkbox" data-transform="addrm=plus-check"> Plus to Check</small>
-          </label>
+          <div class="tcon-ckbox">
+            <input class="tcon-builder-input" id="tcon-addrm--pluscheck" type="checkbox" data-transform="addrm=plus-check">
+            <label for="tcon-addrm--pluscheck">Plus to Check</label>
+          </div>
         </li>
 
         <li>
           {{> addrm-plus-minusrotate}}
-          <label for="tcon-addrm--plusminusrotate">
-            <input class="tcon-builder-input" id="tcon-addrm--plusminusrotate" type="checkbox" data-transform="addrm=plus-minusrotate"> Plus to Minus <small>(Rotate Style)</small>
-          </label>
+          <div class="tcon-ckbox">
+            <input class="tcon-builder-input" id="tcon-addrm--plusminusrotate" type="checkbox" data-transform="addrm=plus-minusrotate">
+            <label for="tcon-addrm--plusminusrotate">Plus to Minus <small>(Rotate Style)</small></label>
+          </div>
         </li>
       </ul>
 
@@ -87,9 +95,10 @@ layout: default
       <ul class="tcons-items list-reset">
         <li>
           {{> mail-envelope}}
-          <label for="tcon-mail--env">
-            <input class="tcon-builder-input" id="tcon-mail--env" type="checkbox" data-transform="mail=envelope"> Envelope
-          </label>
+          <div class="tcon-ckbox">
+            <input class="tcon-builder-input" id="tcon-mail--env" type="checkbox" data-transform="mail=envelope">
+            <label for="tcon-mail--env">Envelope</label>
+          </div>
         </li>
       </ul>
 
@@ -97,9 +106,10 @@ layout: default
       <ul class="tcons-items list-reset">
         <li>
           {{> loader-spinner360}}
-          <label for="tcon-loader--spinner360">
-            <input class="tcon-builder-input" id="tcon-loader--spinner360" type="checkbox" data-transform="loader=spinner360"> Spinning 360 Loader
-          </label>
+          <div class="tcon-ckbox">
+            <input class="tcon-builder-input" id="tcon-loader--spinner360" type="checkbox" data-transform="loader=spinner360">
+            <label for="tcon-loader--spinner360">Spinning 360 Loader</label>
+          </div>
         </li>
       </ul>
     </fieldset>
