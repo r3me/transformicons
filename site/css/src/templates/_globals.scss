@@ -1,3 +1,55 @@
+// Buttons
+// ===================================
+
+.btn{
+  border:none;
+  position:relative;
+  background:none;
+  padding:28px 90px;
+  display:inline-block;
+  text-transform:uppercase;
+  color:inherit;
+  letter-spacing:2px;
+  width: 100%;
+  font-size:0.9em;
+  outline:none;
+  transition:all 0.4s;
+  cursor:pointer;
+  font-weight: 800;
+  color: white;
+  transform:rotateX(35deg);  
+}
+.btn:after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  transition:all 0.4s;
+}
+.btn_perspective{
+  width: 100%;
+  perspective:800px;
+  display:inline-block;
+}
+.btn-3d{
+  display:block;
+  background:#E90000;
+  outline:1px solid transparent;
+  transform-style:preserve-3d;
+}
+.btn-3db:after{
+  width:100%;
+  height:40%;
+  left:0;
+  top:100%;
+  background: #C01818;
+  transform-origin: 0% 0%;
+  transform:rotateX(-90deg);
+}
+.btn-3db:hover{
+  transform:rotateX(20deg);
+}
+
+
 // Titles
 // ===================================
 
@@ -11,6 +63,11 @@
   margin-top: 0;
   margin-bottom: 24px;
   color: #FFFEFE;
+}
+
+.tcon-builder__title {
+  color: #C0A8A8;
+  font-weight: 300;
 }
 
 
@@ -56,7 +113,9 @@
 // ===================================
 
 .tcons-items {
+  box-shadow: inset 0 1px 0 white, 0 -1px 0 rgba(0, 0, 0, 0.04);
   display: flex;
+  padding: 10px 0 0 !important;
 }
 
 .tcons-items li {
@@ -66,7 +125,6 @@
   justify-content: center;
   margin: 0 6px;
   padding: 10px;
-  width: 50%;
   position: relative;
 }
 
@@ -78,48 +136,65 @@
 }
 
 .tcon-ckbox {
+  $checkbox-style: rounded; // accepts 'rounded' or 'null'
+  $checkbox-width: 4rem; // adjust this value for sizing
+  $checkbox-height: $checkbox-width / 1/4;
+  $checkbox-val: $checkbox-width * 3/4;
+  $tcon-ckbox-speed: 150ms;
+
+  height: $checkbox-height;
   margin: 8px 0;
-  width: 4rem;
-  height: 1rem;
   position: relative;
+  width: $checkbox-width;
 
-  input {
+  input[type=checkbox] {
     opacity: 0;
-  }
 
-  input[type=checkbox]:checked ~ label {
-    background: #4fbe79;
+    &:checked ~ label {
+      background: #4fbe79;
 
-    &:after {
-      left: 3.125rem;
+      &:after {
+        left: $checkbox-val;
+      }
     }
   }
 
   label {
-    border-radius: 3.125rem;
-    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.27);
-    background: #D8D8D8;
+    @if $checkbox-style == rounded {
+      border-radius: $checkbox-val;
+    }
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.27), 1px 1px 1px rgba(255, 255, 255, 0.71);
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    transition: background .2s ease-in-out;
+    transition: background $tcon-ckbox-speed ease-in-out;
     text-indent: -9999em;
+    background: #E8DFE7;
 
     &:after {
-      border-radius: 3.125rem;
+      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.42);
+      @if $checkbox-style == rounded {
+        border-radius: $checkbox-val;
+      }
       content: "";
       display: block;
-      width: .75rem;
-      height: .75rem;
+      width: $checkbox-val * 1/4;
+      height: $checkbox-val * 1/4;
       cursor: pointer;
       position: absolute;
-      top: 0.125rem;
-      left: .125rem;
-      transition: left .2s ease-in-out;
+      top: $checkbox-val/24;
+      left: $checkbox-val/24 + 1/8;
+      transition: left $tcon-ckbox-speed ease-in-out;
       z-index: 1;
       background: #FFFFFD;
+      background-image: radial-gradient(50% 0%, 10% 50%, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(50% 100%, 10% 50%, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(0% 50%, 50% 10%, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(100% 50%, 50% 6%, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+      background-image: -webkit-radial-gradient(50% 0%, 10% 50%, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%), -webkit-radial-gradient(50% 100%, 10% 50%, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%), -webkit-radial-gradient(0% 50%, 50% 10%, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%), -webkit-radial-gradient(100% 50%, 50% 6%, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+    }
+
+    &:hover {
+      cursor: pointer;
     }
   }
 }
