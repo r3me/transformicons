@@ -2,6 +2,9 @@
   if (typeof define === 'function' && define.amd) {
     // AMD module
     define(factory);
+  } else if (typeof exports === 'object') {
+    // CommonJS-like environment (i.e. Node)
+    module.exports = factory();
   } else {
     // Browser global
     root.transformicons = factory();
