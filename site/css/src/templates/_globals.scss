@@ -135,66 +135,79 @@
   color: #EFEFEF;
 }
 
-.tcon-ckbox {
-  $checkbox-style: rounded; // accepts 'rounded' or 'null'
-  $checkbox-width: 4rem; // adjust this value for sizing
-  $checkbox-height: $checkbox-width / 1/4;
-  $checkbox-val: $checkbox-width * 3/4;
-  $tcon-ckbox-speed: 150ms;
+
+.tcon-checkbox {
+  $checkbox-style: rounded;
+  $checkbox-sizing: 4rem;
+  $checkbox-height: $checkbox-sizing / 1/4;
+  $checkbox-position-unit: $checkbox-sizing * 3/4;
+  $checkbox-speed: 150ms;
+  $checkbox-off-bg: #E8DFE7;
+  $checkbox-on-bg: #4fbe79;
+  $checkbox-btn-bg: #FFFFFD;
 
   height: $checkbox-height;
   margin: 8px 0;
   position: relative;
-  width: $checkbox-width;
+  width: $checkbox-sizing;
 
   input[type=checkbox] {
     opacity: 0;
+  }
 
-    &:checked ~ label {
-      background: #4fbe79;
+  input[type=checkbox]:focus ~ label {
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.40),
+                      1px 1px 1px rgba(255, 255, 255, 0.60);
+    background: darken($checkbox-off-bg, 10%);
+  }
 
-      &:after {
-        left: $checkbox-val;
-      }
+  input[type=checkbox]:checked ~ label {
+    background: $checkbox-on-bg;
+    &:after {
+      left: $checkbox-position-unit;
     }
   }
 
   label {
     @if $checkbox-style == rounded {
-      border-radius: $checkbox-val;
+      border-radius: $checkbox-position-unit;
     }
     box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.27), 1px 1px 1px rgba(255, 255, 255, 0.71);
-    width: 100%;
     height: 100%;
+    width: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    transition: background $tcon-ckbox-speed ease-in-out;
+    transition: background $checkbox-speed ease-in-out;
     text-indent: -9999em;
-    background: #E8DFE7;
-
-    &:after {
-      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.42);
-      @if $checkbox-style == rounded {
-        border-radius: $checkbox-val;
-      }
-      content: "";
-      display: block;
-      width: $checkbox-val * 1/4;
-      height: $checkbox-val * 1/4;
-      cursor: pointer;
-      position: absolute;
-      top: $checkbox-val/24;
-      left: $checkbox-val/24 + 1/8;
-      transition: left $tcon-ckbox-speed ease-in-out;
-      z-index: 1;
-      background: #FFFFFD;
-      background-image: radial-gradient(50% 0%, 10% 50%, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(50% 100%, 10% 50%, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(0% 50%, 50% 10%, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(100% 50%, 50% 6%, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
-      background-image: -webkit-radial-gradient(50% 0%, 10% 50%, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%), -webkit-radial-gradient(50% 100%, 10% 50%, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%), -webkit-radial-gradient(0% 50%, 50% 10%, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%), -webkit-radial-gradient(100% 50%, 50% 6%, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
-    }
+    background: $checkbox-off-bg;
 
     &:hover {
       cursor: pointer;
+    }
+
+    &:after {
+      @if $checkbox-style == rounded {
+        border-radius: $checkbox-position-unit;
+      }
+      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.42);
+      content: "";
+      cursor: pointer;
+      display: block;
+      height: $checkbox-position-unit * 1/4;
+      position: absolute;
+      top: $checkbox-position-unit / 24;
+      left: $checkbox-position-unit / 24 * 2;
+      width: $checkbox-position-unit * 1/4;
+      transition: left $checkbox-speed ease-in-out;
+      z-index: 1;
+      background: $checkbox-btn-bg;
+      background-image:
+        radial-gradient(50% 0%, 10% 50%, hsla(0,0%,0%,.1) 0%, hsla(0,0%,0%,0) 100%),
+        radial-gradient(50% 100%, 10% 50%, hsla(0,0%,0%,.1) 0%, hsla(0,0%,0%,0) 100%),
+        radial-gradient(0% 50%, 50% 10%, hsla(0,0%,0%,.1) 0%, hsla(0,0%,0%,0) 100%),
+        radial-gradient(100% 50%, 50% 06%, hsla(0,0%,0%,.1) 0%, hsla(0,0%,0%,0) 100%);
+      background-image: -webkit-radial-gradient(50% 0%, 10% 50%, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%), -webkit-radial-gradient(50% 100%, 10% 50%, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%), -webkit-radial-gradient(0% 50%, 50% 10%, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%), -webkit-radial-gradient(100% 50%, 50% 6%, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
     }
   }
 }
