@@ -57,6 +57,7 @@ Objects submitted to Transformicons must abide by the following guidelines in or
 
 - Featured resource in [Codrops Collective #154](http://tympanus.net/codrops/collective/collective-154)
 - Daily top 10 feature on [Product Hunt](http://www.producthunt.com/posts/transformicons)
+- Suggested tool in [CSS Weekly](http://css-weekly.com/issue-151/)
 
 --
 
