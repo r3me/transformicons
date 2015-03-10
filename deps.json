@@ -85,6 +85,14 @@
       "style/_addrm-plus.scss",
       "type/_addrm-plus-check.scss",
       "utilities/_tcons-hiddentxt.scss"
+    ],
+
+    "remove-check": [
+      "base/_config-addrm.scss",
+      "style/_tcon-button.scss",
+      "style/_addrm-remove.scss",
+      "type/_addrm-remove-check.scss",
+      "utilities/_tcons-hiddentxt.scss"
     ]
   },
 
