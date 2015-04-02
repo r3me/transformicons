@@ -53,7 +53,7 @@ Objects submitted to Transformicons must abide by the following guidelines in or
 - Fully Tested.
 - Proportions must be a maximum of 40px wide and no more than 40px tall.
 - Make sense to users and yourself.
-- If your Transformicon is truly is a ``button`` please surround the object in a ``button`` tag otherwise use a ``span`` or ``div``. See our documentation for examples.
+- If your Transformicon is truly a ``button`` please surround the object in a ``button`` tag otherwise use a ``span`` or ``div``. See our documentation for examples.
 - Provide custom control over color and appearance for traits such as border-radius. This way authors can control the visual aspect to match their design.
 
 --
