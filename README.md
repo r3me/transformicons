@@ -42,13 +42,18 @@ Since a Sass coding guidelines document has been established by [Hugo](http://hu
 
 You'll find all our working files in the ``dist`` directory for Transformicons' JavaScript requirement and related Sass. Any markup for the Transformicons objects will be found in the ``site/templates/includes/tcons`` directory. We use assemble to build our markup so make sure you're never editing a file with the ``.html`` extension. Assemble files use the ``.hbs`` file extension. These are the files you should be editing instead.
 
+### Before Filing a Report
+
+- Make an isolated demo
+- List your setup and explain in detail the steps to follow in order to reproduce your bug.
+
 ### Transformicons Specs
 Objects submitted to Transformicons must abide by the following guidelines in order to be accepted into the library…
 
 - Fully Tested.
 - Proportions must be a maximum of 40px wide and no more than 40px tall.
 - Make sense to users and yourself.
-- If your Transformicon is truly is a ``button`` please surround the object in a ``button`` tag otherwise use a ``span`` or ``div``. See our documentation for examples.
+- If your Transformicon is truly a ``button`` please surround the object in a ``button`` tag otherwise use a ``span`` or ``div``. See our documentation for examples.
 - Provide custom control over color and appearance for traits such as border-radius. This way authors can control the visual aspect to match their design.
 
 --
