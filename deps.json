@@ -96,6 +96,16 @@
     ]
   },
 
+  "search": {
+    "xcross":[
+      "base/_config-search.scss",
+      "style/_tcon-button.scss",
+      "style/_search-item.scss",
+      "type/_search-xcross.scss",
+      "utilities/_tcons-hiddentxt.scss" 
+    ]
+  },
+
   "mail": {
     "envelope": [
       "base/_config-mail.scss",
