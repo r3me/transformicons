@@ -1,0 +1,42 @@
+@mixin search-item {
+  display: inline-block;
+  height: $tcon-search-size;
+  width: $tcon-search-size;
+  border-radius: 0;
+  transition: $tcon-transition;
+  background: transparent;
+}
+
+.tcon-search__item {
+  @include search-item;
+  position: relative;
+  transform: rotate(-45deg);
+
+  &::before,
+  &::after {
+    @include search-item;
+    content: '';
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+
+  &::before {
+    height: $tcon-search-handle-width;
+    left: 0;
+    background: $tcon-search-color;
+    border-radius: $tcon-search-radius;
+  }
+
+  &::after {
+    right: 0;
+    background: $tcon-search-glass-color;
+    border-radius: 50%;
+    width: $tcon-search-glass-radius;
+    height: $tcon-search-glass-radius;
+    border: $tcon-search-glass-border-width solid black;
+    transform-origin: 50% 50%;
+  }
+}

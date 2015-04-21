@@ -105,6 +105,16 @@
     ]
   },
 
+  "search": {
+    "xcross":[
+      "base/_config-search.scss",
+      "style/_tcon-button.scss",
+      "style/_search-item.scss",
+      "type/_search-xcross.scss",
+      "utilities/_tcons-hiddentxt.scss" 
+    ]
+  },
+
   "loader": {
     "spinner360": [
       "base/_config-loader.scss",

@@ -6,6 +6,7 @@
 @import "../base/config-video";
 @import "../base/config-loader";
 @import "../base/config-mail";
+@import "../base/config-search";
 
 
 // Style
@@ -15,6 +16,7 @@
 @import "../style/grid3X3";
 @import "../style/addrm-plus";
 @import "../style/addrm-remove";
+@import "../style/search-item";
 
 
 // Type
@@ -36,6 +38,8 @@
 @import "../type/addrm-plus-circle";
 // ==== mail
 @import "../type/mail-envelope";
+// ==== search
+@import "../type/search-xcross";
 // ==== video
 @import "../type/vid-play";
 // ==== loaders

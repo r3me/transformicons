@@ -1,0 +1,21 @@
+.tcon-search--xcross {
+  &.#{$tcon-jstransform} {
+    transform: scale3d(.8, .8, .8);
+    
+    .tcon-search__item {
+      &::before, &::after {
+        border-radius: $tcon-search-radius;
+        background: $tcon-search-color;
+      }
+
+      &::after {
+        height: $tcon-search-handle-width;
+        width: 100%;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: rotate3d(0, 0, 1, 90deg);
+      }
+    }
+  }
+}
