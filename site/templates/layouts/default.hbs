@@ -11,14 +11,17 @@
     <meta name="msapplication-tap-highlight" content="no">
 
     {{#isnt basename 'index'}}
-    <!-- build:css css/prism.min.css -->
+    <!-- build:css css/globals.min.css -->
     <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/style.css">
     <!-- endbuild -->
     {{/isnt}}
 
-    <!-- build:css css/style.min.css -->
+    {{#is basename 'index'}}
+    <!-- build:css css/styles.min.css -->
     <link rel="stylesheet" href="css/style.css">
     <!-- endbuild -->
+    {{/is}}
 
     <link rel="icon" type="image/png" href="img/favicon/favicon-16x16.png" sizes="16x16">
     <link rel="icon" type="image/png" href="img/favicon/favicon-32x32.png" sizes="32x32">

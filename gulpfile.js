@@ -143,11 +143,39 @@ gulp.task('assemble', ['docs', 'copy'], function() {
 // ===================================================
 // Production Prep
 // ===================================================
+// Because gulp-usemin 0.3.11 won't accept an array of files for
+// a source. https://github.com/grayghostvisuals/transformicons/issues/42
 
-gulp.task('usemin', ['assemble', 'cssmin'], function() {
+gulp.task('minindex', ['assemble', 'cssmin'], function() {
   var stream = gulp.src([
-        paths.site + '/index.html',
-        paths.site + '/builder.html',
+        paths.site + '/index.html'
+      ])
+      .pipe($.usemin({
+        html: [$.minifyHtml({ empty: true })],
+        css: [$.rev()],
+        js: [$.uglify(), $.rev()]
+      }))
+      .pipe(gulp.dest(paths.site));
+
+  return stream;
+});
+
+gulp.task('minbuild', ['assemble', 'cssmin'], function() {
+  var stream = gulp.src([
+        paths.site + '/builder.html'
+      ])
+      .pipe($.usemin({
+        html: [$.minifyHtml({ empty: true })],
+        css: [$.rev()],
+        js: [$.uglify(), $.rev()]
+      }))
+      .pipe(gulp.dest(paths.site));
+
+  return stream;
+});
+
+gulp.task('mindocs', ['assemble', 'cssmin'], function() {
+  var stream = gulp.src([
         paths.site + '/docs.html'
       ])
       .pipe($.usemin({
@@ -210,5 +238,5 @@ gulp.task('watch', function() {
 if(process.env.NODE_ENV === 'development' || process.env.NODE_ENV === undefined) {
   gulp.task('default', ['sass', 'assemble', 'serve', 'watch']);
 } else {
-  gulp.task('default', ['usemin', 'serve']);
+  gulp.task('default', ['minindex', 'minbuild', 'mindocs', 'serve']);
 }
