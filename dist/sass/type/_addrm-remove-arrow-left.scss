@@ -1,12 +1,12 @@
 .tcon-remove--arrow-left {
   &.#{$tcon-jstransform} {
-    &:before {
+    &::before {
       left: 20%;
       transform: translate(0, -55%) rotate(-45deg) ;
       width: 62%;
     }
 
-    &:after {
+    &::after {
       left: 20%;
       transform: translate(0, 55%) rotate(45deg);
       width: 62%;
