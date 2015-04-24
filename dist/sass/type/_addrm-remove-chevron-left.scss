@@ -1,14 +1,14 @@
-.tcon-remove--arrow-right {
+.tcon-remove--chevron-left {
   &.#{$tcon-jstransform} {
     &::before {
       left: 20%;
-      transform: translate(0, 55%) rotate(-45deg) ;
+      transform: translate(0, -55%) rotate(-45deg) ;
       width: 62%;
     }
 
     &::after {
       left: 20%;
-      transform: translate(0, -55%) rotate(45deg);
+      transform: translate(0, 55%) rotate(45deg);
       width: 62%;
     }
   }

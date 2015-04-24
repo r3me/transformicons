@@ -95,27 +95,27 @@
       "utilities/_tcons-hiddentxt.scss"
     ],
 
-    "remove-arrow-left": [
+    "remove-chevron-left": [
       "base/_config-addrm.scss",
       "style/_tcon-button.scss",
       "style/_addrm-remove.scss",
-      "type/_addrm-remove-arrow-left.scss",
+      "type/_addrm-remove-chevron-left.scss",
       "utilities/_tcons-hiddentxt.scss"
     ],
 
-    "remove-arrow-right": [
+    "remove-chevron-right": [
       "base/_config-addrm.scss",
       "style/_tcon-button.scss",
       "style/_addrm-remove.scss",
-      "type/_addrm-remove-arrow-right.scss",
+      "type/_addrm-remove-chevron-right.scss",
       "utilities/_tcons-hiddentxt.scss"
     ],
 
-    "remove-arrow-down": [
+    "remove-chevron-down": [
       "base/_config-addrm.scss",
       "style/_tcon-button.scss",
       "style/_addrm-remove.scss",
-      "type/_addrm-remove-arrow-down.scss",
+      "type/_addrm-remove-chevron-down.scss",
       "utilities/_tcons-hiddentxt.scss"
     ]
   },
