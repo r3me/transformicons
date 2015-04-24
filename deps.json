@@ -117,6 +117,14 @@
       "style/_addrm-remove.scss",
       "type/_addrm-remove-chevron-down.scss",
       "utilities/_tcons-hiddentxt.scss"
+    ],
+
+    "remove-chevron-up": [
+      "base/_config-addrm.scss",
+      "style/_tcon-button.scss",
+      "style/_addrm-remove.scss",
+      "type/_addrm-remove-chevron-up.scss",
+      "utilities/_tcons-hiddentxt.scss"
     ]
   },
 
