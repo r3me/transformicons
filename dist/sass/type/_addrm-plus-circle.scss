@@ -19,7 +19,7 @@
     background: $tcon-plus-color;
   }
 
-  &:after {
+  &::after {
     top: 50%;
     width: 50%;
     height: $tcon-size/12;
@@ -27,7 +27,6 @@
   }
 
   &.#{$tcon-jstransform} {
-
     &::before {
       transform: translate(50%, -50%) rotate(45deg);
     }

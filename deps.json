@@ -93,6 +93,38 @@
       "style/_addrm-remove.scss",
       "type/_addrm-remove-check.scss",
       "utilities/_tcons-hiddentxt.scss"
+    ],
+
+    "remove-chevron-left": [
+      "base/_config-addrm.scss",
+      "style/_tcon-button.scss",
+      "style/_addrm-remove.scss",
+      "type/_addrm-remove-chevron-left.scss",
+      "utilities/_tcons-hiddentxt.scss"
+    ],
+
+    "remove-chevron-right": [
+      "base/_config-addrm.scss",
+      "style/_tcon-button.scss",
+      "style/_addrm-remove.scss",
+      "type/_addrm-remove-chevron-right.scss",
+      "utilities/_tcons-hiddentxt.scss"
+    ],
+
+    "remove-chevron-down": [
+      "base/_config-addrm.scss",
+      "style/_tcon-button.scss",
+      "style/_addrm-remove.scss",
+      "type/_addrm-remove-chevron-down.scss",
+      "utilities/_tcons-hiddentxt.scss"
+    ],
+
+    "remove-chevron-up": [
+      "base/_config-addrm.scss",
+      "style/_tcon-button.scss",
+      "style/_addrm-remove.scss",
+      "type/_addrm-remove-chevron-up.scss",
+      "utilities/_tcons-hiddentxt.scss"
     ]
   },
 
