@@ -1,0 +1,16 @@
+.tcon-remove--chevron-down {
+  &.#{$tcon-jstransform} {
+    &::before {
+      left: 5%;
+      transform: rotate(-135deg);
+      width: 59%;
+    }
+
+    &::after {
+      left: auto;
+      right: 10%;
+      transform: rotate(135deg);
+      width: 60%;
+    }
+  }
+}

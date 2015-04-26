@@ -1,12 +1,12 @@
 .tcon-remove--check {
   &.#{$tcon-jstransform} {
-    &:before {
+    &::before {
       transform: rotate(-135deg) translate(5%, -10%);
       top: 50%;
       width: 55%;
     }
 
-    &:after {
+    &::after {
       transform: rotate(-45deg) translate(20%, 10%);
       top: 50%;
       width: 85%;
