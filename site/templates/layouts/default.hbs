@@ -10,18 +10,12 @@
     <meta name="viewport" content="width=device-width, user-scalable=1, initial-scale=1">
     <meta name="msapplication-tap-highlight" content="no">
 
-    {{#isnt basename 'index'}}
-    <!-- build:css css/globals.min.css -->
-    <link rel="stylesheet" href="css/prism.css">
-    <link rel="stylesheet" href="css/style.css">
-    <!-- endbuild -->
-    {{/isnt}}
-
-    {{#is basename 'index'}}
     <!-- build:css css/styles.min.css -->
+    {{#isnt basename 'index'}}
+    <link rel="stylesheet" href="css/prism.css">
+    {{/isnt}}
     <link rel="stylesheet" href="css/style.css">
     <!-- endbuild -->
-    {{/is}}
 
     <link rel="icon" type="image/png" href="img/favicon/favicon-16x16.png" sizes="16x16">
     <link rel="icon" type="image/png" href="img/favicon/favicon-32x32.png" sizes="32x32">
@@ -45,29 +39,25 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/lib/jquery.js"><\/script>')</script>
 
+    <!-- build:js js/build/scripts.min.js -->
     {{#is basename 'index'}}
-    <!-- build:js js/build/index.min.js -->
     <script src="js/src/contributors.js"></script>
     <script src="js/lib/transformicons.js"></script>
-    <!-- endbuild -->
     {{/is}}
 
     {{#is basename 'builder'}}
-    <!-- build:js js/build/builder.min.js -->
     <script src="js/lib/prism.js"></script>
     <script src="js/src/contributors.js"></script>
     <script src="js/lib/transformicons.js"></script>
     <script src="js/src/compiler.js"></script>
     <script src="js/src/builder.js"></script>
-    <!-- endbuild -->
     {{/is}}
 
     {{#is basename 'docs'}}
-    <!-- build:js js/build/docs.min.js -->
     <script src="js/src/contributors.js"></script>
     <script src="js/lib/prism.js"></script>
-    <!-- endbuild -->
     {{/is}}
+    <!-- endbuild -->
 
     {{#isnt basename 'docs'}}
     <script>transformicons.add('.tcon');</script>
