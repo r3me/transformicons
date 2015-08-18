@@ -4,12 +4,16 @@
 
 var gulp            = require('gulp'),
     gulpLoadPlugins = require('gulp-load-plugins'),
-    $               = gulpLoadPlugins(),
+    $               = gulpLoadPlugins({
+                        rename: {
+                          'gulp-minify-html' : 'minhtml',
+                          'gulp-foreach'     : 'foreach'
+                        }
+                      }),
+    basename        = require('path').basename,
+    extname         = require('path').extname,
     builder         = require('./builder'),
     assemble        = require('assemble'),
-    ext             = require('gulp-extname'),
-    minifyHtml      = require('gulp-minify-html'),
-    minifyCSS       = require('gulp-minify-css'),
     del             = process.env.NODE_ENV === 'development' || process.env.NODE_ENV === undefined ? require('del') : '';
 
 $.exec   = require('child_process').exec; // http://krasimirtsonev.com/blog/article/Nodejs-managing-child-processes-starting-stopping-exec-spawn
@@ -72,21 +76,15 @@ gulp.task('serve', ['assemble'], function() {
 
 gulp.task('sass', function() {
   var stream = gulp.src(paths.sitesass + '/**/*.scss')
-    .pipe($.sass())
+    .pipe($.sass({
+      outputStyle: 'compressed'
+    }))
     .pipe($.autoprefixer({
       browsers: ['last 2 versions'],
       cascade: false
     }))
     .pipe(gulp.dest(paths.sitecss))
     .pipe($.connect.reload());
-
-  return stream;
-});
-
-gulp.task('cssmin', ['sass'], function() {
-  var stream = gulp.src(paths.sitecss + '/*.css')
-    .pipe(minifyCSS({ keepBreaks:true }))
-    .pipe(gulp.dest(paths.sitecss));
 
   return stream;
 });
@@ -126,15 +124,15 @@ gulp.task('docs', function() {
 // Template Compiling
 // ===================================================
 
-assemble.layouts(paths.templates + '/layouts/*.hbs');
-assemble.partials(paths.templates + '/includes/**/*.hbs');
-assemble.pages(paths.templates + '/content/*.hbs');
-assemble.option('layout', 'default');
-
 gulp.task('assemble', ['docs', 'copy'], function() {
-  var stream = assemble.src(paths.templates + '/pages/*.hbs')
-    .pipe(ext())
-    .pipe(assemble.dest(paths.site));
+  assemble.option('layout', 'default');
+  assemble.layouts(paths.templates + '/layouts/*.{md,hbs}');
+  assemble.partials(paths.templates + '/includes/**/*.{md,hbs}');
+
+  var stream = assemble.src(paths.templates + '/pages/**/*.{md,hbs}')
+    .pipe($.extname())
+    .pipe(assemble.dest(paths.site))
+    .pipe($.connect.reload());
 
   return stream;
 });
@@ -143,49 +141,23 @@ gulp.task('assemble', ['docs', 'copy'], function() {
 // ===================================================
 // Production Prep
 // ===================================================
-// Because gulp-usemin 0.3.11 won't accept an array of files for
-// a source. https://github.com/grayghostvisuals/transformicons/issues/42
+/*
+ * foreach is because usemin 0.3.11 won't manipulate
+ * multiple files as an array.
+ */
 
-gulp.task('minindex', ['assemble', 'cssmin'], function() {
-  var stream = gulp.src([
-        paths.site + '/index.html'
-      ])
-      .pipe($.usemin({
-        html: [$.minifyHtml({ empty: true })],
-        css: [$.rev()],
-        js: [$.uglify(), $.rev()]
-      }))
-      .pipe(gulp.dest(paths.site));
-
-  return stream;
-});
-
-gulp.task('minbuild', ['assemble', 'cssmin'], function() {
-  var stream = gulp.src([
-        paths.site + '/builder.html'
-      ])
-      .pipe($.usemin({
-        html: [$.minifyHtml({ empty: true })],
-        css: [$.rev()],
-        js: [$.uglify(), $.rev()]
-      }))
-      .pipe(gulp.dest(paths.site));
-
-  return stream;
-});
-
-gulp.task('mindocs', ['assemble', 'cssmin'], function() {
-  var stream = gulp.src([
-        paths.site + '/docs.html'
-      ])
-      .pipe($.usemin({
-        html: [$.minifyHtml({ empty: true })],
-        css: [$.rev()],
-        js: [$.uglify(), $.rev()]
-      }))
-      .pipe(gulp.dest(paths.site));
-
-  return stream;
+gulp.task('usemin', ['sass', 'assemble', 'copy'], function() {
+  return gulp.src(paths.site + '/*.html')
+    .pipe($.foreach(function(stream, file) {
+      return stream
+        .pipe($.usemin({
+          assetsDir: paths.site,
+          css: [ $.rev() ],
+          html: [ $.minhtml({ empty: true }) ],
+          js: [ $.uglify(), $.rev() ]
+        }))
+        .pipe(gulp.dest(paths.site));
+    }));
 });
 
 
@@ -222,11 +194,9 @@ gulp.task('watch', function() {
   ], ['sass']);
 
   gulp.watch([
-    paths.templates + '/**/*.hbs',
-    paths.docs + '/**/*.md',
-    paths.site + '/*.html',
-    paths.docsasset + '/*',
-    paths.docs + '*'
+    paths.templates + '/pages/**/*.{md,hbs}',
+    paths.templates + '/includes/**/*.{md,hbs}',
+    paths.docs + '/**/*.{md,hbs}',
   ], ['assemble']);
 });
 
@@ -236,7 +206,7 @@ gulp.task('watch', function() {
 // ===================================================
 
 if(process.env.NODE_ENV === 'development' || process.env.NODE_ENV === undefined) {
-  gulp.task('default', ['sass', 'assemble', 'serve', 'watch']);
+  gulp.task('default', [ 'sass', 'assemble', 'serve', 'watch']);
 } else {
-  gulp.task('default', ['minindex', 'minbuild', 'mindocs', 'serve']);
+  gulp.task('default', ['usemin', 'serve']);
 }
