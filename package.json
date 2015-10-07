@@ -3,7 +3,7 @@
   "description": "Animated CSS Symbols, Buttons & Icons",
   "version": "0.4.6",
   "engines": {
-    "node": "0.12.x"
+    "node": "4.x"
   },
   "author": "Bennett Feely, Sara Soueidan, Dennis Gaebel, Jan Paepke, Arthur Verschaeve, J.Fischer and the Open Source Contributors Listed",
   "homepage": "https://github.com/grayghostvisuals/transformicons",
