@@ -15,7 +15,7 @@
     top: 37%;
     left: 8%;
     transition: $tcon-transition;
-    background: black;
+    background: $tcon-remove-color;
   }
 
   &::before {
