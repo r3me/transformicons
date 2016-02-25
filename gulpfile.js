@@ -6,8 +6,8 @@ var gulp            = require('gulp'),
     gulpLoadPlugins = require('gulp-load-plugins'),
     $               = gulpLoadPlugins({
                         rename: {
-                          'gulp-minify-html' : 'minhtml',
-                          'gulp-foreach'     : 'foreach'
+                          'gulp-htmlmin' : 'minhtml',
+                          'gulp-foreach' : 'foreach'
                         }
                       }),
     basename        = require('path').basename,
@@ -147,19 +147,20 @@ gulp.task('assemble', ['docs', 'copy'], function() {
 // ===================================================
 // Production Prep
 // ===================================================
+
 /*
- * foreach is because usemin 0.3.11 won't manipulate
+ * foreach is because usemin 0.3.21 won't manipulate
  * multiple files as an array.
  */
 
-gulp.task('usemin', ['sass', 'assemble', 'copy'], function() {
+gulp.task('usemin', ['sass', 'copy', 'assemble'], function() {
   return gulp.src(paths.site + '/*.html')
     .pipe($.foreach(function(stream, file) {
       return stream
         .pipe($.usemin({
           assetsDir: paths.site,
           css: [ $.rev() ],
-          html: [ $.minhtml({ empty: true }) ],
+          html: [ $.minhtml({ collapseWhitespace: true }) ],
           js: [ $.uglify(), $.rev() ]
         }))
         .pipe(gulp.dest(paths.site));
