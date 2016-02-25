@@ -14,6 +14,8 @@ var gulp            = require('gulp'),
     extname         = require('path').extname,
     builder         = require('./builder'),
     assemble        = require('assemble'),
+    helpers         = require('handlebars-helpers'),
+    app             = assemble(),
     del             = process.env.NODE_ENV === 'development' || process.env.NODE_ENV === undefined ? require('del') : '';
 
 $.exec   = require('child_process').exec; // http://krasimirtsonev.com/blog/article/Nodejs-managing-child-processes-starting-stopping-exec-spawn
@@ -125,13 +127,17 @@ gulp.task('docs', function() {
 // ===================================================
 
 gulp.task('assemble', ['docs', 'copy'], function() {
-  assemble.option('layout', 'default');
-  assemble.layouts(paths.templates + '/layouts/*.{md,hbs}');
-  assemble.partials(paths.templates + '/includes/**/*.{md,hbs}');
+  app.option('layout', 'default');
+  app.helpers(helpers());
+  app.layouts(paths.templates + '/layouts/*.{md,hbs}');
+  app.partials(paths.templates + '/includes/**/*.{md,hbs}');
 
-  var stream = assemble.src(paths.templates + '/pages/**/*.{md,hbs}')
+  var stream = app.src(paths.templates + '/pages/**/*.{md,hbs}')
+    .on('error', console.log)
+    .pipe(app.renderFile())
+    .on('error', console.log)
     .pipe($.extname())
-    .pipe(assemble.dest(paths.site))
+    .pipe(app.dest(paths.site))
     .pipe($.connect.reload());
 
   return stream;
