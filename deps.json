@@ -137,13 +137,20 @@
     ]
   },
 
+  "indicator": {
+    "svgchevron": [
+      "base/_config-svgchevron.scss",
+      "style/_indicator-svgchevron.scss"
+    ]
+  },
+
   "search": {
     "xcross":[
       "base/_config-search.scss",
       "style/_tcon-button.scss",
       "style/_search-item.scss",
       "type/_search-xcross.scss",
-      "utilities/_tcons-hiddentxt.scss" 
+      "utilities/_tcons-hiddentxt.scss"
     ]
   },
 
