@@ -1,51 +1,55 @@
 // Buttons
 // ===================================
 
-.btn{
+.btn {
   border:none;
-  position:relative;
-  background:none;
-  padding:28px 90px;
+  cursor:pointer;
   display:inline-block;
-  text-transform:uppercase;
-  color:inherit;
-  letter-spacing:2px;
+  padding:28px 90px;
+  position:relative;
   width: 100%;
-  font-size:0.9em;
   outline:none;
   transition:all 0.4s;
-  cursor:pointer;
+  transform:rotateX(35deg);
+  font-size:0.9em;
   font-weight: 800;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  background:none;
   color: white;
-  transform:rotateX(35deg);  
+
+  &:after {
+    content:"";
+    position:absolute;
+    transition:all 0.4s;
+    z-index:-1;
+  }
 }
-.btn:after{
-  content:"";
-  position:absolute;
-  z-index:-1;
-  transition:all 0.4s;
-}
-.btn_perspective{
-  width: 100%;
-  perspective:800px;
+
+.btn_perspective {
   display:inline-block;
+  perspective:800px;
+  width: 100%;
 }
-.btn-3d{
+
+.btn-3d {
   display:block;
-  background:#E90000;
   outline:1px solid transparent;
   transform-style:preserve-3d;
+  background:#E90000;
 }
-.btn-3db:after{
-  width:100%;
+
+.btn-3db:after {
   height:40%;
   left:0;
   top:100%;
-  background: #C01818;
   transform-origin: 0% 0%;
   transform:rotateX(-90deg);
+  width:100%;
+  background: #C01818;
 }
-.btn-3db:hover{
+
+.btn-3db:hover {
   transform:rotateX(20deg);
 }
 
@@ -75,12 +79,12 @@
 // ===================================
 
 .tcon-row {
+  box-shadow: 0 1px 0 rgb(219, 219, 219);
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   align-content: center;
   align-items: center;
-  box-shadow: 0 1px 0 rgb(219, 219, 219);
+  flex-direction: row;
+  justify-content: space-between;
   padding: 25px 0;
   text-align: center;
 
@@ -88,23 +92,23 @@
     box-shadow: none;
   }
 
-  .tcon-row__items {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 260px;
-
-    .tcon {
-      margin: 0 6px;
-    }
-  }
-
   h3 {
     display: flex;
     flex: 1;
     justify-content: flex-start;
     color: #A8A8A8;
+  }
+}
+
+.tcon-row__items {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-start;
+  width: 260px;
+
+  .tcon {
+    margin: 0 6px;
   }
 }
 
@@ -207,7 +211,6 @@
         radial-gradient(50% 100%, 10% 50%, hsla(0,0%,0%,.1) 0%, hsla(0,0%,0%,0) 100%),
         radial-gradient(0% 50%, 50% 10%, hsla(0,0%,0%,.1) 0%, hsla(0,0%,0%,0) 100%),
         radial-gradient(100% 50%, 50% 06%, hsla(0,0%,0%,.1) 0%, hsla(0,0%,0%,0) 100%);
-      background-image: -webkit-radial-gradient(50% 0%, 10% 50%, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%), -webkit-radial-gradient(50% 100%, 10% 50%, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%), -webkit-radial-gradient(0% 50%, 50% 10%, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%), -webkit-radial-gradient(100% 50%, 50% 6%, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
     }
   }
 }
@@ -223,18 +226,30 @@
 }
 
 #tcons-contributors {
-  animation: avatar-fadein 400ms 1 forwards ease-in;
-  animation-delay: 900ms;
+  animation: avatar-fadein 400ms 1 forwards cubic-bezier(0.4, 0, 0.2, 1);
+  animation-delay: 1000ms;
+  box-shadow:
+    0 -1px 1px rgba(0, 0, 0, 0.2),
+    inset 0 1px 1px rgba(255, 255, 255, 0.24),
+    0 1px 1px rgba(255, 255, 255, 0.24),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.2);
   display: flex;
-  flex: 1;
-  margin: 0;
-  padding: 0;
+  align-content: center;
+  flex-wrap: wrap;
   list-style-type: none;
+  margin: 0;
   opacity: 0;
+  padding: 40px 140px;
+
+  li {
+    flex: 0 0 10%;
+    padding: 3px 5px;
+    position: relative;
+  }
 }
 
 .contributor-avatar {
   height: auto;
-  max-width: 400px;
   width: 100%;
+  background: white;
 }
