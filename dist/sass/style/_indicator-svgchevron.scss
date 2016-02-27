@@ -1,0 +1,17 @@
+.tcon-svgchevron {
+  height: $tcon-svgchevron-size;
+  width: $tcon-svgchevron-size;
+}
+
+.tcon-svgchevron path {
+  animation: chevron-pulse $tcon-svgchevron-timing infinite cubic-bezier(0.4, 0, 0.2, 1);
+  fill: transparent;
+  stroke: $tcon-svgchevron-color;
+  stroke-width: $tcon-svgchevron-strokew;
+}
+
+@for $i from 1 through 3 {
+  .tcon-svgchevron path.a#{$i} {
+    animation-delay: -($i - ($i/2)) + 0.5s;
+  }
+}

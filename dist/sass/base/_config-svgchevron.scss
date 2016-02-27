@@ -1,0 +1,11 @@
+$tcon-svgchevron-size: $tcon-size !default;
+$tcon-svgchevron-color: black !default;
+$tcon-svgchevron-strokew: 1px !default;
+$tcon-svgchevron-timing: 3s !default;
+
+@keyframes chevron-pulse {
+  0%   { opacity: 0; }
+  40%  { opacity: 1; }
+  80%  { opacity: 0; }
+  100% { opacity: 0; }
+}
