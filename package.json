@@ -1,7 +1,7 @@
 {
   "name": "Transformicons",
   "description": "Animated CSS Symbols, Buttons & Icons",
-  "version": "0.4.7",
+  "version": "0.4.8",
   "engines": {
     "node": "4.x"
   },
