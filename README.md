@@ -14,9 +14,9 @@ We also provide a builder that gives developers the ability to select their pref
 
 IE10+, Chrome 36+, Safari 6+, Firefox 30+, Opera 22+, iOS 7+, Android 4+, Chrome for Android 38+
 
-Each intended platform and browser is double and triple checked using BrowserStack. BrowserStack is a cloud-based cross-browser testing tool that enables developers to test their websites across various browsers on different operating systems and mobile devices.
-
 [![browserstack](https://s3-us-west-2.amazonaws.com/s.cdpn.io/392/browserstack-logo.svg)](https://www.browserstack.com)
+
+Each intended platform and browser is double and triple checked using BrowserStack. BrowserStack is a cloud-based cross-browser testing tool that enables developers to test their websites across various browsers on different operating systems and mobile devices.
 
 --
 
