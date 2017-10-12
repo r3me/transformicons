@@ -7,7 +7,7 @@ var contributors = {
       function gitHubContributors() {
 
         var howMany             = 42,
-            baseUrl             = 'https://api.github.com/repos/grayghostvisuals/transformicons/contributors?per_page=' + howMany + '&callback=?',
+            baseUrl             = 'https://api.github.com/repos/transformicons/transformicons/contributors?per_page=' + howMany + '&callback=?',
             $contributorsOutput = $('#tcons-contributors'),
             $paginationOutput   = $('.tcons-contributors__pagination'),
             paginationClass     = 'tcons-contributors__pagination-link',
@@ -136,7 +136,7 @@ var contributors = {
               $dataContributors = $parent.find('.data.contributors'),
               $dataStars        = $parent.find('.data.stars'),
               $dataOpenIssues   = $parent.find('.data.open-issues'),
-              baseUrl           = 'https://api.github.com/repos/grayghostvisuals/transformicons',
+              baseUrl           = 'https://api.github.com/repos/transformicons/transformicons',
               contribUrl        = baseUrl + '/contributors?per_page=5000&callback=?',
               starsUrl          = baseUrl,
               openIssuesUrl     = baseUrl;
