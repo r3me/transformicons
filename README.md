@@ -1,7 +1,7 @@
 Transformicons
 ======================
-[![Build Status](https://travis-ci.org/grayghostvisuals/transformicons.svg?branch=master)](https://travis-ci.org/grayghostvisuals/transformicons)
 
+[![Build Status](https://travis-ci.org/transformicons/transformicons.svg?branch=master)](https://travis-ci.org/transformicons/transformicons)
 ![](https://s3-us-west-2.amazonaws.com/s.cdpn.io/392/transformicons.png)
 
 **What's a transformicon?**
@@ -21,7 +21,7 @@ Each intended platform and browser is double and triple checked using BrowserSta
 --
 
 ### Documentation
-All of our documentation has been written in markdown and can be [directly viewed on our site](http://www.transformicons.com/docs.html) or under our [docs](https://github.com/grayghostvisuals/transformicons/tree/master/docs) directory of this repo. Feel free to reach out for help in the issue tracker making sure to title your issue as descriptive as possible. Please make sure you've also checked older issues that may relate to your question first before filing in order to avoid bogging down the issue tracker.
+All of our documentation has been written in markdown and can be [directly viewed on our site](http://www.transformicons.com/docs.html) or under our [docs](https://github.com/transformicons/transformicons/tree/master/docs) directory of this repo. Feel free to reach out for help in the issue tracker making sure to title your issue as descriptive as possible. Please make sure you've also checked older issues that may relate to your question first before filing in order to avoid bogging down the issue tracker.
 
 --
 
