@@ -11,3 +11,4 @@ addons:
       - g++-7
 install:
   - npm install
+script: gulp
