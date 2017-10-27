@@ -9,7 +9,7 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - g++-7
-# install:
-#   - npm install
-# script:
-#   - node node_modules/gulp/bin/gulp
+install:
+  - npm install
+script:
+  - node node_modules/gulp/bin/gulp
