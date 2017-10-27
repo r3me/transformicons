@@ -11,5 +11,3 @@ addons:
       - g++-7
 install:
   - npm install
-script:
-  - node node_modules/gulp/bin/gulp
