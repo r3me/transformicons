@@ -35,7 +35,7 @@
     "gulp-concat": "2.6.1",
     "gulp-connect": "5.0.0",
     "gulp-extname": "0.2.2",
-    "gulp-foreach": "0.1.0",
+    "gulp-flatmap": "1.0.0",
     "gulp-htmlmin": "3.0.0",
     "gulp-load-plugins": "1.5.0",
     "gulp-rev": "8.0.0",
