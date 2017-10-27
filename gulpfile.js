@@ -153,9 +153,23 @@ gulp.task('assemble', ['docs', 'copy'], function() {
  * multiple files as an array.
  */
 
+// gulp.task('usemin', ['sass', 'copy', 'assemble'], function() {
+//   return gulp.src(paths.site + '/*.html')
+//     .pipe($.foreach(function(stream, file) {
+//       return stream
+//         .pipe($.usemin({
+//           assetsDir: paths.site,
+//           css: [ $.rev() ],
+//           html: [ $.minhtml({ collapseWhitespace: true }) ],
+//           js: [ $.uglify(), $.rev() ]
+//         }))
+//         .pipe(gulp.dest(paths.site));
+//     }));
+// });
+
 gulp.task('usemin', ['sass', 'copy', 'assemble'], function() {
   return gulp.src(paths.site + '/*.html')
-    .pipe($.foreach(function(stream, file) {
+    .pipe($.flatmap(function(stream, file) {
       return stream
         .pipe($.usemin({
           assetsDir: paths.site,
