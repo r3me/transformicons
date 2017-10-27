@@ -9,5 +9,9 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - g++-7
+branches:
+  only:
+  - master
+  - development
 install:
   - npm install
