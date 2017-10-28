@@ -128,7 +128,7 @@ gulp.task('docs', function() {
 // Template Compiling
 // ===================================================
 
-gulp.task('assemble', ['docs', 'copy', 'sitemap'], function() {
+gulp.task('assemble', ['docs', 'copy', 'sitemap', 'robots'], function() {
   app.option('layout', 'default');
   app.helpers(helpers());
   app.layouts(paths.templates + '/layouts/*.{md,hbs}');
@@ -179,6 +179,7 @@ gulp.task('clean', function(cb) {
     paths.site + '/css/*.css',
     paths.site + '/*.html',
     paths.site + '/sitemap.xml',
+    paths.site + '/robots.txt',
     paths.site + '/js/build',
     paths.sitejs + '/lib/transformicons.js',
     paths.templates + '/pages/docs.hbs'
@@ -208,6 +209,16 @@ gulp.task('watch', function() {
     paths.templates + '/includes/**/*.{md,hbs}',
     paths.docs + '/**/*.{md,hbs}',
   ], ['assemble']);
+});
+
+
+// ===================================================
+// Robots
+// ===================================================
+
+gulp.task('robots', function () {
+  gulp.src(paths.dist + '/robots.txt')
+  .pipe(gulp.dest(paths.site));
 });
 
 
