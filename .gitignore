@@ -11,5 +11,6 @@ site/css/*.css.map
 site/css/*.css
 site/css/prism.*.css
 site/css/style.*.css
+site/sitemap.xml
 npm-debug.log
 .env

@@ -10,6 +10,7 @@ var gulp            = require('gulp'),
                           'gulp-foreach' : 'foreach'
                         }
                       }),
+    sitemap         = require('gulp-sitemap'),
     basename        = require('path').basename,
     extname         = require('path').extname,
     builder         = require('./builder'),
@@ -49,6 +50,7 @@ var paths = {
   sitesass: paths_dir.site + '/' + paths_dir.sitecss + '/' + paths_dir.sitesass
 };
 
+var siteURL = 'http://www.transformicons.com';
 
 // ===================================================
 // Server
@@ -126,7 +128,7 @@ gulp.task('docs', function() {
 // Template Compiling
 // ===================================================
 
-gulp.task('assemble', ['docs', 'copy'], function() {
+gulp.task('assemble', ['docs', 'copy', 'sitemap'], function() {
   app.option('layout', 'default');
   app.helpers(helpers());
   app.layouts(paths.templates + '/layouts/*.{md,hbs}');
@@ -176,6 +178,7 @@ gulp.task('clean', function(cb) {
   del([
     paths.site + '/css/*.css',
     paths.site + '/*.html',
+    paths.site + '/sitemap.xml',
     paths.site + '/js/build',
     paths.sitejs + '/lib/transformicons.js',
     paths.templates + '/pages/docs.hbs'
@@ -205,6 +208,21 @@ gulp.task('watch', function() {
     paths.templates + '/includes/**/*.{md,hbs}',
     paths.docs + '/**/*.{md,hbs}',
   ], ['assemble']);
+});
+
+
+// ===================================================
+// Sitemap
+// ===================================================
+
+gulp.task('sitemap', function () {
+  gulp.src(paths.site + '/**/*.html', {
+    read: false
+  })
+  .pipe(sitemap({
+    siteUrl: siteURL
+  }))
+  .pipe(gulp.dest(paths.site));
 });
 
 
