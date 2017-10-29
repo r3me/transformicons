@@ -4,5 +4,10 @@
     "account": "@",
     "imageAlt": "Transformicons",
     "imagePath": "/img/favicon/favicon-96x96.png"
+  },
+  "facebookOGraph": {
+    "siteName": "Transformicons",
+    "locale": "en_US",
+    "imagePath": "/img/favicon/favicon-96x96.png"
   }
 }

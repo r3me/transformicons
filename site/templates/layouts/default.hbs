@@ -18,6 +18,13 @@
     <meta name="twitter:title" content="{{title}}">
     <meta name="twitter:url" content="{{site.url}}{{path}}">
 
+    <meta content="{{description}}" property="og:description">
+    <meta content="{{site.url}}{{site.facebookOGraph.imagePath}}" property="og:image">
+    <meta content="{{site.facebookOGraph.locale}}" property="og:locale">
+    <meta content="{{site.facebookOGraph.siteName}}" property="og:site_name">
+    <meta content="{{title}}" property="og:title">
+    <meta content="{{site.url}}{{path}}" property="og:url">
+
     <!-- build:css css/styles.min.css -->
     {{#isnt basename 'index'}}
     <link rel="stylesheet" href="css/prism.css">
