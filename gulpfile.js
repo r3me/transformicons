@@ -13,6 +13,7 @@ var gulp            = require('gulp'),
     sitemap         = require('gulp-sitemap'),
     basename        = require('path').basename,
     extname         = require('path').extname,
+    fs              = require('fs'),
     builder         = require('./builder'),
     assemble        = require('assemble'),
     helpers         = require('handlebars-helpers'),
@@ -50,7 +51,8 @@ var paths = {
   sitesass: paths_dir.site + '/' + paths_dir.sitecss + '/' + paths_dir.sitesass
 };
 
-var siteURL = 'http://www.transformicons.com';
+var siteData = JSON.parse(fs.readFileSync('./site.json'));
+
 
 // ===================================================
 // Server
@@ -133,6 +135,7 @@ gulp.task('assemble', ['docs', 'copy', 'sitemap', 'robots'], function() {
   app.helpers(helpers());
   app.layouts(paths.templates + '/layouts/*.{md,hbs}');
   app.partials(paths.templates + '/includes/**/*.{md,hbs}');
+  app.data(['./site.json']);
 
   var stream = app.src(paths.templates + '/pages/**/*.{md,hbs}')
     .on('error', console.log)
@@ -231,7 +234,7 @@ gulp.task('sitemap', function () {
     read: false
   })
   .pipe(sitemap({
-    siteUrl: siteURL
+    siteUrl: siteData.url
   }))
   .pipe(gulp.dest(paths.site));
 });
