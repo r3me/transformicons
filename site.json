@@ -1,5 +1,6 @@
 {
   "url": "http://www.transformicons.com",
+  "github": "https://github.com/transformicons/transformicons.git",
   "twitterCard": {
     "account": "@",
     "imageAlt": "Transformicons",
@@ -9,5 +10,9 @@
     "siteName": "Transformicons",
     "locale": "en_US",
     "imagePath": "/img/favicon/favicon-96x96.png"
+  },
+  "ld": {
+    "name": "Transformicons",
+    "logo": "/img/favicon/favicon-96x96.png"
   }
 }

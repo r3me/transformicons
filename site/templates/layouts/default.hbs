@@ -88,5 +88,18 @@
     {{#isnt basename 'docs'}}
     <script>transformicons.add('.tcon');</script>
     {{/isnt}}
+
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "{{site.ld.name}}",
+        "url": "{{site.url}}",
+        "logo": "{{site.url}}{{site.ld.logo}}",
+        "sameAs": [
+          "{{site.github}}"
+        ]
+      }
+    </script>
   </body>
 </html>
