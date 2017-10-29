@@ -1,3 +1,8 @@
 {
-  "url": "http://www.transformicons.com"
+  "url": "http://www.transformicons.com",
+  "twitterCard": {
+    "account": "@",
+    "imageAlt": "Transformicons",
+    "imagePath": "/img/favicon/favicon-96x96.png"
+  }
 }

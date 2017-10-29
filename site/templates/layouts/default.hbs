@@ -11,6 +11,13 @@
     <meta name="viewport" content="width=device-width, user-scalable=1, initial-scale=1">
     <meta name="msapplication-tap-highlight" content="no">
 
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:description" content="{{description}}">
+    <meta name="twitter:image" content="{{site.url}}{{site.twitterCard.imagePath}}">
+    <meta name="twitter:image:alt" content="{{site.twitterCard.imageAlt}}">
+    <meta name="twitter:title" content="{{title}}">
+    <meta name="twitter:url" content="{{site.url}}{{path}}">
+
     <!-- build:css css/styles.min.css -->
     {{#isnt basename 'index'}}
     <link rel="stylesheet" href="css/prism.css">
