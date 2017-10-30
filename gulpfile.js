@@ -160,7 +160,7 @@ gulp.task('assemble', ['docs', 'copy', 'sitemap', 'robots'], function() {
 
 gulp.task('usemin', ['sass', 'copy', 'assemble'], function() {
   return gulp.src(paths.site + '/*.html')
-    .pipe($.foreach(function(stream, file) {
+    .pipe($.flatmap(function(stream, file) {
       return stream
         .pipe($.usemin({
           assetsDir: paths.site,
