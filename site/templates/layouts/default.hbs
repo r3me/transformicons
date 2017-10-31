@@ -40,7 +40,6 @@
 		{{#isnt 'index' this.basename}}
 		<link rel="stylesheet" href="{{site.css}}prism.css">
 		{{/isnt}}
-
 		<link rel="stylesheet" href="{{site.css}}style.css">
 		<!-- endbuild -->
 	</head>
@@ -49,7 +48,7 @@
 		<header role="banner">
 			{{> logo}}
 			<h1 class="tcon-title">Transformicons</h1>
-			<p class="tcon-tagline">{{ description }}</p>
+			<p class="tcon-tagline">Animated icons, symbols and buttons</p>
 			{{> nav}}
 		</header>
 
@@ -78,9 +77,9 @@
 		{{/is}}
 		<!-- endbuild -->
 
-		{{#isnt 'docs' this.basename}}
+		{{#contains 'builder, index' this.basename}}
 		<script>transformicons.add('.tcon');</script>
-		{{/isnt}}
+		{{/contains}}
 
 		{{#if (isEnv "production")}}
 		<script src="https://cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=transformiconscom" id="_carbonads_js" async></script>
