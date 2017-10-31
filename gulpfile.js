@@ -295,5 +295,5 @@ gulp.task('sitemap', function () {
 if(process.env.NODE_ENV === 'development' || process.env.NODE_ENV === undefined) {
 	gulp.task('default', [ 'sass', 'assemble', 'serve', 'watch']);
 } else {
-	gulp.task('build', ['usemin', 'serve']);
+	gulp.task('default', ['usemin', 'serve']);
 }
