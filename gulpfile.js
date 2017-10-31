@@ -3,26 +3,30 @@
 // ===================================================
 
 var gulp            = require('gulp'),
-    gulpLoadPlugins = require('gulp-load-plugins'),
-    $               = gulpLoadPlugins({
-                        rename: {
-                          'gulp-htmlmin' : 'minhtml',
-                          'gulp-foreach' : 'foreach'
-                        }
-                      }),
-    sitemap         = require('gulp-sitemap'),
-    basename        = require('path').basename,
-    extname         = require('path').extname,
-    fs              = require('fs'),
-    builder         = require('./builder'),
-    assemble        = require('assemble'),
-    helpers         = require('handlebars-helpers'),
-    app             = assemble(),
-    del             = process.env.NODE_ENV === 'development' || process.env.NODE_ENV === undefined ? require('del') : '';
+		gulpLoadPlugins = require('gulp-load-plugins'),
+		$               = gulpLoadPlugins({
+												rename: {
+													'gulp-htmlmin' : 'minhtml',
+													'gulp-foreach' : 'foreach'
+												}
+											}),
+		fs              = require('fs'),
+		builder         = require('./builder'),
+		yaml            = require('js-yaml'),
+		helpers         = require('handlebars-helpers'),
+		expand          = require('expand')(),
+		assemble        = require('assemble'),
+		app             = assemble(),
+		del             = process.env.NODE_ENV === 'development' || process.env.NODE_ENV === undefined ? require('del') : '',
+		resolve         = require('path').resolve,
+		basename        = require('path').basename,
+		extname         = require('path').extname;
 
 $.exec   = require('child_process').exec; // http://krasimirtsonev.com/blog/article/Nodejs-managing-child-processes-starting-stopping-exec-spawn
 $.fs     = require('fs');
 $.marked = require('marked');
+
+var pkgjson = JSON.parse($.fs.readFileSync('package.json'));
 
 
 // ===================================================
@@ -30,28 +34,33 @@ $.marked = require('marked');
 // ===================================================
 
 var paths_dir = {
-  docs: 'docs',
-  docsasset: 'assets',
-  site: 'site',
-  templates : 'templates',
-  dist: 'dist',
-  sitejs: 'js',
-  sitecss: 'css',
-  sitesass: 'src'
+	docs: 'docs',
+	docsasset: 'assets',
+	site: 'site',
+	templates : 'templates',
+	dist: 'dist',
+	sitejs: 'js',
+	sitecss: 'css',
+	sitesass: 'src'
 };
 
 var paths = {
-  docs: paths_dir.docs,
-  docsasset: paths_dir.docs + '/' + paths_dir.docsasset,
-  site: paths_dir.site,
-  templates: paths_dir.site + '/' + paths_dir.templates,
-  dist: paths_dir.dist,
-  sitejs: paths_dir.site + '/' + paths_dir.sitejs,
-  sitecss: paths_dir.site + '/' + paths_dir.sitecss,
-  sitesass: paths_dir.site + '/' + paths_dir.sitecss + '/' + paths_dir.sitesass
+	docs: paths_dir.docs,
+	docsasset: paths_dir.docs + '/' + paths_dir.docsasset,
+	site: paths_dir.site,
+	templates: paths_dir.site + '/' + paths_dir.templates,
+	dist: paths_dir.dist,
+	sitejs: paths_dir.site + '/' + paths_dir.sitejs,
+	sitecss: paths_dir.site + '/' + paths_dir.sitecss,
+	sitesass: paths_dir.site + '/' + paths_dir.sitecss + '/' + paths_dir.sitesass
 };
 
-var siteData = JSON.parse(fs.readFileSync('./site.json'));
+var glob = {
+	layouts: paths.templates + '/layouts/*.{md,hbs}',
+	pages: paths.templates + '/pages/**/*.{md,hbs}',
+	includes: paths.templates + '/includes/**/*.{md,hbs}',
+	data: paths.data + '/**/*.{json,yaml}'
+};
 
 
 // ===================================================
@@ -59,20 +68,20 @@ var siteData = JSON.parse(fs.readFileSync('./site.json'));
 // ===================================================
 
 gulp.task('serve', ['assemble'], function() {
-  $.connect.server({
-    root: [paths.site],
-    port: process.env.PORT || 5000,
-    livereload: process.env.NODE_ENV === 'development' || process.env.NODE_ENV === undefined ? true : false,
-    middleware: function(connect) {
-      return [
-        connect().use(connect.query()),
-        connect().use(builder.middleware())
-      ];
-    }
-  });
+	$.connect.server({
+		root: [paths.site],
+		port: process.env.PORT || 5000,
+		livereload: process.env.NODE_ENV === 'development' || process.env.NODE_ENV === undefined ? true : false,
+		middleware: function(connect) {
+			return [
+				connect().use(connect.query()),
+				connect().use(builder.middleware())
+			];
+		}
+	});
 
-  if(process.env.NODE_ENV === 'development' || process.env.NODE_ENV === undefined)
-    $.exec('open http://localhost:5000');
+	if(process.env.NODE_ENV === 'development' || process.env.NODE_ENV === undefined)
+		$.exec('open http://localhost:5000');
 });
 
 
@@ -81,18 +90,18 @@ gulp.task('serve', ['assemble'], function() {
 // ===================================================
 
 gulp.task('sass', function() {
-  var stream = gulp.src(paths.sitesass + '/**/*.scss')
-    .pipe($.sass({
-      outputStyle: 'compressed'
-    }))
-    .pipe($.autoprefixer({
-      browsers: ['last 2 versions'],
-      cascade: false
-    }))
-    .pipe(gulp.dest(paths.sitecss))
-    .pipe($.connect.reload());
+	var stream = gulp.src(paths.sitesass + '/**/*.scss')
+		.pipe($.sass({
+			outputStyle: 'compressed'
+		}))
+		.pipe($.autoprefixer({
+			browsers: ['last 2 versions'],
+			cascade: false
+		}))
+		.pipe(gulp.dest(paths.sitecss))
+		.pipe($.connect.reload());
 
-  return stream;
+	return stream;
 });
 
 
@@ -101,51 +110,97 @@ gulp.task('sass', function() {
 // ===================================================
 
 gulp.task('docs', function() {
-  var data = {
-    'title': 'Transformicons Documentation',
+	var data = {
+		'title': 'Transformicons Documentation',
 
-    'fragments': (function(pages) {
-        var fragments = [];
+		'fragments': (function(pages) {
+				var fragments = [];
 
-        pages.forEach(function(fileName) {
-          var file = $.fs.readFileSync(paths.docs + '/' + fileName + '.md', { encoding: 'utf8' });
+				pages.forEach(function(fileName) {
+					var file = $.fs.readFileSync(paths.docs + '/' + fileName + '.md', { encoding: 'utf8' });
 
-          fragments.push({ 'body': $.marked(file) });
-        });
+					fragments.push({ 'body': $.marked(file) });
+				});
 
-        return fragments;
+				return fragments;
 
-      })([ 'markup', 'sass', 'javascript' ])
-  };
+			})([ 'markup', 'sass', 'javascript' ])
+	};
 
-  var stream = gulp.src(paths.docsasset + '/*.hbs')
-    .pipe($.template(data))
-    .pipe(gulp.dest(paths.templates + '/pages/'));
+	var stream = gulp.src(paths.docsasset + '/*.hbs')
+		.pipe($.template(data))
+		.pipe(gulp.dest(paths.templates + '/pages/'));
 
-  return stream;
+	return stream;
 });
 
 
 // ===================================================
-// Template Compiling
+// Templatin'
 // ===================================================
 
-gulp.task('assemble', ['docs', 'copy', 'sitemap', 'robots'], function() {
-  app.option('layout', 'default');
-  app.helpers(helpers());
-  app.layouts(paths.templates + '/layouts/*.{md,hbs}');
-  app.partials(paths.templates + '/includes/**/*.{md,hbs}');
-  app.data(['./site.json']);
 
-  var stream = app.src(paths.templates + '/pages/**/*.{md,hbs}')
-    .on('error', console.log)
-    .pipe(app.renderFile())
-    .on('error', console.log)
-    .pipe($.extname())
-    .pipe(app.dest(paths.site))
-    .pipe($.connect.reload());
+// Loaders
+// ================
 
-  return stream;
+// @info
+// Load yaml files using a custom dataLoader.
+app.dataLoader('yaml', function(str, fp) {
+	return yaml.safeLoad(str);
+});
+
+function loadData() {
+	app.data([glob.data, 'site.yaml', 'package.json'], { namespace: true });
+	app.data(expand(app.cache.data));
+}
+
+
+// Custom Helpers
+// ================
+
+// @info
+// Custom helper for environment control w/compiling
+app.helper('isEnv', function(env) {
+	return process.env.NODE_ENV === env;
+});
+
+app.helper('date', function() {
+	var time_stamp = new Date().getFullYear();
+	return time_stamp;
+});
+
+
+// Assemble Tasks
+// ================
+
+// @info
+// Placing assemble setups inside the task allows
+// live reloading/monitoring of files changed.
+gulp.task('assemble', ['docs', 'copy'], function() {
+	app.option('layout', 'default');
+	app.helpers(helpers());
+	app.layouts(glob.layouts);
+	app.partials(glob.includes);
+	loadData();
+
+	// @info
+	// https://github.com/assemble/assemble-permalinks/issues/8#issuecomment-231181277
+	// Load pages onto the pages collection to ensure the page templates are put on the
+	// correct collection and the middleware is triggered.
+	app.pages(glob.pages);
+
+	var stream = app.toStream('pages')
+		.pipe($.newer(glob.pages))
+		.on('error', console.log)
+		.pipe(app.renderFile())
+		.on('error', console.log)
+		.pipe($.extname())
+		.on('error', console.log)
+		.pipe(app.dest(paths.site))
+		.on('error', console.log)
+		.pipe($.livereload());
+
+	return stream;
 });
 
 
@@ -158,18 +213,18 @@ gulp.task('assemble', ['docs', 'copy', 'sitemap', 'robots'], function() {
  * multiple files as an array.
  */
 
-gulp.task('usemin', ['sass', 'copy', 'assemble'], function() {
-  return gulp.src(paths.site + '/*.html')
-    .pipe($.flatmap(function(stream, file) {
-      return stream
-        .pipe($.usemin({
-          assetsDir: paths.site,
-          css: [ $.rev() ],
-          html: [ $.minhtml({ collapseWhitespace: true }) ],
-          js: [ $.uglify(), $.rev() ]
-        }))
-        .pipe(gulp.dest(paths.site));
-    }));
+gulp.task('usemin', ['sass', 'copy', 'assemble', 'sitemap', 'robots'], function() {
+	return gulp.src(paths.site + '/*.html')
+		.pipe($.flatmap(function(stream, file) {
+			return stream
+				.pipe($.usemin({
+					assetsDir: paths.site,
+					css: [ $.rev() ],
+					html: [ $.minhtml({ collapseWhitespace: true }) ],
+					js: [ $.uglify(), $.rev() ]
+				}))
+				.pipe(gulp.dest(paths.site));
+		}));
 });
 
 
@@ -178,22 +233,22 @@ gulp.task('usemin', ['sass', 'copy', 'assemble'], function() {
 // ===================================================
 
 gulp.task('clean', function(cb) {
-  del([
-    paths.site + '/css/*.css',
-    paths.site + '/*.html',
-    paths.site + '/sitemap.xml',
-    paths.site + '/robots.txt',
-    paths.site + '/js/build',
-    paths.sitejs + '/lib/transformicons.js',
-    paths.templates + '/pages/docs.hbs'
-  ], cb);
+	del([
+		paths.site + '/css/*.css',
+		paths.site + '/*.html',
+		paths.site + '/sitemap.xml',
+		paths.site + '/robots.txt',
+		paths.site + '/js/build',
+		paths.sitejs + '/lib/transformicons.js',
+		paths.templates + '/pages/docs.hbs'
+	], cb);
 });
 
 gulp.task('copy', function() {
-  var stream = gulp.src(paths.dist + '/' + 'js/transformicons.js')
-      .pipe(gulp.dest(paths.sitejs + '/'  + 'lib'));
+	var stream = gulp.src(paths.dist + '/' + 'js/transformicons.js')
+			.pipe(gulp.dest(paths.sitejs + '/'  + 'lib'));
 
-  return stream;
+	return stream;
 });
 
 
@@ -202,16 +257,16 @@ gulp.task('copy', function() {
 // ===================================================
 
 gulp.task('watch', function() {
-  gulp.watch([
-    paths.dist + '/**/*.scss',
-    paths.sitesass + '/**/*.scss'
-  ], ['sass']);
+	gulp.watch([
+		paths.dist + '/**/*.scss',
+		paths.sitesass + '/**/*.scss'
+	], ['sass']);
 
-  gulp.watch([
-    paths.templates + '/pages/**/*.{md,hbs}',
-    paths.templates + '/includes/**/*.{md,hbs}',
-    paths.docs + '/**/*.{md,hbs}',
-  ], ['assemble']);
+	gulp.watch([
+		paths.templates + '/pages/**/*.{md,hbs}',
+		paths.templates + '/includes/**/*.{md,hbs}',
+		paths.docs + '/**/*.{md,hbs}',
+	], ['assemble']);
 });
 
 
@@ -220,8 +275,10 @@ gulp.task('watch', function() {
 // ===================================================
 
 gulp.task('robots', function () {
-  gulp.src(paths.dist + '/robots.txt')
-  .pipe(gulp.dest(paths.site));
+	var stream = gulp.src(paths.dist + '/robots.txt')
+		.pipe(gulp.dest(paths.site));
+
+	return stream;
 });
 
 
@@ -230,13 +287,15 @@ gulp.task('robots', function () {
 // ===================================================
 
 gulp.task('sitemap', function () {
-  gulp.src(paths.site + '/**/*.html', {
-    read: false
-  })
-  .pipe(sitemap({
-    siteUrl: siteData.url
-  }))
-  .pipe(gulp.dest(paths.site));
+	var stream = gulp.src(paths.site + '/**/*.html', {
+			read: false
+		})
+		.pipe($.sitemap({
+			siteUrl: pkgjson.homepage
+		}))
+		.pipe(gulp.dest(paths.site));
+
+	return stream;
 });
 
 
@@ -245,7 +304,7 @@ gulp.task('sitemap', function () {
 // ===================================================
 
 if(process.env.NODE_ENV === 'development' || process.env.NODE_ENV === undefined) {
-  gulp.task('default', [ 'sass', 'assemble', 'serve', 'watch']);
+	gulp.task('default', [ 'sass', 'assemble', 'serve', 'watch']);
 } else {
-  gulp.task('default', ['usemin', 'serve']);
+	gulp.task('default', ['usemin', 'serve']);
 }
