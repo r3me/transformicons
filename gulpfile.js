@@ -292,7 +292,7 @@ gulp.task('sitemap', function () {
 // Gulp Instructions
 // ===================================================
 
-$.if(process.env.NODE_ENV === 'development' || process.env.NODE_ENV === undefined) {
+if(process.env.NODE_ENV === 'development' || process.env.NODE_ENV === undefined) {
 	gulp.task('default', [ 'sass', 'assemble', 'serve', 'watch']);
 } else {
 	gulp.task('build', ['usemin', 'serve']);
