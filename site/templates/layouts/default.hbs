@@ -13,17 +13,23 @@
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:description" content="{{description}}">
-    <meta name="twitter:image" content="{{site.url}}{{site.twitterCard.imagePath}}">
-    <meta name="twitter:image:alt" content="{{site.twitterCard.imageAlt}}">
+    <meta name="twitter:image" content="{{site.url}}">
+    <meta name="twitter:image:alt" content="">
     <meta name="twitter:title" content="{{title}}">
-    <meta name="twitter:url" content="{{site.url}}{{path}}">
+    <meta name="twitter:url" content="{{site.url}}">
 
     <meta content="{{description}}" property="og:description">
-    <meta content="{{site.url}}{{site.facebookOGraph.imagePath}}" property="og:image">
-    <meta content="{{site.facebookOGraph.locale}}" property="og:locale">
-    <meta content="{{site.facebookOGraph.siteName}}" property="og:site_name">
+    <meta content="{{site.url}}" property="og:image">
+    <meta content="" property="og:locale">
+    <meta content="" property="og:site_name">
     <meta content="{{title}}" property="og:title">
-    <meta content="{{site.url}}{{path}}" property="og:url">
+    <meta content="{{site.url}}" property="og:url">
+
+    <link href="{{site.url}}{{path}}" rel="canonical">
+
+    <link rel="icon" type="image/png" href="img/favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="img/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/favicon/favicon-96x96.png" sizes="96x96">
 
     <!-- build:css css/styles.min.css -->
     {{#isnt basename 'index'}}
@@ -31,11 +37,6 @@
     {{/isnt}}
     <link rel="stylesheet" href="css/style.css">
     <!-- endbuild -->
-
-    <link href="{{site.url}}{{path}}" rel="canonical">
-    <link rel="icon" type="image/png" href="img/favicon/favicon-16x16.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="img/favicon/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="img/favicon/favicon-96x96.png" sizes="96x96">
   </head>
 
   <body>
@@ -56,50 +57,34 @@
     <script>window.jQuery || document.write('<script src="js/lib/jquery.js"><\/script>')</script>
 
     <!-- build:js js/build/scripts.min.js -->
-    {{#is basename 'index'}}
+    {{#contains 'index, builder, docs' this.basename}}
     <script src="js/src/contributors.js"></script>
     <script src="js/lib/transformicons.js"></script>
-    {{/is}}
+    {{/contains}}
 
-    {{#is basename 'builder'}}
+    {{#contains 'builder, docs' this.basename}}
     <script src="js/lib/prism.js"></script>
-    <script src="js/src/contributors.js"></script>
-    <script src="js/lib/transformicons.js"></script>
+    {{/contains}}
+
+    {{#is 'builder' this.basename}}
     <script src="js/src/compiler.js"></script>
     <script src="js/src/builder.js"></script>
     {{/is}}
-
-    {{#is basename 'docs'}}
-    <script src="js/src/contributors.js"></script>
-    <script src="js/lib/prism.js"></script>
-    {{/is}}
     <!-- endbuild -->
-
-    <!-- Carbon Ads -->
-    <script src="https://cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=transformiconscom" id="_carbonads_js" async></script>
-    <script async>
-    var styl = document.createElement('style'),
-        head = document.getElementsByTagName('head')[0],
-        css  = '#carbonads{position:fixed;top:0;left:0}.carbon-wrap{display:flex;flex-direction:column;max-width:140px;padding:4px;}.carbon-img{display:inline-block}.carbon-text{color:#F23B3D;text-decoration:none;font-size:12px}.carbon-poweredby{color:rgba(195,98,197,0.76);text-decoration:none;text-align:right;display:block;max-width:130px;font-size:12px;padding:4px;}';
-    head.appendChild(styl);
-    styl.innerHTML = css;
-    </script>
 
     {{#isnt basename 'docs'}}
     <script>transformicons.add('.tcon');</script>
     {{/isnt}}
 
-    <script type="application/ld+json">
-      {
-        "@context": "http://schema.org",
-        "@type": "Organization",
-        "name": "{{site.ld.name}}",
-        "url": "{{site.url}}",
-        "logo": "{{site.url}}{{site.ld.logo}}",
-        "sameAs": [
-          "{{site.github}}"
-        ]
-      }
+    {{#if (isEnv "production")}}
+    <script src="https://cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=transformiconscom" id="_carbonads_js" async></script>
+    <script async>
+      var styl = document.createElement('style'),
+          head = document.getElementsByTagName('head')[0],
+          css  = '#carbonads{position:fixed;top:0;left:0}.carbon-wrap{display:flex;flex-direction:column;max-width:140px;padding:4px;}.carbon-img{display:inline-block}.carbon-text{color:#F23B3D;text-decoration:none;font-size:12px}.carbon-poweredby{color:rgba(195,98,197,0.76);text-decoration:none;text-align:right;display:block;max-width:130px;font-size:12px;padding:4px;}';
+      head.appendChild(styl);
+      styl.innerHTML = css;
     </script>
+    {{/if}}
   </body>
 </html>
