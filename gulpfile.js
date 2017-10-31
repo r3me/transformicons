@@ -188,10 +188,7 @@ gulp.task('assemble', ['docs', 'copy'], function() {
 	app.pages(glob.pages);
 
 	var stream = app.toStream('pages')
-		$.if(process.env.NODE_ENV === 'development',
-			.pipe($.newer(glob.pages)),
-			.pipe(glob.pages)
-		)
+		.pipe($.newer(glob.pages))
 		.on('error', console.log)
 		.pipe(app.renderFile())
 		.on('error', console.log)
@@ -199,9 +196,7 @@ gulp.task('assemble', ['docs', 'copy'], function() {
 		.on('error', console.log)
 		.pipe(app.dest(paths.site))
 		.on('error', console.log)
-		$.if(process.env.NODE_ENV === 'development',
-			.pipe($.livereload())
-		);
+		.pipe($.livereload())
 
 	return stream;
 });
