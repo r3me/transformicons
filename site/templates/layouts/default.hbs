@@ -1,90 +1,96 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta http-equiv="cleartype" content="on">
 
-    <title>{{title}}</title>
-    <meta name="description" content="{{description}}">
-    <meta name="keywords" content="{{keywords}}">
+		<title>{{title}}</title>
+		<meta name="description" content="{{description}}">
 
-    <meta name="viewport" content="width=device-width, user-scalable=1, initial-scale=1">
-    <meta name="msapplication-tap-highlight" content="no">
+		{{#if (isEnv "production")}}
+		<meta name="robots" content="all">
+		{{else}}
+		<meta name="robots" content="none">
+		{{/if}}
 
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:description" content="{{description}}">
-    <meta name="twitter:image" content="{{site.url}}">
-    <meta name="twitter:image:alt" content="">
-    <meta name="twitter:title" content="{{title}}">
-    <meta name="twitter:url" content="{{site.url}}">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1, shrink-to-fit=no">
+		<meta name="msapplication-tap-highlight" content="no">
 
-    <meta content="{{description}}" property="og:description">
-    <meta content="{{site.url}}" property="og:image">
-    <meta content="" property="og:locale">
-    <meta content="" property="og:site_name">
-    <meta content="{{title}}" property="og:title">
-    <meta content="{{site.url}}" property="og:url">
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="{{title}}">
+		<meta name="twitter:url" content="{{site.url}}">
+		<meta name="twitter:description" content="{{description}}">
+		<meta name="twitter:image" content="{{site.imgdir}}favicon/favicon-96x96.png">
 
-    <link href="{{site.url}}{{path}}" rel="canonical">
+		<meta content="en_US" property="og:locale">
+		<meta content="{{site.title}}" property="og:site_name">
+		<meta content="{{site.url}}" property="og:url">
+		<meta content="{{title}}" property="og:title">
+		<meta content="{{description}}" property="og:description">
+		<meta content="{{site.imgdir}}favicon/favicon-96x96.png" property="og:image">
 
-    <link rel="icon" type="image/png" href="img/favicon/favicon-16x16.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="img/favicon/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="img/favicon/favicon-96x96.png" sizes="96x96">
+		<link href="{{site.url}}" rel="canonical">
 
-    <!-- build:css css/styles.min.css -->
-    {{#isnt basename 'index'}}
-    <link rel="stylesheet" href="css/prism.css">
-    {{/isnt}}
-    <link rel="stylesheet" href="css/style.css">
-    <!-- endbuild -->
-  </head>
+		<link rel="icon" type="image/png" href="{{site.imgdir}}favicon/favicon-16x16.png" sizes="16x16">
+		<link rel="icon" type="image/png" href="{{site.imgdir}}favicon/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="{{site.imgdir}}favicon/favicon-96x96.png" sizes="96x96">
 
-  <body>
-    <header role="banner">
-      {{> logo}}
-      <h1 class="tcon-title">Transformicons</h1>
-      <p class="tcon-tagline">{{ description }}</p>
-      {{> nav}}
-    </header>
+		<!-- build:css css/styles.min.css -->
+		{{#isnt 'index' this.basename}}
+		<link rel="stylesheet" href="{{site.css}}prism.css">
+		{{/isnt}}
 
-    <main role="main">
-      {% body %}
-    </main>
+		<link rel="stylesheet" href="{{site.css}}style.css">
+		<!-- endbuild -->
+	</head>
 
-    {{> footer}}
+	<body>
+		<header role="banner">
+			{{> logo}}
+			<h1 class="tcon-title">Transformicons</h1>
+			<p class="tcon-tagline">{{ description }}</p>
+			{{> nav}}
+		</header>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/lib/jquery.js"><\/script>')</script>
+		<main role="main">
+			{% body %}
+		</main>
 
-    <!-- build:js js/build/scripts.min.js -->
-    {{#contains 'index, builder, docs' this.basename}}
-    <script src="js/src/contributors.js"></script>
-    <script src="js/lib/transformicons.js"></script>
-    {{/contains}}
+		{{> footer}}
 
-    {{#contains 'builder, docs' this.basename}}
-    <script src="js/lib/prism.js"></script>
-    {{/contains}}
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="{{site.jslib}}jquery.js"><\/script>')</script>
 
-    {{#is 'builder' this.basename}}
-    <script src="js/src/compiler.js"></script>
-    <script src="js/src/builder.js"></script>
-    {{/is}}
-    <!-- endbuild -->
+		<!-- build:js js/build/scripts.min.js -->
+		{{#contains 'index, builder, docs' this.basename}}
+		<script src="{{site.js}}contributors.js"></script>
+		<script src="{{site.jslib}}transformicons.js"></script>
+		{{/contains}}
 
-    {{#isnt basename 'docs'}}
-    <script>transformicons.add('.tcon');</script>
-    {{/isnt}}
+		{{#contains 'builder, docs' this.basename}}
+		<script src="{{site.jslib}}prism.js"></script>
+		{{/contains}}
 
-    {{#if (isEnv "production")}}
-    <script src="https://cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=transformiconscom" id="_carbonads_js" async></script>
-    <script async>
-      var styl = document.createElement('style'),
-          head = document.getElementsByTagName('head')[0],
-          css  = '#carbonads{position:fixed;top:0;left:0}.carbon-wrap{display:flex;flex-direction:column;max-width:140px;padding:4px;}.carbon-img{display:inline-block}.carbon-text{color:#F23B3D;text-decoration:none;font-size:12px}.carbon-poweredby{color:rgba(195,98,197,0.76);text-decoration:none;text-align:right;display:block;max-width:130px;font-size:12px;padding:4px;}';
-      head.appendChild(styl);
-      styl.innerHTML = css;
-    </script>
-    {{/if}}
-  </body>
+		{{#is 'builder' this.basename}}
+		<script src="{{site.js}}compiler.js"></script>
+		<script src="{{site.js}}builder.js"></script>
+		{{/is}}
+		<!-- endbuild -->
+
+		{{#isnt 'docs' this.basename}}
+		<script>transformicons.add('.tcon');</script>
+		{{/isnt}}
+
+		{{#if (isEnv "production")}}
+		<script src="https://cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=transformiconscom" id="_carbonads_js" async></script>
+		<script async>
+			var styl = document.createElement('style'),
+					head = document.getElementsByTagName('head')[0],
+					css  = '#carbonads{position:fixed;top:0;left:0}.carbon-wrap{display:flex;flex-direction:column;max-width:140px;padding:4px;}.carbon-img{display:inline-block}.carbon-text{color:#F23B3D;text-decoration:none;font-size:12px}.carbon-poweredby{color:rgba(195,98,197,0.76);text-decoration:none;text-align:right;display:block;max-width:130px;font-size:12px;padding:4px;}';
+			head.appendChild(styl);
+			styl.innerHTML = css;
+		</script>
+		{{/if}}
+	</body>
 </html>
