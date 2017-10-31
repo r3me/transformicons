@@ -188,7 +188,10 @@ gulp.task('assemble', ['docs', 'copy'], function() {
 	app.pages(glob.pages);
 
 	var stream = app.toStream('pages')
-		.pipe($.if(process.env.NODE_ENV === 'development', $.newer(glob.pages), glob.pages))
+		$.if(process.env.NODE_ENV === 'development',
+			.pipe($.newer(glob.pages)),
+			.pipe(glob.pages)
+		)
 		.on('error', console.log)
 		.pipe(app.renderFile())
 		.on('error', console.log)
@@ -196,7 +199,9 @@ gulp.task('assemble', ['docs', 'copy'], function() {
 		.on('error', console.log)
 		.pipe(app.dest(paths.site))
 		.on('error', console.log)
-		.pipe($.if(process.env.NODE_ENV === 'development', $.livereload()))
+		$.if(process.env.NODE_ENV === 'development',
+			.pipe($.livereload())
+		);
 
 	return stream;
 });
@@ -292,8 +297,8 @@ gulp.task('sitemap', function () {
 // Gulp Instructions
 // ===================================================
 
-if(process.env.NODE_ENV === 'development' || process.env.NODE_ENV === undefined) {
+$.if(process.env.NODE_ENV === 'development' || process.env.NODE_ENV === undefined) {
 	gulp.task('default', [ 'sass', 'assemble', 'serve', 'watch']);
 } else {
-	gulp.task('default', ['usemin', 'serve']);
+	gulp.task('build', ['usemin', 'serve']);
 }
