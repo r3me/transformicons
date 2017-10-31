@@ -1,19 +1,30 @@
 # =============================================
-# BUILD CONFIG
+# CONFIG
 # =============================================
 
-# Templates
+# site
+root:             /
+dest:             <%= site.root %>
+
+# assemble
 templates:         site/templates
 layouts:           <%= site.templates %>/layouts
 layout:            default
 pages:             <%= site.templates %>/pages
 includes:          <%= site.templates %>/{includes,pages}
 
+# assets
+css:               <%= site.root %>css/
+imgdir:            <%= site.root %>img/
+js:                <%= site.root %>js/src/
+jslib:             <%= site.root %>js/lib/
+bower:             <%= site.root %>bower_components/
+
 
 # =============================================
-# PROJECT METADATA
+# METADATA
 # =============================================
 
-# Site
+# site
 title:              Transformicons
 url:                http://transformicons.com

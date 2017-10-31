@@ -139,7 +139,6 @@ gulp.task('docs', function() {
 // Templatin'
 // ===================================================
 
-
 // Loaders
 // ================
 
@@ -159,7 +158,7 @@ function loadData() {
 // ================
 
 // @info
-// Custom helper for environment control w/compiling
+// environment control and detection
 app.helper('isEnv', function(env) {
 	return process.env.NODE_ENV === env;
 });
@@ -184,7 +183,6 @@ gulp.task('assemble', ['docs', 'copy'], function() {
 	loadData();
 
 	// @info
-	// https://github.com/assemble/assemble-permalinks/issues/8#issuecomment-231181277
 	// Load pages onto the pages collection to ensure the page templates are put on the
 	// correct collection and the middleware is triggered.
 	app.pages(glob.pages);
@@ -207,11 +205,6 @@ gulp.task('assemble', ['docs', 'copy'], function() {
 // ===================================================
 // Production Prep
 // ===================================================
-
-/*
- * foreach is because usemin 0.3.21 won't manipulate
- * multiple files as an array.
- */
 
 gulp.task('usemin', ['sass', 'copy', 'assemble', 'sitemap', 'robots'], function() {
 	return gulp.src(paths.site + '/*.html')
@@ -263,15 +256,16 @@ gulp.task('watch', function() {
 	], ['sass']);
 
 	gulp.watch([
-		paths.templates + '/pages/**/*.{md,hbs}',
-		paths.templates + '/includes/**/*.{md,hbs}',
+		glob.pages,
+		glob.includes,
+		glob.layouts,
 		paths.docs + '/**/*.{md,hbs}',
 	], ['assemble']);
 });
 
 
 // ===================================================
-// Robots
+// SEO
 // ===================================================
 
 gulp.task('robots', function () {
@@ -280,11 +274,6 @@ gulp.task('robots', function () {
 
 	return stream;
 });
-
-
-// ===================================================
-// Sitemap
-// ===================================================
 
 gulp.task('sitemap', function () {
 	var stream = gulp.src(paths.site + '/**/*.html', {
