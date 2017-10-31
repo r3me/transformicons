@@ -1,14 +1,14 @@
 {
-  "name": "Transformicons",
-  "description": "Animated CSS Symbols, Buttons & Icons",
+  "name": "transformicons",
+  "description": "animated icons and custom builder",
   "version": "0.4.8",
+  "author": "community",
+  "homepage": "http://transformicons.com",
+  "main": "http://transformicons.com",
+  "license": "MIT",
   "engines": {
     "node": "6.x"
   },
-  "author": "Bennett Feely, Sara Soueidan, Dennis Gaebel, Jan Paepke, Arthur Verschaeve, J.Fischer and the Open Source Contributors Listed",
-  "homepage": "https://github.com/transformicons/transformicons",
-  "main": "/",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/transformicons/transformicons/issues"
   },
@@ -16,24 +16,17 @@
     "type": "git",
     "url": "https://github.com/transformicons/transformicons"
   },
-  "keywords": [
-    "sass",
-    "css",
-    "svg",
-    "icons",
-    "animation",
-    "transformicons"
-  ],
   "scripts": {
     "start": "node node_modules/gulp/bin/gulp",
     "test": "make test"
   },
   "dependencies": {
     "assemble": "0.24.3",
+    "base-data": "0.6.2",
+    "expand": "0.5.0",
     "gulp": "3.9.1",
     "gulp-autoprefixer": "4.0.0",
     "gulp-concat": "2.6.1",
-    "gulp-connect": "5.0.0",
     "gulp-extname": "0.2.2",
     "gulp-flatmap": "1.0.0",
     "gulp-htmlmin": "3.0.0",
@@ -47,11 +40,15 @@
     "gulp-util": "3.0.8",
     "handlebars": "4.0.10",
     "handlebars-helpers": "0.9.8",
+    "js-yaml": "3.10.0",
     "lodash": "4.17.4",
-    "marked": "0.3.6"
+    "marked": "0.3.6",
+    "resolve": "1.5.0"
   },
   "devDependencies": {
     "del": "3.0.0",
-    "gulp-livereload": "3.8.1"
+    "gulp-connect": "5.0.0",
+    "gulp-livereload": "3.8.1",
+    "gulp-newer": "1.3.0"
   }
 }
