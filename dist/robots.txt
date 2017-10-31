@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /maintenance.html
+Disallow: /error.html
+Sitemap: http://www.transformicons.com/sitemap.xml
