@@ -196,7 +196,7 @@ gulp.task('assemble', ['docs', 'copy'], function() {
 		.on('error', console.log)
 		.pipe(app.dest(paths.site))
 		.on('error', console.log)
-		.pipe($.if(process.env.NODE_ENV === 'development', $.livereload()))
+		.pipe($.livereload())
 
 	return stream;
 });
