@@ -1,0 +1,19 @@
+# =============================================
+# BUILD CONFIG
+# =============================================
+
+# Templates
+templates:         site/templates
+layouts:           <%= site.templates %>/layouts
+layout:            default
+pages:             <%= site.templates %>/pages
+includes:          <%= site.templates %>/{includes,pages}
+
+
+# =============================================
+# PROJECT METADATA
+# =============================================
+
+# Site
+title:              Transformicons
+url:                http://transformicons.com
