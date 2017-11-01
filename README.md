@@ -6,13 +6,9 @@ Transformicons
 
 **What's a transformicon?**
 
-It's an animated symbol/button/icon that morphs using a combination of SVG, CSS and HTML.
+It's an animated symbol/button/icon that morphs. We also provide a builder that gives developers the ability to select their preferred Transformicons and output for finer control.
 
-We also provide a builder that gives developers the ability to select their preferred Transformicons and output for finer control.
-
-**What browsers do you support?**
-
-IE10+, Chrome 36+, Safari 6+, Firefox 30+, Opera 22+, iOS 7+, Android 4+, Chrome for Android 38+
+**Browser Testing**
 
 [![browserstack](https://s3-us-west-2.amazonaws.com/s.cdpn.io/392/browserstack-logo.svg)](https://www.browserstack.com)
 
